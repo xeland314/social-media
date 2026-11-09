@@ -25,6 +25,7 @@
 | 019 | [DMARC: de p=none a reject](../videos/019-dmarc-none-a-reject/) | ti | rendered | 15 | — |
 | 020 | [DMARC: cómo leer un reporte](../videos/020-dmarc-leer-reporte/) | ti | rendered | 18 | — |
 | 021 | [Wi-Fi: un solo SSID (roaming)](../videos/021-wifi-un-solo-ssid/) | ti | rendered | 22 | — |
+| 022 | [Wi-Fi: cómo se audita una red](../videos/022-wifi-auditoria/) | ti | rendered | 24 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1313,4 +1314,68 @@ Más animaciones: https://xeland314.github.io/animations
 三个接入点名称各不相同时，走动会断网；统一 SSID、密码，并用 1、6、11 三个不重叠信道，手机即可自动漫游。
 
 #wifi #roaming #ssid #IT运维 #网络安全
+```
+
+## 022 · Wi-Fi: cómo se audita una red
+
+- **Carpeta:** `videos/022-wifi-auditoria/`  ·  **Estado:** rendered  ·  **Duración:** 19 s
+- **Gancho:** Cinco comprobaciones para auditar tu Wi-Fi.
+- **Carrusel:** `carruseles/022-wifi-auditoria` (pending)
+
+### TikTok
+```text
+Cómo auditar una red Wi-Fi en cinco comprobaciones: canales, señal, DHCP, seguridad y firmware. Un caso ficticio con 2 de 5 que pasa a 5 de 5.
+
+#wifi #auditoria #dhcp #redes #xeland314
+```
+
+### Instagram
+```text
+Auditar tu Wi-Fi en 5 pasos 📶
+
+1. Canales: 1, 6 y 11 sin repetir
+2. Señal: mejor que -67 dBm
+3. DHCP: menos del 80 % del pool
+4. Seguridad: WPA2/WPA3 y sin WPS
+5. Firmware al día
+
+Guárdalo y repite la auditoría tras cada cambio.
+
+#wifi #auditoria #dhcp #redes #xeland314
+```
+
+### Threads
+```text
+Una auditoría Wi-Fi rápida: canales sin repetir, señal en la peor sala, pool DHCP con aire, WPA2/WPA3 sin WPS y firmware igual en todos los puntos de acceso.
+
+#wifi
+```
+
+### Facebook
+```text
+¿Cómo se audita una red Wi-Fi? Cinco comprobaciones con comandos reales de Linux y su corrección. Animación con un caso ficticio.
+
+#wifi #auditoria #xeland314
+```
+
+### YouTube
+**Título:** Cómo auditar una red Wi-Fi: canales, señal, DHCP, seguridad y firmware
+
+```text
+Cinco comprobaciones (nmcli, iw, leases DHCP): dos pasan, tres fallan y se corrigen hasta llegar a 5 de 5. Caso ficticio.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#wifi #auditoria #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Auditoría Wi-Fi | Wi-Fi 审计五步
+
+```text
+Wi-Fi 审计：信道、信号、DHCP、安全、固件五项检查，从 2/5 修复到 5/5。
+
+检查信道（1/6/11 不重叠）、最差房间信号、DHCP 地址池占用、WPA2/WPA3 且关闭 WPS，以及固件版本一致。
+
+#wifi #auditoria #dhcp #IT运维 #网络安全
 ```

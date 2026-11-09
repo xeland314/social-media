@@ -1,0 +1,62 @@
+{
+  "id": "022",
+  "slug": "wifi-auditoria",
+  "title": "Wi-Fi: cómo se audita una red",
+  "series": "ti",
+  "calendarDay": 24,
+  "status": "rendered",
+  "publishDate": "2026-12-09",
+  "durationSec": 19,
+  "hook": "Cinco comprobaciones para auditar tu Wi-Fi.",
+  "topicTags": [
+    "#wifi",
+    "#auditoria",
+    "#dhcp",
+    "#redes"
+  ],
+  "sourceAnimation": "(original, serie TI)",
+  "carousel": {
+    "path": "carruseles/022-wifi-auditoria",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Cómo auditar una red Wi-Fi en cinco comprobaciones: canales, señal, DHCP, seguridad y firmware. Un caso ficticio con 2 de 5 que pasa a 5 de 5.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Auditar tu Wi-Fi en 5 pasos 📶\n\n1. Canales: 1, 6 y 11 sin repetir\n2. Señal: mejor que -67 dBm\n3. DHCP: menos del 80 % del pool\n4. Seguridad: WPA2/WPA3 y sin WPS\n5. Firmware al día\n\nGuárdalo y repite la auditoría tras cada cambio.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Una auditoría Wi-Fi rápida: canales sin repetir, señal en la peor sala, pool DHCP con aire, WPA2/WPA3 sin WPS y firmware igual en todos los puntos de acceso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo se audita una red Wi-Fi? Cinco comprobaciones con comandos reales de Linux y su corrección. Animación con un caso ficticio.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Cómo auditar una red Wi-Fi: canales, señal, DHCP, seguridad y firmware",
+      "text": "Cinco comprobaciones (nmcli, iw, leases DHCP): dos pasan, tres fallan y se corrigen hasta llegar a 5 de 5. Caso ficticio.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Auditoría Wi-Fi",
+      "text": "Wi-Fi 审计：信道、信号、DHCP、安全、固件五项检查，从 2/5 修复到 5/5。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Wi-Fi 审计五步",
+      "textZh": "检查信道（1/6/11 不重叠）、最差房间信号、DHCP 地址池占用、WPA2/WPA3 且关闭 WPS，以及固件版本一致。"
+    }
+  }
+}

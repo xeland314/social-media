@@ -167,8 +167,7 @@
       "dia": 23
     },
     {
-      "video": null,
-      "build": true,
+      "video": "022",
       "tema": "Wi-Fi: cómo se audita una red",
       "serie": "ti",
       "carrusel": "Lista de revisión: canales, potencia, DHCP, solapamientos",

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 44px; font-size: 27px; }
+      #card { left: 72px; top: 700px; width: 936px; height: 640px; }
+      .rw { position: absolute; left: 30px; width: 876px; height: 92px; border: 4px solid var(--line); background: var(--panel-2); opacity: 0; }
+      .sb { position: absolute; left: 14px; top: 8px; width: 70px; height: 70px; border: 5px solid var(--cat-gray); }
+      .sb .stk { top: 14px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; }
+      .nm { position: absolute; left: 106px; top: 22px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--ink); width: 210px; }
+      .ms { position: absolute; left: 350px; top: 20px; width: 510px; height: 44px; }
+      .ms .stk { font-family: var(--font-code); font-weight: 700; font-size: 28px; }
+      #sc { position: absolute; left: 30px; right: 30px; bottom: 16px; height: 60px; }
+      #sc .stk { font-family: var(--font-display); font-size: 30px; }
+      #term { left: 72px; top: 1364px; width: 936px; height: 340px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="19" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="19" data-track-index="0">REDES · WI-FI</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="19" data-track-index="1">Cómo se audita<br />una red Wi-Fi</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="19" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">auditoria.txt</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="19" data-track-index="3">
+        <div class="rw" id="rw0" style="top:16px"><div class="sb" id="sb0"></div><div class="nm">CANALES</div><div class="ms" id="ms0"></div></div><div class="rw" id="rw1" style="top:120px"><div class="sb" id="sb1"></div><div class="nm">SEÑAL</div><div class="ms" id="ms1"></div></div><div class="rw" id="rw2" style="top:224px"><div class="sb" id="sb2"></div><div class="nm">DHCP</div><div class="ms" id="ms2"></div></div><div class="rw" id="rw3" style="top:328px"><div class="sb" id="sb3"></div><div class="nm">SEGURIDAD</div><div class="ms" id="ms3"></div></div><div class="rw" id="rw4" style="top:432px"><div class="sb" id="sb4"></div><div class="nm">FIRMWARE</div><div class="ms" id="ms4"></div></div>
+        <div id="sc"></div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="19" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="19" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="19" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="19" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/error.wav" data-start="2.6" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="4.3" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/error.wav" data-start="6.0" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="7.7" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/error.wav" data-start="9.4" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/whoosh.wav" data-start="10.2" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="12.2" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/pop.wav" data-start="13.8" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="15.4" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/confirm.wav" data-start="16.2" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const rows = XF.buildCode($("#codeBody"), [`${F("nmcli")} -f SSID,CHAN dev wifi`, `${F("iw")} dev wlan0 link`, `${F("wc")} -l dnsmasq.leases`, `${F("nmcli")} -f SSID,SECURITY dev wifi`, Mu("# firmware: panel de cada AP")]);
+      const AC = [CY, "rgba(63,208,224,.16)"];
+      const badge = mkBadges([["AUDITANDO", CY], ["RESULTADO: 2 DE 5", AM], ["CORRIGIENDO", PU], ["AUDITORÍA LIMPIA", OK]]);
+      const MS = [["ch 1 · ch 6 · ch 6", "ch 1 · ch 6 · ch 11"], ["peor sala: -61 dBm", "peor sala: -61 dBm"], ["231 de 254 en uso (91 %)", "231 de 510 en uso (45 %)"], ["WPA2/WPA3 · WPS apagado", "WPA2/WPA3 · WPS apagado"], ["AP3 en 1.8 (otros 2.1)", "los 3 en 2.1"]];
+      const ST = [];  // estados: ["…", "!", "OK"]
+      const ms = MS.map((m, i) => { const s = XF.stack($("#ms" + i), m); s[0].style.color = "#f9e6c6"; s[1].style.color = "#f9e6c6"; XF.only(tl, s, s[0], 0); return s; });
+      MS.forEach((_, i) => { const s = XF.stack($("#sb" + i), ["...", "!", "OK"]); s[0].style.color = MU; s[1].style.color = RD; s[2].style.color = OK; ST.push(s); XF.only(tl, ST[i], ST[i][0], 0); });
+      const sc = XF.stack($("#sc"), ["PUNTAJE 0/5", "PUNTAJE 2/5", "PUNTAJE 5/5"]); sc[0].style.color = MU; sc[1].style.color = AM; sc[2].style.color = OK; XF.only(tl, sc, sc[0], 0);
+      const border = (i, c, t) => tl.set("#rw" + i, { borderColor: c }, t);
+      const stat = (i, k, t) => { XF.only(tl, ST[i], ST[i][k], t); tl.set("#sb" + i, { borderColor: k === 1 ? "#ff5f57" : k === 2 ? "#7cfb4c" : "#7e7f7f" }, t); };
+      mkTerm([["p1", "canales: dos AP en el 6, se pisan", RD], ["p2", "señal: -61 dBm en la peor sala", OK], ["p3", "DHCP: 91 % del pool en uso", RD], ["p4", "seguridad: WPA2/WPA3, WPS apagado", OK], ["p5", "firmware: AP3 desactualizado", RD],
+        ["q1", "AP3 → canal 11 (1, 6 y 11)", PU], ["q2", "pool ampliado a /23: 45 % en uso", PU], ["q3", "AP3 actualizado a 2.1", PU], ["q4", "repite la auditoría tras cada cambio", OK]]);
+      let shown = []; const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 5) tl.set("#" + shown[shown.length - 6], { display: "none" }, t); };
+
+      badge(0, 0.2); [0, 1, 2, 3, 4].forEach((i) => tl.set("#rw" + i, { opacity: 1 }, 0.4 + i * 0.25));
+      const RES = [1, 2, 1, 2, 1]; // 1 = falla, 2 = ok
+      [0, 1, 2, 3, 4].forEach((i) => {
+        const t = 1.8 + i * 1.7;
+        XF.activeLine(tl, rows, i + 1, t, ...AC); border(i, "#3fd0e0", t);
+        stat(i, RES[i], t + 0.8); border(i, RES[i] === 1 ? "#ff5f57" : "#7cfb4c", t + 0.8); sayK("p" + (i + 1), t + 0.8);
+        if (i < 4) tl.set("#rw" + i, { borderColor: RES[i] === 1 ? "#ff5f57" : "#483025" }, t + 1.5);
+      });
+      border(4, "#ff5f57", 10.4);
+      // resultado
+      badge(1, 10.2); XF.only(tl, sc, sc[1], 10.2); XF.activeLine(tl, rows, 0, 10.2);
+      // correcciones
+      badge(2, 11.4);
+      [[0, 11.6, "q1"], [2, 13.2, "q2"], [4, 14.8, "q3"]].forEach(([i, t, id]) => { border(i, "#c084fc", t); XF.only(tl, ms[i], ms[i][1], t + 0.4); stat(i, 2, t + 0.6); border(i, "#7cfb4c", t + 0.8); sayK(id, t + 0.6); });
+      badge(3, 16.2); XF.only(tl, sc, sc[2], 16.2); sayK("q4", 16.4); [0, 1, 2, 3, 4].forEach((i) => border(i, "#7cfb4c", 16.4));
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 37, yoyo: true }, 0);
+      tl.set({}, {}, 19);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

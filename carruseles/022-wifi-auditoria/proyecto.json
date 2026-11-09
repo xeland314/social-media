@@ -1,0 +1,64 @@
+{
+  "id": "p022",
+  "name": "022 Wi-Fi: cómo se audita una red",
+  "lastModified": 1794200858617,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Cómo auditar tu Wi-Fi",
+        "subtitle": "Cinco comprobaciones",
+        "category": "REDES · WI-FI",
+        "iconChar": "🔎"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## 1 · Canales\n\n```bash\nnmcli -f SSID,CHAN dev wifi\n```\nEn 2,4 GHz usa **1, 6 y 11**. Dos AP en el mismo canal se pisan.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## 2 · Señal\n\n```bash\niw dev wlan0 link\n```\nMide en la **peor sala**. Meta: mejor que **-67 dBm**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 3 · DHCP\n\n```bash\nwc -l dnsmasq.leases\n```\nSi el pool pasa del **80 %**, amplíalo (por ejemplo, de /24 a /23).",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## 4 · Seguridad\n\n```bash\nnmcli -f SSID,SECURITY dev wifi\n```\n**WPA2/WPA3**, WPS apagado y clave distinta de la de fábrica.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## 5 · Firmware\n\nTodos los AP con la **misma versión**. Anota versión y fecha de cada cambio.\n\nRepite la auditoría tras cada ajuste.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "end",
+        "firstText": "¿Cuántas pasa",
+        "secondText": "tu red de 5?",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • WI-FI • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}
