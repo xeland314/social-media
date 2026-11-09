@@ -1,0 +1,64 @@
+{
+  "id": "p023",
+  "name": "023 Informes: YAML a PDF",
+  "lastModified": 1794200990729,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "YAML → HTML → PDF",
+        "subtitle": "Mi flujo de informes con WeasyPrint",
+        "category": "INFORMES · AUTOMATIZACIÓN",
+        "iconChar": "📄"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## La idea\n\n**Separar** el contenido del diseño:\n\n- datos en **YAML**\n- diseño en una **plantilla**\n- PDF generado por código",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## 1 · Los datos\n\n```yaml\nmeta:\n  titulo: \"INFORME DE EJEMPLO\"\nsecciones:\n  - titulo: \"1. Resumen\"\n    parrafo: \"Texto libre.\"\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 2 · La plantilla\n\nHTML + CSS con **Jinja2**: cabecera, paleta, pie y estilos fijos.\n\nNo se toca para cada informe.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## 3 · Generar\n\n```bash\nuv run informes-tecnicos \\\n  --datos d.yaml --salida i.pdf\n```\nJinja2 mezcla datos y plantilla; **WeasyPrint** pagina y exporta.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Reglas\n\n- Contenido solo en el YAML\n- Imágenes **embebidas** (base64), sin rutas visibles\n- Cierra con un **glosario** en lenguaje simple",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "end",
+        "firstText": "Una plantilla,",
+        "secondText": "N informes",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "INFORMES • AUTOMATIZACIÓN • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

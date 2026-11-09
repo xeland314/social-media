@@ -26,6 +26,7 @@
 | 020 | [DMARC: cómo leer un reporte](../videos/020-dmarc-leer-reporte/) | ti | rendered | 18 | — |
 | 021 | [Wi-Fi: un solo SSID (roaming)](../videos/021-wifi-un-solo-ssid/) | ti | rendered | 22 | — |
 | 022 | [Wi-Fi: cómo se audita una red](../videos/022-wifi-auditoria/) | ti | rendered | 24 | — |
+| 023 | [Informes: YAML a PDF con WeasyPrint](../videos/023-informes-yaml-pdf/) | ti | rendered | 26 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1378,4 +1379,67 @@ Wi-Fi 审计：信道、信号、DHCP、安全、固件五项检查，从 2/5 �
 检查信道（1/6/11 不重叠）、最差房间信号、DHCP 地址池占用、WPA2/WPA3 且关闭 WPS，以及固件版本一致。
 
 #wifi #auditoria #dhcp #IT运维 #网络安全
+```
+
+## 023 · Informes: YAML a PDF con WeasyPrint
+
+- **Carpeta:** `videos/023-informes-yaml-pdf/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** Un YAML, una plantilla y un PDF: así automatizo mis informes.
+- **Carrusel:** `carruseles/023-informes-yaml-pdf` (pending)
+
+### TikTok
+```text
+Así genero informes técnicos en PDF: los datos viven en un YAML, el diseño en una plantilla HTML y WeasyPrint hace el resto. Una plantilla, muchos informes.
+
+#weasyprint #python #yaml #automatizacion #xeland314
+```
+
+### Instagram
+```text
+YAML → HTML → PDF con WeasyPrint 📄
+
+1. datos.yaml: el contenido
+2. plantilla.html: el diseño (Jinja2)
+3. HTML: datos + plantilla
+4. WeasyPrint: paginar y exportar
+
+Una plantilla, N informes. Guárdalo.
+
+#weasyprint #python #yaml #automatizacion #xeland314
+```
+
+### Threads
+```text
+Mi flujo de informes: contenido en YAML, diseño en una plantilla Jinja2 y WeasyPrint para el PDF. Cambias el YAML y obtienes otro informe sin tocar el diseño.
+
+#weasyprint
+```
+
+### Facebook
+```text
+¿Cómo automatizo mis informes técnicos? Separando contenido y diseño: YAML, plantilla Jinja2 y WeasyPrint. Animación del flujo completo.
+
+#weasyprint #python #xeland314
+```
+
+### YouTube
+**Título:** Informes automáticos: YAML → HTML → PDF con WeasyPrint
+
+```text
+Datos en YAML, plantilla Jinja2, HTML y PDF con WeasyPrint: una plantilla sirve para todos los informes. Ejemplo genérico.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#weasyprint #python #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** YAML a PDF | YAML 到 PDF 自动化
+
+```text
+用 YAML 存内容、Jinja2 做模板、WeasyPrint 生成 PDF：一个模板，N 份报告。
+
+把内容（YAML）和设计（Jinja2 模板）分开，用 WeasyPrint 输出 PDF；换一个 YAML 就得到新报告。
+
+#weasyprint #python #yaml #IT运维 #网络安全
 ```

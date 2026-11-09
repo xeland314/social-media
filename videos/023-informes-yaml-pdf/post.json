@@ -1,0 +1,62 @@
+{
+  "id": "023",
+  "slug": "informes-yaml-pdf",
+  "title": "Informes: YAML a PDF con WeasyPrint",
+  "series": "ti",
+  "calendarDay": 26,
+  "status": "rendered",
+  "publishDate": "2026-12-11",
+  "durationSec": 21,
+  "hook": "Un YAML, una plantilla y un PDF: así automatizo mis informes.",
+  "topicTags": [
+    "#weasyprint",
+    "#python",
+    "#yaml",
+    "#automatizacion"
+  ],
+  "sourceAnimation": "(original, serie TI)",
+  "carousel": {
+    "path": "carruseles/023-informes-yaml-pdf",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Así genero informes técnicos en PDF: los datos viven en un YAML, el diseño en una plantilla HTML y WeasyPrint hace el resto. Una plantilla, muchos informes.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "YAML → HTML → PDF con WeasyPrint 📄\n\n1. datos.yaml: el contenido\n2. plantilla.html: el diseño (Jinja2)\n3. HTML: datos + plantilla\n4. WeasyPrint: paginar y exportar\n\nUna plantilla, N informes. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Mi flujo de informes: contenido en YAML, diseño en una plantilla Jinja2 y WeasyPrint para el PDF. Cambias el YAML y obtienes otro informe sin tocar el diseño.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo automatizo mis informes técnicos? Separando contenido y diseño: YAML, plantilla Jinja2 y WeasyPrint. Animación del flujo completo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Informes automáticos: YAML → HTML → PDF con WeasyPrint",
+      "text": "Datos en YAML, plantilla Jinja2, HTML y PDF con WeasyPrint: una plantilla sirve para todos los informes. Ejemplo genérico.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "YAML a PDF",
+      "text": "用 YAML 存内容、Jinja2 做模板、WeasyPrint 生成 PDF：一个模板，N 份报告。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "YAML 到 PDF 自动化",
+      "textZh": "把内容（YAML）和设计（Jinja2 模板）分开，用 WeasyPrint 输出 PDF；换一个 YAML 就得到新报告。"
+    }
+  }
+}

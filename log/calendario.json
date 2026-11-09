@@ -181,8 +181,7 @@
       "dia": 25
     },
     {
-      "video": null,
-      "build": true,
+      "video": "023",
       "tema": "Mi flujo de informes: YAML → HTML → PDF (WeasyPrint)",
       "serie": "ti",
       "carrusel": "Plantilla + datos + generador → por qué separar contenido y diseño",
