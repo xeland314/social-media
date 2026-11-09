@@ -1,0 +1,58 @@
+{
+  "id": "p013",
+  "name": "013 Python: decoradores",
+  "lastModified": 1794199709970,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Python: decoradores",
+        "subtitle": "Antes, durante y después",
+        "category": "PYTHON · DECORADORES",
+        "iconChar": "🎁"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Un decorador\n\nEs una función que recibe otra función y devuelve una versión **envuelta**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## medir_tiempo\n\n```python\ndef medir_tiempo(func):\n    def wrapper():\n        t0 = time.time()\n        res = func()\n        print(time.time() - t0)\n        return res\n    return wrapper\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Usarlo\n\n```python\n@medir_tiempo\ndef procesar_datos(): ...\n```\nEs azúcar para `procesar_datos = medir_tiempo(procesar_datos)`.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Buena práctica\n\nUsa `functools.wraps` para conservar el nombre y la documentación de la función original.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "PYTHON • DECORADORES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

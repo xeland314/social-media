@@ -1,0 +1,58 @@
+{
+  "id": "p007",
+  "name": "007 chmod 755, bit a bit",
+  "lastModified": 1794199709969,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "chmod 755, bit a bit",
+        "subtitle": "Cada dígito es una suma",
+        "category": "LINUX · PERMISOS",
+        "iconChar": "🔐"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## 9 bits\n\n`rwx rwx rwx`\n\nDueño · grupo · otros. Cada grupo tiene **lectura, escritura y ejecución**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Los valores\n\n| Bit | Valor |\n| --- | --- |\n| r | 4 |\n| w | 2 |\n| x | 1 |\n\n`rwx = 4 + 2 + 1 = 7`",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 644 → 755\n\n```bash\nchmod 755 script.sh\n```\n`rw-r--r--` pasa a `rwxr-xr-x`: solo agrega la **ejecución**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Permisos comunes\n\n- `644` archivos normales\n- `755` scripts y directorios\n- `600` claves privadas",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "LINUX • PERMISOS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

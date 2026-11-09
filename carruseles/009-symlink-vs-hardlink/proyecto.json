@@ -1,0 +1,58 @@
+{
+  "id": "p009",
+  "name": "009 Symlink vs hard link",
+  "lastModified": 1794199709969,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Symlink vs hard link",
+        "subtitle": "Qué sobrevive a rm",
+        "category": "LINUX · ARCHIVOS",
+        "iconChar": "🔗"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Hard link\n\nOtro **nombre** para el mismo inodo. Comparte los datos.\n\n```bash\nln archivo.txt duro.hlk\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Symlink\n\nGuarda la **ruta** de otro nombre, no los datos.\n\n```bash\nln -s archivo.txt sim.link\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Si borras el original\n\n| Enlace | Resultado |\n| --- | --- |\n| Hard link | sigue funcionando |\n| Symlink | se rompe |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Por qué\n\n`rm` solo borra una **entrada** del directorio. Los datos mueren con el **último** hard link.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "LINUX • ARCHIVOS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

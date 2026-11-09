@@ -1,0 +1,58 @@
+{
+  "id": "p008",
+  "name": "008 umask: restar permisos",
+  "lastModified": 1794199709969,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "umask: restar permisos",
+        "subtitle": "La máscara quita, nunca añade",
+        "category": "LINUX · PERMISOS",
+        "iconChar": "🎭"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Por defecto\n\n- Archivos: `666`\n- Directorios: `777`\n\nEl `umask` define qué bits se **quitan**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## La operación\n\n```text\n666 & ~022 = 644\n777 & ~022 = 755\n```\nAND NOT bit a bit.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Dos máscaras\n\n| umask | Archivo | Directorio |\n| --- | --- | --- |\n| 022 | 644 | 755 |\n| 077 | 600 | 700 |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Cuándo usar 077\n\nPara que **solo tú** accedas a lo que creas: claves, datos privados.\n\n```bash\numask 077\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "LINUX • PERMISOS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

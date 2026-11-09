@@ -1,0 +1,58 @@
+{
+  "id": "p014",
+  "name": "014 Python: return vs yield",
+  "lastModified": 1794199709970,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Python: return vs yield",
+        "subtitle": "Lista completa o bajo demanda",
+        "category": "PYTHON · GENERADORES",
+        "iconChar": "🧮"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## return\n\n```python\ndef obtener():\n    lista = []\n    for i in range(1, 5):\n        lista.append(i)\n    return lista\n```\nTodo queda en **RAM**: O(N).",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## yield\n\n```python\ndef generar():\n    for i in range(1, 5):\n        yield i\n```\nUn valor a la vez, se **pausa**: O(1).",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Comparación\n\n| | return | yield |\n| --- | --- | --- |\n| Memoria | O(N) | O(1) |\n| Resultado | lista | generador |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Ejemplo grande\n\nUn archivo de millones de líneas: con `yield` lo lees línea por línea sin llenar la memoria.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "PYTHON • GENERADORES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

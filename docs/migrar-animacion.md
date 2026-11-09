@@ -11,3 +11,8 @@ Ejemplo hecho: `videos/001-fork-system-call` (desde `xeland314-portfolio/src/com
 6. `npm run check`, `npm run snapshot`, `npm run render`.
 
 Portadas: fork, git merge/rebase, tcp/udp, && vs ||, sigterm, chmod, umask, symlink, go channels, go defer, fds. Python: decorator, yield, match, with. HTTP/2: multiplexación, hpack. Migración completa: 18 de 18.
+
+## Carruseles
+
+`carruseles/NNN-slug/proyecto.json` (Cover Creator, tema ambercat) → `npm run carousel -- NNN` (pixel-art) o `-- NNN --flat`.
+Motor: `../cover-creator-cli` (skill incluida). Para C-Slides: `node ../cover-creator-cli/bin/cc.mjs slides proyecto.json -o out --pixel`.

@@ -1,0 +1,58 @@
+{
+  "id": "p005",
+  "name": "005 Bash: && vs ||",
+  "lastModified": 1794199709968,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Bash: && vs ||",
+        "subtitle": "El código de salida decide el camino",
+        "category": "BASH · EXIT CODES",
+        "iconChar": "⛓️"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Exit codes\n\nCada comando termina con un número:\n\n- `0` → éxito\n- distinto de `0` → fallo\n\n```bash\necho $?\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## &&\n\nAvanza **solo si** el anterior salió con `0`.\n\n```bash\nmkdir proyectos && cd proyectos\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## ||\n\nActúa **solo si** el anterior falló.\n\n```bash\nping -c1 srv || echo \"sin conexión\"\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Juntos\n\n```bash\ncmd1 && cmd2 || cmd3\n```\nSi `cmd2` falla, también corre `cmd3`. Para algo estricto usa `if`.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "BASH • EXIT CODES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

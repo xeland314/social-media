@@ -1,0 +1,58 @@
+{
+  "id": "p003",
+  "name": "003 TCP vs UDP",
+  "lastModified": 1794199709968,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "TCP vs UDP",
+        "subtitle": "Confianza frente a velocidad",
+        "category": "REDES · TRANSPORTE",
+        "iconChar": "📡"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## TCP: handshake\n\n```text\nSYN      -->\nSYN-ACK  <--\nACK      -->\n```\nTres pasos antes de enviar datos. Orden, confirmación y **reenvío**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## UDP: dispara y olvida\n\nNo hay conexión ni confirmación.\n\n- Más **rápido**\n- Si un paquete se pierde, **nadie lo reenvía**",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## ¿Cuál uso?\n\n| Caso | Protocolo |\n| --- | --- |\n| Descargas, web, correo | TCP |\n| Videollamadas, juegos | UDP |\n| DNS (consultas cortas) | UDP |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Idea clave\n\nTCP asegura que **todo llegue en orden**.\n\nUDP prefiere llegar **a tiempo** aunque falte algo.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • TRANSPORTE • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

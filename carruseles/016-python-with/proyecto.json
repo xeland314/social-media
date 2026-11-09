@@ -1,0 +1,58 @@
+{
+  "id": "p016",
+  "name": "016 Python: with",
+  "lastModified": 1794199709971,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Python: with",
+        "subtitle": "Cierre garantizado",
+        "category": "PYTHON · CONTEXT MANAGER",
+        "iconChar": "🔒"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nAbrir un recurso y olvidar cerrarlo si algo falla en medio.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## La clase\n\n```python\nclass ConexionDB:\n    def __enter__(self):\n        self.abrir()\n    def __exit__(self, *exc):\n        self.cerrar()\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## El bloque\n\n```python\nwith ConexionDB() as db:\n    db.ejecutar_consulta()\n```\n`__exit__` corre **siempre**, incluso con una excepción.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Atajo\n\n`contextlib.contextmanager` te permite escribir lo mismo con un generador de pocas líneas.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "PYTHON • CONTEXT MANAGER • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "p015",
+  "name": "015 Python: match/case",
+  "lastModified": 1794199709970,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Python: match/case",
+        "subtitle": "Un switch con superpoderes",
+        "category": "PYTHON · MATCH / CASE",
+        "iconChar": "🥤"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## La forma antigua\n\n```python\nif b == \"gaseosa\":\n    ...\nelif b == \"agua\":\n    ...\nelif b == \"limonada\":\n    ...\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## match/case\n\n```python\nmatch bebida:\n    case \"gaseosa\": ...\n    case \"agua\": ...\n    case \"limonada\": ...\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Cómo evalúa\n\nRevisa cada `case` **en orden** hasta que uno coincide y ejecuta solo ese bloque.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Más que un switch\n\nTambién coincide con **estructuras**: tuplas, listas, diccionarios y clases. Disponible desde Python 3.10.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "PYTHON • MATCH / CASE • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

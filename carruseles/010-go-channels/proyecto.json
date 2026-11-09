@@ -1,0 +1,58 @@
+{
+  "id": "p010",
+  "name": "010 Go: canal con buffer",
+  "lastModified": 1794199709969,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Go: canal con buffer",
+        "subtitle": "Productor y consumidor",
+        "category": "GO · CONCURRENCIA",
+        "iconChar": "📦"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Crear el canal\n\n```go\nch := make(chan string, 2)\n```\nCapacidad **2**: caben dos envíos sin esperar.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Productor\n\n```go\ngo func() {\n  ch <- \"Item\"\n}()\n```\nSi el canal está **lleno**, el envío se bloquea.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Consumidor\n\n```go\nitem := <-ch\n```\nSi el canal está **vacío**, la lectura se bloquea.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Idea clave\n\nLos canales **sincronizan** goroutines sin locks: la espera ocurre sola.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "GO • CONCURRENCIA • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

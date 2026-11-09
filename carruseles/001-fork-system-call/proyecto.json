@@ -1,0 +1,58 @@
+{
+  "id": "p001",
+  "name": "001 fork(): una llamada, dos procesos",
+  "lastModified": 1794199709967,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "fork(): una llamada, dos procesos",
+        "subtitle": "El kernel duplica al proceso que llama",
+        "category": "LINUX · PROCESOS",
+        "iconChar": "🔀"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## ¿Qué hace fork()?\n\nCrea un **proceso hijo** idéntico al padre. Ambos siguen en la misma línea del programa.\n\n- El hijo tiene **otro PID**\n- Copian memoria y descriptores",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Retorna dos veces\n\n```c\npid_t pid = fork();\nif (pid == 0) {\n  /* hijo */\n} else {\n  /* padre: pid del hijo */\n}\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Qué devuelve\n\n| Proceso | fork() devuelve |\n| --- | --- |\n| Hijo | `0` |\n| Padre | PID del hijo |\n| Error | `-1` |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Para recordar\n\n- El orden de impresión **no está garantizado**\n- Cada proceso tiene su **propia copia** de las variables\n- Sin `wait()`, el hijo puede quedar **zombie**",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "LINUX • PROCESOS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

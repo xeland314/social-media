@@ -1,0 +1,58 @@
+{
+  "id": "p017",
+  "name": "017 HTTP/2: multiplexación",
+  "lastModified": 1794199709971,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "HTTP/2: multiplexación",
+        "subtitle": "Una conexión, muchos streams",
+        "category": "REDES · HTTP/2",
+        "iconChar": "🚦"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## HTTP/1.1\n\nUna petición por conexión TCP, en fila.\n\n```text\nGET /index.html\nGET /style.css\nGET /app.js\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## HTTP/2\n\nUna sola conexión con **frames intercalados** de varios streams.\n\n```text\nStream 1 · 3 · 5\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Qué se gana\n\n- Menos conexiones TCP\n- Sin esperar la respuesta anterior\n- Mejor uso del ancho de banda",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Ojo\n\nHTTP/2 elimina el bloqueo a nivel HTTP, pero **TCP** aún puede bloquear si se pierde un paquete (HTTP/3 lo resuelve con QUIC).",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • HTTP/2 • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

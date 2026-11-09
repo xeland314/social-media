@@ -1,0 +1,58 @@
+{
+  "id": "p002",
+  "name": "002 Git: merge vs rebase",
+  "lastModified": 1794199709967,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Git: merge vs rebase",
+        "subtitle": "Dos formas de integrar una rama",
+        "category": "GIT · CONTROL DE VERSIONES",
+        "iconChar": "🌿"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Merge\n\nConserva la historia tal como ocurrió y agrega un **commit de fusión** (M1).\n\n```bash\ngit checkout main\ngit merge feature\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Rebase\n\nDespega tus commits y los **replanta** sobre main: historial lineal, sin M1.\n\n```bash\ngit checkout feature\ngit rebase main\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Comparación\n\n| | Merge | Rebase |\n| --- | --- | --- |\n| Historial | con ramas | lineal |\n| Commits | conserva | los reescribe |\n| Riesgo | bajo | medio |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Regla de oro\n\n**No hagas rebase de ramas que otros ya descargaron.**\n\nReescribir commits compartidos obliga a todos a rehacer su trabajo.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "GIT • CONTROL DE VERSIONES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

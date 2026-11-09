@@ -1,0 +1,58 @@
+{
+  "id": "p006",
+  "name": "006 SIGTERM vs SIGKILL",
+  "lastModified": 1794199709968,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "SIGTERM vs SIGKILL",
+        "subtitle": "Pedir o aniquilar",
+        "category": "LINUX · SEÑALES",
+        "iconChar": "💀"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## SIGTERM (15)\n\nLe **pide** al proceso que termine. Puede atraparla y limpiar: cerrar sockets, vaciar buffers.\n\n```bash\nkill -TERM 4242\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## SIGKILL (9)\n\nEl kernel lo mata **sin preguntar**. No se puede atrapar ni ignorar.\n\n```bash\nkill -KILL 4242\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Resultado\n\n| Señal | Salida | Limpieza |\n| --- | --- | --- |\n| SIGTERM | `exit 0` | sí |\n| SIGKILL | `exit 137` | no |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Orden recomendado\n\n1. `kill -TERM`\n2. Esperar unos segundos\n3. `kill -KILL` solo si no responde",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "LINUX • SEÑALES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "p011",
+  "name": "011 Go: defer (LIFO)",
+  "lastModified": 1794199709970,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Go: defer (LIFO)",
+        "subtitle": "Último en entrar, primero en salir",
+        "category": "GO · DEFER",
+        "iconChar": "🧱"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## defer\n\nPospone una llamada hasta que la función **termina**.\n\n```go\ndefer fmt.Println(\"cerrando db\")\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Tres defers\n\n```go\ndefer db.Close()\ndefer lock.Unlock()\ndefer log.Flush()\n```\nSe apilan en una **pila**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Orden de salida\n\n1. `log.Flush()`\n2. `lock.Unlock()`\n3. `db.Close()`\n\nAl revés de como los registraste.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Cuidado\n\nUn `defer` dentro de un `for` se acumula hasta que la función termina, no en cada vuelta.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "GO • DEFER • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

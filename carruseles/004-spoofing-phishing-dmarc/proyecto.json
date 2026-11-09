@@ -20,27 +20,32 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## El ataque\n\nAlguien envía un correo que dice ser de `ceo@example.com`, pero responde a `atacante@evil.test`.\n\n- El campo **De:** se puede escribir a mano\n- El servidor no lo sabe… salvo que **verifique**"
+        "content": "## El ataque\n\nAlguien envía un correo que dice ser de `ceo@example.com`, pero responde a `atacante@evil.test`.\n\n- El campo **De:** se puede escribir a mano\n- El servidor no lo sabe… salvo que **verifique**",
+        "fontScale": 1.5
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## SPF\n\n¿La **IP** que envía está autorizada por el dominio?\n\n```text\nexample.com TXT\n\"v=spf1 ip4:203.0.113.10 -all\"\n```\n\nIP no listada → **falla**."
+        "content": "## SPF\n\n¿La **IP** que envía está autorizada por el dominio?\n\n```text\nexample.com TXT\n\"v=spf1 ip4:203.0.113.10 -all\"\n```\n\nIP no listada → **falla**.",
+        "fontScale": 1.5
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## DKIM\n\nCada mensaje lleva una **firma** hecha con una llave privada.\n\n```text\nsel._domainkey.example.com TXT\n\"v=DKIM1; k=rsa; p=MIIB…\"\n```\n\nSin firma válida → **falla**."
+        "content": "## DKIM\n\nCada mensaje lleva una **firma** hecha con una llave privada.\n\n```text\nsel._domainkey.example.com TXT\n\"v=DKIM1; k=rsa; p=MIIB…\"\n```\n\nSin firma válida → **falla**.",
+        "fontScale": 1.5
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## DMARC\n\nDecide qué hacer cuando SPF o DKIM **no se alinean** con el remitente.\n\n```text\n_dmarc.example.com TXT\n\"v=DMARC1; p=reject;\n rua=mailto:dmarc@example.com\"\n```"
+        "content": "## DMARC\n\nDecide qué hacer cuando SPF o DKIM **no se alinean** con el remitente.\n\n```text\n_dmarc.example.com TXT\n\"v=DMARC1; p=reject;\n rua=mailto:dmarc@example.com\"\n```",
+        "fontScale": 1.5
       },
       {
         "id": "6",
         "type": "markdown",
-        "content": "## La ruta segura\n\n1. `p=none` — solo observar y leer reportes\n2. `p=quarantine` — mandar a spam\n3. `p=reject` — rechazar\n\n**No saltes al paso 3** sin revisar los reportes."
+        "content": "## La ruta segura\n\n1. `p=none` — solo observar y leer reportes\n2. `p=quarantine` — mandar a spam\n3. `p=reject` — rechazar\n\n**No saltes al paso 3** sin revisar los reportes.",
+        "fontScale": 1.5
       },
       {
         "id": "7",

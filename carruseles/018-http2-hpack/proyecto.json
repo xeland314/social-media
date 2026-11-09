@@ -1,0 +1,58 @@
+{
+  "id": "p018",
+  "name": "018 HTTP/2: HPACK",
+  "lastModified": 1794199709971,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "HTTP/2: HPACK",
+        "subtitle": "Comprimir cabeceras",
+        "category": "REDES · HTTP/2",
+        "iconChar": "🗜️"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nCada petición repite las mismas cabeceras: `user-agent`, `accept`, `cookie`…",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Tablas compartidas\n\n| Índice | Header |\n| --- | --- |\n| [2] | :method GET |\n| #62 | :path /api/users |\n| #63 | user-agent |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Request 2\n\nSolo envía los **índices**: `[2] #62 #63 #64`.\n\nDe 128 B a 24 B.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Además\n\nLos valores nuevos se comprimen con **Huffman**. Ahorro típico: más del 80 % en cabeceras repetidas.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • HTTP/2 • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

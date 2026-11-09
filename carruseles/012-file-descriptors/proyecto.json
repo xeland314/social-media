@@ -1,0 +1,58 @@
+{
+  "id": "p012",
+  "name": "012 File descriptors: 0, 1 y 2",
+  "lastModified": 1794199709970,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "File descriptors: 0, 1 y 2",
+        "subtitle": "Cada redirección reconecta un descriptor",
+        "category": "LINUX · REDIRECCIONES",
+        "iconChar": "🚰"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## La tabla del proceso\n\n| fd | Nombre |\n| --- | --- |\n| 0 | stdin |\n| 1 | stdout |\n| 2 | stderr |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## > y >>\n\n```bash\ncmd > out.txt   # trunca\ncmd >> out.txt  # añade\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 2>&1\n\n```bash\ncmd > out.txt 2>&1\n```\nfd2 **duplica** a donde apunta fd1: errores y salida al mismo archivo.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Orden importa\n\n`2>&1 > out.txt` **no** es lo mismo que `> out.txt 2>&1`.\n\nLas redirecciones se aplican de izquierda a derecha.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más animaciones de código y sistemas.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "LINUX • REDIRECCIONES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

@@ -15,7 +15,8 @@
     "sync": "npm run calendar && npm run log && npm run gallery",
     "audio": "node scripts/make-audio.mjs",
     "image": "node scripts/image.mjs",
-    "calendar": "node scripts/calendar.mjs"
+    "calendar": "node scripts/calendar.mjs",
+    "carousel": "node scripts/carousel.mjs"
   },
   "devDependencies": {
     "hyperframes": "0.9.26"
