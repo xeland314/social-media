@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 48px; font-size: 28px; }
+      #card { left: 72px; top: 710px; width: 936px; height: 520px; }
+      .actor { position: absolute; top: 30px; width: 250px; height: 250px; text-align: center; }
+      #aP { left: 20px; } #aC { right: 20px; }
+      .actor .sp { height: 120px; display: flex; align-items: flex-end; justify-content: center; }
+      .actor .cap { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--ink); margin-top: 10px; }
+      .actor .tg { position: relative; height: 40px; margin-top: 8px; }
+      .tg span { position: absolute; left: 0; right: 0; font-family: var(--font-label); font-weight: 700; font-size: 28px; opacity: 0; white-space: nowrap; }
+      #mail { position: absolute; left: 320px; top: 50px; width: 296px; height: 260px; border: var(--px) solid var(--line); background: var(--panel-2); }
+      #mail .lb { position: absolute; left: 0; right: 0; top: 14px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .slot { position: absolute; top: 90px; width: 110px; height: 90px; border: 4px dashed var(--cat-gray); }
+      #cnt { position: absolute; left: 0; right: 0; bottom: 14px; height: 46px; font-family: var(--font-display); font-size: 32px; color: var(--accent); text-align: center; }
+      .itm { position: absolute; left: 0; top: 0; width: 100px; height: 82px; display: flex; align-items: center; justify-content: center; gap: 6px; opacity: 0; background: var(--panel); border: 4px solid var(--accent); font-family: var(--font-code); font-weight: 800; font-size: 28px; color: var(--ink); }
+      #wait { position: absolute; left: 24px; top: 336px; width: 400px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--sem-bad); opacity: 0; }
+      #term { left: 72px; top: 1260px; width: 936px; height: 440px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="22" data-track-index="0">GO · CONCURRENCIA</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="22" data-track-index="1">Go: canal<br />con buffer</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="22" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">concurrencia.go</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="22" data-track-index="3">
+        <div class="actor" id="aP"><div class="sp" id="spP"></div><div class="cap">G1 PRODUCTOR</div><div class="tg" id="tgP"></div></div>
+        <div id="mail"><div class="lb">ch (cap: 2)</div><div class="slot" style="left:24px"></div><div class="slot" style="left:162px"></div><div id="cnt"></div></div>
+        <div class="actor" id="aC"><div class="sp"><img class="pixelated" src="shared/sprites/gato-sin-fondo.svg" alt="" style="width:120px;height:120px" /></div><div class="cap">G2 CONSUMIDOR</div><div class="tg" id="tgC"></div></div>
+        <div id="items"></div>
+        <div id="wait">G1 ESPERA...</div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="22" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="22" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="22" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.0" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="3.9" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/error.wav" data-start="5.8" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="7.7" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/pop.wav" data-start="9.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="11.5" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="13.4" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/error.wav" data-start="15.3" data-duration="0.45" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="17.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/confirm.wav" data-start="19.2" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const rows = XF.buildCode($("#codeBody"), [`ch ${Mu(":=")} ${F("make")}(${K("chan")} ${K("string")}, ${N("2")})`, `${K("go")} ${K("func")}() {`, `    ch ${Mu("&lt;-")} ${S('"Item"')} ${Mu("// envía (bloquea si lleno)")}`, `${Mu("}()")} ${Mu("// G1: productor")}`, `item ${Mu(":=")} ${Mu("&lt;-")}ch ${Mu("// consume (bloquea si vacío)")}`]);
+      const C = [CY, "rgba(63,208,224,.16)"];
+      $("#spP").innerHTML = SPR.gopher(8);
+      const tagP = XF.stack($("#tgP"), ["READY", "ENVIANDO", "BLOQUEADO"]), tagC = XF.stack($("#tgC"), ["READY", "LEYENDO", "BLOQUEADO"]);
+      [[tagP, 0], [tagC, 0]].forEach(([t]) => { t[0].style.color = MU; t[1].style.color = OK; t[2].style.color = RD; });
+      const setTag = (t, i, at) => XF.only(tl, t, t[i], at);
+      setTag(tagP, 0, 0); setTag(tagC, 0, 0);
+      const cnt = XF.stack($("#cnt"), ["0/2", "1/2", "2/2"]); XF.only(tl, cnt, cnt[0], 0);
+      [1, 2, 3, 4].forEach((n) => $("#items").insertAdjacentHTML("beforeend", `<div class="itm" id="it${n}">${SPR.pbox(4)}<span>#${n}</span></div>`));
+
+      // simulación del canal (capacidad 2)
+      const plan = [["s", 1], ["s", 2], ["s", 3, 1], ["r"], ["s", 3], ["r"], ["r"], ["r", 0, 1], ["s", 4]];
+      let q = [], waiting = null; const sim = [];
+      plan.forEach(([k, id, bl]) => {
+        if (k === "s") { if (bl) { sim.push({ k, id, bl: true, n: q.length }); waiting = id; } else { q.push(id); sim.push({ k, id, n: q.length, fromWait: waiting === id }); if (waiting === id) waiting = null; } }
+        else if (bl) sim.push({ k, bl: true, n: 0 }); else { const out = q.shift(); sim.push({ k, id: out, n: q.length }); }
+      });
+      const defs = [["CREANDO CANAL", CY]];
+      sim.forEach((s) => defs.push(s.k === "s" ? (s.bl ? ["G1 BLOQUEADO (LLENO)", RD] : [`ENVÍO EXITOSO (${s.n}/2)`, OK]) : (s.bl ? ["G2 BLOQUEADO (VACÍO)", RD] : [`LECTURA EXITOSA (${s.n}/2)`, CY])));
+      defs.push(["FINALIZADO", OK]);
+      const badge = mkBadges(defs);
+
+      const trows = [["g0", "ch := make(chan string, 2)", CY]];
+      sim.forEach((s, i) => trows.push(["g" + (i + 1), s.k === "s" ? (s.bl ? "! [G1] ch <- BLOQUEADO (buffer 2/2 lleno)" : `[G1 Productor] ch <- "#${s.id}"`) : (s.bl ? "! [G2] <-ch BLOQUEADO (buffer 0/2 vacío)" : `[G2 Consumidor] <-ch recibió "#${s.id}"`), s.bl ? RD : s.k === "s" ? OK : CY]));
+      mkTerm(trows);
+      const showRow = (j, t) => { say("g" + j, t); if (j >= 7) tl.set("#g" + (j - 7), { display: "none" }, t); };
+
+      const G1OUT = { x: 190, y: 190 }, WAIT = { x: 70, y: 384 }, SLOT = [{ x: 344, y: 150 }, { x: 482, y: 150 }], G2IN = { x: 628, y: 56 };
+      const mv = (id, a, b, t, d = 0.9) => { tl.set("#it" + id, { x: a.x, y: a.y, opacity: 1 }, t); tl.fromTo("#it" + id, { x: a.x, y: a.y }, { x: b.x, y: b.y, duration: d, ease: "steps(8)" }, t); };
+      const slots = [null, null];
+      badge(0, 0.2); XF.activeLine(tl, rows, 1, 0.4, ...C); showRow(0, 0.4);
+      const T0 = 2.0, DT = 1.9;
+      sim.forEach((s, i) => {
+        const t = T0 + i * DT; badge(i + 1, t); showRow(i + 1, t + 0.1);
+        XF.activeLine(tl, rows, s.k === "s" ? 3 : 5, t, ...C);
+        if (s.k === "s" && !s.bl) {
+          const sl = slots.indexOf(null); const from = s.fromWait ? WAIT : G1OUT;
+          mv(s.id, from, SLOT[sl], t); slots[sl] = s.id; tl.set("#it" + s.id, { borderColor: "#f1a449" }, t);
+          if (s.fromWait) tl.set("#wait", { opacity: 0 }, t);
+          setTag(tagP, 1, t); setTag(tagP, 0, t + 1.3); XF.only(tl, cnt, cnt[s.n], t + 0.9);
+        } else if (s.k === "s") {
+          tl.set("#it" + s.id, { x: WAIT.x, y: WAIT.y, opacity: 1, borderColor: "#ff5f57" }, t); tl.set("#wait", { opacity: 1 }, t); setTag(tagP, 2, t);
+        } else if (!s.bl) {
+          const out = slots[0]; mv(out, SLOT[0], G2IN, t); tl.set("#it" + out, { opacity: 0 }, t + 1.2);
+          slots[0] = slots[1]; slots[1] = null; if (slots[0] != null) mv(slots[0], SLOT[1], SLOT[0], t + 1.0, 0.6);
+          setTag(tagC, 1, t); setTag(tagC, 0, t + 1.3); XF.only(tl, cnt, cnt[s.n], t + 0.9);
+          if (waiting === null && sim[i - 1] && sim[i - 1].bl) setTag(tagP, 0, t + 0.9); // G1 se desbloquea
+        } else setTag(tagC, 2, t);
+        if (s.k === "s" && !s.bl) {} // G1 deja de estar bloqueado al enviar
+      });
+      const tEnd = T0 + sim.length * DT;
+      badge(defs.length - 1, tEnd); XF.activeLine(tl, rows, 0, tEnd); setTag(tagC, 0, tEnd); 
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 43, yoyo: true }, 0);
+      tl.set({}, {}, 22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

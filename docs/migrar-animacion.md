@@ -10,4 +10,4 @@ Ejemplo hecho: `videos/001-fork-system-call` (desde `xeland314-portfolio/src/com
 5. **Efectos CSS con `animation:`** (blink, marcha de guiones) → tween GSAP con `steps(n)` (el render salta frames).
 6. `npm run check`, `npm run snapshot`, `npm run render`.
 
-Pendiente de portar (en orden de prioridad): git-merge-rebase, tcp-udp, http2-multiplexing. El resto puede quedarse en el portafolio.
+Portadas: fork, git merge/rebase, tcp/udp, && vs ||, sigterm, chmod, umask, symlink, go channels, go defer, fds. Pendiente: python (decorator, yield, match, with) y http2 (multiplexación, hpack).

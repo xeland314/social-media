@@ -1,0 +1,62 @@
+{
+  "id": "012",
+  "slug": "file-descriptors",
+  "title": "File descriptors y redirecciones",
+  "series": "linux",
+  "calendarDay": 11,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 20,
+  "hook": "Cada redirección es reconectar un descriptor.",
+  "topicTags": [
+    "#redireccion",
+    "#stdout",
+    "#stderr",
+    "#linuxtips"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/fds-redirection",
+  "carousel": {
+    "path": "carruseles/012-file-descriptors",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "stdin es el 0, stdout el 1 y stderr el 2. Redirigir con > o >> es reconectar un descriptor, y 2>&1 duplica el 2 sobre el 1. Míralo en la tabla del proceso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "File descriptors y redirecciones 🐧\n\n> trunca y reconecta fd1 al archivo.\n>> añade al final.\n2>&1 duplica fd2 sobre fd1.\n\nGuárdalo para tus scripts.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Cada proceso tiene su tabla de descriptores: 0 entrada, 1 salida, 2 errores. Redirigir es solo cambiar a dónde apunta cada uno.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué significa 2>&1? Que el descriptor 2 (errores) apunte a donde ya apunta el 1 (salida). Animación con la tabla de descriptores.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "File descriptors: >, >> y 2>&1 explicados",
+      "text": "Los descriptores 0, 1 y 2 y cómo las redirecciones los reconectan: trunca (>), añade (>>) y duplica (2>&1).\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "fd: 0, 1 y 2",
+      "text": "> trunca, >> añade y 2>&1 duplica el descriptor 2 sobre el 1.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "文件描述符 0、1、2",
+      "textZh": "> 截断，>> 追加，2>&1 把 fd2 复制到 fd1 所指向的位置。"
+    }
+  }
+}

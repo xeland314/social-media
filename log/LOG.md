@@ -13,6 +13,9 @@
 | 007 | [chmod bit a bit](../videos/007-chmod-binary/) | linux | rendered | 6 | — |
 | 008 | [umask: permisos por defecto](../videos/008-umask-permissions/) | linux | rendered | 7 | — |
 | 009 | [Symlink vs Hard Link](../videos/009-symlink-vs-hardlink/) | linux | rendered | 8 | — |
+| 010 | [Go: canal con buffer](../videos/010-go-channels/) | go | rendered | 9 | — |
+| 011 | [Go: defer (LIFO)](../videos/011-go-defer/) | go | rendered | 10 | — |
+| 012 | [File descriptors y redirecciones](../videos/012-file-descriptors/) | linux | rendered | 11 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -562,4 +565,188 @@ El hard link comparte inodo y sobrevive a rm; el symlink guarda la ruta y se rom
 硬链接共享 inode，删除原文件后仍可访问；软链接只保存路径，会失效。
 
 #symlink #hardlink #inodo #Linux #操作系统
+```
+
+## 010 · Go: canal con buffer
+
+- **Carpeta:** `videos/010-go-channels/`  ·  **Estado:** rendered  ·  **Duración:** 22 s
+- **Gancho:** Un canal con buffer 2: el tercer envío se queda esperando.
+- **Carrusel:** `carruseles/010-go-channels` (pending)
+
+### TikTok
+```text
+En Go, un canal con buffer 2 deja enviar dos valores sin esperar. El tercer envío se bloquea hasta que alguien lee. Mira al productor y al consumidor en acción.
+
+#golang #goroutines #channels #concurrencia #xeland314
+```
+
+### Instagram
+```text
+Canales con buffer en Go 🐹
+
+ch := make(chan string, 2)
+El productor bloquea si el canal está lleno; el consumidor bloquea si está vacío.
+
+Guárdalo para entender goroutines.
+
+#golang #goroutines #channels #concurrencia #xeland314
+```
+
+### Threads
+```text
+Un canal con buffer en Go bloquea al productor cuando se llena y al consumidor cuando se vacía. Así se sincronizan dos goroutines sin locks.
+
+#golang
+```
+
+### Facebook
+```text
+¿Qué pasa cuando un canal con buffer se llena en Go? El productor espera hasta que el consumidor lea. Animación paso a paso.
+
+#golang #goroutines #xeland314
+```
+
+### YouTube
+**Título:** Go: canal con buffer, productor y consumidor (bloqueos)
+
+```text
+Un canal con capacidad 2: dos envíos pasan, el tercero se bloquea hasta que el consumidor lee. También se ve el bloqueo por canal vacío.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#golang #goroutines #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Go: canal con buffer | Go 缓冲通道
+
+```text
+Un canal con capacidad 2: el tercer envío espera hasta que el consumidor lee.
+
+容量为 2 的缓冲通道：第三次发送会阻塞，直到消费者读取。
+
+#golang #goroutines #channels #Go语言 #编程
+```
+
+## 011 · Go: defer (LIFO)
+
+- **Carpeta:** `videos/011-go-defer/`  ·  **Estado:** rendered  ·  **Duración:** 20 s
+- **Gancho:** defer ejecuta al revés: el último en entrar es el primero en salir.
+- **Carrusel:** `carruseles/011-go-defer` (pending)
+
+### TikTok
+```text
+En Go, defer apila las llamadas y las ejecuta al revés cuando la función termina. Primero sale el último que registraste. Míralo con tres defers.
+
+#golang #defer #pilas #lifo #xeland314
+```
+
+### Instagram
+```text
+Go defer: la pila LIFO 🐹
+
+Tres defer registrados: db, lock, log.
+Al hacer return salen al revés: log, lock, db.
+
+Guárdalo para cerrar recursos sin errores.
+
+#golang #defer #pilas #lifo #xeland314
+```
+
+### Threads
+```text
+Con defer, el último registrado se ejecuta primero. Por eso cierras recursos en el orden inverso al que los abriste, sin pensar en ello.
+
+#golang
+```
+
+### Facebook
+```text
+¿En qué orden se ejecutan los defer en Go? Al revés: último en entrar, primero en salir. Animación con una pila.
+
+#golang #defer #xeland314
+```
+
+### YouTube
+**Título:** Go defer explicado: pila LIFO paso a paso
+
+```text
+Tres defer (conexión db, lock y log) se apilan y salen al revés al hacer return.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#golang #defer #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Go defer: pila LIFO | Go defer：后进先出
+
+```text
+defer apila llamadas y las ejecuta al revés al terminar la función.
+
+defer 会把调用压栈，函数返回时按后进先出的顺序执行。
+
+#golang #defer #pilas #Go语言 #编程
+```
+
+## 012 · File descriptors y redirecciones
+
+- **Carpeta:** `videos/012-file-descriptors/`  ·  **Estado:** rendered  ·  **Duración:** 20 s
+- **Gancho:** Cada redirección es reconectar un descriptor.
+- **Carrusel:** `carruseles/012-file-descriptors` (pending)
+
+### TikTok
+```text
+stdin es el 0, stdout el 1 y stderr el 2. Redirigir con > o >> es reconectar un descriptor, y 2>&1 duplica el 2 sobre el 1. Míralo en la tabla del proceso.
+
+#redireccion #stdout #stderr #linuxtips #xeland314
+```
+
+### Instagram
+```text
+File descriptors y redirecciones 🐧
+
+> trunca y reconecta fd1 al archivo.
+>> añade al final.
+2>&1 duplica fd2 sobre fd1.
+
+Guárdalo para tus scripts.
+
+#redireccion #stdout #stderr #linuxtips #xeland314
+```
+
+### Threads
+```text
+Cada proceso tiene su tabla de descriptores: 0 entrada, 1 salida, 2 errores. Redirigir es solo cambiar a dónde apunta cada uno.
+
+#redireccion
+```
+
+### Facebook
+```text
+¿Qué significa 2>&1? Que el descriptor 2 (errores) apunte a donde ya apunta el 1 (salida). Animación con la tabla de descriptores.
+
+#redireccion #stdout #xeland314
+```
+
+### YouTube
+**Título:** File descriptors: >, >> y 2>&1 explicados
+
+```text
+Los descriptores 0, 1 y 2 y cómo las redirecciones los reconectan: trunca (>), añade (>>) y duplica (2>&1).
+
+Más animaciones: https://xeland314.github.io/animations
+
+#redireccion #stdout #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** fd: 0, 1 y 2 | 文件描述符 0、1、2
+
+```text
+> trunca, >> añade y 2>&1 duplica el descriptor 2 sobre el 1.
+
+> 截断，>> 追加，2>&1 把 fd2 复制到 fd1 所指向的位置。
+
+#redireccion #stdout #stderr #Linux #操作系统
 ```

@@ -1,0 +1,62 @@
+{
+  "id": "011",
+  "slug": "go-defer",
+  "title": "Go: defer (LIFO)",
+  "series": "go",
+  "calendarDay": 10,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 20,
+  "hook": "defer ejecuta al revés: el último en entrar es el primero en salir.",
+  "topicTags": [
+    "#golang",
+    "#defer",
+    "#pilas",
+    "#lifo"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/go-defer",
+  "carousel": {
+    "path": "carruseles/011-go-defer",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "En Go, defer apila las llamadas y las ejecuta al revés cuando la función termina. Primero sale el último que registraste. Míralo con tres defers.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Go defer: la pila LIFO 🐹\n\nTres defer registrados: db, lock, log.\nAl hacer return salen al revés: log, lock, db.\n\nGuárdalo para cerrar recursos sin errores.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Con defer, el último registrado se ejecuta primero. Por eso cierras recursos en el orden inverso al que los abriste, sin pensar en ello.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿En qué orden se ejecutan los defer en Go? Al revés: último en entrar, primero en salir. Animación con una pila.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Go defer explicado: pila LIFO paso a paso",
+      "text": "Tres defer (conexión db, lock y log) se apilan y salen al revés al hacer return.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Go defer: pila LIFO",
+      "text": "defer apila llamadas y las ejecuta al revés al terminar la función.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Go defer：后进先出",
+      "textZh": "defer 会把调用压栈，函数返回时按后进先出的顺序执行。"
+    }
+  }
+}

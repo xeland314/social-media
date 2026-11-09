@@ -1,0 +1,62 @@
+{
+  "id": "010",
+  "slug": "go-channels",
+  "title": "Go: canal con buffer",
+  "series": "go",
+  "calendarDay": 9,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 22,
+  "hook": "Un canal con buffer 2: el tercer envío se queda esperando.",
+  "topicTags": [
+    "#golang",
+    "#goroutines",
+    "#channels",
+    "#concurrencia"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/go-channels",
+  "carousel": {
+    "path": "carruseles/010-go-channels",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "En Go, un canal con buffer 2 deja enviar dos valores sin esperar. El tercer envío se bloquea hasta que alguien lee. Mira al productor y al consumidor en acción.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Canales con buffer en Go 🐹\n\nch := make(chan string, 2)\nEl productor bloquea si el canal está lleno; el consumidor bloquea si está vacío.\n\nGuárdalo para entender goroutines.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un canal con buffer en Go bloquea al productor cuando se llena y al consumidor cuando se vacía. Así se sincronizan dos goroutines sin locks.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué pasa cuando un canal con buffer se llena en Go? El productor espera hasta que el consumidor lea. Animación paso a paso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Go: canal con buffer, productor y consumidor (bloqueos)",
+      "text": "Un canal con capacidad 2: dos envíos pasan, el tercero se bloquea hasta que el consumidor lee. También se ve el bloqueo por canal vacío.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Go: canal con buffer",
+      "text": "Un canal con capacidad 2: el tercer envío espera hasta que el consumidor lee.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Go 缓冲通道",
+      "textZh": "容量为 2 的缓冲通道：第三次发送会阻塞，直到消费者读取。"
+    }
+  }
+}
