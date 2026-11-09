@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 44px; font-size: 27px; }
+      #codeBody { position: relative; height: 270px; }
+      .set { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
+      #card { left: 72px; top: 724px; width: 936px; height: 700px; }
+      .tr { position: absolute; left: 30px; width: 876px; height: 76px; display: flex; align-items: center; border: 4px solid var(--line); background: var(--panel-2); opacity: 0; font-family: var(--font-code); font-weight: 700; font-size: 28px; color: var(--ink); }
+      .tr.h { height: 56px; background: transparent; border-color: transparent; font-family: var(--font-label); font-size: 28px; color: var(--muted); opacity: 1; }
+      .c1 { width: 280px; padding-left: 16px; } .c2 { width: 130px; } .c3, .c4 { width: 100px; } .c5 { position: relative; width: 266px; height: 60px; }
+      .tr.h span { line-height: 56px; height: 56px; } .tr.h .c5 { height: 56px; padding: 0; }
+      .pass { color: var(--sem-ok); } .fail { color: var(--sem-bad); }
+      .vd { position: absolute; left: 0; top: 10px; font-family: var(--font-label); font-weight: 700; font-size: 28px; opacity: 0; white-space: nowrap; }
+      #mt { position: absolute; left: 30px; top: 418px; width: 876px; opacity: 0; }
+      #mt .lb { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      #bar { position: relative; margin-top: 12px; height: 46px; background: rgba(255,95,87,.55); border: 4px solid var(--line); }
+      #fill { position: absolute; left: 0; top: 0; bottom: 0; width: 92%; background: var(--sem-ok); }
+      #mtx { position: relative; height: 44px; margin-top: 12px; }
+      #mtx .stk { font-family: var(--font-code); font-weight: 800; font-size: 28px; color: var(--ink); }
+      #dec { position: absolute; left: 30px; right: 30px; bottom: 20px; height: 76px; border: 5px solid var(--accent); display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); opacity: 0; }
+      #term { left: 72px; top: 1444px; width: 936px; height: 300px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="20" data-track-index="0">SEGURIDAD · CORREO</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="20" data-track-index="1">Leer un reporte<br />DMARC (rua)</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="20" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">reporte_rua.xml</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="20" data-track-index="3">
+        <div class="tr h" style="top:14px"><span class="c1">FUENTE (IP)</span><span class="c2">MSJ</span><span class="c3">SPF</span><span class="c4">DKIM</span><span class="c5" style="font-size:28px;padding-top:0">VEREDICTO</span></div>
+        <div class="tr" id="tr0" style="top:74px"><span class="c1">203.0.113.10</span><span class="c2">1 240</span><span class="c3 pass">pass</span><span class="c4 pass">pass</span><span class="c5"><span class="vd" id="vd0">OK</span></span></div><div class="tr" id="tr1" style="top:158px"><span class="c1">198.51.100.7</span><span class="c2">310</span><span class="c3 fail">fail</span><span class="c4 pass">pass</span><span class="c5"><span class="vd" id="vd1">OK · DKIM</span></span></div><div class="tr" id="tr2" style="top:242px"><span class="c1">198.51.100.9</span><span class="c2">40</span><span class="c3 fail">fail</span><span class="c4 fail">fail</span><span class="c5"><span class="vd" id="vd2">ARREGLAR</span></span></div><div class="tr" id="tr3" style="top:326px"><span class="c1">192.0.2.44</span><span class="c2">95</span><span class="c3 fail">fail</span><span class="c4 fail">fail</span><span class="c5"><span class="vd" id="vd3">FALSO</span></span></div>
+        <div id="mt"><div class="lb">ALINEADOS</div><div id="bar"><div id="fill"></div></div><div id="mtx"></div></div>
+        <div id="dec">Falla solo la suplantación: sube</div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="20" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="20" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="20" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="20" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.4" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="4.4" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="6.4" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/error.wav" data-start="8.4" data-duration="0.45" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/pop.wav" data-start="10.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="13.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/confirm.wav" data-start="15.0" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const mkRows = (el, lines) => { el.innerHTML = lines.map((h, i) => `<div class="code-line" data-id="${i + 1}"><span class="code-ln">${i + 1}</span><span>${h}</span></div>`).join(""); return [...el.children]; };
+      const DATA = [["203.0.113.10", "1240", "pass", "pass"], ["198.51.100.7", "310", "fail", "pass"], ["198.51.100.9", "40", "fail", "fail"], ["192.0.2.44", "95", "fail", "fail"]];
+      const T = (n, c) => `${Mu("&lt;")}${F(n)}${Mu("&gt;")}${c}`;
+      const sets = DATA.map(([ip, n, s, d], i) => { const el = document.createElement("div"); el.className = "set"; el.id = "set" + i; $("#codeBody").append(el);
+        return mkRows(el, [Mu("&lt;row&gt;"), `  ${T("source_ip", ip)}`, `  ${T("count", N(n))}`, `  ${T("spf", s === "pass" ? S("pass") : `<span style="color:#ff5f57">fail</span>`)} ${T("dkim", d === "pass" ? S("pass") : `<span style="color:#ff5f57">fail</span>`)}`, `  ${T("header_from", "example.com")}`, Mu("&lt;/row&gt;")]); });
+      const RC = [CY, "rgba(63,208,224,.16)"];
+      const badge = mkBadges([["ABRIR REPORTE", GR], ["PASO 1 · FUENTES", CY], ["PASO 2 · % ALINEADO", OK], ["PASO 3 · DECIDIR", AM], ["LISTO PARA SUBIR", OK]]);
+      mkTerm([["r1", "203.0.113.10 → servidor propio: todo ok", OK], ["r2", "198.51.100.7 → newsletter: DKIM alinea", OK], ["r3", "198.51.100.9 → CRM olvidado: arreglar", AM], ["r4", "192.0.2.44 → desconocida: suplantación", RD], ["r5", "1 550 de 1 685 alineados (92 %)", GR], ["r6", "arreglar CRM: +40 mensajes alineados", PU], ["r7", "lo que falla es suplantación: sube", OK]]);
+      let shown = []; const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 5) tl.set("#" + shown[shown.length - 6], { display: "none" }, t); };
+      const mtx = XF.stack($("#mtx"), ["1 550 de 1 685 mensajes (92 %)", "1 590 de 1 685 mensajes (94 %)"]); XF.only(tl, mtx, mtx[0], 0);
+      const VD = [["#7cfb4c"], ["#7cfb4c"], ["#fbbf24"], ["#ff5f57"]];
+      VD.forEach(([c], i) => tl.set("#vd" + i, { color: c }, 0));
+      const hi = (i, on, c, t) => tl.set("#tr" + i, { borderColor: on ? c : "#483025", backgroundColor: on ? "rgba(255,255,255,.07)" : "#32231a" }, t);
+
+      badge(0, 0.2); tl.set("#set0", { opacity: 1 }, 0.3); XF.activeLine(tl, sets[0], 2, 0.4, ...RC);
+      [0, 1, 2, 3].forEach((i) => tl.set("#tr" + i, { opacity: 1 }, 0.6 + i * 0.35));
+      // paso 1: fuentes, fila por fila
+      badge(1, 2.4);
+      [[0, "#7cfb4c", 2.4], [1, "#7cfb4c", 4.4], [2, "#fbbf24", 6.4], [3, "#ff5f57", 8.4]].forEach(([i, c, t]) => {
+        if (i > 0) { tl.set("#set" + (i - 1), { opacity: 0 }, t); tl.set("#set" + i, { opacity: 1 }, t); hi(i - 1, false, c, t); }
+        XF.activeLine(tl, sets[i], 2, t, ...RC); XF.activeLine(tl, sets[i], 4, t + 0.9, ...RC);
+        hi(i, true, c, t); tl.set("#vd" + i, { opacity: 1 }, t + 1.0); sayK("r" + (i + 1), t + 1.0);
+      });
+      hi(3, false, "", 10.2);
+      // paso 2: % alineado
+      badge(2, 10.6); tl.set("#mt", { opacity: 1 }, 10.6); sayK("r5", 11.0);
+      // paso 3: decidir
+      badge(3, 12.8); hi(2, true, "#fbbf24", 12.8); sayK("r6", 13.0);
+      tl.fromTo("#fill", { width: "92%" }, { width: "94.4%", duration: 0.8, ease: "steps(6)" }, 13.4); XF.only(tl, mtx, mtx[1], 14.2); hi(2, false, "", 14.4);
+      sayK("r7", 15.0); tl.set("#dec", { opacity: 1 }, 15.0); badge(4, 15.0); XF.activeLine(tl, sets[3], 0, 17.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 39, yoyo: true }, 0);
+      tl.set({}, {}, 20);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

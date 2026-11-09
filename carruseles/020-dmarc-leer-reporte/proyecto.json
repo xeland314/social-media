@@ -1,0 +1,64 @@
+{
+  "id": "p020",
+  "name": "020 DMARC: cómo leer un reporte",
+  "lastModified": 1794200595766,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Cómo leer un reporte DMARC",
+        "subtitle": "Quién envía correo como tú",
+        "category": "SEGURIDAD · CORREO",
+        "iconChar": "📊"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Qué es\n\nEl reporte agregado (`rua`) lista **cada fuente** que envió correo con tu dominio y si pasó SPF y DKIM.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Las columnas\n\n| Fuente | SPF | DKIM |\n| --- | --- | --- |\n| 203.0.113.10 | pass | pass |\n| 198.51.100.7 | fail | pass |\n| 192.0.2.44 | fail | fail |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Alinear\n\nBasta que **uno** de los dos alinee con el dominio del `From`.\n\nSPF fail + DKIM pass → **aprobado**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Tres tipos de fuente\n\n- **Propia**: todo bien\n- **Olvidada** (CRM, newsletter): legítima, hay que arreglarla\n- **Desconocida**: suplantación",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Decidir\n\nCalcula el **% alineado**. Si lo único que falla es lo que no reconoces, sube la política: `quarantine` y luego `reject`.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "end",
+        "firstText": "¿Ya lees tus",
+        "secondText": "reportes DMARC?",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "SEGURIDAD • CORREO • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

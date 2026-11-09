@@ -1,0 +1,62 @@
+{
+  "id": "020",
+  "slug": "dmarc-leer-reporte",
+  "title": "DMARC: cómo leer un reporte",
+  "series": "ti",
+  "calendarDay": 18,
+  "status": "rendered",
+  "publishDate": "2026-12-03",
+  "durationSec": 20,
+  "hook": "El reporte DMARC te dice quién envía como tú.",
+  "topicTags": [
+    "#dmarc",
+    "#reporte",
+    "#spf",
+    "#dkim"
+  ],
+  "sourceAnimation": "(original, serie TI)",
+  "carousel": {
+    "path": "carruseles/020-dmarc-leer-reporte",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Cómo leer un reporte DMARC: mira cada fuente, revisa SPF y DKIM, calcula el % alineado y decide si subes la política. Ejemplo con datos ficticios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Leer un reporte DMARC 🛡️\n\n1. Fuente (IP): ¿es tuya, olvidada o desconocida?\n2. SPF/DKIM: basta que uno alinee.\n3. % alineado: ¿el resto es suplantación?\n\nSi solo falla lo falso, sube la política. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un reporte DMARC es una lista de quién envió correo con tu dominio. Si lo único que falla es lo que no reconoces, ya puedes subir la política.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo se lee un reporte agregado de DMARC (rua)? Fuente, SPF, DKIM y porcentaje alineado. Animación con un caso ficticio.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Cómo leer un reporte DMARC (rua): fuentes, SPF, DKIM y %",
+      "text": "Cuatro fuentes ficticias: una propia, una que alinea por DKIM, un CRM olvidado y una suplantación. Cómo decidir cuándo subir la política.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Leer reporte DMARC",
+      "text": "DMARC 报告：逐个查看来源、SPF 和 DKIM，计算对齐比例，再决定是否升级策略。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "解读 DMARC 报告",
+      "textZh": "查看每个发送来源的 SPF 与 DKIM 是否对齐；只要剩下的失败都是伪造邮件，就可以提高策略。"
+    }
+  }
+}

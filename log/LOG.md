@@ -23,6 +23,7 @@
 | 017 | [HTTP/2: multiplexación](../videos/017-http2-multiplexing/) | redes | rendered | 23 | — |
 | 018 | [HTTP/2: HPACK](../videos/018-http2-hpack/) | redes | rendered | 25 | — |
 | 019 | [DMARC: de p=none a reject](../videos/019-dmarc-none-a-reject/) | ti | rendered | 15 | — |
+| 020 | [DMARC: cómo leer un reporte](../videos/020-dmarc-leer-reporte/) | ti | rendered | 18 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1188,4 +1189,66 @@ DMARC：先用 p=none 观察，修复 SPF/DKIM，再到隔离，最后拒绝。�
 不要直接设置 p=reject：先 p=none 观察报告，修复合法邮件的问题，再依次升级到 quarantine 和 reject。
 
 #dmarc #spf #dkim #IT运维 #网络安全
+```
+
+## 020 · DMARC: cómo leer un reporte
+
+- **Carpeta:** `videos/020-dmarc-leer-reporte/`  ·  **Estado:** rendered  ·  **Duración:** 20 s
+- **Gancho:** El reporte DMARC te dice quién envía como tú.
+- **Carrusel:** `carruseles/020-dmarc-leer-reporte` (pending)
+
+### TikTok
+```text
+Cómo leer un reporte DMARC: mira cada fuente, revisa SPF y DKIM, calcula el % alineado y decide si subes la política. Ejemplo con datos ficticios.
+
+#dmarc #reporte #spf #dkim #xeland314
+```
+
+### Instagram
+```text
+Leer un reporte DMARC 🛡️
+
+1. Fuente (IP): ¿es tuya, olvidada o desconocida?
+2. SPF/DKIM: basta que uno alinee.
+3. % alineado: ¿el resto es suplantación?
+
+Si solo falla lo falso, sube la política. Guárdalo.
+
+#dmarc #reporte #spf #dkim #xeland314
+```
+
+### Threads
+```text
+Un reporte DMARC es una lista de quién envió correo con tu dominio. Si lo único que falla es lo que no reconoces, ya puedes subir la política.
+
+#dmarc
+```
+
+### Facebook
+```text
+¿Cómo se lee un reporte agregado de DMARC (rua)? Fuente, SPF, DKIM y porcentaje alineado. Animación con un caso ficticio.
+
+#dmarc #reporte #xeland314
+```
+
+### YouTube
+**Título:** Cómo leer un reporte DMARC (rua): fuentes, SPF, DKIM y %
+
+```text
+Cuatro fuentes ficticias: una propia, una que alinea por DKIM, un CRM olvidado y una suplantación. Cómo decidir cuándo subir la política.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#dmarc #reporte #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Leer reporte DMARC | 解读 DMARC 报告
+
+```text
+DMARC 报告：逐个查看来源、SPF 和 DKIM，计算对齐比例，再决定是否升级策略。
+
+查看每个发送来源的 SPF 与 DKIM 是否对齐；只要剩下的失败都是伪造邮件，就可以提高策略。
+
+#dmarc #reporte #spf #IT运维 #网络安全
 ```

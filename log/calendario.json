@@ -124,8 +124,7 @@
       "dia": 17
     },
     {
-      "video": null,
-      "build": true,
+      "video": "020",
       "tema": "DMARC: cómo leer un reporte de seguimiento",
       "serie": "ti",
       "carrusel": "Qué mirar: fuentes, alineación, % de fallos → cuándo subir la política",
