@@ -1,0 +1,70 @@
+{
+  "id": "p024",
+  "name": "024 Ecuaciones en Word",
+  "lastModified": 1794201102364,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Ecuaciones en Word con Python",
+        "subtitle": "LaTeX → MathML → OMML",
+        "category": "WORD · ECUACIONES",
+        "iconChar": "📐"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nUna ecuación como **imagen** no se puede editar en Word.\n\nQueremos el objeto nativo: **OMML**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## 1 · Marcar\n\n```text\nLa solución es\n[MATH]\\frac{x+1}{2}[/MATH]\ndel total.\n```\nLa marca dice dónde va cada ecuación.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 2 · Extraer\n\nCada marca se reemplaza por un **marcador**:\n\n```text\n@@EQ_001@@\n```\nEl LaTeX se guarda aparte.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## 3 · Convertir\n\n```text\nLaTeX → MathML\n(latex2mathml)\nMathML → OMML\n(mathml2omml)\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## 4 · Inyectar\n\nCon `python-docx` se busca el marcador y se inserta el nodo OMML **dentro del párrafo**.\n\nWord lo muestra como ecuación editable.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Cuidado\n\n- Escapa `%` como `\\%` (LaTeX lo toma como comentario)\n- `\\vec` → `\\mathbf`\n- Si falla, reintenta simple o deja el LaTeX",
+        "fontScale": 1.35
+      },
+      {
+        "id": "8",
+        "type": "end",
+        "firstText": "Ecuaciones",
+        "secondText": "editables",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "WORD • ECUACIONES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

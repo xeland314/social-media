@@ -27,6 +27,7 @@
 | 021 | [Wi-Fi: un solo SSID (roaming)](../videos/021-wifi-un-solo-ssid/) | ti | rendered | 22 | — |
 | 022 | [Wi-Fi: cómo se audita una red](../videos/022-wifi-auditoria/) | ti | rendered | 24 | — |
 | 023 | [Informes: YAML a PDF con WeasyPrint](../videos/023-informes-yaml-pdf/) | ti | rendered | 26 | — |
+| 024 | [Ecuaciones en Word: LaTeX a OMML](../videos/024-ecuaciones-word/) | ti | rendered | 27 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1442,4 +1443,68 @@ Más animaciones: https://xeland314.github.io/animations
 把内容（YAML）和设计（Jinja2 模板）分开，用 WeasyPrint 输出 PDF；换一个 YAML 就得到新报告。
 
 #weasyprint #python #yaml #IT运维 #网络安全
+```
+
+## 024 · Ecuaciones en Word: LaTeX a OMML
+
+- **Carpeta:** `videos/024-ecuaciones-word/`  ·  **Estado:** rendered  ·  **Duración:** 22 s
+- **Gancho:** Ecuaciones editables en Word: de LaTeX a OMML con Python.
+- **Carrusel:** `carruseles/024-ecuaciones-word` (pending)
+
+### TikTok
+```text
+Cómo meter ecuaciones de verdad en Word con Python: marcas [MATH], LaTeX a MathML, MathML a OMML e inyección en el párrafo. Resultado: ecuación editable, no una imagen.
+
+#word #latex #python #ecuaciones #xeland314
+```
+
+### Instagram
+```text
+Ecuaciones en Word con Python 📐
+
+1. [MATH]…[/MATH] marca la ecuación
+2. Se extrae a un marcador
+3. LaTeX → MathML (latex2mathml)
+4. MathML → OMML (mathml2omml)
+5. Se inyecta en el párrafo
+
+Ecuación editable en Word. Guárdalo.
+
+#word #latex #python #ecuaciones #xeland314
+```
+
+### Threads
+```text
+Para que una ecuación en Word sea editable (no una imagen) hay que convertir LaTeX a MathML y luego a OMML, y meter ese XML dentro del párrafo con python-docx.
+
+#word
+```
+
+### Facebook
+```text
+¿Cómo se generan ecuaciones nativas de Word desde Python? LaTeX → MathML → OMML y un marcador en el texto. Animación del flujo completo.
+
+#word #latex #xeland314
+```
+
+### YouTube
+**Título:** Ecuaciones en Word con Python: LaTeX → MathML → OMML
+
+```text
+Marcas [MATH], extracción a marcadores, latex2mathml, mathml2omml e inyección en el párrafo con python-docx. Ejemplo genérico con una fracción.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#word #latex #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Ecuaciones en Word | 用 Python 在 Word 中插入公式
+
+```text
+[MATH] 标记公式，LaTeX 转 MathML 再转 OMML，注入段落：得到可编辑的 Word 公式，而不是图片。
+
+先用标记找到公式，再用 latex2mathml 和 mathml2omml 转换，最后用 python-docx 写入段落，生成可编辑的原生公式。
+
+#word #latex #python #IT运维 #网络安全
 ```

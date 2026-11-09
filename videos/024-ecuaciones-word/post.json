@@ -1,0 +1,62 @@
+{
+  "id": "024",
+  "slug": "ecuaciones-word",
+  "title": "Ecuaciones en Word: LaTeX a OMML",
+  "series": "ti",
+  "calendarDay": 27,
+  "status": "rendered",
+  "publishDate": "2026-12-12",
+  "durationSec": 22,
+  "hook": "Ecuaciones editables en Word: de LaTeX a OMML con Python.",
+  "topicTags": [
+    "#word",
+    "#latex",
+    "#python",
+    "#ecuaciones"
+  ],
+  "sourceAnimation": "(original, serie TI)",
+  "carousel": {
+    "path": "carruseles/024-ecuaciones-word",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Cómo meter ecuaciones de verdad en Word con Python: marcas [MATH], LaTeX a MathML, MathML a OMML e inyección en el párrafo. Resultado: ecuación editable, no una imagen.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Ecuaciones en Word con Python 📐\n\n1. [MATH]…[/MATH] marca la ecuación\n2. Se extrae a un marcador\n3. LaTeX → MathML (latex2mathml)\n4. MathML → OMML (mathml2omml)\n5. Se inyecta en el párrafo\n\nEcuación editable en Word. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Para que una ecuación en Word sea editable (no una imagen) hay que convertir LaTeX a MathML y luego a OMML, y meter ese XML dentro del párrafo con python-docx.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo se generan ecuaciones nativas de Word desde Python? LaTeX → MathML → OMML y un marcador en el texto. Animación del flujo completo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Ecuaciones en Word con Python: LaTeX → MathML → OMML",
+      "text": "Marcas [MATH], extracción a marcadores, latex2mathml, mathml2omml e inyección en el párrafo con python-docx. Ejemplo genérico con una fracción.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Ecuaciones en Word",
+      "text": "[MATH] 标记公式，LaTeX 转 MathML 再转 OMML，注入段落：得到可编辑的 Word 公式，而不是图片。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "用 Python 在 Word 中插入公式",
+      "textZh": "先用标记找到公式，再用 latex2mathml 和 mathml2omml 转换，最后用 python-docx 写入段落，生成可编辑的原生公式。"
+    }
+  }
+}

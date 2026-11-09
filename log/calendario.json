@@ -188,8 +188,7 @@
       "dia": 26
     },
     {
-      "video": null,
-      "build": true,
+      "video": "024",
       "tema": "Ecuaciones en Word: LaTeX → MathML → OMML",
       "serie": "ti",
       "carrusel": "El truco: marcadores [MATH] → OMML nativo editable",

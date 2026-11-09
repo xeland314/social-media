@@ -32,17 +32,16 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 | 24 | mié 12-09 | Wi-Fi: cómo se audita una red | ti | ✅ 022 · 19 s | Lista de revisión: canales, potencia, DHCP, solapamientos |
 | 25 | jue 12-10 | HTTP/2: HPACK | redes | ✅ 018 · 22 s | Tabla dinámica → 128 B pasan a 24 B |
 | 26 | vie 12-11 | Mi flujo de informes: YAML → HTML → PDF (WeasyPrint) | ti | ✅ 023 · 21 s | Plantilla + datos + generador → por qué separar contenido y diseño |
-| 27 | sáb 12-12 | Ecuaciones en Word: LaTeX → MathML → OMML | ti | 🛠️ por construir | El truco: marcadores [MATH] → OMML nativo editable |
+| 27 | sáb 12-12 | Ecuaciones en Word: LaTeX → MathML → OMML | ti | ✅ 024 · 22 s | El truco: marcadores [MATH] → OMML nativo editable |
 | 28 | dom 12-13 | Recopilatorio de la semana | recap | ♻️ recopilatorio (clips + carrusel) | Top 3 de la semana + el mejor de las series Linux y TI |
 | 29 | lun 12-14 | De una semana de trabajo a minutos: informes en lote | ti | 🛠️ por construir | Excel → puntuar → texto → PDF en paralelo (sin marca ni cliente) |
 | 30 | mar 12-15 | Balance del mes | recap | ♻️ recopilatorio (clips + carrusel) | Top 5 por métricas → qué viene en el mes 2 |
 
 ## Qué hay que construir y para cuándo
 
-- Día 27 (2026-12-12): **Ecuaciones en Word: LaTeX → MathML → OMML** — debe estar renderizado la víspera (día 26).
 - Día 29 (2026-12-14): **De una semana de trabajo a minutos: informes en lote** — debe estar renderizado la víspera (día 28).
 
-El primero se necesita el día 27: construirlo durante la semana 1, que ya tiene todo hecho.
+El primero se necesita el día 29: construirlo durante la semana 1, que ya tiene todo hecho.
 
 ## Ritmo y revisión
 

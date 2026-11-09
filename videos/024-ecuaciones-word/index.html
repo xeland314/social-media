@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 44px; font-size: 27px; }
+      #codeBody { position: relative; height: 200px; }
+      .set { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
+      #card { left: 72px; top: 690px; width: 936px; height: 740px; }
+      .sg { position: absolute; left: 30px; width: 876px; height: 58px; border: 4px solid var(--line); background: var(--panel-2); opacity: .5; display: flex; align-items: center; gap: 18px; padding: 0 16px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--ink); }
+      .sg i { font-style: normal; font-family: var(--font-display); font-size: 24px; color: var(--accent); width: 40px; }
+      #pg { position: absolute; left: 30px; top: 360px; width: 876px; height: 280px; background: #f9e6c6; border: 5px solid #483025; }
+      #pg .ti { position: absolute; left: 24px; top: 18px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: #7a3410; }
+      #ln { position: absolute; left: 24px; right: 24px; top: 100px; height: 120px; }
+      #ln .stk { color: #2a1a12; font-family: var(--font-code); font-weight: 600; font-size: 26px; line-height: 120px; }
+      #ln .eq { display: flex; align-items: center; gap: 14px; font-size: 34px; }
+      .fr { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.1; }
+      .fr u { display: block; width: 100%; height: 4px; background: #2a1a12; text-decoration: none; margin: 4px 0; }
+      #foot { position: absolute; left: 30px; right: 30px; bottom: 16px; height: 62px; border: 5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); opacity: 0; }
+      #term { left: 72px; top: 1450px; width: 936px; height: 290px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="22" data-track-index="0">WORD · ECUACIONES</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="22" data-track-index="1">Ecuaciones en Word:<br />LaTeX → OMML</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="22" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">pregunta.txt</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="22" data-track-index="3">
+        <div class="sg" id="sg0" style="top:16px"><i>1</i>MARCAR [MATH]</div><div class="sg" id="sg1" style="top:84px"><i>2</i>EXTRAER MARCADOR</div><div class="sg" id="sg2" style="top:152px"><i>3</i>LATEX → MATHML</div><div class="sg" id="sg3" style="top:220px"><i>4</i>MATHML → OMML</div><div class="sg" id="sg4" style="top:288px"><i>5</i>INYECTAR EN WORD</div>
+        <div id="pg"><div class="ti">PÁGINA DE WORD</div><div id="ln"></div></div>
+        <div id="foot">Ecuación editable, no una imagen</div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="22" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="22" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="22" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="4.0" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="8.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="10.0" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="12.0" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/whoosh.wav" data-start="15.4" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud7" src="shared/audio/confirm.wav" data-start="17.6" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const mk = (el, lines) => { el.innerHTML = lines.map((h, i) => `<div class="code-line" data-id="${i + 1}"><span class="code-ln">${i + 1}</span><span>${h}</span></div>`).join(""); return [...el.children]; };
+      const T = (n) => `${Mu("&lt;")}${F(n)}${Mu("&gt;")}`;
+      const SETS = [
+        [`La solución es ${K("[MATH]")}\\frac{x+1}{2}${K("[/MATH]")}`, "del total.", Mu("# marca dónde va cada ecuación"), ""],
+        [`La solución es ${N("@@EQ_001@@")}`, "del total.", `${N("EQ_001")} = \\frac{x+1}{2}`, Mu("# el LaTeX se guarda aparte")],
+        [`${T("mfrac")}`, `  ${T("mrow")}${T("mi")}x${T("mo")}+${T("mn")}1${T("mrow")}`, `  ${T("mn")}2`, `${T("/mfrac")}`],
+        [`${T("m:f")}`, `  ${T("m:num")} x+1 ${T("/m:num")}`, `  ${T("m:den")} 2 ${T("/m:den")}`, `${T("/m:f")}`],
+      ];
+      const sets = SETS.map((ls, i) => { const el = document.createElement("div"); el.className = "set"; el.id = "set" + i; $("#codeBody").append(el); return mk(el, ls); });
+      const fn = $(".code-file"); fn.innerHTML = ["pregunta.txt", "extraer.py", "mathml", "omml"].map((n, i) => `<span class="stk" id="fn${i}" style="text-align:left;opacity:${i ? 0 : 1}">${n}</span>`).join("");
+      const swap = (i, t) => { [0, 1, 2, 3].forEach((k) => { tl.set("#set" + k, { opacity: k === i ? 1 : 0 }, t); tl.set("#fn" + k, { opacity: k === i ? 1 : 0 }, t); }); };
+      const COL = ["#f1a449", "#c084fc", "#3fd0e0", "#fbbf24", "#7cfb4c"];
+      const badge = mkBadges([["1 · MARCAR", COL[0]], ["2 · EXTRAER", COL[1]], ["3 · MATHML", COL[2]], ["4 · OMML", COL[3]], ["5 · INYECTAR", COL[4]], ["ECUACIÓN LISTA", OK]]);
+      const lit = (i, t) => { [0, 1, 2, 3, 4].forEach((k) => tl.set("#sg" + k, k <= i ? { opacity: 1, borderColor: k === i ? COL[k] : "#483025", backgroundColor: k === i ? "rgba(255,255,255,.07)" : "#32231a" } : { opacity: 0.5 }, t)); };
+      const ln = XF.stack($("#ln"), [`La solución es [MATH]\\frac{x+1}{2}[/MATH] del total.`, `La solución es @@EQ_001@@ del total.`,
+        `<span class="eq">La solución es <span class="fr"><span>x+1</span><u></u><span>2</span></span> del total.</span>`]);
+      ln[2].style.fontFamily = "var(--font-code)"; XF.only(tl, ln, ln[0], 0);
+      mkTerm([["e1", "[MATH]…[/MATH] marca dónde va la ecuación", "#f1a449"], ["e2", "extraer → @@EQ_001@@ (LaTeX aparte)", PU], ["e3", "sanear: \\vec→\\mathbf, % → \\%", GR], ["e4", "latex2mathml → &lt;mfrac&gt;…&lt;/mfrac&gt;", CY], ["e5", "mathml2omml → &lt;m:f&gt;…&lt;/m:f&gt;", AM], ["e6", "inyectar OMML en el párrafo de Word", OK], ["e7", "si falla: reintenta simple o deja el LaTeX", MU]]);
+      let shown = []; const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 5) tl.set("#" + shown[shown.length - 6], { display: "none" }, t); };
+      const YC = (c) => [c, "rgba(255,255,255,.10)"];
+
+      badge(0, 0.2); swap(0, 0.3); lit(0, 0.5); XF.activeLine(tl, sets[0], 1, 0.6, ...YC(COL[0])); sayK("e1", 0.8);
+      badge(1, 4.0); swap(1, 4.0); lit(1, 4.0); XF.only(tl, ln, ln[1], 4.2); XF.activeLine(tl, sets[1], 1, 4.2, ...YC(COL[1])); sayK("e2", 4.3);
+      badge(2, 8.0); swap(2, 8.0); lit(2, 8.0); XF.activeLine(tl, sets[2], 1, 8.2, ...YC(COL[2])); sayK("e3", 8.3); sayK("e4", 10.0);
+      badge(3, 12.0); swap(3, 12.0); lit(3, 12.0); XF.activeLine(tl, sets[3], 1, 12.2, ...YC(COL[3])); sayK("e5", 12.3);
+      badge(4, 15.4); lit(4, 15.4); XF.only(tl, ln, ln[2], 15.8); sayK("e6", 15.6);
+      badge(5, 17.6); tl.set("#foot", { opacity: 1 }, 17.6); sayK("e7", 18.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 43, yoyo: true }, 0);
+      tl.set({}, {}, 22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
