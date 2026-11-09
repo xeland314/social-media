@@ -20,6 +20,8 @@
 | 014 | [Python: return vs yield](../videos/014-yield-return/) | python | rendered | 13 | — |
 | 015 | [Python: match/case](../videos/015-match-case/) | python | rendered | 14 | — |
 | 016 | [Python: with (context manager)](../videos/016-python-with/) | python | rendered | 15 | — |
+| 017 | [HTTP/2: multiplexación](../videos/017-http2-multiplexing/) | redes | rendered | 16 | — |
+| 018 | [HTTP/2: HPACK](../videos/018-http2-hpack/) | redes | rendered | 17 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -999,4 +1001,127 @@ with abre con __enter__ y cierra con __exit__, aunque haya error.
 with 用 __enter__ 打开、__exit__ 关闭，即使代码出错也会关闭。
 
 #python #with #contextmanager #编程 #程序员
+```
+
+## 017 · HTTP/2: multiplexación
+
+- **Carpeta:** `videos/017-http2-multiplexing/`  ·  **Estado:** rendered  ·  **Duración:** 22 s
+- **Gancho:** HTTP/1.1 abre tres conexiones. HTTP/2 manda todo por una.
+- **Carrusel:** `carruseles/017-http2-multiplexing` (pending)
+
+### TikTok
+```text
+HTTP/1.1 usa una conexión por petición y espera cada respuesta. HTTP/2 mete todo en una sola conexión con frames intercalados. Míralo lado a lado.
+
+#http2 #multiplexacion #redes #webperformance #xeland314
+```
+
+### Instagram
+```text
+HTTP/1.1 vs HTTP/2 🌐
+
+HTTP/1.1: una petición por conexión TCP, en fila.
+HTTP/2: frames intercalados (streams 1, 3 y 5) en UNA conexión.
+
+Guárdalo para entender por qué tu web carga más rápido.
+
+#http2 #multiplexacion #redes #webperformance #xeland314
+```
+
+### Threads
+```text
+HTTP/2 multiplexa: varios streams viajan intercalados por una sola conexión TCP. Se acabó esperar a que termine la petición anterior.
+
+#http2
+```
+
+### Facebook
+```text
+¿Qué es la multiplexación en HTTP/2? Varias peticiones comparten una conexión con frames intercalados. Animación comparando con HTTP/1.1.
+
+#http2 #multiplexacion #xeland314
+```
+
+### YouTube
+**Título:** HTTP/2 multiplexación explicada (vs HTTP/1.1)
+
+```text
+HTTP/1.1 abre una conexión por petición; HTTP/2 intercala frames de varios streams en una sola conexión TCP.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#http2 #multiplexacion #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** HTTP/2 multiplexar | HTTP/2 多路复用
+
+```text
+HTTP/1.1 一个请求一个连接；HTTP/2 在一个连接里交错传输多个流。
+
+HTTP/1.1 每个请求占用一条连接；HTTP/2 在同一条 TCP 连接中交错发送多个流的帧。
+
+#http2 #multiplexacion #redes #网络 #计算机网络
+```
+
+## 018 · HTTP/2: HPACK
+
+- **Carpeta:** `videos/018-http2-hpack/`  ·  **Estado:** rendered  ·  **Duración:** 22 s
+- **Gancho:** HPACK reduce 128 bytes de cabeceras a 24.
+- **Carrusel:** `carruseles/018-http2-hpack` (pending)
+
+### TikTok
+```text
+HPACK comprime las cabeceras de HTTP/2: la primera petición guarda cada header en una tabla y la segunda solo manda índices. De 128 bytes a 24.
+
+#http2 #hpack #cabeceras #redes #xeland314
+```
+
+### Instagram
+```text
+HPACK en HTTP/2 🌐
+
+Request 1: guarda los headers en una tabla dinámica (#62, #63, #64).
+Request 2: solo manda los índices.
+128 B → 24 B (-81 %).
+
+Guárdalo para entender la compresión de cabeceras.
+
+#http2 #hpack #cabeceras #redes #xeland314
+```
+
+### Threads
+```text
+HPACK: cliente y servidor comparten una tabla de cabeceras. Después de la primera petición, repetir un header cuesta apenas un índice.
+
+#http2
+```
+
+### Facebook
+```text
+¿Cómo comprime HTTP/2 las cabeceras? Con HPACK: tablas compartidas y códigos Huffman. Animación con el antes y el después en bytes.
+
+#http2 #hpack #xeland314
+```
+
+### YouTube
+**Título:** HPACK explicado: compresión de cabeceras en HTTP/2
+
+```text
+La primera petición llena la tabla dinámica y la segunda solo envía índices: 128 bytes pasan a 24.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#http2 #hpack #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** HTTP/2 HPACK | HPACK 头部压缩
+
+```text
+HPACK：第一次请求建立动态表，第二次只发送索引，128 字节降到 24 字节。
+
+HPACK 让客户端与服务器共享头部表：首个请求写入表，之后只需发送索引，体积从 128 B 降到 24 B。
+
+#http2 #hpack #cabeceras #网络 #计算机网络
 ```

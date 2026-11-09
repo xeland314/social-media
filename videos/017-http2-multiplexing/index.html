@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 52px; font-size: 30px; }
+      #codeBody { position: relative; height: 208px; }
+      .set { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
+      #card { left: 72px; top: 710px; width: 936px; height: 540px; }
+      .end { position: absolute; top: 140px; width: 200px; height: 220px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--ink); background: var(--panel-2); border: var(--px) solid var(--line); }
+      #cli { left: 20px; } #srv { right: 20px; }
+      .ln { position: absolute; left: 230px; width: 476px; height: 100px; border: 4px solid var(--line); background: rgba(0,0,0,.25); opacity: 0; }
+      .ln .lb { position: absolute; left: 12px; top: 4px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .ln .ok { position: absolute; right: 12px; top: 4px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--sem-ok); opacity: 0; }
+      .fc { position: absolute; left: 0; top: 0; opacity: 0; padding: 4px 10px; font-size: 26px; white-space: nowrap; background: var(--panel-2); }
+      .sm { position: absolute; top: 440px; width: 270px; height: 64px; display: flex; align-items: center; justify-content: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; opacity: 0; border: 4px solid currentColor; }
+      #term { left: 72px; top: 1280px; width: 936px; height: 400px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="22" data-track-index="0">REDES · HTTP/2</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="22" data-track-index="1">HTTP/2:<br />multiplexación</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="22" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">http_1_1.txt</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="22" data-track-index="3">
+        <div class="end" id="cli">CLIENTE</div><div class="end" id="srv">SERVIDOR</div>
+        <div class="ln" id="ln0" style="top:60px"><span class="lb">TCP #1</span><span class="ok">200 OK</span></div>
+        <div class="ln" id="ln1" style="top:230px"><span class="lb">TCP #2</span><span class="lb" id="lb2" style="opacity:0">1 SOLA CONEXIÓN</span><span class="ok">200 OK</span></div>
+        <div class="ln" id="ln2" style="top:400px"><span class="lb">TCP #3</span><span class="ok">200 OK</span></div>
+        <div id="chips"></div>
+        <div class="sm" id="st1" style="left:24px;color:#3fd0e0">STREAM 1 ✓</div><div class="sm" id="st3" style="left:333px;color:#c084fc">STREAM 3 ✓</div><div class="sm" id="st5" style="left:642px;color:#facc15">STREAM 5 ✓</div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="22" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="22" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="22" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/packet.wav" data-start="1.0" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud3" src="shared/audio/packet.wav" data-start="2.5" data-duration="0.3" data-track-index="24" data-volume="0.6"></audio>
+      <audio id="aud4" src="shared/audio/confirm.wav" data-start="3.8" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud5" src="shared/audio/packet.wav" data-start="4.2" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud6" src="shared/audio/packet.wav" data-start="5.7" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud7" src="shared/audio/confirm.wav" data-start="7.0" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud8" src="shared/audio/packet.wav" data-start="7.4" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud9" src="shared/audio/packet.wav" data-start="8.9" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud10" src="shared/audio/confirm.wav" data-start="10.2" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud11" src="shared/audio/whoosh.wav" data-start="11.4" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud12" src="shared/audio/packet.wav" data-start="12.2" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud13" src="shared/audio/packet.wav" data-start="13.15" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud14" src="shared/audio/packet.wav" data-start="14.1" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud15" src="shared/audio/packet.wav" data-start="15.05" data-duration="0.3" data-track-index="24" data-volume="0.6"></audio>
+      <audio id="aud16" src="shared/audio/packet.wav" data-start="16.0" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud17" src="shared/audio/packet.wav" data-start="16.95" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud18" src="shared/audio/confirm.wav" data-start="18.4" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const G = (t) => `<span style="color:#f05032;font-weight:700">${t}</span>`;
+      const mk = (el, lines) => { el.innerHTML = lines.map((h, i) => `<div class="code-line" data-id="${i + 1}"><span class="code-ln">${i + 1}</span><span>${h}</span></div>`).join(""); return [...el.children]; };
+      const sA = document.createElement("div"); sA.className = "set"; sA.id = "sH1"; const sB = document.createElement("div"); sB.className = "set"; sB.id = "sH2";
+      $("#codeBody").append(sA, sB);
+      const A = mk(sA, [`${K("GET")} /index.html ${Mu("HTTP/1.1")}`, `${K("GET")} /style.css  ${Mu("HTTP/1.1")}`, `${K("GET")} /app.js    ${Mu("HTTP/1.1")}`, `${Mu("# una petición por conexión TCP")}`]);
+      const B = mk(sB, [`${F("HEADERS")}+${F("DATA")} ${Mu("→")} ${N("Stream 1")}`, `${F("HEADERS")}+${F("DATA")} ${Mu("→")} ${N("Stream 3")}`, `${F("HEADERS")}+${F("DATA")} ${Mu("→")} ${N("Stream 5")}`, `${Mu("# frames intercalados en UNA conexión")}`]);
+      const BL = ["#3b82f6", "rgba(59,130,246,.18)"], PC = [PU, "rgba(192,132,252,.16)"];
+      const badge = mkBadges([["HTTP/1.1 · SECUENCIAL", "#3b82f6"], ["3 CONEXIONES · LISTO", OK], ["MULTIPLEXANDO", PU], ["LISTO", OK]]);
+      const files = ["index.html", "style.css", "app.js"];
+      mkTerm([["a0", "── HTTP/1.1: una petición por conexión ──", MU],
+        ...files.flatMap((f, n) => [["a" + (1 + n * 3), `conexión #${n + 1} → GET /${f}`, "#93c5fd"], ["a" + (2 + n * 3), `esperando respuesta de /${f}…`, "#fca5a5"], ["a" + (3 + n * 3), `200 OK · /${f} descargado`, OK]]),
+        ["b0", "── HTTP/2: frames intercalados ──", MU], ["b1", "frame H1 → conexión única", "#7dd3fc"], ["b2", "frame H3 → conexión única", "#7dd3fc"], ["b3", "frame D1 → conexión única", "#7dd3fc"], ["b4", "Stream 1 completo", OK], ["b5", "frame H5 → conexión única", "#7dd3fc"], ["b6", "frame D3 → conexión única", "#7dd3fc"], ["b7", "Stream 3 completo", OK], ["b8", "frame D5 → conexión única", "#7dd3fc"], ["b9", "Stream 5 completo", OK], ["b10", "todo viajó en paralelo por 1 socket", "#e9d5ff"]]);
+      const rowsAll = [...$("#term").querySelectorAll(".term-row")].map((e) => e.id);
+      let shown = [];
+      const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 8) tl.set("#" + shown[shown.length - 9], { display: "none" }, t); };
+
+      // chips de petición / respuesta (fase HTTP/1.1) y frames (fase HTTP/2)
+      const chip = (id, text, color) => $("#chips").insertAdjacentHTML("beforeend", `<div class="fc px-chip" id="${id}" style="color:${color}">${text}</div>`);
+      files.forEach((f, n) => { chip("rq" + n, `GET /${f}`, "#93c5fd"); chip("rs" + n, `200 · ${f}`, "#7cfb4c"); });
+      const FR = [["H1", "#3fd0e0", 1], ["H3", "#c084fc", 3], ["D1", "#3fd0e0", 1], ["H5", "#facc15", 5], ["D3", "#c084fc", 3], ["D5", "#facc15", 5]];
+      FR.forEach(([t, c], i) => chip("fr" + i, t, c));
+      const X0 = 240, X1 = 230 + 476 - 6; // recorrido dentro del carril
+      const fly = (id, y, dir, t, d = 1.1) => { const w = $("#" + id).offsetWidth || 120; const a = dir > 0 ? X0 + 10 : X1 - w - 10, b = dir > 0 ? X1 - w - 10 : X0 + 10; tl.set("#" + id, { x: a, y, opacity: 1 }, t); tl.fromTo("#" + id, { x: a }, { x: b, duration: d, ease: "steps(9)" }, t); tl.set("#" + id, { opacity: 0 }, t + d + 0.2); };
+
+      // ===== HTTP/1.1 =====
+      tl.set("#sH1", { opacity: 1 }, 0); badge(0, 0.2); sayK("a0", 0.3);
+      files.forEach((f, n) => {
+        const t = 0.8 + n * 3.2, y = 60 + n * 170 + 42;
+        tl.set("#ln" + n, { opacity: 1 }, t);
+        XF.activeLine(tl, A, n + 1, t, ...BL); sayK("a" + (1 + n * 3), t);
+        fly("rq" + n, y, 1, t + 0.2);
+        sayK("a" + (2 + n * 3), t + 1.5);
+        fly("rs" + n, y, -1, t + 1.7);
+        sayK("a" + (3 + n * 3), t + 2.9); tl.set(`#ln${n} .ok`, { opacity: 1 }, t + 2.9); tl.set("#ln" + n, { borderColor: "#7cfb4c" }, t + 2.9);
+      });
+      XF.activeLine(tl, A, 4, 10.6, ...BL); badge(1, 10.6);
+      // ===== transición a HTTP/2 =====
+      const T2 = 11.4;
+      tl.set(["#ln0", "#ln2"], { opacity: 0 }, T2); tl.set("#ln1", { borderColor: "#c084fc" }, T2); tl.set("#ln1 .ok", { opacity: 0 }, T2);
+      tl.set("#sH1", { opacity: 0 }, T2); tl.set("#sH2", { opacity: 1 }, T2);
+      tl.set(shown.map((i) => "#" + i), { display: "none" }, T2);
+      document.querySelector(".code-file").innerHTML = `<span class="stk" id="fn1" style="opacity:1;text-align:left">http_1_1.txt</span><span class="stk" id="fn2" style="text-align:left">http_2_frames.txt</span>`;
+      tl.set("#fn1", { opacity: 0 }, T2); tl.set("#ln1 .lb:first-child", { opacity: 0 }, T2); tl.set("#lb2", { opacity: 1 }, T2); tl.set("#fn2", { opacity: 1 }, T2);
+      badge(2, T2); sayK("b0", T2 + 0.1);
+      FR.forEach(([t, c, s], i) => {
+        const tt = T2 + 0.8 + i * 0.95; fly("fr" + i, 230 + 42, 1, tt, 0.9);
+        XF.activeLine(tl, B, i < 2 ? 1 : i < 4 ? 2 : 3, tt, ...PC);
+        sayK("b" + [1, 2, 3, 5, 6, 8][i], tt + 0.1);
+        if (t === "D1") { tl.set("#st1", { opacity: 1 }, tt + 0.9); sayK("b4", tt + 0.95); }
+        if (t === "D3") { tl.set("#st3", { opacity: 1 }, tt + 0.9); sayK("b7", tt + 0.95); }
+        if (t === "D5") { tl.set("#st5", { opacity: 1 }, tt + 0.9); sayK("b9", tt + 0.95); }
+      });
+      XF.activeLine(tl, B, 4, 18.4, ...PC); badge(3, 18.4); sayK("b10", 18.5);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 43, yoyo: true }, 0);
+      tl.set({}, {}, 22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
