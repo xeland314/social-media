@@ -1,0 +1,64 @@
+{
+  "id": "p019",
+  "name": "019 DMARC: de p=none a reject",
+  "lastModified": 1794200140913,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "DMARC: de p=none a reject",
+        "subtitle": "La ruta segura, por fases",
+        "category": "SEGURIDAD · CORREO",
+        "iconChar": "🛡️"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Fase 1: p=none\n\n```text\n_dmarc.example.com TXT\n\"v=DMARC1; p=none;\n rua=mailto:dmarc@example.com\"\n```\nSolo **observa** y manda reportes.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Lee el reporte\n\n- ¿Qué % está alineado?\n- ¿Qué fuentes **desconocidas** envían como tú?\n\nArregla SPF y DKIM de lo legítimo antes de subir.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Fase 2: quarantine\n\n```text\np=quarantine\n```\nLo falso va a **spam**. Espera una semana sin falsos positivos.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Fase 3: reject\n\n```text\np=reject\n```\nLo falso se **rechaza** (`550 5.7.1`). Ya no llega a nadie.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Regla\n\n**Sube de nivel solo con el reporte limpio.**\n\nSaltar a `p=reject` sin mirar los reportes puede bloquear correo legítimo.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "end",
+        "firstText": "¿Ya está tu",
+        "secondText": "DMARC en reject?",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "SEGURIDAD • CORREO • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "019",
+  "slug": "dmarc-none-a-reject",
+  "title": "DMARC: de p=none a reject",
+  "series": "ti",
+  "calendarDay": 15,
+  "status": "rendered",
+  "publishDate": "2026-11-30",
+  "durationSec": 20,
+  "hook": "No saltes a p=reject: DMARC se sube por fases.",
+  "topicTags": [
+    "#dmarc",
+    "#spf",
+    "#dkim",
+    "#seguridadcorreo"
+  ],
+  "sourceAnimation": "(original, serie TI)",
+  "carousel": {
+    "path": "carruseles/019-dmarc-none-a-reject",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Cómo poner DMARC en p=reject sin romper tu correo: primero observa con p=none, arregla lo que falla, pasa a cuarentena y recién ahí rechaza. Caso con datos ficticios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "DMARC por fases 🛡️\n\n1. p=none: observa y lee los reportes (rua).\n2. Arregla SPF/DKIM de lo legítimo que falla.\n3. p=quarantine: lo falso va a spam.\n4. p=reject: se rechaza.\n\nGuárdalo para tu dominio.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Saltar directo a DMARC p=reject es la forma más rápida de perder correos legítimos. Empieza con p=none, lee los reportes y sube de nivel solo cuando estén limpios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo se pasa de p=none a p=reject en DMARC sin sorpresas? Con tres fases y un reporte semanal limpio. Animación con un caso ficticio.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "DMARC: de p=none a p=reject paso a paso (ruta segura)",
+      "text": "Observar con p=none, arreglar SPF y DKIM, pasar a cuarentena y luego rechazar. Caso ficticio con example.com.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "DMARC por fases",
+      "text": "DMARC：先用 p=none 观察，修复 SPF/DKIM，再到隔离，最后拒绝。虚构案例。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "DMARC 分阶段部署",
+      "textZh": "不要直接设置 p=reject：先 p=none 观察报告，修复合法邮件的问题，再依次升级到 quarantine 和 reject。"
+    }
+  }
+}

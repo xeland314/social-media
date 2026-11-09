@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 48px; font-size: 28px; }
+      #codeBody { position: relative; height: 224px; }
+      #card { left: 72px; top: 690px; width: 936px; height: 700px; }
+      .step { position: absolute; left: 30px; width: 560px; height: 124px; border: 5px solid var(--line); background: var(--panel-2); opacity: .55; }
+      .step b { position: absolute; left: 20px; top: 12px; font-family: var(--font-display); font-size: 28px; }
+      .step span { position: absolute; left: 20px; bottom: 12px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      #atk { position: absolute; left: 650px; top: 40px; width: 200px; height: 220px; }
+      #res { position: absolute; left: 610px; top: 290px; width: 300px; height: 80px; }
+      #res .stk { text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; }
+      #rep { position: absolute; left: 30px; top: 450px; width: 876px; }
+      #rep .lb { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      #bar { position: relative; margin-top: 14px; height: 50px; background: rgba(255,95,87,.5); border: 4px solid var(--line); }
+      #fill { position: absolute; left: 0; top: 0; bottom: 0; width: 82%; background: var(--sem-ok); }
+      #rt { position: relative; height: 44px; margin-top: 14px; }
+      #rt .stk { font-family: var(--font-code); font-weight: 800; font-size: 28px; color: var(--ink); }
+      #rule { position: absolute; left: 30px; right: 30px; bottom: 20px; height: 70px; border: 5px solid var(--accent); display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); opacity: 0; }
+      #term { left: 72px; top: 1410px; width: 936px; height: 330px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="20" data-track-index="0">SEGURIDAD · CORREO</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="20" data-track-index="1">DMARC: de p=none<br />a p=reject</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="20" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">dmarc.txt</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="20" data-track-index="3">
+        <div class="step" id="st0" style="top:24px"><b style="color:#facc15">p=none</b><span>observa y reporta</span></div>
+        <div class="step" id="st1" style="top:162px"><b style="color:#f1a449">p=quarantine</b><span>lo falso va a spam</span></div>
+        <div class="step" id="st2" style="top:300px"><b style="color:#7cfb4c">p=reject</b><span>rechaza lo falso</span></div>
+        <div id="atk"></div><div id="res"></div>
+        <div id="rep" style="opacity:0"><div class="lb">REPORTE SEMANAL (rua)</div><div id="bar"><div id="fill"></div></div><div id="rt"></div></div>
+        <div id="rule">Sube de nivel solo con el reporte limpio</div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="20" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="20" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="20" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="20" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.4" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="4.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="5.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/confirm.wav" data-start="7.0" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/whoosh.wav" data-start="8.6" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud7" src="shared/audio/error.wav" data-start="9.0" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="11.0" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/whoosh.wav" data-start="12.6" data-duration="0.6" data-track-index="22" data-volume="0.5"></audio>
+      <audio id="aud10" src="shared/audio/error.wav" data-start="13.0" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud11" src="shared/audio/confirm.wav" data-start="15.8" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const mk = (el, lines) => { el.innerHTML = lines.map((h, i) => `<div class="code-line" data-id="${i + 1}"><span class="code-ln">${i + 1}</span><span>${h}</span></div>`).join(""); return [...el.children]; };
+      const rows = mk($("#codeBody"), [`${F("_dmarc.example.com")} TXT`, "", `  rua=mailto:dmarc@example.com${S('"')}`, `${Mu("# observar → cuarentena → rechazar")}`]);
+      // línea 2: tres variantes apiladas
+      const l2 = rows[1].children[1]; l2.style.cssText = "position:relative;display:inline-block;width:700px;height:48px";
+      const pv = XF.stack(l2, [`${S('"v=DMARC1;')} <span style="color:#facc15">p=none;</span>`, `${S('"v=DMARC1;')} <span style="color:#f1a449">p=quarantine;</span>`, `${S('"v=DMARC1;')} <span style="color:#7cfb4c">p=reject;</span>`]);
+      pv.forEach((e) => { e.style.top = "0"; e.style.lineHeight = "48px"; }); XF.only(tl, pv, pv[0], 0);
+      const YC = ["#facc15", "rgba(250,204,21,.14)"], OC = ["#f1a449", "rgba(241,164,73,.16)"], GC = [OK, "rgba(124,251,76,.14)"];
+      const badge = mkBadges([["FASE 1 · OBSERVAR", "#facc15"], ["ARREGLAR SPF/DKIM", PU], ["FASE 2 · CUARENTENA", "#f1a449"], ["FASE 3 · RECHAZAR", OK], ["RUTA COMPLETA", OK]]);
+      $("#atk").innerHTML = SPR.attacker(8);
+      const L = (n) => $(`#atk [data-layer="${n}"]`);
+      gsap.set([L("angry"), L("vein")], { opacity: 0 });
+      const res = XF.stack($("#res"), ["ENTREGADO", "A SPAM", "RECHAZADO"]); res[0].style.color = RD; res[1].style.color = "#f1a449"; res[2].style.color = OK;
+      tl.set(res, { opacity: 0 }, 0);
+      const rt = XF.stack($("#rt"), ["82 % alineado · 1 fuente desconocida", "99 % alineado · 0 desconocidas"]); XF.only(tl, rt, rt[0], 0);
+      const stepOn = (i, c, t) => [0, 1, 2].forEach((k) => tl.set("#st" + k, k === i ? { opacity: 1, borderColor: c, backgroundColor: "rgba(255,255,255,.06)" } : { opacity: 0.45, borderColor: "#483025", backgroundColor: "#32231a" }, t));
+      mkTerm([["m1", "_dmarc.example.com → p=none", "#facc15"], ["m2", "reporte semanal: 82 % alineado", GR], ["m3", "fuente desconocida: newsletter.example.com", RD], ["m4", "newsletter: SPF y DKIM configurados", PU], ["m5", "reporte: 99 % alineado", OK],
+        ["m6", "p=quarantine → la suplantación va a spam", "#f1a449"], ["m7", "1 semana sin falsos positivos", OK], ["m8", "p=reject → 550 5.7.1 rechazado", OK], ["m9", "sube de nivel solo con el reporte limpio", AM]]);
+      let shown = []; const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 5) tl.set("#" + shown[shown.length - 6], { display: "none" }, t); };
+
+      // ===== Fase 1: observar =====
+      badge(0, 0.2); XF.activeLine(tl, rows, 1, 0.4, ...YC); XF.activeLine(tl, rows, 2, 1.0, ...YC); stepOn(0, "#facc15", 0.4); sayK("m1", 0.5);
+      XF.only(tl, res, res[0], 1.2);
+      tl.set("#rep", { opacity: 1 }, 2.2); sayK("m2", 2.4); sayK("m3", 4.0);
+      // arreglar
+      badge(1, 5.4); sayK("m4", 5.6);
+      tl.fromTo("#fill", { width: "82%" }, { width: "99%", duration: 1.0, ease: "steps(10)" }, 6.0); XF.only(tl, rt, rt[1], 7.0); sayK("m5", 7.0);
+      // ===== Fase 2: cuarentena =====
+      badge(2, 8.6); XF.activeLine(tl, rows, 3, 8.6, ...OC); XF.only(tl, pv, pv[1], 8.6); stepOn(1, "#f1a449", 8.6);
+      XF.only(tl, res, res[1], 9.0); tl.set(L("calm"), { opacity: 0 }, 9.0); tl.set(L("angry"), { opacity: 1 }, 9.0); sayK("m6", 9.2); sayK("m7", 11.0);
+      // ===== Fase 3: rechazar =====
+      badge(3, 12.6); XF.activeLine(tl, rows, 3, 12.6, ...GC); XF.only(tl, pv, pv[2], 12.6); stepOn(2, "#7cfb4c", 12.6);
+      XF.only(tl, res, res[2], 13.0); sayK("m8", 13.0);
+      for (let k = 0; k < 16; k++) tl.set(L("vein"), { opacity: k % 2 ? 0 : 1 }, 13.0 + k * 0.4);
+      for (let k = 0; k < 12; k++) tl.set("#atk", { x: k % 2 ? 6 : -6 }, 13.0 + k * 0.18); tl.set("#atk", { x: 0 }, 15.2);
+      // ===== regla =====
+      tl.set("#rule", { opacity: 1 }, 15.8); sayK("m9", 15.8); badge(4, 15.8); XF.activeLine(tl, rows, 0, 17.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 39, yoyo: true }, 0);
+      tl.set({}, {}, 20);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

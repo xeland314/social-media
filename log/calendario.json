@@ -103,8 +103,7 @@
       "dia": 14
     },
     {
-      "video": null,
-      "build": true,
+      "video": "019",
       "tema": "DMARC: de p=none a reject (ruta segura)",
       "serie": "ti",
       "carrusel": "none → quarantine → reject → cómo leer rua sin saltarse pasos",

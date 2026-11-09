@@ -20,7 +20,7 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 | 12 | vie 11-27 | Go: canal con buffer | go | ✅ 010 · 22 s | Buffer 2: bloqueo al llenarse y al vaciarse → productor/consumidor |
 | 13 | sáb 11-28 | Python: match/case | python | ✅ 015 · 19 s | if/elif vs match → patrones estructurales |
 | 14 | dom 11-29 | Recopilatorio de la semana | recap | ♻️ recopilatorio (clips + carrusel) | Top 3 de la semana → qué funcionó y qué viene |
-| 15 | lun 11-30 | DMARC: de p=none a reject (ruta segura) | ti | 🛠️ por construir | none → quarantine → reject → cómo leer rua sin saltarse pasos |
+| 15 | lun 11-30 | DMARC: de p=none a reject (ruta segura) | ti | ✅ 019 · 20 s | none → quarantine → reject → cómo leer rua sin saltarse pasos |
 | 16 | mar 12-01 | Go: defer (LIFO) | go | ✅ 011 · 20 s | Pila LIFO → la trampa de defer dentro de un for |
 | 17 | mié 12-02 | umask: restar permisos | linux | ✅ 008 · 20 s | 666/777 & ~máscara → tabla 022 vs 077 |
 | 18 | jue 12-03 | DMARC: cómo leer un reporte de seguimiento | ti | 🛠️ por construir | Qué mirar: fuentes, alineación, % de fallos → cuándo subir la política |
@@ -39,7 +39,6 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 
 ## Qué hay que construir y para cuándo
 
-- Día 15 (2026-11-30): **DMARC: de p=none a reject (ruta segura)** — debe estar renderizado la víspera (día 14).
 - Día 18 (2026-12-03): **DMARC: cómo leer un reporte de seguimiento** — debe estar renderizado la víspera (día 17).
 - Día 22 (2026-12-07): **Wi-Fi: un solo SSID (roaming)** — debe estar renderizado la víspera (día 21).
 - Día 24 (2026-12-09): **Wi-Fi: cómo se audita una red** — debe estar renderizado la víspera (día 23).
@@ -47,7 +46,7 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 - Día 27 (2026-12-12): **Ecuaciones en Word: LaTeX → MathML → OMML** — debe estar renderizado la víspera (día 26).
 - Día 29 (2026-12-14): **De una semana de trabajo a minutos: informes en lote** — debe estar renderizado la víspera (día 28).
 
-El primero se necesita el día 15: construirlo durante la semana 1, que ya tiene todo hecho.
+El primero se necesita el día 18: construirlo durante la semana 1, que ya tiene todo hecho.
 
 ## Ritmo y revisión
 

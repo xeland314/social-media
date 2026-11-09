@@ -22,6 +22,7 @@
 | 016 | [Python: with (context manager)](../videos/016-python-with/) | python | rendered | 20 | — |
 | 017 | [HTTP/2: multiplexación](../videos/017-http2-multiplexing/) | redes | rendered | 23 | — |
 | 018 | [HTTP/2: HPACK](../videos/018-http2-hpack/) | redes | rendered | 25 | — |
+| 019 | [DMARC: de p=none a reject](../videos/019-dmarc-none-a-reject/) | ti | rendered | 15 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1124,4 +1125,67 @@ HPACK：第一次请求建立动态表，第二次只发送索引，128 字节�
 HPACK 让客户端与服务器共享头部表：首个请求写入表，之后只需发送索引，体积从 128 B 降到 24 B。
 
 #http2 #hpack #cabeceras #网络 #计算机网络
+```
+
+## 019 · DMARC: de p=none a reject
+
+- **Carpeta:** `videos/019-dmarc-none-a-reject/`  ·  **Estado:** rendered  ·  **Duración:** 20 s
+- **Gancho:** No saltes a p=reject: DMARC se sube por fases.
+- **Carrusel:** `carruseles/019-dmarc-none-a-reject` (pending)
+
+### TikTok
+```text
+Cómo poner DMARC en p=reject sin romper tu correo: primero observa con p=none, arregla lo que falla, pasa a cuarentena y recién ahí rechaza. Caso con datos ficticios.
+
+#dmarc #spf #dkim #seguridadcorreo #xeland314
+```
+
+### Instagram
+```text
+DMARC por fases 🛡️
+
+1. p=none: observa y lee los reportes (rua).
+2. Arregla SPF/DKIM de lo legítimo que falla.
+3. p=quarantine: lo falso va a spam.
+4. p=reject: se rechaza.
+
+Guárdalo para tu dominio.
+
+#dmarc #spf #dkim #seguridadcorreo #xeland314
+```
+
+### Threads
+```text
+Saltar directo a DMARC p=reject es la forma más rápida de perder correos legítimos. Empieza con p=none, lee los reportes y sube de nivel solo cuando estén limpios.
+
+#dmarc
+```
+
+### Facebook
+```text
+¿Cómo se pasa de p=none a p=reject en DMARC sin sorpresas? Con tres fases y un reporte semanal limpio. Animación con un caso ficticio.
+
+#dmarc #spf #xeland314
+```
+
+### YouTube
+**Título:** DMARC: de p=none a p=reject paso a paso (ruta segura)
+
+```text
+Observar con p=none, arreglar SPF y DKIM, pasar a cuarentena y luego rechazar. Caso ficticio con example.com.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#dmarc #spf #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** DMARC por fases | DMARC 分阶段部署
+
+```text
+DMARC：先用 p=none 观察，修复 SPF/DKIM，再到隔离，最后拒绝。虚构案例。
+
+不要直接设置 p=reject：先 p=none 观察报告，修复合法邮件的问题，再依次升级到 quarantine 和 reject。
+
+#dmarc #spf #dkim #IT运维 #网络安全
 ```
