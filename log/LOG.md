@@ -24,6 +24,7 @@
 | 018 | [HTTP/2: HPACK](../videos/018-http2-hpack/) | redes | rendered | 25 | — |
 | 019 | [DMARC: de p=none a reject](../videos/019-dmarc-none-a-reject/) | ti | rendered | 15 | — |
 | 020 | [DMARC: cómo leer un reporte](../videos/020-dmarc-leer-reporte/) | ti | rendered | 18 | — |
+| 021 | [Wi-Fi: un solo SSID (roaming)](../videos/021-wifi-un-solo-ssid/) | ti | rendered | 22 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1251,4 +1252,65 @@ DMARC 报告：逐个查看来源、SPF 和 DKIM，计算对齐比例，再决�
 查看每个发送来源的 SPF 与 DKIM 是否对齐；只要剩下的失败都是伪造邮件，就可以提高策略。
 
 #dmarc #reporte #spf #IT运维 #网络安全
+```
+
+## 021 · Wi-Fi: un solo SSID (roaming)
+
+- **Carpeta:** `videos/021-wifi-un-solo-ssid/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** Con tres Wi-Fi distintos, tu videollamada se corta al caminar.
+- **Carrusel:** `carruseles/021-wifi-un-solo-ssid` (pending)
+
+### TikTok
+```text
+Tres puntos de acceso con tres nombres distintos cortan tu videollamada al caminar. Con un solo SSID, la misma clave y canales 1, 6 y 11, el teléfono salta de uno a otro sin cortes. Caso ficticio.
+
+#wifi #roaming #ssid #redes #xeland314
+```
+
+### Instagram
+```text
+Un solo SSID (roaming) 📶
+
+Antes: RED-A, RED-B, RED-C → te quedas sin conexión y eliges a mano.
+Después: MI-RED en los tres, misma clave, canales 1, 6 y 11.
+
+El teléfono cambia de AP solo. Guárdalo para tu oficina o casa.
+
+#wifi #roaming #ssid #redes #xeland314
+```
+
+### Threads
+```text
+Si tienes varios puntos de acceso, ponles el mismo SSID y la misma clave: tu teléfono cambia de uno a otro sin cortarte la llamada. Y usa canales 1, 6 y 11 para que no se pisen.
+
+#wifi
+```
+
+### Facebook
+```text
+¿Por qué conviene un solo SSID con varios puntos de acceso? Para que el teléfono haga roaming sin cortes. Animación comparando antes y después.
+
+#wifi #roaming #xeland314
+```
+
+### YouTube
+**Título:** Wi-Fi: un solo SSID y roaming sin cortes (canales 1, 6 y 11)
+
+```text
+Tres puntos de acceso con nombres distintos obligan a reconectar a mano; con el mismo SSID y clave el cambio es automático. Caso ficticio.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#wifi #roaming #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Wi-Fi un solo SSID | Wi-Fi 单一 SSID 漫游
+
+```text
+多个接入点用不同名称会断线；统一 SSID 和密码，并使用 1、6、11 信道，手机就能无缝漫游。
+
+三个接入点名称各不相同时，走动会断网；统一 SSID、密码，并用 1、6、11 三个不重叠信道，手机即可自动漫游。
+
+#wifi #roaming #ssid #IT运维 #网络安全
 ```

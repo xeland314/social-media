@@ -153,8 +153,7 @@
       "dia": 21
     },
     {
-      "video": null,
-      "build": true,
+      "video": "021",
       "tema": "Wi-Fi: un solo SSID (roaming)",
       "serie": "ti",
       "carrusel": "Antes/después de unificar → qué cambia al moverte entre puntos de acceso",

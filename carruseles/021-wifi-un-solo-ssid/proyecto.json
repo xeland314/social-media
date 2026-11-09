@@ -1,0 +1,64 @@
+{
+  "id": "p021",
+  "name": "021 Wi-Fi: un solo SSID",
+  "lastModified": 1794200753121,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Wi-Fi: un solo SSID",
+        "subtitle": "Roaming sin cortes",
+        "category": "REDES · WI-FI",
+        "iconChar": "📶"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nTres puntos de acceso con tres nombres: **RED-A, RED-B, RED-C**.\n\nAl caminar, el teléfono se queda sin señal y hay que elegir otra red a mano.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## La solución\n\nLos tres AP con:\n\n- el **mismo SSID**\n- la **misma clave**\n- la **misma seguridad** (WPA2/WPA3)\n\nEl teléfono cambia de AP solo.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Canales\n\n```text\nAP 1 → canal 1\nAP 2 → canal 6\nAP 3 → canal 11\n```\nEn 2,4 GHz son los únicos tres que **no se solapan**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Ayudan\n\n- **802.11k**: lista de APs vecinos\n- **802.11v**: sugiere a qué AP moverse\n- **802.11r**: cambio rápido de AP",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Excepciones\n\n- Red de **invitados**: SSID aparte\n- Dispositivos IoT antiguos: a veces necesitan una red solo 2,4 GHz\n\nNo mezcles seguridades distintas en el mismo SSID.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "end",
+        "firstText": "¿Tu Wi-Fi",
+        "secondText": "hace roaming?",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • WI-FI • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

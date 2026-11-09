@@ -27,7 +27,7 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 | 19 | vie 12-04 | File descriptors: 0, 1 y 2 | linux | ✅ 012 · 20 s | stdin/stdout/stderr → >, >>, 2>&1 |
 | 20 | sáb 12-05 | Python: with (context manager) | python | ✅ 016 · 21 s | __enter__/__exit__ → contextlib en 5 líneas |
 | 21 | dom 12-06 | Recopilatorio de la semana | recap | ♻️ recopilatorio (clips + carrusel) | Top 3 de la semana → qué funcionó y qué viene |
-| 22 | lun 12-07 | Wi-Fi: un solo SSID (roaming) | ti | 🛠️ por construir | Antes/después de unificar → qué cambia al moverte entre puntos de acceso |
+| 22 | lun 12-07 | Wi-Fi: un solo SSID (roaming) | ti | ✅ 021 · 21 s | Antes/después de unificar → qué cambia al moverte entre puntos de acceso |
 | 23 | mar 12-08 | HTTP/2: multiplexación | redes | ✅ 017 · 22 s | Una conexión, muchos streams → vs HTTP/1.1 |
 | 24 | mié 12-09 | Wi-Fi: cómo se audita una red | ti | 🛠️ por construir | Lista de revisión: canales, potencia, DHCP, solapamientos |
 | 25 | jue 12-10 | HTTP/2: HPACK | redes | ✅ 018 · 22 s | Tabla dinámica → 128 B pasan a 24 B |
@@ -39,13 +39,12 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 
 ## Qué hay que construir y para cuándo
 
-- Día 22 (2026-12-07): **Wi-Fi: un solo SSID (roaming)** — debe estar renderizado la víspera (día 21).
 - Día 24 (2026-12-09): **Wi-Fi: cómo se audita una red** — debe estar renderizado la víspera (día 23).
 - Día 26 (2026-12-11): **Mi flujo de informes: YAML → HTML → PDF (WeasyPrint)** — debe estar renderizado la víspera (día 25).
 - Día 27 (2026-12-12): **Ecuaciones en Word: LaTeX → MathML → OMML** — debe estar renderizado la víspera (día 26).
 - Día 29 (2026-12-14): **De una semana de trabajo a minutos: informes en lote** — debe estar renderizado la víspera (día 28).
 
-El primero se necesita el día 22: construirlo durante la semana 1, que ya tiene todo hecho.
+El primero se necesita el día 24: construirlo durante la semana 1, que ya tiene todo hecho.
 
 ## Ritmo y revisión
 

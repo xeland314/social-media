@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 48px; font-size: 28px; }
+      #codeBody { position: relative; height: 224px; }
+      #card { left: 72px; top: 704px; width: 936px; height: 740px; }
+      .cov { position: absolute; top: 70px; width: 340px; height: 340px; border: 5px solid; opacity: .55; }
+      .ap { position: absolute; top: 205px; width: 80px; text-align: center; }
+      .al { position: absolute; top: 128px; width: 240px; height: 40px; }
+      .al .stk { text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; }
+      .ch { position: absolute; top: 290px; width: 200px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); opacity: 0; }
+      #ph { position: absolute; top: 330px; left: 0; }
+      #stt { position: absolute; left: 30px; top: 440px; width: 600px; height: 46px; }
+      #stt .stk { font-family: var(--font-label); font-weight: 700; font-size: 30px; }
+      #cut { position: absolute; right: 30px; top: 440px; width: 270px; height: 46px; }
+      #cut .stk { text-align: right; font-family: var(--font-label); font-weight: 700; font-size: 30px; }
+      #sg { position: absolute; left: 30px; top: 510px; height: 70px; display: flex; align-items: flex-end; gap: 10px; }
+      #sg i { display: block; width: 26px; background: var(--sem-ok); }
+      #sgl { position: absolute; left: 190px; top: 530px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      #ban { position: absolute; left: 30px; right: 30px; bottom: 20px; height: 100px; border: 5px solid var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); line-height: 1.4; opacity: 0; }
+      #term { left: 72px; top: 1464px; width: 936px; height: 290px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="21" data-track-index="0">REDES · WI-FI</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="21" data-track-index="1">Wi-Fi: un solo<br />SSID (roaming)</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="21" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">ap.conf</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="21" data-track-index="3">
+        <div class="cov" id="cv0" style="left:20px;color:#3b82f6;border-color:#3b82f6;background:rgba(59,130,246,.10)"></div>
+        <div class="cov" id="cv1" style="left:298px;color:#c084fc;border-color:#c084fc;background:rgba(192,132,252,.10)"></div>
+        <div class="cov" id="cv2" style="left:576px;color:#3fd0e0;border-color:#3fd0e0;background:rgba(63,208,224,.10)"></div>
+        <div id="aps"></div>
+        <div class="ch" id="ch0" style="left:90px">canal 1</div><div class="ch" id="ch1" style="left:368px">canal 6</div><div class="ch" id="ch2" style="left:646px">canal 11</div>
+        <div id="ph"></div>
+        <div id="stt"></div><div id="cut"></div>
+        <div id="sg"><i style="height:14px"></i><i style="height:28px"></i><i style="height:44px"></i><i style="height:60px"></i></div><div id="sgl">SEÑAL</div>
+        <div id="ban"><span>Mismo SSID y misma clave</span><span>canales 1, 6 y 11 sin solaparse</span></div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="21" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="21" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="21" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="21" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="3.0" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/error.wav" data-start="4.0" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="5.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/confirm.wav" data-start="7.6" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/whoosh.wav" data-start="9.8" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="12.8" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="15.8" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/confirm.wav" data-start="17.2" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const rows = XF.buildCode($("#codeBody"), [Mu("# punto de acceso (los 3 iguales)"), `ssid      = ${S('"RED-A"')}`, `seguridad = ${S('"WPA2/WPA3"')}`, `canal     = ${N("1")} ${Mu("# 1, 6 u 11")}`]);
+      const l2 = rows[1].children[1]; l2.style.cssText = "position:relative;display:inline-block;width:620px;height:48px";
+      const sv = XF.stack(l2, [`ssid      = ${S('"RED-A"')}`, `ssid      = ${S('"MI-RED"')}`]); sv.forEach((e) => { e.style.top = "0"; e.style.lineHeight = "48px"; }); XF.only(tl, sv, sv[0], 0);
+      const WC = [CY, "rgba(63,208,224,.16)"], PC = [PU, "rgba(192,132,252,.16)"];
+      const badge = mkBadges([["ANTES · 3 REDES", RD], ["DESPUÉS · UN SSID", OK]]);
+      const AP = SPR.fromRows(["..#.....#..", "..#.....#..", "###########", "#OOOOOOOGO#", "###########"], { "#": "#f9e6c6", O: "#f1a449", G: "#7cfb4c" }, 7);
+      const PH = SPR.fromRows([".#####.", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "###K###"], { "#": "#f9e6c6", B: "#3fd0e0", K: "#14100d" }, 8);
+      const CX = [190, 468, 746];
+      CX.forEach((x, i) => $("#aps").insertAdjacentHTML("beforeend", `<div class="ap" id="ap${i}" style="left:${x - 40}px">${AP}</div><div class="al" id="al${i}" style="left:${x - 120}px"></div>`));
+      const lab = [0, 1, 2].map((i) => XF.stack($("#al" + i), [["RED-A", "RED-B", "RED-C"][i], "MI-RED"]));
+      lab.forEach((st, i) => { st[0].style.color = ["#3b82f6", "#c084fc", "#3fd0e0"][i]; st[1].style.color = "#f1a449"; XF.only(tl, st, st[0], 0); });
+      $("#ph").innerHTML = PH;
+      const stt = XF.stack($("#stt"), ["CONECTADO · RED-A", "SEÑAL DÉBIL", "SIN CONEXIÓN", "ELIGE OTRA RED...", "CONECTADO · RED-B", "CONECTADO · MI-RED", "ROAMING → AP 2", "ROAMING → AP 3"]);
+      [OK, AM, RD, AM, OK, OK, CY, CY].forEach((c, i) => (stt[i].style.color = c)); XF.only(tl, stt, stt[0], 0);
+      const cut = XF.stack($("#cut"), ["", "CORTE ≈ 4 s", "CORTE: 0 s"]); cut[1].style.color = RD; cut[2].style.color = OK; XF.only(tl, cut, cut[0], 0);
+      const bars = [...document.querySelectorAll("#sg i")];
+      const sig = (n, t) => bars.forEach((b, i) => tl.set(b, { opacity: i < n ? 1 : 0.15, backgroundColor: n <= 1 ? "#ff5f57" : n === 2 ? "#fbbf24" : "#7cfb4c" }, t));
+      sig(4, 0);
+      const mvPh = (x0, x1, t, d) => { tl.set("#ph", { x: x0, y: 0 }, t); tl.fromTo("#ph", { x: x0 }, { x: x1, duration: d, ease: "steps(12)" }, t); };
+      const PX = (cx) => cx - 32;
+      mkTerm([["w1", "conectado a RED-A (señal 4/4)", OK], ["w2", "te alejas de RED-A: señal débil", AM], ["w3", "sin cobertura: la videollamada se corta", RD], ["w4", "hay que elegir RED-B a mano", AM], ["w5", "volvió: ≈ 4 s sin conexión", GR],
+        ["x1", "los 3 AP usan MI-RED + misma clave", OK], ["x2", "canales 1, 6 y 11 (no se pisan)", CY], ["x3", "el teléfono salta de AP solo", CY], ["x4", "corte total: 0 s", OK]]);
+      let shown = []; const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 4) tl.set("#" + shown[shown.length - 5], { display: "none" }, t); };
+
+      // ===== ANTES: tres redes distintas =====
+      badge(0, 0.2); XF.activeLine(tl, rows, 2, 0.4, ...WC); sayK("w1", 0.5);
+      mvPh(PX(CX[0]), PX(340), 1.4, 2.0); sig(3, 2.4); XF.only(tl, stt, stt[1], 3.0); sig(2, 3.0); sayK("w2", 3.0);
+      sig(1, 4.0); XF.only(tl, stt, stt[2], 4.0); XF.only(tl, cut, cut[1], 4.0); sayK("w3", 4.0); tl.set("#ph", { opacity: 0.5 }, 4.0);
+      XF.only(tl, stt, stt[3], 5.6); sayK("w4", 5.6);
+      mvPh(PX(340), PX(CX[1]), 6.2, 1.2); tl.set("#ph", { opacity: 1 }, 7.4); XF.only(tl, stt, stt[4], 7.6); sig(4, 7.6); sayK("w5", 7.8);
+      // ===== DESPUÉS: un solo SSID =====
+      const T2 = 9.8; badge(1, T2); XF.activeLine(tl, rows, 2, T2, ...PC); XF.only(tl, sv, sv[1], T2);
+      [0, 1, 2].forEach((i) => XF.only(tl, lab[i], lab[i][1], T2));
+      [0, 1, 2].forEach((i) => tl.set("#ch" + i, { opacity: 1 }, T2 + 0.2));
+      [0, 1, 2].forEach((i) => tl.set("#cv" + i, { borderColor: "#f1a449", backgroundColor: "rgba(241,164,73,.10)" }, T2));
+      XF.only(tl, cut, cut[0], T2); XF.only(tl, stt, stt[5], T2); sayK("x1", T2 + 0.2); sayK("x2", T2 + 1.2);
+      tl.set("#ph", { x: PX(CX[0]) }, T2);
+      mvPh(PX(CX[0]), PX(468), 11.6, 2.6); sig(3, 12.4); XF.only(tl, stt, stt[6], 12.8); sig(4, 13.6); sayK("x3", 12.8); XF.only(tl, cut, cut[2], 12.8);
+      mvPh(PX(468), PX(776), 14.6, 2.6); sig(3, 15.4); XF.only(tl, stt, stt[7], 15.8); sig(4, 16.6);
+      sayK("x4", 16.8); tl.set("#ban", { opacity: 1 }, 17.2); XF.activeLine(tl, rows, 0, 18.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 41, yoyo: true }, 0);
+      tl.set({}, {}, 21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
