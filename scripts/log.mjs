@@ -24,7 +24,20 @@ export function composeTags(post, net) {
 
 export function composeCaption(post, net) {
   const p = post.platforms[net];
-  const tags = composeTags(post, net);
+  const cfg = platforms[net];
+  let tags = composeTags(post, net);
+  if (cfg.bilingual) {
+    // Español + chino: las últimas `zhTags` posiciones se reservan para etiquetas en chino.
+    const zhPool = [...(tagsCfg.zh.series[post.series] ?? []), ...tagsCfg.zh.core];
+    const have = new Set(tags.map((t) => t.toLowerCase()));
+    const zh = [...new Set(zhPool)].filter((t) => !have.has(t.toLowerCase())).slice(0, cfg.zhTags);
+    tags = [...tags.slice(0, cfg.maxHashtags - zh.length), ...zh];
+    return {
+      title: [p.title, p.titleZh].filter(Boolean).join(" | "),
+      body: `${p.text}\n\n${p.textZh ?? ""}\n\n${tags.join(" ")}`.trim(),
+      tags,
+    };
+  }
   return { title: p.title, body: `${p.text}\n\n${tags.join(" ")}`.trim(), tags };
 }
 
@@ -48,6 +61,13 @@ function validate(items) {
       if (c.body.length > cfg.maxChars) problems.push(`${name} · ${net}: ${c.body.length}/${cfg.maxChars} caracteres`);
       if (cfg.titleMax && !p.title) problems.push(`${name} · ${net}: falta título`);
       if (cfg.titleMax && p.title.length > cfg.titleMax) problems.push(`${name} · ${net}: título ${p.title.length}/${cfg.titleMax}`);
+      if (cfg.bilingual) {
+        if (!p.textZh?.trim()) problems.push(`${name} · ${net}: falta textZh (chino)`);
+        if (!p.titleZh) problems.push(`${name} · ${net}: falta titleZh`);
+        else if (p.titleZh.length > cfg.titleMax) problems.push(`${name} · ${net}: titleZh ${p.titleZh.length}/${cfg.titleMax}`);
+      }
+      // Solo español (y chino en RedNote): detecta texto en inglés frecuente.
+      if (/\b(the|and|with|your|this)\b/i.test(p.text)) problems.push(`${name} · ${net}: ¿texto en inglés? (solo español)`);
     }
   }
   return problems;

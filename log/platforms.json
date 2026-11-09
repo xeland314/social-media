@@ -1,9 +1,45 @@
 {
   "_nota": "Límites aproximados: verificar en cada app antes de depender de ellos. maxHashtags = cuántos etiquetas pone el generador.",
-  "tiktok":    { "label": "TikTok",    "maxChars": 2200, "maxHashtags": 5, "titleMax": null },
-  "instagram": { "label": "Instagram", "maxChars": 2200, "maxHashtags": 5, "titleMax": null },
-  "threads":   { "label": "Threads",   "maxChars": 500,  "maxHashtags": 1, "titleMax": null, "skipBrand": true },
-  "facebook":  { "label": "Facebook",  "maxChars": 5000, "maxHashtags": 3, "titleMax": null },
-  "youtube":   { "label": "YouTube",   "maxChars": 5000, "maxHashtags": 4, "titleMax": 100, "forcedTags": ["#Shorts"] },
-  "rednote":   { "label": "RedNote",   "maxChars": 1000, "maxHashtags": 5, "titleMax": 20 }
+  "tiktok": {
+    "label": "TikTok",
+    "maxChars": 2200,
+    "maxHashtags": 5,
+    "titleMax": null
+  },
+  "instagram": {
+    "label": "Instagram",
+    "maxChars": 2200,
+    "maxHashtags": 5,
+    "titleMax": null
+  },
+  "threads": {
+    "label": "Threads",
+    "maxChars": 500,
+    "maxHashtags": 1,
+    "titleMax": null,
+    "skipBrand": true
+  },
+  "facebook": {
+    "label": "Facebook",
+    "maxChars": 5000,
+    "maxHashtags": 3,
+    "titleMax": null
+  },
+  "youtube": {
+    "label": "YouTube",
+    "maxChars": 5000,
+    "maxHashtags": 4,
+    "titleMax": 100,
+    "forcedTags": [
+      "#Shorts"
+    ]
+  },
+  "rednote": {
+    "label": "RedNote",
+    "maxChars": 1000,
+    "maxHashtags": 5,
+    "titleMax": 20,
+    "bilingual": true,
+    "zhTags": 2
+  }
 }

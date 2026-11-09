@@ -1,13 +1,83 @@
 {
   "_nota": "Fuente única de hashtags. El generador compone: tags del tema (post.json) → core → marca, recortando a maxHashtags de cada red y reservando siempre un lugar para la marca.",
-  "brand": ["#xeland314"],
-  "core": ["#programacion", "#desarrolladores", "#aprendeaprogramar", "#tecnologia", "#codigo"],
+  "brand": [
+    "#xeland314"
+  ],
+  "core": [
+    "#programacion",
+    "#desarrolladores",
+    "#aprendeaprogramar",
+    "#tecnologia",
+    "#codigo"
+  ],
   "series": {
-    "linux": ["#linux", "#sysadmin", "#terminal"],
-    "python": ["#python", "#pythontips"],
-    "go": ["#golang", "#go"],
-    "git": ["#git", "#github"],
-    "redes": ["#redes", "#networking", "#protocolos"],
-    "fundamentos": ["#computerscience", "#estructurasdedatos"]
+    "linux": [
+      "#linux",
+      "#sysadmin",
+      "#terminal"
+    ],
+    "python": [
+      "#python",
+      "#pythontips"
+    ],
+    "go": [
+      "#golang",
+      "#go"
+    ],
+    "git": [
+      "#git",
+      "#github"
+    ],
+    "redes": [
+      "#redes",
+      "#networking",
+      "#protocolos"
+    ],
+    "fundamentos": [
+      "#computerscience",
+      "#estructurasdedatos"
+    ],
+    "ti": [
+      "#soporteti",
+      "#ciberseguridad",
+      "#sysadmin"
+    ]
+  },
+  "zh": {
+    "_nota": "Solo RedNote (español + chino). Se agregan al final, después de las etiquetas en español.",
+    "core": [
+      "#编程",
+      "#程序员"
+    ],
+    "series": {
+      "linux": [
+        "#Linux",
+        "#操作系统"
+      ],
+      "git": [
+        "#Git",
+        "#版本控制"
+      ],
+      "python": [
+        "#Python",
+        "#编程"
+      ],
+      "go": [
+        "#Go语言",
+        "#编程"
+      ],
+      "redes": [
+        "#网络",
+        "#计算机网络"
+      ],
+      "fundamentos": [
+        "#计算机科学",
+        "#数据结构"
+      ],
+      "ti": [
+        "#IT运维",
+        "#网络安全"
+      ]
+    }
   }
 }

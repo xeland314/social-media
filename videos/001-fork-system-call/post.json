@@ -52,9 +52,11 @@
     },
     "rednote": {
       "title": "fork() = 2 procesos",
-      "text": "fork() se llama una vez y retorna dos veces: 0 en el hijo, el pid del hijo en el padre. Animación paso a paso en C.",
+      "text": "fork() se llama una vez y retorna dos veces: 0 en el hijo, el pid del hijo en el padre. Animación paso a paso del código en C.",
       "url": null,
-      "publishedAt": null
+      "publishedAt": null,
+      "titleZh": "fork()：一次调用，两个进程",
+      "textZh": "fork() 只调用一次，却会返回两次：子进程返回 0，父进程返回子进程的 pid。一步步看内核如何复制进程。"
     }
   }
 }

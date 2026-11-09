@@ -13,8 +13,8 @@
 }
 .code-dot { width: 18px; height: 18px; background: currentColor; }
 .code-file { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); margin-left: 10px; }
-.code-badge-slot { margin-left: auto; position: relative; height: 52px; min-width: 470px; }
-.code-badge-slot .px-chip { position: absolute; right: 0; top: 0; font-size: 26px; white-space: nowrap; opacity: 0; }
+.code-badge-slot { margin-left: auto; position: relative; height: 56px; min-width: 500px; }
+.code-badge-slot .px-chip { position: absolute; right: 0; top: 0; font-size: 28px; white-space: nowrap; opacity: 0; }
 .code-body { padding: 14px 0; }
 .code-line {
   display: flex; align-items: center; height: 40px; padding: 0 22px 0 14px;

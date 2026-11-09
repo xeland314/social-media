@@ -1,0 +1,62 @@
+{
+  "id": "002",
+  "slug": "git-merge-rebase",
+  "title": "Git: merge vs rebase",
+  "series": "git",
+  "calendarDay": 4,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 21,
+  "hook": "Mismo resultado, dos historias: merge agrega un commit, rebase reescribe los tuyos.",
+  "topicTags": [
+    "#git",
+    "#merge",
+    "#rebase",
+    "#controldeversiones"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/git-merge-rebase",
+  "carousel": {
+    "path": "carruseles/002-git-merge-rebase",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Merge o rebase: ¿cuál usas? Merge conserva las ramas y agrega un commit de fusión (M1). Rebase reescribe tus commits sobre main y deja el historial lineal. Míralo en 21 segundos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Merge vs rebase en 21 segundos 🐱\n\nMerge: conserva las ramas y agrega un commit de fusión (M1).\nRebase: despega tus commits y los replanta sobre main → historial lineal.\n\nGuárdalo para tu próximo pull request.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Merge conserva el historial tal como ocurrió (+1 commit de fusión). Rebase lo reescribe para que parezca lineal. Regla de oro: no hagas rebase de ramas que otros ya descargaron.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Merge o rebase? Merge agrega un commit de fusión y conserva las ramas; rebase replanta tus commits sobre main y deja el historial lineal. Animación paso a paso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Git merge vs rebase: la diferencia en 21 segundos",
+      "text": "Merge conserva la ramificación y crea un commit de fusión. Rebase despega tus commits y los replanta sobre main para un historial lineal. Animación paso a paso con los comandos.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "merge vs rebase",
+      "text": "Merge conserva las ramas y agrega un commit de fusión. Rebase replanta tus commits sobre main y deja el historial lineal.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Git merge 与 rebase",
+      "textZh": "merge 会保留分支并新增一个合并提交；rebase 会把你的提交重新接到 main 上，让历史保持线性。"
+    }
+  }
+}
