@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #title .bad { color: var(--sem-bad); } #title .ok { color: var(--sem-ok); }
+
+      .lbl { font-family: var(--font-label); font-weight: 700; color: var(--muted); font-size: 28px; }
+      .mono { font-family: var(--font-code); font-size: 30px; }
+
+      /* Correo falsificado */
+      #email { left: 72px; top: 330px; width: 936px; height: 290px; padding: 24px 30px; }
+      #email .row { display: flex; gap: 18px; height: 56px; align-items: center; opacity: 0; }
+      #email .k { width: 330px; flex: none; white-space: nowrap; } #email .v { color: var(--ink); white-space: nowrap; }
+      #email .tag { position: absolute; right: 24px; top: -22px; font-size: 24px; color: var(--sem-bad); background: var(--ground); }
+
+      /* Defensor */
+      #checks { left: 72px; top: 650px; width: 936px; height: 440px; }
+      #checks .head { display: flex; align-items: center; gap: 18px; padding: 16px 24px; background: var(--panel-2); border-bottom: var(--px) solid var(--line); }
+      #checks .head img { width: 64px; height: 64px; }
+      .crow { position: relative; height: 112px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--line); }
+      .crow .q { font-family: var(--font-code); font-size: 30px; color: var(--ink); }
+      .res { position: absolute; right: 24px; top: 24px; opacity: 0; font-size: 26px; white-space: nowrap; }
+
+      /* Explicación */
+      #cfg { left: 72px; top: 330px; width: 936px; height: 760px; padding: 24px 30px; opacity: 0; }
+      .step { height: 200px; opacity: 0; }
+      .step b { display: inline-block; font-family: var(--font-display); font-size: 28px; padding: 8px 14px; margin-bottom: 14px; }
+      .step p { font-family: var(--font-code); font-size: 30px; color: var(--ink); line-height: 1.35; }
+      #stepper { position: absolute; left: 30px; right: 30px; bottom: 30px; display: flex; align-items: center; justify-content: space-between; }
+      #stepper .px-chip { font-size: 28px; opacity: 0.25; }
+      #stepper .arr { font-family: var(--font-display); font-size: 28px; color: var(--muted); }
+
+      /* Atacante */
+      #atk { left: 72px; top: 1195px; width: 240px; height: 260px; }
+      #bubble { left: 40px; top: 1112px; width: 340px; height: 70px; opacity: 0; }
+      #bubble span { position: absolute; left: 0; right: 0; top: 14px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--sem-bad); opacity: 0; white-space: nowrap; }
+      #mon { left: 404px; top: 1140px; width: 604px; height: 450px; }
+      #mon .bar { padding: 14px 22px; background: var(--panel-2); border-bottom: var(--px) solid var(--line); }
+      #mon .t { padding: 16px 24px; font-family: var(--font-term); font-size: 38px; line-height: 44px; }
+      #mon .t div { opacity: 0; white-space: pre; }
+      #env { left: 0; top: 0; opacity: 0; width: 96px; height: 66px; }
+      #env svg [data-layer="bad"] { opacity: 0; }
+      .puff { position: absolute; font-family: var(--font-display); font-size: 28px; color: var(--sem-bad); opacity: 0; }
+
+      #tag { left: 72px; top: 1650px; width: 936px; font-size: 30px; text-align: center; color: var(--accent); opacity: 0; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="24" data-track-index="0">SEGURIDAD · CORREO</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="24" data-track-index="1"><span class="bad">Spoofing</span> y phishing:<br /><span class="ok">DMARC</span> lo frena</h1>
+
+      <div id="email" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="2">
+        <span class="tag px-chip">CORREO FALSIFICADO</span>
+        <div class="row" id="e1"><span class="lbl k">De:</span><span class="mono v">ceo@example.com</span></div>
+        <div class="row" id="e2"><span class="lbl k">Responder a:</span><span class="mono v" style="color:var(--sem-bad)">atacante@evil.test</span></div>
+        <div class="row" id="e3"><span class="lbl k">Asunto:</span><span class="mono v">URGENTE: transferencia hoy</span></div>
+      </div>
+
+      <div id="checks" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="3">
+        <div class="head"><img class="pixelated" src="shared/sprites/gato-sin-fondo.svg" alt="" /><span class="lbl" style="color:var(--ink)">SERVIDOR DEL DEFENSOR</span></div>
+        <div class="crow"><span class="q">SPF · ¿IP autorizada?</span><span class="res px-chip" id="c1p" style="color:var(--muted)">...</span><span class="res px-chip" id="c1f" style="color:var(--sem-bad)">FALLA ✗</span></div>
+        <div class="crow"><span class="q">DKIM · ¿firma válida?</span><span class="res px-chip" id="c2p" style="color:var(--muted)">...</span><span class="res px-chip" id="c2f" style="color:var(--sem-bad)">SIN FIRMA ✗</span></div>
+        <div class="crow" style="border-bottom:0"><span class="q">DMARC · ¿qué hago?</span><span class="res px-chip" id="c3p" style="color:var(--muted)">...</span><span class="res px-chip" id="c3f" style="color:var(--sem-ok)">p=reject ✓</span></div>
+      </div>
+
+      <div id="cfg" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="4">
+        <div class="step" id="s1"><b style="background:rgba(63,208,224,.18);color:var(--sem-alt)">SPF</b><p>Lista qué IPs pueden enviar correo de tu dominio.</p></div>
+        <div class="step" id="s2"><b style="background:rgba(192,132,252,.18);color:var(--sem-magic)">DKIM</b><p>Firma cada mensaje con una llave que solo tú tienes.</p></div>
+        <div class="step" id="s3"><b style="background:rgba(124,251,76,.16);color:var(--sem-ok)">DMARC</b><p>Decide qué hacer cuando SPF o DKIM fallan.</p></div>
+        <div id="stepper"><span class="px-chip" id="p1" style="color:var(--tok-num)">p=none</span><span class="arr">&gt;</span><span class="px-chip" id="p2" style="color:var(--cat-orange)">p=quarantine</span><span class="arr">&gt;</span><span class="px-chip" id="p3" style="color:var(--sem-ok)">p=reject</span></div>
+      </div>
+
+      <div id="bubble" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="5"><span id="bb1">¡NO PASÓ!</span><span id="bb2">¡OTRA VEZ NO!</span></div>
+      <div id="atk" class="abs clip" data-start="0" data-duration="24" data-track-index="6"></div>
+      <div id="mon" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="7">
+        <div class="bar lbl">atacante@evil.test</div>
+        <div class="t">
+          <div id="m1" style="color:#d1d5db">$ sendmail --como ceo@example.com</div>
+          <div id="m2" style="color:#9c9e8f">esperando respuesta...</div>
+          <div id="m3" style="color:#ff5f57">550 5.7.1 RECHAZADO</div>
+          <div id="m4" style="color:#ff5f57">DMARC: p=reject</div>
+          <div id="m5" style="color:#ff9736">reintentando...</div>
+          <div id="m6" style="color:#ff5f57">550 RECHAZADO otra vez</div>
+        </div>
+      </div>
+      <div id="env" class="abs clip" data-start="0" data-duration="24" data-track-index="8"></div>
+      <span class="puff" id="pf1" style="left:252px;top:1225px">#@!</span><span class="puff" id="pf2" style="left:20px;top:1250px">!!</span>
+
+      <div id="tag" class="abs lbl clip" data-start="0" data-duration="24" data-track-index="9">Configura DMARC y llega a p=reject</div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="24" data-track-index="10" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="24" data-track-index="11">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/packet.wav" data-start="2.5" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud2" src="shared/audio/error.wav" data-start="5.0" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud3" src="shared/audio/error.wav" data-start="6.8" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud4" src="shared/audio/fork.wav" data-start="8.8" data-duration="0.55" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/whoosh.wav" data-start="9.4" data-duration="0.6" data-track-index="22" data-volume="0.5"></audio>
+      <audio id="aud6" src="shared/audio/error.wav" data-start="11.2" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="14.2" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="15.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/pop.wav" data-start="17.0" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="18.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/pop.wav" data-start="19.2" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud12" src="shared/audio/confirm.wav" data-start="20.2" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      $("#atk").innerHTML = SPR.attacker(10);
+      $("#env").innerHTML = SPR.envelope(6);
+      const L = (n) => $(`#atk [data-layer="${n}"]`);
+      const show = (sel, t, on = true) => tl.set(sel, { opacity: on ? 1 : 0 }, t);
+      const hold = (sel, from, to) => { show(sel, from); show(sel, to, false); };
+
+      // Estado inicial del atacante: tranquilo y confiado
+      gsap.set([L("angry"), L("vein")], { opacity: 0 });
+
+      // ---- 0.4–2: el correo falso aparece ----
+      show("#e1", 0.4); show("#e2", 1.0); show("#e3", 1.6);
+      // ---- 2.4: el atacante envía ----
+      show("#m1", 2.4); show("#m2", 3.0);
+      const from = { x: 640, y: 1290 }, to = { x: 760, y: 700 };
+      tl.set("#env", { x: from.x, y: from.y, opacity: 1 }, 2.5);
+      tl.fromTo("#env", { x: from.x, y: from.y }, { x: to.x, y: to.y, duration: 1.5, ease: "steps(10)" }, 2.5);
+      // ---- 4.2: verificaciones del defensor ----
+      const check = (n, tPend, tRes) => { show(`#c${n}p`, tPend); show(`#c${n}p`, tRes, false); show(`#c${n}f`, tRes); };
+      check(1, 4.2, 5.0); check(2, 5.6, 6.8); check(3, 7.4, 8.8);
+      tl.set("#env", { opacity: 0 }, 4.2); // el sobre queda "retenido" en el servidor
+      // ---- 9.4: rebote ----
+      tl.set("#env", { x: to.x, y: to.y, opacity: 1 }, 9.4);
+      tl.set('#env [data-layer="bad"]', { opacity: 1 }, 9.4);
+      tl.fromTo("#env", { x: to.x, y: to.y }, { x: from.x, y: from.y, duration: 1.5, ease: "steps(10)" }, 9.4);
+      tl.set("#env", { opacity: 0 }, 11.0);
+      show("#m3", 10.8); show("#m4", 11.2);
+      // ---- 11.2: el atacante se frustra ----
+      tl.set(L("calm"), { opacity: 0 }, 11.2); tl.set(L("angry"), { opacity: 1 }, 11.2);
+      show("#bubble", 11.6); show("#bb1", 11.6);
+      for (let k = 0; k < 20; k++) tl.set(L("vein"), { opacity: k % 2 ? 0 : 1 }, 11.4 + k * 0.4); // la vena late
+      tl.set(L("vein"), { opacity: 1 }, 19.4);
+      show("#pf1", 11.8); show("#pf2", 12.4);
+      for (let k = 0; k < 14; k++) tl.set("#atk", { x: k % 2 ? 6 : -6 }, 11.6 + k * 0.18); // tiembla de rabia
+      tl.set("#atk", { x: 0 }, 14.2);
+      show("#m5", 13.0); show("#m6", 13.6);
+      // ---- 13.8: explicación (reemplaza correo y verificaciones) ----
+      tl.set(["#email", "#checks"], { opacity: 0 }, 13.8);
+      tl.set("#cfg", { opacity: 1 }, 13.8);
+      show("#s1", 14.2); show("#s2", 15.6); show("#s3", 17.0);
+      show("#bb1", 17.5, false); show("#bb2", 17.5);
+      ["#p1", "#p2", "#p3"].forEach((p, i) => tl.set(p, { opacity: 1 }, 18.2 + i * 1.0));
+      tl.set("#p1", { opacity: 0.25 }, 19.2); tl.set("#p2", { opacity: 0.25 }, 20.2);
+      // ---- 21.2: cierre ----
+      show("#tag", 21.2);
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 47, yoyo: true }, 0);
+      tl.set({}, {}, 24);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

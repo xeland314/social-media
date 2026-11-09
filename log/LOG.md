@@ -7,6 +7,7 @@
 | 001 | [fork(): una llamada, dos procesos](../videos/001-fork-system-call/) | linux | rendered | 1 | — |
 | 002 | [Git: merge vs rebase](../videos/002-git-merge-rebase/) | git | rendered | 4 | — |
 | 003 | [TCP vs UDP: confianza vs velocidad](../videos/003-tcp-udp/) | redes | rendered | 5 | — |
+| 004 | [Spoofing y phishing: DMARC lo frena](../videos/004-spoofing-phishing-dmarc/) | ti | rendered | 24 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -188,4 +189,66 @@ TCP hace un saludo de 3 pasos y reenvía lo perdido; UDP dispara y olvida, más 
 TCP 先三次握手并重传丢失的数据；UDP 直接发送、不确认，更快但没有保证。
 
 #tcp #udp #redes #网络 #计算机网络
+```
+
+## 004 · Spoofing y phishing: DMARC lo frena
+
+- **Carpeta:** `videos/004-spoofing-phishing-dmarc/`  ·  **Estado:** rendered  ·  **Duración:** 24 s
+- **Gancho:** Le falsificó el correo al CEO… y su propio servidor lo rechazó.
+- **Carrusel:** `carruseles/004-spoofing-phishing-dmarc` (project-json)
+
+### TikTok
+```text
+Un atacante falsifica el correo del CEO. Tres comprobaciones después, el servidor lo rechaza: SPF, DKIM y DMARC con p=reject. Mira su cara. ¿Tu dominio ya está en p=reject?
+
+#spoofing #phishing #dmarc #spf #xeland314
+```
+
+### Instagram
+```text
+Spoofing y phishing: así lo frena DMARC 🛡️
+
+SPF: ¿la IP está autorizada?
+DKIM: ¿la firma es válida?
+DMARC: ¿qué hago si fallan? → p=reject.
+
+Caso armado con datos ficticios. Guárdalo para configurar tu dominio.
+
+#spoofing #phishing #dmarc #spf #xeland314
+```
+
+### Threads
+```text
+Si tu dominio no tiene DMARC en p=reject, cualquiera puede mandar correos como tú. SPF y DKIM solos no deciden qué hacer cuando fallan: DMARC sí.
+
+#spoofing
+```
+
+### Facebook
+```text
+¿Cómo se frena el spoofing de correo? Con tres piezas: SPF (quién puede enviar), DKIM (firma) y DMARC (qué hacer si fallan). Animación con un caso ficticio.
+
+#spoofing #phishing #xeland314
+```
+
+### YouTube
+**Título:** Spoofing y phishing: cómo DMARC lo frena (SPF, DKIM, p=reject)
+
+```text
+Caso ficticio: un atacante falsifica el correo del CEO y el servidor lo rechaza con SPF, DKIM y DMARC en p=reject. Además, la ruta de configuración: p=none → p=quarantine → p=reject.
+
+Todos los datos son inventados (example.com).
+
+#spoofing #phishing #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** DMARC vs spoofing | DMARC 拦截伪造邮件
+
+```text
+Spoofing y phishing: SPF, DKIM y DMARC con p=reject frenan el correo falsificado. Caso ficticio paso a paso.
+
+伪造邮件攻击：SPF、DKIM 加上 DMARC 的 p=reject 策略可以直接拦截。虚构案例，一步步演示。
+
+#spoofing #phishing #dmarc #IT运维 #网络安全
 ```
