@@ -1,0 +1,967 @@
+{
+  "_nota": "Backlog de ideas y plan de febrero. Edita y ejecuta `npm run plan`: valida reglas y regenera docs/ideas-febrero-2027.md.",
+  "reglas": {
+    "startDate": "2027-02-01",
+    "dias": 28,
+    "capacidadSemanalPuntos": 14,
+    "factorSeguridad": 0.8,
+    "ventanaConstruccion": [
+      "2026-12-16",
+      "2027-01-31"
+    ],
+    "esfuerzoPuntos": {
+      "S": 1,
+      "M": 2,
+      "L": 3
+    },
+    "carruselPuntos": 0.5,
+    "maxMismaSerieSeguida": 1
+  },
+  "series": {
+    "F": "Fundamentos",
+    "R": "Redes",
+    "C": "Concurrencia",
+    "P": "Python",
+    "G": "Go",
+    "L": "Linux",
+    "T": "TI / correo / infraestructura",
+    "A": "IA local",
+    "X": "Pixel-art, juegos y video",
+    "S": "Estadística",
+    "D": "Herramientas y formatos"
+  },
+  "backlog": [
+    {
+      "id": "F01",
+      "tema": "Stack vs heap",
+      "serie": "F",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Dos bodegas: una se limpia sola, la otra hay que ordenarla",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F02",
+      "tema": "Punteros y referencias",
+      "serie": "F",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Dos cajas, una misma dirección",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F03",
+      "tema": "Recursión con pila",
+      "serie": "F",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Las llamadas se apilan y luego caen",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F04",
+      "tema": "Hash map",
+      "serie": "F",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "El portero decide en qué casillero va",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F05",
+      "tema": "Base64 a nivel de bits",
+      "serie": "F",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Por qué Base64 pesa un 33 % más",
+      "formatos": [
+        "video",
+        "carrusel",
+        "radiografia"
+      ]
+    },
+    {
+      "id": "F06",
+      "tema": "UTF-8: de 1 a 4 bytes",
+      "serie": "F",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cómo caben los emojis en bytes",
+      "formatos": [
+        "video",
+        "carrusel",
+        "radiografia"
+      ]
+    },
+    {
+      "id": "F07",
+      "tema": "Endianness",
+      "serie": "F",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Big endian o little endian: ¿qué byte va primero?",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F08",
+      "tema": "Big-O intuitivo",
+      "serie": "F",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "O(1), O(n) y O(n²) con casilleros",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F09",
+      "tema": "Lista enlazada vs arreglo",
+      "serie": "F",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Vagones enganchados vs estantería",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F10",
+      "tema": "Árbol binario de búsqueda",
+      "serie": "F",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Un organigrama de sí/no",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "F11",
+      "tema": "Por qué 0.1 + 0.2 no es 0.3",
+      "serie": "F",
+      "fuente": "portafolio/posts (IEEE 754)",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "El flotante que miente un poquito",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "C01",
+      "tema": "Race condition",
+      "serie": "C",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Dos manos escribiendo la misma variable",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "C02",
+      "tema": "Mutex y deadlock",
+      "serie": "C",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Una llave, dos procesos esperando",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "C06",
+      "tema": "asyncio: el bucle de eventos",
+      "serie": "P",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Un solo hilo, muchas tareas",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "C07",
+      "tema": "El GIL de Python",
+      "serie": "P",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Por qué los hilos no aceleran todo",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "G01",
+      "tema": "Go: select con timeout",
+      "serie": "G",
+      "fuente": "docs/videos.md (Go)",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Lo que llegue primero gana",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "G02",
+      "tema": "Go: worker pool",
+      "serie": "G",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "N trabajadores, una cola",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "G03",
+      "tema": "Go: context y cancelación",
+      "serie": "G",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cancelar en cascada",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R01",
+      "tema": "DNS: cómo se resuelve un dominio",
+      "serie": "R",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "De un nombre a una IP en 4 saltos",
+      "formatos": [
+        "video",
+        "carrusel",
+        "radiografia"
+      ]
+    },
+    {
+      "id": "R02",
+      "tema": "Handshake TLS",
+      "serie": "R",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "L",
+      "riesgo": "verde",
+      "hook": "El saludo secreto antes del HTTP",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R03",
+      "tema": "DHCP: DORA",
+      "serie": "R",
+      "fuente": "wifi/nodogsplash (contexto)",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Discover, Offer, Request, Ack",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R04",
+      "tema": "Portal cautivo: cómo funciona",
+      "serie": "R",
+      "fuente": "catsplash / nodogsplash",
+      "esfuerzo": "L",
+      "riesgo": "verde",
+      "hook": "Por qué el Wi-Fi te pide aceptar términos",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R05",
+      "tema": "ARP",
+      "serie": "R",
+      "fuente": "reserva",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "¿Quién tiene esta IP?",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R06",
+      "tema": "NAT",
+      "serie": "R",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Una IP pública para toda la casa",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R07",
+      "tema": "Banderas de la cabecera TCP",
+      "serie": "R",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "SYN, ACK, FIN, RST",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R08",
+      "tema": "HTTP: caché con ETag",
+      "serie": "R",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "304: no te lo mando otra vez",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "R09",
+      "tema": "CORS en 20 segundos",
+      "serie": "R",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Por qué el navegador bloquea tu petición",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L01",
+      "tema": "Fork bomb",
+      "serie": "L",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Un proceso que se duplica sin parar",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L02",
+      "tema": "Zombie vs huérfano",
+      "serie": "L",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Procesos que nadie recogió",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L03",
+      "tema": "Pipes y backpressure",
+      "serie": "L",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cuando el buffer se llena, el productor espera",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L04",
+      "tema": "Permission denied paso a paso",
+      "serie": "L",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "El kernel revisa user, group y other",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L05",
+      "tema": "rm vs papelera",
+      "serie": "L",
+      "fuente": "docs/videos.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Por qué en Linux no hay deshacer",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L06",
+      "tema": "grep y sed",
+      "serie": "L",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Buscar y reemplazar en logs",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L07",
+      "tema": "SSH: RSA vs Ed25519",
+      "serie": "L",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Qué llave generar hoy",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L08",
+      "tema": "PXE: arrancar por la red",
+      "serie": "L",
+      "fuente": "workspace/pxe-boot",
+      "esfuerzo": "L",
+      "riesgo": "amarillo",
+      "hook": "Un PC sin disco que arranca solo",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "L09",
+      "tema": "systemd: estados de un servicio",
+      "serie": "L",
+      "fuente": "portafolio/posts (systemd)",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "active, failed, inactive",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T01",
+      "tema": "SPF: anatomía del registro",
+      "serie": "T",
+      "fuente": "serie TI (DMARC)",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Lista quién puede enviar como tu dominio",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T02",
+      "tema": "DKIM: cómo se firma un correo",
+      "serie": "T",
+      "fuente": "serie TI (DMARC)",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "La firma que no se puede falsificar",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T03",
+      "tema": "Geocodificación inversa con caché",
+      "serie": "T",
+      "fuente": "geocoding-api",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cache hit vs cache miss: de 800 ms a 5 ms",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T04",
+      "tema": "SMTP: la conversación en texto",
+      "serie": "T",
+      "fuente": "notify-system",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "HELO, MAIL FROM, RCPT TO, DATA",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T05",
+      "tema": "Registro DMARC (v=DMARC1…)",
+      "serie": "T",
+      "fuente": "serie TI (DMARC)",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cada etiqueta del registro, explicada",
+      "formatos": [
+        "radiografia"
+      ]
+    },
+    {
+      "id": "T06",
+      "tema": "Monitoreo de impresoras con IPP + Uptime Kuma",
+      "serie": "T",
+      "fuente": "printer-monitor",
+      "esfuerzo": "M",
+      "riesgo": "amarillo",
+      "hook": "Rehacer con datos inventados; sin mencionar la oficina",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T07",
+      "tema": "El lector de código de barras es un teclado",
+      "serie": "T",
+      "fuente": "escaner_codigo_barras",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "USB HID: escribe y pulsa Enter",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "T08",
+      "tema": "Subida de archivos grandes por partes",
+      "serie": "T",
+      "fuente": "upload_videos",
+      "esfuerzo": "M",
+      "riesgo": "amarillo",
+      "hook": "Reanudable; sin mencionar docentes ni cédulas",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "A01",
+      "tema": "Cuantización: 4 bits en vez de 16",
+      "serie": "A",
+      "fuente": "localmodels",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cómo un modelo cabe en 4 GB de RAM",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "A02",
+      "tema": "Tokens y ventana de contexto",
+      "serie": "A",
+      "fuente": "localmodels",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "El modelo no lee letras: lee tokens",
+      "formatos": [
+        "video",
+        "carrusel",
+        "radiografia"
+      ]
+    },
+    {
+      "id": "A03",
+      "tema": "Sentimiento por diccionario (AFINN)",
+      "serie": "A",
+      "fuente": "dart-sentiment",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Sumar palabras buenas y malas",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "A04",
+      "tema": "RAG mínimo: buscar antes de responder",
+      "serie": "A",
+      "fuente": "localmodels / go-code-ai",
+      "esfuerzo": "L",
+      "riesgo": "verde",
+      "hook": "El modelo con apuntes",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "A05",
+      "tema": "Voz local: texto a voz sin nube",
+      "serie": "A",
+      "fuente": "kittentts",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Un modelo pequeño que habla",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "A06",
+      "tema": "Chatbot que ejecuta código para calcular",
+      "serie": "A",
+      "fuente": "go-code-ai",
+      "esfuerzo": "L",
+      "riesgo": "verde",
+      "hook": "El LLM no calcula: programa y ejecuta",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "A07",
+      "tema": "Embeddings: significado como números",
+      "serie": "A",
+      "fuente": "reserva",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Cerca en el espacio = parecido en sentido",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "X01",
+      "tema": "Pixel art en C con Raylib",
+      "serie": "X",
+      "fuente": "mouse",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Un mouse dibujado píxel a píxel",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "X02",
+      "tema": "Rotar sprites sin interpolar",
+      "serie": "X",
+      "fuente": "image-rotator / politetris",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Girar 90° sin borrosidad",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "X03",
+      "tema": "El bucle de un juego",
+      "serie": "X",
+      "fuente": "politetris",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Entrada, actualización, dibujo",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "X04",
+      "tema": "Componer un video con ffmpeg en 3 comandos",
+      "serie": "X",
+      "fuente": "videoflow",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Overlay, concat y audio",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "S01",
+      "tema": "Normal, binomial y Poisson",
+      "serie": "S",
+      "fuente": "statlens",
+      "esfuerzo": "M",
+      "riesgo": "verde",
+      "hook": "Tres formas de la incertidumbre",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "S02",
+      "tema": "La ley de los grandes números",
+      "serie": "S",
+      "fuente": "statlens",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Más lanzamientos, menos sorpresa",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "D01",
+      "tema": "Docker: una imagen en capas",
+      "serie": "D",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "L",
+      "riesgo": "verde",
+      "hook": "Cada instrucción del Dockerfile es una capa",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "D02",
+      "tema": "UUID vs ULID vs Snowflake",
+      "serie": "D",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Por qué no usar IDs autoincrementales",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "D03",
+      "tema": "YAML vs TOML vs JSON",
+      "serie": "D",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Tres formas de configurar lo mismo",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    },
+    {
+      "id": "D04",
+      "tema": "git reflog: nada se pierde",
+      "serie": "D",
+      "fuente": "portafolio/ideas_posts.md",
+      "esfuerzo": "S",
+      "riesgo": "verde",
+      "hook": "Recupera ese commit que 'borraste'",
+      "formatos": [
+        "video",
+        "carrusel"
+      ]
+    }
+  ],
+  "febrero": [
+    {
+      "dia": 1,
+      "id": "F01"
+    },
+    {
+      "dia": 2,
+      "id": "R01"
+    },
+    {
+      "dia": 3,
+      "id": "F02"
+    },
+    {
+      "dia": 4,
+      "id": "C01"
+    },
+    {
+      "dia": 5,
+      "id": "F03"
+    },
+    {
+      "dia": 6,
+      "id": "T01"
+    },
+    {
+      "dia": 7,
+      "recap": true
+    },
+    {
+      "dia": 8,
+      "id": "R02"
+    },
+    {
+      "dia": 9,
+      "id": "F04"
+    },
+    {
+      "dia": 10,
+      "id": "T02"
+    },
+    {
+      "dia": 11,
+      "id": "L04"
+    },
+    {
+      "dia": 12,
+      "id": "R04"
+    },
+    {
+      "dia": 13,
+      "id": "F05"
+    },
+    {
+      "dia": 14,
+      "recap": true
+    },
+    {
+      "dia": 15,
+      "id": "A01"
+    },
+    {
+      "dia": 16,
+      "id": "L01"
+    },
+    {
+      "dia": 17,
+      "id": "A02"
+    },
+    {
+      "dia": 18,
+      "id": "C02"
+    },
+    {
+      "dia": 19,
+      "id": "T03"
+    },
+    {
+      "dia": 20,
+      "id": "A03"
+    },
+    {
+      "dia": 21,
+      "recap": true
+    },
+    {
+      "dia": 22,
+      "id": "L02"
+    },
+    {
+      "dia": 23,
+      "id": "G01"
+    },
+    {
+      "dia": 24,
+      "id": "A04"
+    },
+    {
+      "dia": 25,
+      "id": "L03"
+    },
+    {
+      "dia": 26,
+      "id": "R03"
+    },
+    {
+      "dia": 27,
+      "id": "F06"
+    },
+    {
+      "dia": 28,
+      "recap": true
+    }
+  ],
+  "radiografias": [
+    {
+      "semana": 1,
+      "id": "T05",
+      "nota": "Complementa el video 019/020; lunes"
+    },
+    {
+      "semana": 2,
+      "id": "F05",
+      "nota": "Alimenta el video del día 13"
+    },
+    {
+      "semana": 3,
+      "id": "A02",
+      "nota": "Alimenta el video del día 17"
+    },
+    {
+      "semana": 4,
+      "id": "F06",
+      "nota": "Alimenta el video del día 27"
+    }
+  ]
+}

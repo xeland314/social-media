@@ -16,7 +16,8 @@
     "audio": "node scripts/make-audio.mjs",
     "image": "node scripts/image.mjs",
     "calendar": "node scripts/calendar.mjs",
-    "carousel": "node scripts/carousel.mjs"
+    "carousel": "node scripts/carousel.mjs",
+    "plan": "node scripts/plan.mjs"
   },
   "devDependencies": {
     "hyperframes": "0.9.26"
