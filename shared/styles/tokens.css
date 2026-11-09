@@ -1,0 +1,47 @@
+/* Tokens de marca. Única fuente de verdad para todos los videos y carruseles.
+   Paleta base: sprite del gato (public/images/gato.svg del portafolio).
+   Los colores semánticos (padre/hijo/error) vienen de las animaciones del portafolio. */
+:root {
+  /* --- Gato --- */
+  --cat-cream: #f9e6c6;
+  --cat-sand: #edc699;
+  --cat-orange: #f1a449;
+  --cat-rust: #c66624;
+  --cat-brown: #483025;
+  --cat-charcoal: #49433e;
+  --cat-gray: #7e7f7f;
+  --cat-sage: #9c9e8f;
+
+  /* --- Superficies (marrón muy oscuro derivado de --cat-brown) --- */
+  --ground: #1a110c;
+  --panel: #261913;
+  --panel-2: #32231a;
+  --line: var(--cat-brown);
+
+  /* --- Texto y acento --- */
+  --ink: var(--cat-cream);
+  --muted: var(--cat-sage);
+  --accent: var(--cat-orange);
+  --accent-dim: rgba(241, 164, 73, 0.18);
+
+  /* --- Semánticos (se mantienen para no perder el significado entre videos) --- */
+  --sem-ok: #7cfb4c;     /* padre / éxito / exit 0 */
+  --sem-alt: #3fd0e0;    /* hijo / segundo actor */
+  --sem-magic: #c084fc;  /* llamadas de sistema / duplicación */
+  --sem-bad: #ff5f57;    /* error / SIGKILL */
+
+  /* --- Sintaxis de código (idéntica a /animations) --- */
+  --tok-kw: #c792ea;
+  --tok-str: #8fd14f;
+  --tok-fn: #6cb8ff;
+  --tok-num: #f2c94c;
+
+  /* --- Tipografías: display pixel, etiquetas pixel, código legible --- */
+  --font-display: "Press Start 2P", monospace;
+  --font-label: "Silkscreen", monospace;
+  --font-term: "VT323", monospace;
+  --font-code: "JetBrains Mono", monospace;
+
+  /* --- Escala pixel: todo múltiplo de --px para que los bordes encajen --- */
+  --px: 6px;
+}

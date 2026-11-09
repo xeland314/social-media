@@ -1,0 +1,20 @@
+{
+  "name": "social-media",
+  "private": true,
+  "type": "module",
+  "description": "Videos (Hyperframes) y carruseles diarios de @xeland314: código, estilos y log de publicaciones compartidos.",
+  "scripts": {
+    "new": "node scripts/new-video.mjs",
+    "dev": "node scripts/run.mjs dev",
+    "check": "node scripts/run.mjs check",
+    "snapshot": "node scripts/run.mjs snapshot",
+    "render": "node scripts/render.mjs",
+    "log": "node scripts/log.mjs",
+    "captions": "node scripts/log.mjs --captions",
+    "gallery": "node scripts/gallery.mjs",
+    "sync": "npm run log && npm run gallery"
+  },
+  "devDependencies": {
+    "hyperframes": "0.9.26"
+  }
+}

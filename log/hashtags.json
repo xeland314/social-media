@@ -1,0 +1,13 @@
+{
+  "_nota": "Fuente única de hashtags. El generador compone: tags del tema (post.json) → core → marca, recortando a maxHashtags de cada red y reservando siempre un lugar para la marca.",
+  "brand": ["#xeland314"],
+  "core": ["#programacion", "#desarrolladores", "#aprendeaprogramar", "#tecnologia", "#codigo"],
+  "series": {
+    "linux": ["#linux", "#sysadmin", "#terminal"],
+    "python": ["#python", "#pythontips"],
+    "go": ["#golang", "#go"],
+    "git": ["#git", "#github"],
+    "redes": ["#redes", "#networking", "#protocolos"],
+    "fundamentos": ["#computerscience", "#estructurasdedatos"]
+  }
+}

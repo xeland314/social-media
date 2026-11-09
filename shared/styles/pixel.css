@@ -1,0 +1,47 @@
+/* Utilidades pixel-art. Migración gradual: empezar por bordes y tipografía,
+   luego sprites y transiciones con steps(). */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.pixelated, .pixelated * { image-rendering: pixelated; }
+svg { shape-rendering: crispEdges; }
+
+/* Borde "escalonado" estilo 8-bit: esquinas recortadas por --px, sin border-radius. */
+.px-box {
+  position: relative;
+  background: var(--panel);
+  box-shadow:
+    0 calc(var(--px) * -1) 0 0 var(--line),
+    0 var(--px) 0 0 var(--line),
+    calc(var(--px) * -1) 0 0 0 var(--line),
+    var(--px) 0 0 0 var(--line),
+    0 calc(var(--px) * 2) 0 0 rgba(0, 0, 0, 0.35);
+}
+.px-box--accent {
+  box-shadow:
+    0 calc(var(--px) * -1) 0 0 var(--accent),
+    0 var(--px) 0 0 var(--accent),
+    calc(var(--px) * -1) 0 0 0 var(--accent),
+    var(--px) 0 0 0 var(--accent);
+}
+
+/* Etiqueta de estado tipo chip pixel. */
+.px-chip {
+  font-family: var(--font-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border: var(--px) solid currentColor;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.px-eyebrow { font-family: var(--font-label); font-weight: 700; letter-spacing: 0.22em; color: var(--accent); }
+.px-title { font-family: var(--font-display); color: var(--ink); line-height: 1.5; }
+.px-mark { font-family: var(--font-display); color: var(--muted); }
+
+/* Fondo cuadriculado discreto, múltiplo del píxel. */
+.px-grid-bg {
+  background-color: var(--ground);
+  background-image:
+    linear-gradient(rgba(249, 230, 198, 0.04) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(249, 230, 198, 0.04) 2px, transparent 2px);
+  background-size: 48px 48px;
+}

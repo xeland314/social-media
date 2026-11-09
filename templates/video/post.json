@@ -1,0 +1,22 @@
+{
+  "id": "{{id}}",
+  "slug": "{{slug}}",
+  "title": "{{title}}",
+  "series": "linux",
+  "calendarDay": null,
+  "status": "draft",
+  "publishDate": null,
+  "durationSec": null,
+  "hook": "",
+  "topicTags": [],
+  "sourceAnimation": null,
+  "carousel": { "path": "carruseles/{{dir}}", "status": "pending" },
+  "platforms": {
+    "tiktok":    { "title": "", "text": "", "url": null, "publishedAt": null },
+    "instagram": { "title": "", "text": "", "url": null, "publishedAt": null },
+    "threads":   { "title": "", "text": "", "url": null, "publishedAt": null },
+    "facebook":  { "title": "", "text": "", "url": null, "publishedAt": null },
+    "youtube":   { "title": "", "text": "", "url": null, "publishedAt": null },
+    "rednote":   { "title": "", "text": "", "url": null, "publishedAt": null }
+  }
+}

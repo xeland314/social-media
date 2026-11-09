@@ -1,0 +1,37 @@
+/* Componentes reutilizables: panel de código, consola, mascota, marca. */
+.tok-kw { color: var(--tok-kw); }
+.tok-str { color: var(--tok-str); }
+.tok-fn { color: var(--tok-fn); }
+.tok-num { color: var(--tok-num); }
+.tok-mut { color: var(--muted); }
+
+.code-panel { font-family: var(--font-code); }
+.code-top {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 22px; background: var(--panel-2);
+  border-bottom: var(--px) solid var(--line);
+}
+.code-dot { width: 18px; height: 18px; background: currentColor; }
+.code-file { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); margin-left: 10px; }
+.code-badge-slot { margin-left: auto; position: relative; height: 52px; min-width: 470px; }
+.code-badge-slot .px-chip { position: absolute; right: 0; top: 0; font-size: 26px; white-space: nowrap; opacity: 0; }
+.code-body { padding: 14px 0; }
+.code-line {
+  display: flex; align-items: center; height: 40px; padding: 0 22px 0 14px;
+  border-left: var(--px) solid transparent;
+  font-size: 29px; color: var(--ink); white-space: pre; opacity: 0.55;
+}
+.code-ln { width: 40px; margin-right: 22px; text-align: right; color: var(--cat-sage); font-size: 28px; flex: none; }
+
+.term {
+  font-family: var(--font-term); font-size: 40px; line-height: 46px;
+  background: #0d0805; color: #7ee08a; padding: 14px 26px; height: 240px;
+  display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
+}
+.term-label { font-family: var(--font-label); font-size: 28px; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 10px; }
+.term-row { height: 46px; flex: none; white-space: pre; overflow: hidden; opacity: 0; }
+.term-row.type { width: 0; }
+.caret { display: inline-block; width: 20px; height: 34px; background: currentColor; vertical-align: -4px; }
+
+.mascot { position: absolute; width: 220px; height: 220px; image-rendering: pixelated; }
+.mark { position: absolute; font-size: 22px; }

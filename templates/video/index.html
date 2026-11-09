@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <!-- "shared" es un enlace simbólico a ../../shared (Hyperframes solo sirve la carpeta del video) -->
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="15" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="15" data-track-index="0">SERIE · TEMA</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="15" data-track-index="1">{{title}}</h1>
+      <!-- TODO: contenido del video (usa .px-box, .code-panel, .term de shared/styles) -->
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="15" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="15" data-track-index="7">@xeland314</div>
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Todo cambio de estado: tl.set(...) en un instante (seek-safe). Ver shared/js/lib.js.
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 29, yoyo: true }, 0);
+      tl.set({}, {}, 15); // duración total
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
