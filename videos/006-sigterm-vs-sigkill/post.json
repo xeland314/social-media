@@ -1,0 +1,62 @@
+{
+  "id": "006",
+  "slug": "sigterm-vs-sigkill",
+  "title": "SIGTERM vs SIGKILL",
+  "series": "linux",
+  "calendarDay": 2,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 21,
+  "hook": "kill -15 pide permiso. kill -9 no pregunta.",
+  "topicTags": [
+    "#sigterm",
+    "#sigkill",
+    "#procesos",
+    "#linuxtips"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/sigterm-vs-sigkill",
+  "carousel": {
+    "path": "carruseles/006-sigterm-vs-sigkill",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "SIGTERM le pide al proceso que se cierre: puede cerrar sockets y vaciar buffers. SIGKILL no pregunta: el kernel lo aniquila al instante. Mira la diferencia en 21 segundos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "SIGTERM vs SIGKILL 🐧\n\nSIGTERM (15): el proceso puede limpiar antes de salir → exit 0.\nSIGKILL (9): el kernel lo mata sin preguntar → exit 137.\n\nGuárdalo para tu próximo kill.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "kill -9 es el último recurso: el proceso no puede atrapar SIGKILL, así que no cierra sockets ni vacía buffers. Primero prueba con SIGTERM.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué diferencia hay entre kill y kill -9? SIGTERM permite una salida limpia; SIGKILL la impide. Animación paso a paso con el código del handler.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "SIGTERM vs SIGKILL: cuándo usar kill y kill -9",
+      "text": "SIGTERM (15) deja que el proceso limpie y salga con 0. SIGKILL (9) lo destruye sin handler y devuelve 137. Animación paso a paso.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "SIGTERM vs SIGKILL",
+      "text": "SIGTERM pide cerrar con limpieza (exit 0); SIGKILL aniquila al instante (exit 137). Animación paso a paso.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "SIGTERM 与 SIGKILL",
+      "textZh": "SIGTERM 让进程优雅退出（退出码 0）；SIGKILL 由内核直接终止（退出码 137）。附动画演示。"
+    }
+  }
+}

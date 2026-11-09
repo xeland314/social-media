@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      :root { --term: #fbbf24; --kill: #ff5f57; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #title .t { color: var(--term); } #title .k { color: var(--kill); }
+
+      #codePanel { left: 72px; top: 340px; width: 936px; }
+      #codePanel .code-line { height: 56px; font-size: 32px; }
+      #codeBody { position: relative; height: 224px; }
+      .set { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
+
+      #card { left: 72px; top: 710px; width: 936px; height: 560px; }
+      .bx { position: absolute; top: 40px; height: 120px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--font-code); font-weight: 700; font-size: 28px; color: var(--ink); background: var(--panel-2); border: var(--px) solid var(--line); }
+      #cmd { left: 30px; width: 330px; } #kern { left: 400px; width: 150px; font-family: var(--font-label); color: var(--muted); }
+      #app { left: 640px; width: 266px; flex-direction: column; border-color: var(--sem-ok); background: rgba(124,251,76,.1); }
+      .st { position: absolute; left: 0; right: 0; bottom: 8px; height: 30px; }
+      .st span { position: absolute; left: 0; right: 0; font-family: var(--font-label); font-size: 24px; opacity: 0; white-space: nowrap; }
+      .chip { position: absolute; top: 180px; font-size: 26px; padding: 8px 14px; background: var(--panel-2); opacity: 0; white-space: nowrap; }
+      .task { position: absolute; left: 30px; font-family: var(--font-code); font-size: 30px; color: var(--muted); height: 60px; width: 876px; display: flex; align-items: center; gap: 18px; }
+      .task i { font-style: normal; width: 36px; text-align: center; }
+      .task .d { position: relative; width: 36px; height: 36px; }
+      .task .d span { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; font-size: 34px; }
+      .foot { position: absolute; left: 30px; right: 30px; bottom: 26px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .foot .x { position: absolute; left: 310px; opacity: 0; white-space: nowrap; }
+
+      #term { left: 72px; top: 1300px; width: 936px; height: 400px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="21" data-track-index="0">LINUX · SEÑALES</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="21" data-track-index="1"><span class="t">SIGTERM</span> vs <span class="k">SIGKILL</span><br />pedir o aniquilar</h1>
+
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="21" data-track-index="2">
+        <div class="code-top">
+          <span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span>
+          <span class="code-file" style="font-size:26px">trap_sigterm.py</span>
+          <span class="code-badge-slot" id="badges"></span>
+        </div>
+        <div class="code-body" id="codeBody"><div class="set" id="sT"></div><div class="set" id="sK"></div></div>
+      </div>
+
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="21" data-track-index="3">
+        <div class="bx" id="cmd"><span id="cT" style="position:absolute">$ kill -TERM 4242</span><span id="cK" style="position:absolute;opacity:0">$ kill -KILL 4242</span></div>
+        <div class="bx" id="kern">KERNEL</div>
+        <div class="bx" id="app"><span>srv :8080</span><div class="st" id="appSt"></div></div>
+        <div class="chip px-chip" id="chT" style="color:var(--term)">SIGTERM · 15</div>
+        <div class="chip px-chip" id="chK" style="color:var(--kill)">SIGKILL · 9</div>
+        <div class="task" id="tk1" style="top:240px"><div class="d"><span class="p">•</span><span class="ok" style="color:var(--sem-ok)">✔</span><span class="no" style="color:var(--kill)">✗</span></div>cerrar sockets</div>
+        <div class="task" id="tk2" style="top:310px"><div class="d"><span class="p">•</span><span class="ok" style="color:var(--sem-ok)">✔</span><span class="no" style="color:var(--kill)">✗</span></div>vaciar buffers</div>
+        <div class="task" id="tk3" style="top:380px"><div class="d"><span class="p">•</span><span class="ok" style="color:var(--sem-ok)">✔</span><span class="no" style="color:var(--kill)">✗</span></div>cerrar archivos</div>
+        <div class="foot">exit status<span class="x" id="x0" style="opacity:1">—</span><span class="x" id="x1" style="color:var(--sem-ok)">exit 0 · apagado limpio</span><span class="x" id="x2" style="color:var(--kill)">exit 137 (128+9)</span></div>
+      </div>
+
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="21" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="21" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="21" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="21" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/whoosh.wav" data-start="1.0" data-duration="0.6" data-track-index="22" data-volume="0.5"></audio>
+      <audio id="aud2" src="shared/audio/packet.wav" data-start="2.0" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="4.2" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="5.3" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="6.4" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/confirm.wav" data-start="7.2" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/whoosh.wav" data-start="10.8" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud8" src="shared/audio/packet.wav" data-start="11.7" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud9" src="shared/audio/error.wav" data-start="13.0" data-duration="0.45" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud10" src="shared/audio/error.wav" data-start="13.4" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud11" src="shared/audio/confirm.wav" data-start="14.8" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", TM = "#fbbf24", KL = "#ff5f57", MU = "#9c9e8f", GR = "#d1d5db";
+      const F = (t) => `<span class="tok-fn">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+
+      const rT = XF.buildCode($("#sT"), [`${F("signal.signal")}(SIGTERM, handler)`, `${K("def")} ${F("handler")}(sig, frame)${Mu(":")}`, `    close_sockets()${Mu("; flush()")}`, `    ${K("sys.")}${F("exit")}(0)`]);
+      const rK = XF.buildCode($("#sK"), [Mu("# kill -9 NO puede atraparse"), Mu("# el kernel destruye el proceso"), Mu("# sin handler, sin cleanup,"), Mu("# sin posibilidad de despedida")]);
+      const CT = [TM, "rgba(251,191,36,.16)"], CK = [KL, "rgba(255,95,87,.16)"];
+
+      const badgeDefs = [["ENTREGANDO SIGTERM", TM], ["LIMPIEZA EN CURSO", OK], ["APAGADO LIMPIO", OK], ["ENTREGANDO SIGKILL", KL], ["MUERTE INMEDIATA", KL]];
+      $("#badges").innerHTML = badgeDefs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join("");
+      const bs = badgeDefs.map((_, i) => $("#bdg" + i));
+      const badge = (i, t) => XF.only(tl, bs, bs[i], t);
+
+      const stDefs = [["RUNNING", OK], ["CLOSING…", TM], ["EXITED ✔", OK], ["KILLED", KL]];
+      $("#appSt").innerHTML = stDefs.map(([t, c], i) => `<span id="as${i}" style="color:${c}">${t}</span>`).join("");
+      const ss = stDefs.map((_, i) => $("#as" + i));
+      const appState = (i, t) => XF.only(tl, ss, ss[i], t);
+      appState(0, 0);
+      const appStyle = (bc, bg, t) => tl.set("#app", { borderColor: bc, backgroundColor: bg }, t);
+
+      const term = $("#term");
+      [["t0", "$ kill -TERM 4242 → kernel", TM], ["t1", "kernel entrega la señal al proceso", "#fbbf24"], ["t2", "handler: cerrar sockets…", GR], ["t3", "handler: vaciar buffers…", GR], ["t4", "handler: cerrar archivos…", GR], ["t5", "proceso terminado con exit 0", OK],
+       ["k0", "$ kill -KILL 4242 → kernel", KL], ["k1", "el kernel NO consulta al proceso", "#fbbf24"], ["k2", "sockets abiertos, buffers sin vaciar…", "#fecaca"], ["k3", "kernel reporta SIGKILL: exit 137", OK]]
+        .forEach(([id, t, c]) => term.insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const task = (n, state, t) => { // state: p (pendiente) | ok | no
+        ["p", "ok", "no"].forEach((s) => tl.set(`#tk${n} .${s}`, { opacity: s === state ? 1 : 0 }, t));
+      };
+      [1, 2, 3].forEach((n) => task(n, "p", 0));
+      const fly = (id, x0, x1, t, d = 0.9) => {
+        tl.set(id, { x: x0, opacity: 1 }, t);
+        tl.fromTo(id, { x: x0 }, { x: x1, duration: d, ease: "steps(8)" }, t);
+        tl.set(id, { opacity: 0 }, t + d + 0.25);
+      };
+      const xs = (i, t) => XF.only(tl, [$("#x0"), $("#x1"), $("#x2")], $("#x" + i), t);
+
+      // ===== SIGTERM (0 – 9.6 s) =====
+      tl.set("#sT", { opacity: 1 }, 0); badge(0, 0.2);
+      XF.activeLine(tl, rT, 1, 0.5, ...CT); say("t0", 0.5);
+      fly("#chT", 30, 380, 1.0); fly("#chT", 380, 640, 2.0);
+      XF.activeLine(tl, rT, 2, 2.0, ...CT); say("t1", 2.0);
+      badge(1, 3.2); appState(1, 3.2); appStyle("#fbbf24", "rgba(251,191,36,.12)", 3.2);
+      [1, 2, 3].forEach((n, i) => {
+        XF.activeLine(tl, rT, i < 1 ? 3 : i < 2 ? 3 : 4, 3.6 + i * 1.1, ...CT);
+        say("t" + (2 + i), 3.6 + i * 1.1); task(n, "ok", 4.2 + i * 1.1);
+      });
+      appState(2, 7.2); appStyle("#7cfb4c", "rgba(124,251,76,.1)", 7.2); xs(1, 7.2); badge(2, 7.2); say("t5", 7.2);
+      XF.activeLine(tl, rT, 0, 8.6);
+
+      // ===== Transición (9.8 s) =====
+      tl.set(["#t0", "#t1", "#t2", "#t3", "#t4", "#t5"], { display: "none" }, 9.8);
+      tl.set("#sT", { opacity: 0 }, 9.8); tl.set("#sK", { opacity: 1 }, 9.8);
+      tl.set("#cT", { opacity: 0 }, 9.8); tl.set("#cK", { opacity: 1 }, 9.8);
+      appState(0, 9.8); appStyle("#7cfb4c", "rgba(124,251,76,.1)", 9.8); xs(0, 9.8);
+      [1, 2, 3].forEach((n) => task(n, "p", 9.8));
+
+      // ===== SIGKILL (10 – 20 s) =====
+      badge(3, 10.0);
+      XF.activeLine(tl, rK, 1, 10.2, ...CK); say("k0", 10.2);
+      fly("#chK", 30, 380, 10.8); fly("#chK", 380, 640, 11.7);
+      XF.activeLine(tl, rK, 2, 11.7, ...CK); say("k1", 11.7);
+      badge(4, 13.0); appState(3, 13.0); appStyle("#ff5f57", "rgba(255,95,87,.14)", 13.0);
+      XF.activeLine(tl, rK, 3, 13.0, ...CK);
+      [1, 2, 3].forEach((n) => task(n, "no", 13.4));
+      say("k2", 14.2); xs(2, 14.6); say("k3", 14.8);
+      XF.activeLine(tl, rK, 0, 17.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 41, yoyo: true }, 0);
+      tl.set({}, {}, 21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "id": "005",
+  "slug": "and-or-chains",
+  "title": "Bash: && vs ||",
+  "series": "linux",
+  "calendarDay": 3,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 21,
+  "hook": "&& y || no son 'y' y 'o': dependen del código de salida.",
+  "topicTags": [
+    "#bash",
+    "#shell",
+    "#exitcode",
+    "#linuxtips"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/and-or-chains",
+  "carousel": {
+    "path": "carruseles/005-and-or-chains",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "&& solo avanza si el comando anterior salió con 0. || solo actúa si falló. Mira cómo un ping fallido omite un echo y otro lo rescata. ¿Lo usabas al revés?",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "&& vs || en Bash 🐧\n\n&& avanza solo si el código de salida es 0.\n|| actúa solo si es distinto de 0.\n\nEl exit code decide el camino. Guárdalo para tus scripts.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "En Bash, && y || no son lógica booleana: miran el código de salida del comando anterior. 0 significa éxito; cualquier otro valor, fallo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué hacen && y || en la terminal? Encadenan comandos según su código de salida: && sigue si salió bien, || actúa si falló. Animación paso a paso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Bash: && vs || explicado con exit codes",
+      "text": "&& continúa solo si el comando anterior devolvió 0; || se ejecuta solo si devolvió un valor distinto de 0. Tres escenas: éxito, rescate y la regla general.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Bash: && vs ||",
+      "text": "&& sigue solo si el comando anterior salió bien (código 0); || actúa si falló. Animación con ejemplos.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Bash 中的 && 与 ||",
+      "textZh": "&& 只在上一条命令成功（退出码 0）时继续；|| 只在失败时执行。附动画示例。"
+    }
+  }
+}

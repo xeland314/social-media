@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #title .a { color: var(--sem-ok); } #title .o { color: #facc15; }
+
+      #codePanel { left: 72px; top: 340px; width: 936px; }
+      #codePanel .code-line { height: 56px; font-size: 32px; }
+      #codeBody { position: relative; height: 168px; }
+      .set { position: absolute; left: 0; right: 0; top: 0; opacity: 0; }
+
+      #stage { left: 72px; top: 680px; width: 936px; height: 430px; }
+      #sceneTag { position: absolute; right: 24px; top: 20px; width: 500px; height: 40px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .stag { position: absolute; right: 0; opacity: 0; white-space: nowrap; }
+      .sc { position: absolute; inset: 0; opacity: 0; }
+      .nd { position: absolute; top: 160px; height: 110px; padding: 14px 10px; text-align: center; font-family: var(--font-code); font-weight: 700; font-size: 28px; color: var(--ink); background: var(--panel-2); border: var(--px) solid var(--line); display: flex; flex-direction: column; justify-content: center; line-height: 1.25; }
+      .nd small { font-size: 24px; color: var(--muted); font-weight: 500; }
+      .nd.run { border-color: var(--sem-ok); background: rgba(124,251,76,.14); }
+      .nd.bad { border-color: var(--sem-bad); background: rgba(255,95,87,.12); }
+      .nd.amber { border-color: #facc15; background: rgba(250,204,21,.14); }
+      .nd.skip { border-color: var(--cat-gray); opacity: .6; text-decoration: line-through; }
+      .edge { position: absolute; top: 211px; height: 8px; background: var(--line); }
+      .op { position: absolute; top: 128px; font-family: var(--font-code); font-weight: 800; font-size: 40px; color: var(--muted); text-align: center; }
+      .bd { position: absolute; white-space: nowrap; top: 278px; font-family: var(--font-label); font-weight: 700; font-size: 28px; text-align: center; color: var(--muted); }
+      .skiptag { position: absolute; top: 326px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--sem-bad); text-align: center; opacity: 0; }
+      .rule { position: absolute; left: 30px; right: 30px; top: 110px; font-family: var(--font-code); font-size: 32px; line-height: 1.6; color: var(--ink); }
+      .rule b { font-family: var(--font-code); font-weight: 800; font-size: 40px; margin-right: 18px; }
+
+      #term { left: 72px; top: 1150px; width: 936px; height: 380px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="21" data-track-index="0">BASH · EXIT CODES</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="21" data-track-index="1">Bash: <span class="a">&amp;&amp;</span> vs <span class="o">||</span><br />el exit code decide</h1>
+
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="21" data-track-index="2">
+        <div class="code-top">
+          <span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span>
+          <span class="code-file">chain.sh</span>
+          <span class="code-badge-slot" id="badges"></span>
+        </div>
+        <div class="code-body" id="codeBody"><div class="set" id="sA"></div><div class="set" id="sB"></div><div class="set" id="sC"></div></div>
+      </div>
+
+      <div id="stage" class="abs px-box clip" data-start="0" data-duration="21" data-track-index="3">
+        <div id="sceneTag"><span class="stag" id="st-scA">ESCENA A · ÉXITO</span><span class="stag" id="st-scB">ESCENA B · RESCATE</span><span class="stag" id="st-scC">REGLA GENERAL</span></div>
+        <!-- Escena A -->
+        <div class="sc" id="scA">
+          <div class="nd" id="nA1" style="left:40px;width:360px">mkdir proyectos</div>
+          <div class="edge" id="eA1" style="left:400px;width:136px"></div>
+          <div class="op" id="opA1" style="left:400px;width:136px">&amp;&amp;</div>
+          <div class="bd" id="bdA1" style="left:400px;width:136px">$?</div>
+          <div class="nd" id="nA2" style="left:536px;width:360px">cd proyectos</div>
+        </div>
+        <!-- Escena B -->
+        <div class="sc" id="scB">
+          <div class="nd" id="nB1" style="left:30px;width:240px">ping -c1<small>&gt; /dev/null</small></div>
+          <div class="edge" id="eB1" style="left:270px;width:88px"></div>
+          <div class="op" id="opB1" style="left:270px;width:88px">&amp;&amp;</div>
+          <div class="bd" id="bdB1" style="left:234px;width:160px">$?</div>
+          <div class="nd" id="nB2" style="left:358px;width:240px">echo<small>"conexión OK"</small></div>
+          <div class="skiptag" id="skipB" style="left:358px;width:240px">se omite ✕</div>
+          <div class="edge" id="eB2" style="left:598px;width:88px"></div>
+          <div class="op" id="opB2" style="left:598px;width:88px">||</div>
+          <div class="bd" id="bdB2" style="left:562px;width:160px">$?</div>
+          <div class="nd" id="nB3" style="left:686px;width:240px">echo<small>"sin conexión"</small></div>
+        </div>
+        <!-- Escena C -->
+        <div class="sc" id="scC">
+          <div class="rule"><div><b style="color:var(--sem-ok)">&amp;&amp;</b>avanza solo si el código es 0</div><div style="margin-top:30px"><b style="color:#facc15">||</b>actúa solo si es distinto de 0</div></div>
+        </div>
+      </div>
+
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="21" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="21" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="21" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="21" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/pop.wav" data-start="2.4" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="4.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/error.wav" data-start="8.4" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud4" src="shared/audio/whoosh.wav" data-start="10.2" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud5" src="shared/audio/confirm.wav" data-start="13.8" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/blip.wav" data-start="16.2" data-duration="0.12" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/confirm.wav" data-start="17.6" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const G = "#7cfb4c", R = "#ff5f57", Y = "#facc15", P = "#c084fc", GR = "#d1d5db", MU = "#9c9e8f";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+
+      const rA = XF.buildCode($("#sA"), [`${S("$ mkdir proyectos")} ${K("&amp;&amp;")} ${S("cd proyectos")}`, Mu("# ambos corren: exit 0, la cadena sigue")]);
+      const rB = XF.buildCode($("#sB"), [`${S("$ ping -c1 srv &gt; /dev/null")} ${K("&amp;&amp;")}`, `${F("echo")} ${S('"OK"')} ${K("||")} ${F("echo")} ${S('"sin conexión"')}`, Mu("# ping falla: && omite · || rescata")]);
+      const rC = XF.buildCode($("#sC"), [`${K("&amp;&amp;")} ${Mu("avanza solo si el código es 0")}`, `${K("||")} ${Mu("actúa solo si es distinto de 0")}`]);
+      const LC = [P, "rgba(192,132,252,.16)"];
+
+      const badgeDefs = [["EJECUTANDO", MU], ["$? = 0", G], ["$? ≠ 0", R], ["RESCATADO · $? = 0", Y], ["CADENA COMPUTADA", G]];
+      $("#badges").innerHTML = badgeDefs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join("");
+      const bs = badgeDefs.map((_, i) => $("#bdg" + i));
+      const badge = (i, t) => XF.only(tl, bs, bs[i], t);
+
+      const term = $("#term");
+      [["a0", "$ mkdir proyectos && cd proyectos", GR], ["a1", "mkdir proyectos → exit 0", G], ["a2", "&& continúa: cd proyectos → exit 0", P],
+       ["b0", "$ ping -c1 servidor > /dev/null && …", GR], ["b1", "ping: host inalcanzable → exit ≠ 0", R], ["b2", '&& corta: echo "conexión OK" se OMITE', GR], ["b3", '|| rescata: echo "sin conexión"', Y], ["b4", "la cadena termina en éxito: $? = 0", G],
+       ["c0", "regla: && exige 0 · || exige ≠ 0", P], ["c1", "el exit code decide el camino", G]]
+        .forEach(([id, t, c]) => term.insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const node = (id, cls, t) => tl.set("#" + id, { className: "nd " + cls }, t);
+      const setC = (id, color, t) => tl.set("#" + id, { color }, t);
+      const edge = (id, bg, t) => tl.set("#" + id, { backgroundColor: bg }, t);
+      const bd = (id, text, color, t) => { // texto de resultado: elemento apilado (seek-safe, sin tl.call)
+        const el = $("#" + id); let c = $("#" + id + "r");
+        if (!c) { c = el.cloneNode(true); c.id = id + "r"; c.textContent = text; c.style.color = color; c.style.opacity = 0; el.after(c); }
+        tl.set(el, { opacity: 0 }, t); tl.set(c, { opacity: 1 }, t);
+      };
+
+      const scene = (id, tag, set, t) => {
+        tl.set(["#scA", "#scB", "#scC"], { opacity: 0 }, t); tl.set("#" + id, { opacity: 1 }, t);
+        tl.set(".stag", { opacity: 0 }, t); tl.set("#st-" + id, { opacity: 1 }, t);
+        tl.set(["#sA", "#sB", "#sC"], { opacity: 0 }, t); tl.set(set, { opacity: 1 }, t);
+      };
+
+      // ===== Escena A: éxito =====
+      badge(0, 0.2); scene("scA", "ESCENA A · ÉXITO", "#sA", 0.2);
+      XF.activeLine(tl, rA, 1, 0.6, ...LC); say("a0", 0.6);
+      node("nA1", "run", 2.4); bd("bdA1", "$? = 0", G, 2.4); badge(1, 2.4); say("a1", 2.4);
+      edge("eA1", G, 4.2); setC("opA1", P, 4.2); node("nA2", "run", 4.2); say("a2", 4.2);
+      // ===== Escena B: rescate =====
+      tl.set(["#a0", "#a1", "#a2"], { display: "none" }, 6.6);
+      scene("scB", "ESCENA B · RESCATE", "#sB", 6.6); badge(0, 6.6);
+      XF.activeLine(tl, rB, 1, 6.9, ...LC); say("b0", 6.9);
+      node("nB1", "bad", 8.4); bd("bdB1", "$? ≠ 0", R, 8.4); badge(2, 8.4); say("b1", 8.4);
+      edge("eB1", R, 10.2); setC("opB1", R, 10.2); node("nB2", "skip", 10.2); tl.set("#skipB", { opacity: 1 }, 10.2); say("b2", 10.2);
+      XF.activeLine(tl, rB, 2, 12.0, "#facc15", "rgba(250,204,21,.16)");
+      edge("eB2", Y, 12.0); setC("opB2", Y, 12.0); node("nB3", "amber", 12.0); say("b3", 12.0);
+      bd("bdB2", "$? = 0", G, 13.8); badge(3, 13.8); say("b4", 13.8);
+      // ===== Escena C: regla =====
+      tl.set(["#b0", "#b1", "#b2", "#b3", "#b4"], { display: "none" }, 16.0);
+      scene("scC", "REGLA GENERAL", "#sC", 16.0);
+      XF.activeLine(tl, rC, 1, 16.2, ...LC); say("c0", 16.2);
+      XF.activeLine(tl, rC, 2, 17.6, ...LC);
+      badge(4, 17.6); say("c1", 17.8);
+      XF.activeLine(tl, rC, 0, 19.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 41, yoyo: true }, 0);
+      tl.set({}, {}, 21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

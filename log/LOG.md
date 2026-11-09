@@ -8,6 +8,8 @@
 | 002 | [Git: merge vs rebase](../videos/002-git-merge-rebase/) | git | rendered | 4 | — |
 | 003 | [TCP vs UDP: confianza vs velocidad](../videos/003-tcp-udp/) | redes | rendered | 5 | — |
 | 004 | [Spoofing y phishing: DMARC lo frena](../videos/004-spoofing-phishing-dmarc/) | ti | rendered | 24 | — |
+| 005 | [Bash: && vs ||](../videos/005-and-or-chains/) | linux | rendered | 3 | — |
+| 006 | [SIGTERM vs SIGKILL](../videos/006-sigterm-vs-sigkill/) | linux | rendered | 2 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -251,4 +253,126 @@ Spoofing y phishing: SPF, DKIM y DMARC con p=reject frenan el correo falsificado
 伪造邮件攻击：SPF、DKIM 加上 DMARC 的 p=reject 策略可以直接拦截。虚构案例，一步步演示。
 
 #spoofing #phishing #dmarc #IT运维 #网络安全
+```
+
+## 005 · Bash: && vs ||
+
+- **Carpeta:** `videos/005-and-or-chains/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** && y || no son 'y' y 'o': dependen del código de salida.
+- **Carrusel:** `carruseles/005-and-or-chains` (pending)
+
+### TikTok
+```text
+&& solo avanza si el comando anterior salió con 0. || solo actúa si falló. Mira cómo un ping fallido omite un echo y otro lo rescata. ¿Lo usabas al revés?
+
+#bash #shell #exitcode #linuxtips #xeland314
+```
+
+### Instagram
+```text
+&& vs || en Bash 🐧
+
+&& avanza solo si el código de salida es 0.
+|| actúa solo si es distinto de 0.
+
+El exit code decide el camino. Guárdalo para tus scripts.
+
+#bash #shell #exitcode #linuxtips #xeland314
+```
+
+### Threads
+```text
+En Bash, && y || no son lógica booleana: miran el código de salida del comando anterior. 0 significa éxito; cualquier otro valor, fallo.
+
+#bash
+```
+
+### Facebook
+```text
+¿Qué hacen && y || en la terminal? Encadenan comandos según su código de salida: && sigue si salió bien, || actúa si falló. Animación paso a paso.
+
+#bash #shell #xeland314
+```
+
+### YouTube
+**Título:** Bash: && vs || explicado con exit codes
+
+```text
+&& continúa solo si el comando anterior devolvió 0; || se ejecuta solo si devolvió un valor distinto de 0. Tres escenas: éxito, rescate y la regla general.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#bash #shell #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Bash: && vs || | Bash 中的 && 与 ||
+
+```text
+&& sigue solo si el comando anterior salió bien (código 0); || actúa si falló. Animación con ejemplos.
+
+&& 只在上一条命令成功（退出码 0）时继续；|| 只在失败时执行。附动画示例。
+
+#bash #shell #exitcode #Linux #操作系统
+```
+
+## 006 · SIGTERM vs SIGKILL
+
+- **Carpeta:** `videos/006-sigterm-vs-sigkill/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** kill -15 pide permiso. kill -9 no pregunta.
+- **Carrusel:** `carruseles/006-sigterm-vs-sigkill` (pending)
+
+### TikTok
+```text
+SIGTERM le pide al proceso que se cierre: puede cerrar sockets y vaciar buffers. SIGKILL no pregunta: el kernel lo aniquila al instante. Mira la diferencia en 21 segundos.
+
+#sigterm #sigkill #procesos #linuxtips #xeland314
+```
+
+### Instagram
+```text
+SIGTERM vs SIGKILL 🐧
+
+SIGTERM (15): el proceso puede limpiar antes de salir → exit 0.
+SIGKILL (9): el kernel lo mata sin preguntar → exit 137.
+
+Guárdalo para tu próximo kill.
+
+#sigterm #sigkill #procesos #linuxtips #xeland314
+```
+
+### Threads
+```text
+kill -9 es el último recurso: el proceso no puede atrapar SIGKILL, así que no cierra sockets ni vacía buffers. Primero prueba con SIGTERM.
+
+#sigterm
+```
+
+### Facebook
+```text
+¿Qué diferencia hay entre kill y kill -9? SIGTERM permite una salida limpia; SIGKILL la impide. Animación paso a paso con el código del handler.
+
+#sigterm #sigkill #xeland314
+```
+
+### YouTube
+**Título:** SIGTERM vs SIGKILL: cuándo usar kill y kill -9
+
+```text
+SIGTERM (15) deja que el proceso limpie y salga con 0. SIGKILL (9) lo destruye sin handler y devuelve 137. Animación paso a paso.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#sigterm #sigkill #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** SIGTERM vs SIGKILL | SIGTERM 与 SIGKILL
+
+```text
+SIGTERM pide cerrar con limpieza (exit 0); SIGKILL aniquila al instante (exit 137). Animación paso a paso.
+
+SIGTERM 让进程优雅退出（退出码 0）；SIGKILL 由内核直接终止（退出码 137）。附动画演示。
+
+#sigterm #sigkill #procesos #Linux #操作系统
 ```
