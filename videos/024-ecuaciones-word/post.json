@@ -55,7 +55,7 @@
       "text": "[MATH] 标记公式，LaTeX 转 MathML 再转 OMML，注入段落：得到可编辑的 Word 公式，而不是图片。",
       "url": null,
       "publishedAt": null,
-      "titleZh": "用 Python 在 Word 中插入公式",
+      "titleZh": "Python 写入 Word 公式",
       "textZh": "先用标记找到公式，再用 latex2mathml 和 mathml2omml 转换，最后用 python-docx 写入段落，生成可编辑的原生公式。"
     }
   }

@@ -1499,7 +1499,7 @@ Más animaciones: https://xeland314.github.io/animations
 ```
 
 ### RedNote
-**Título:** Ecuaciones en Word | 用 Python 在 Word 中插入公式
+**Título:** Ecuaciones en Word | Python 写入 Word 公式
 
 ```text
 [MATH] 标记公式，LaTeX 转 MathML 再转 OMML，注入段落：得到可编辑的 Word 公式，而不是图片。
