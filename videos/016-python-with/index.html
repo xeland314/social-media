@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 42px; font-size: 28px; }
+      #card { left: 72px; top: 810px; width: 936px; height: 470px; border-color: var(--line); }
+      #ic { position: absolute; left: 50px; top: 70px; width: 200px; height: 220px; }
+      #ic .stk { text-align: center; top: 0; }
+      #tg { position: absolute; left: 300px; top: 50px; width: 600px; height: 44px; }
+      #tg .stk, #tt .stk, #sb .stk { text-align: left; }
+      #tg .stk { font-family: var(--font-label); font-weight: 700; font-size: 30px; }
+      #tt { position: absolute; left: 300px; top: 130px; width: 600px; height: 52px; }
+      #tt .stk { font-family: var(--font-code); font-weight: 800; font-size: 36px; color: var(--ink); }
+      #sb { position: absolute; left: 300px; top: 210px; width: 600px; height: 80px; }
+      #sb .stk { font-family: var(--font-code); font-weight: 600; font-size: 28px; color: var(--muted); }
+      #bar2 { position: absolute; left: 50px; right: 50px; bottom: 36px; height: 12px; background: var(--line); }
+      #term { left: 72px; top: 1310px; width: 936px; height: 360px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="21" data-track-index="0">PYTHON · CONTEXT MANAGER</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="21" data-track-index="1">with:<br />cierre garantizado</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="21" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">conexion_db.py</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="21" data-track-index="3">
+        <div id="ic"></div><div id="tg"></div><div id="tt"></div><div id="sb"></div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="21" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="21" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="21" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="21" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.4" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="4.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="5.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/confirm.wav" data-start="7.2" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/blip.wav" data-start="10.4" data-duration="0.12" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="12.2" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/error.wav" data-start="14.0" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud9" src="shared/audio/confirm.wav" data-start="16.4" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud10" src="shared/audio/confirm.wav" data-start="18.0" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const Ac = (t) => `<span style="color:#f1a449">${t}</span>`;
+      const rows = XF.buildCode($("#codeBody"), [`${K("class")} ${F("ConexionDB")}${Mu(":")}`, `    ${K("def")} ${F("__enter__")}(self)${Mu(":")}`, `        self.${F("abrir")}()   ${Mu("# 1. ABRE CONEXIÓN")}`,
+        `    ${K("def")} ${F("__exit__")}(self, *exc)${Mu(":")}`, `        self.${F("cerrar")}()  ${Mu("# 3. CIERRA SIEMPRE")}`, ``, `${Ac("with")} ${F("ConexionDB")}() ${K("as")} db${Mu(":")}`, `    db.${F("ejecutar_consulta")}() ${Mu("# 2. BLOQUE")}`]);
+      const AC = ["#f1a449", "rgba(241,164,73,.16)"], GC = [OK, "rgba(124,251,76,.14)"], BC = [RD, "rgba(255,95,87,.16)"];
+      const badge = mkBadges([["ENTRANDO A WITH", "#f1a449"], ["__enter__() ACTIVADO", OK], ["EJECUTANDO CONSULTA", OK], ["__exit__() SIEMPRE", "#f1a449"], ["FINALIZADO OK", OK], ["EXCEPCIÓN OCURRIDA", RD], ["RECURSO A SALVO", OK]]);
+      const rowsLock = ["...#####...", "..#.....#..", "..#.....#..", "..#.....#..", "###########", "#YYYYYYYYY#", "#YYYYKYYYY#", "#YYYYKYYYY#", "#YYYYYYYYY#", "###########"];
+      const rowsOpen = ["...#####...", "..#.....#..", "..#........", "..#........", "###########", "#YYYYYYYYY#", "#YYYYKYYYY#", "#YYYYKYYYY#", "#YYYYYYYYY#", "###########"];
+      const rowsBang = [".....R.....", "..R..R..R..", "...RRYRR...", "R.RRYYYRR.R", ".RRYYYYYRR.", "RRRYYWYYYRR", ".RRYYYYYRR.", "R.RRYYYRR.R", "...RRYRR...", "..R..R..R..", ".....R....."];
+      const pal = { "#": "#483025", Y: "#f1a449", K: "#14100d", R: "#ff5f57", W: "#f9e6c6" };
+      const icons = XF.stack($("#ic"), [SPR.fromRows(rowsLock, pal, 18), SPR.fromRows(rowsOpen, pal, 18), SPR.fromRows(rowsBang, pal, 18)]);
+      const tag = XF.stack($("#tg"), ["CERRADO", "ABIERTO", "FALLO EN BLOQUE"]); tag[0].style.color = MU; tag[1].style.color = OK; tag[2].style.color = RD;
+      const tit = XF.stack($("#tt"), ["Conexión inactiva", "Conexión establecida", "ZeroDivisionError!"]); tit[2].style.color = RD;
+      const sub = XF.stack($("#sb"), ["Puerto 5432 · standby", "Puerto 5432 · transacción activa", "Excepción lanzada en ejecución"]);
+      const state = (i, t, border) => { XF.only(tl, tag, tag[i], t); XF.only(tl, tit, tit[i], t); XF.only(tl, sub, sub[i], t); XF.only(tl, icons, icons[i === 0 ? 0 : i === 1 ? 1 : 2], t); tl.set("#card", { borderColor: border }, t); };
+      state(0, 0, "#483025");
+      mkTerm([["n0", ">>> with ConexionDB() as db:", "#f1a449"], ["n1", "[__enter__] conexión a DB abierta", OK], ["n2", "[db] SELECT * FROM usuarios...", GR], ["n3", "consulta completada con éxito", OK], ["n4", "[__exit__] cierre seguro de conexión", "#f1a449"], ["n5", "terminó bien: conexión cerrada", OK],
+        ["e0", ">>> with ConexionDB() as db:", "#f1a449"], ["e1", "[__enter__] conexión a DB abierta", OK], ["e2", "[error] ZeroDivisionError: division by zero", RD], ["e3", "[__exit__] cierre seguro de conexión", "#f1a449"], ["e4", "la DB se cerró limpia a pesar del error", OK]]);
+
+      // ===== escenario normal =====
+      badge(0, 0.2); XF.activeLine(tl, rows, 7, 0.4, ...AC); say("n0", 0.5);
+      badge(1, 2.0); XF.activeLine(tl, rows, 3, 2.0, ...GC); state(1, 2.4, "#7cfb4c"); say("n1", 2.4);
+      badge(2, 4.0); XF.activeLine(tl, rows, 8, 4.0, ...GC); say("n2", 4.0); say("n3", 5.6);
+      badge(3, 6.8); XF.activeLine(tl, rows, 5, 6.8, ...AC); state(0, 7.2, "#f1a449"); say("n4", 7.2);
+      badge(4, 8.6); say("n5", 8.6);
+      // ===== escenario con error =====
+      tl.set(["#n0", "#n1", "#n2", "#n3", "#n4", "#n5"], { display: "none" }, 10.2); state(0, 10.2, "#483025");
+      badge(0, 10.4); XF.activeLine(tl, rows, 7, 10.4, ...AC); say("e0", 10.5);
+      badge(1, 11.8); XF.activeLine(tl, rows, 3, 11.8, ...GC); state(1, 12.2, "#7cfb4c"); say("e1", 12.2);
+      badge(5, 14.0); XF.activeLine(tl, rows, 8, 14.0, ...BC); state(2, 14.0, "#ff5f57"); say("e2", 14.2);
+      badge(3, 16.0); XF.activeLine(tl, rows, 5, 16.0, ...AC); state(0, 16.4, "#f1a449"); say("e3", 16.4);
+      badge(6, 18.0); say("e4", 18.0); XF.activeLine(tl, rows, 0, 19.0);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 41, yoyo: true }, 0);
+      tl.set({}, {}, 21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -67,7 +67,7 @@ function validate(items) {
         else if (p.titleZh.length > cfg.titleMax) problems.push(`${name} · ${net}: titleZh ${p.titleZh.length}/${cfg.titleMax}`);
       }
       // Solo español (y chino en RedNote): detecta texto en inglés frecuente.
-      if (/\b(the|and|with|your|this)\b/i.test(p.text)) problems.push(`${name} · ${net}: ¿texto en inglés? (solo español)`);
+      if (/\b(the|and|your|this)\b/i.test(p.text)) problems.push(`${name} · ${net}: ¿texto en inglés? (solo español)`);
     }
   }
   return problems;

@@ -70,5 +70,11 @@ window.SPR = (function () {
     for (let x = 1; x < W - 1; x++) g[3][x] = "S";
     return `<svg viewBox="0 0 ${W} ${H}" width="${W * scale}" height="${H * scale}" style="shape-rendering:crispEdges">${layer("base", g)}</svg>`;
   }
-  return { attacker, envelope, gopher, pbox };
+  /** Sprite genérico desde filas de texto: '.' vacío; cada letra se busca en `pal` (o en la paleta base). */
+  function fromRows(rows, pal = {}, scale = 8) {
+    const colors = { ...P, ...pal }, H = rows.length, W = rows[0].length;
+    const body = rows.map((r, y) => [...r].map((c, x) => (c === "." ? "" : `<rect x="${x}" y="${y}" width="1" height="1" fill="${colors[c]}"/>`)).join("")).join("");
+    return `<svg viewBox="0 0 ${W} ${H}" width="${W * scale}" height="${H * scale}" style="shape-rendering:crispEdges">${body}</svg>`;
+  }
+  return { attacker, envelope, gopher, pbox, fromRows };
 })();

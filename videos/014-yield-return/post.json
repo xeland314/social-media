@@ -1,0 +1,62 @@
+{
+  "id": "014",
+  "slug": "yield-return",
+  "title": "Python: return vs yield",
+  "series": "python",
+  "calendarDay": 13,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 21,
+  "hook": "return devuelve todo de golpe; yield, uno a uno.",
+  "topicTags": [
+    "#python",
+    "#yield",
+    "#generadores",
+    "#memoria"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/python-return-vs-yield",
+  "carousel": {
+    "path": "carruseles/014-yield-return",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "return construye toda la lista en memoria y la devuelve. yield entrega un valor a la vez y se pausa. Mira cuánta RAM usa cada uno.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "return vs yield en Python 🐍\n\nreturn: acumula todo en RAM, O(N).\nyield: un valor activo a la vez, O(1).\n\nGuárdalo para cuando proceses millones de datos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Con yield, una función se convierte en generador: entrega un valor, se pausa y continúa cuando se lo piden. La memoria se mantiene constante.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Por qué usar yield en lugar de return? Porque un generador no guarda todos los datos en memoria. Animación comparativa.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Python: return vs yield (generadores y memoria)",
+      "text": "return acumula toda la lista en RAM (O(N)); yield entrega un elemento a la vez (O(1)). Comparativa animada.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "return vs yield",
+      "text": "return 一次返回整个列表；yield 逐个产出并暂停，占用内存更少。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "return 与 yield",
+      "textZh": "return 一次性返回全部数据；yield 每次只产出一个值并暂停，内存占用恒定。"
+    }
+  }
+}

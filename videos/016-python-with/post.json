@@ -1,0 +1,62 @@
+{
+  "id": "016",
+  "slug": "python-with",
+  "title": "Python: with (context manager)",
+  "series": "python",
+  "calendarDay": 15,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 21,
+  "hook": "with cierra el recurso aunque todo falle.",
+  "topicTags": [
+    "#python",
+    "#with",
+    "#contextmanager",
+    "#recursos"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/with-in-python",
+  "carousel": {
+    "path": "carruseles/016-python-with",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "with garantiza que la conexión se cierre, incluso si el bloque falla con una excepción. Mira __enter__ y __exit__ en dos escenarios: normal y con error.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "with en Python 🐍\n\n__enter__ abre la conexión.\n__exit__ la cierra SIEMPRE, incluso con ZeroDivisionError.\n\nGuárdalo para no dejar recursos abiertos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "El bloque with llama a __exit__ pase lo que pase: si hay una excepción, la conexión igual se cierra. Es la forma segura de manejar recursos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué hace with en Python? Abre el recurso con __enter__ y lo cierra con __exit__, incluso cuando hay un error. Animación con dos escenarios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Python with: context manager y cierre garantizado",
+      "text": "__enter__ abre la conexión y __exit__ la cierra siempre, incluso con una excepción. Escenario normal y escenario con error.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Python with",
+      "text": "with abre con __enter__ y cierra con __exit__, aunque haya error.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Python with",
+      "textZh": "with 用 __enter__ 打开、__exit__ 关闭，即使代码出错也会关闭。"
+    }
+  }
+}

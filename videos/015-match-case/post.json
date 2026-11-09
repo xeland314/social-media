@@ -1,0 +1,62 @@
+{
+  "id": "015",
+  "slug": "match-case",
+  "title": "Python: match/case",
+  "series": "python",
+  "calendarDay": 14,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 19,
+  "hook": "match/case es un switch con superpoderes.",
+  "topicTags": [
+    "#python",
+    "#matchcase",
+    "#pythontips",
+    "#control"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/switch-python-bebidas",
+  "carousel": {
+    "path": "carruseles/015-match-case",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "match/case en Python: una máquina de bebidas elige el case correcto. Escanea cada caso hasta que coincide y libera la bebida. ¿Lo usabas ya?",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "match/case en Python 🐍\n\nbebida = \"agua\"\nmatch bebida: revisa case por case hasta coincidir.\n\nMás legible que una cadena de if/elif. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "match/case llegó a Python 3.10: compara un valor con varios patrones y ejecuta el primero que coincide. Más claro que una cadena de if/elif.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo funciona match/case en Python? Una máquina de bebidas recorre los cases hasta encontrar el que coincide. Animación paso a paso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Python match/case explicado con una máquina de bebidas",
+      "text": "Tres bebidas, tres cases: cómo match compara el valor con cada patrón hasta coincidir y ejecutar su bloque.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Python match/case",
+      "text": "match/case compara un valor con cada patrón y ejecuta el primero que coincide.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Python match/case",
+      "textZh": "match/case 依次比较各个模式，执行第一个匹配的分支。"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 42px; font-size: 28px; }
+      #card { left: 72px; top: 850px; width: 936px; height: 470px; }
+      .vs { position: absolute; top: 24px; width: 270px; height: 250px; border: 5px solid var(--line); background: var(--panel-2); text-align: center; }
+      .vs .nm { position: absolute; left: 0; right: 0; bottom: 14px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--ink); }
+      .vs .can { margin: 34px auto 0; }
+      .can { width: 64px; height: 100px; background: var(--c); border: 4px solid #f9e6c6; }
+      .can i { display: block; margin-top: 30px; height: 18px; background: #f9e6c6; }
+      #tray { position: absolute; left: 30px; right: 30px; top: 310px; height: 130px; border: 5px dashed var(--line); }
+      #tray .tl { position: absolute; right: 16px; top: 10px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      #tray .tn { position: absolute; right: 20px; top: 40px; width: 560px; height: 50px; }
+      #tray .tn .stk { text-align: right; font-family: var(--font-label); font-weight: 700; font-size: 34px; color: var(--ink); }
+      .fly { position: absolute; opacity: 0; }
+      #term { left: 72px; top: 1350px; width: 936px; height: 330px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="19" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="19" data-track-index="0">PYTHON · MATCH / CASE</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="19" data-track-index="1">match/case:<br />la máquina de bebidas</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="19" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">maquina.py</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="19" data-track-index="3">
+        <div class="vs" id="v0" style="left:24px"><div class="can" style="--c:#2b2b36"><i></i></div><div class="nm">GASEOSA</div></div>
+        <div class="vs" id="v1" style="left:333px"><div class="can" style="--c:#3fd0e0"><i></i></div><div class="nm">AGUA</div></div>
+        <div class="vs" id="v2" style="left:642px"><div class="can" style="--c:#facc15"><i></i></div><div class="nm">LIMONADA</div></div>
+        <div class="fly can" id="f0" style="--c:#2b2b36"><i></i></div><div class="fly can" id="f1" style="--c:#3fd0e0"><i></i></div><div class="fly can" id="f2" style="--c:#facc15"><i></i></div>
+        <div id="tray"><span class="tl">BANDEJA</span><div class="tn" id="tn"></div></div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="19" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="19" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="19" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="19" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.6" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.0" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="2.9" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="4.2" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/blip.wav" data-start="6.2" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/pop.wav" data-start="7.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="8.4" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="9.4" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/blip.wav" data-start="11.8" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="13.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/pop.wav" data-start="14.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud12" src="shared/audio/pop.wav" data-start="15.2" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud13" src="shared/audio/pop.wav" data-start="17.6" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud14" src="shared/audio/confirm.wav" data-start="17.6" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const Q = (d) => S(`"${d}"`);
+      const DR = ["gaseosa", "agua", "limonada"], NM = ["Gaseosa negra", "Agua natural", "Limonada"], CASE_LINE = [4, 6, 8], CALL_LINE = [5, 7, 9];
+      const rows = XF.buildCode($("#codeBody"), [
+        "", ``, `${K("match")} bebida${Mu(":")}`,
+        `  ${K("case")} ${Q("gaseosa")}${Mu(":")}`, `    ${F("liberar_bebida")}(${S('"Gaseosa negra"')})`,
+        `  ${K("case")} ${Q("agua")}${Mu(":")}`, `    ${F("liberar_bebida")}(${S('"Agua natural"')})`,
+        `  ${K("case")} ${Q("limonada")}${Mu(":")}`, `    ${F("liberar_bebida")}(${S('"Limonada"')})`]);
+      // línea 1: tres variantes apiladas (bebida = "...")
+      const l1 = rows[0].children[1]; l1.style.cssText = "position:relative;display:inline-block;width:600px;height:42px";
+      const asg = XF.stack(l1, DR.map((d) => `<span class="tok-var" style="color:#f9e6c6">bebida</span> ${Mu("=")} ${Q(d)}`));
+      asg.forEach((e) => (e.style.top = "0")); asg.forEach((e) => (e.style.lineHeight = "42px"));
+      const GC = ["#7e7f7f", "rgba(255,255,255,.07)"], MC = [OK, "rgba(124,251,76,.14)"];
+      const badge = mkBadges([["BUSCANDO CASE", MU], ["MATCH: GASEOSA", OK], ["MATCH: AGUA", OK], ["MATCH: LIMONADA", OK], ["FINALIZADO", OK]]);
+      const tn = XF.stack($("#tn"), ["", ...NM]); XF.only(tl, tn, tn[0], 0);
+      mkTerm([["c1", 'liberar_bebida("Gaseosa negra")', OK], ["c2", 'liberar_bebida("Agua natural")', OK], ["c3", 'liberar_bebida("Limonada")', OK]]);
+      const vs = (i, on, t) => tl.set("#v" + i, { borderColor: on ? "#7cfb4c" : "#483025", backgroundColor: on ? "rgba(124,251,76,.12)" : "#32231a" }, t);
+      XF.only(tl, asg, asg[0], 0);
+      badge(0, 0.2);
+      DR.forEach((d, r) => {
+        const T = 0.6 + r * 5.6;
+        XF.only(tl, asg, asg[r], T); XF.activeLine(tl, rows, 1, T, ...MC); badge(0, T);
+        XF.activeLine(tl, rows, 3, T + 0.7, ...MC);
+        for (let k = 0; k < r; k++) XF.activeLine(tl, rows, CASE_LINE[k], T + 1.4 + k * 0.6, ...GC);
+        const tm = T + 1.4 + r * 0.6;
+        XF.activeLine(tl, rows, CASE_LINE[r], tm, ...MC); badge(1 + r, tm); vs(r, true, tm + 0.3);
+        XF.activeLine(tl, rows, CALL_LINE[r], tm + 0.8, ...MC);
+        const x = 24 + r * 309 + 103, y0 = 58;
+        tl.set("#f" + r, { x, y: y0, opacity: 1 }, tm + 0.9);
+        tl.fromTo("#f" + r, { y: y0 }, { y: 336, duration: 0.9, ease: "steps(8)" }, tm + 0.9);
+        say("c" + (r + 1), tm + 1.8);
+        vs(r, false, T + 5.0); tl.set("#f" + r, { opacity: 0 }, T + 5.0);  tl.set("#c" + (r + 1), { display: r < 2 ? "block" : "block" }, T + 5.0);
+      });
+      badge(4, 17.6); XF.activeLine(tl, rows, 0, 17.6);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 37, yoyo: true }, 0);
+      tl.set({}, {}, 19);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "id": "013",
+  "slug": "python-decorator",
+  "title": "Python: decoradores",
+  "series": "python",
+  "calendarDay": 12,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 18,
+  "hook": "Un decorador es una función que envuelve a otra: antes, durante y después.",
+  "topicTags": [
+    "#python",
+    "#decoradores",
+    "#pythontips",
+    "#funciones"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/python-decorator",
+  "carousel": {
+    "path": "carruseles/013-python-decorator",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Un decorador de Python envuelve tu función: mide el tiempo antes, la ejecuta y reporta después. Mira cómo @medir_tiempo hace todo sin tocar el código original.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Decoradores en Python 🐍\n\n@medir_tiempo envuelve a procesar_datos:\n1. ANTES: guarda t0\n2. DURANTE: corre la función\n3. DESPUÉS: imprime el tiempo\n\nGuárdalo para tu próximo proyecto.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un decorador es una función que recibe otra función y devuelve una versión envuelta. @medir_tiempo es azúcar para procesar_datos = medir_tiempo(procesar_datos).",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué hace realmente un decorador en Python? Envuelve una función para ejecutar código antes y después. Animación paso a paso.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Decoradores en Python: antes, durante y después",
+      "text": "@medir_tiempo envuelve a la función original: guarda t0, la ejecuta y reporta el tiempo transcurrido.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Python decoradores",
+      "text": "@medir_tiempo envuelve la función: guarda t0, la ejecuta y muestra el tiempo.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Python 装饰器",
+      "textZh": "@medir_tiempo 包装原函数：先记录 t0，再执行，最后输出耗时。"
+    }
+  }
+}

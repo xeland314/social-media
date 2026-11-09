@@ -16,6 +16,10 @@
 | 010 | [Go: canal con buffer](../videos/010-go-channels/) | go | rendered | 9 | — |
 | 011 | [Go: defer (LIFO)](../videos/011-go-defer/) | go | rendered | 10 | — |
 | 012 | [File descriptors y redirecciones](../videos/012-file-descriptors/) | linux | rendered | 11 | — |
+| 013 | [Python: decoradores](../videos/013-python-decorator/) | python | rendered | 12 | — |
+| 014 | [Python: return vs yield](../videos/014-yield-return/) | python | rendered | 13 | — |
+| 015 | [Python: match/case](../videos/015-match-case/) | python | rendered | 14 | — |
+| 016 | [Python: with (context manager)](../videos/016-python-with/) | python | rendered | 15 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -749,4 +753,250 @@ Más animaciones: https://xeland314.github.io/animations
 > 截断，>> 追加，2>&1 把 fd2 复制到 fd1 所指向的位置。
 
 #redireccion #stdout #stderr #Linux #操作系统
+```
+
+## 013 · Python: decoradores
+
+- **Carpeta:** `videos/013-python-decorator/`  ·  **Estado:** rendered  ·  **Duración:** 18 s
+- **Gancho:** Un decorador es una función que envuelve a otra: antes, durante y después.
+- **Carrusel:** `carruseles/013-python-decorator` (pending)
+
+### TikTok
+```text
+Un decorador de Python envuelve tu función: mide el tiempo antes, la ejecuta y reporta después. Mira cómo @medir_tiempo hace todo sin tocar el código original.
+
+#python #decoradores #pythontips #funciones #xeland314
+```
+
+### Instagram
+```text
+Decoradores en Python 🐍
+
+@medir_tiempo envuelve a procesar_datos:
+1. ANTES: guarda t0
+2. DURANTE: corre la función
+3. DESPUÉS: imprime el tiempo
+
+Guárdalo para tu próximo proyecto.
+
+#python #decoradores #pythontips #funciones #xeland314
+```
+
+### Threads
+```text
+Un decorador es una función que recibe otra función y devuelve una versión envuelta. @medir_tiempo es azúcar para procesar_datos = medir_tiempo(procesar_datos).
+
+#python
+```
+
+### Facebook
+```text
+¿Qué hace realmente un decorador en Python? Envuelve una función para ejecutar código antes y después. Animación paso a paso.
+
+#python #decoradores #xeland314
+```
+
+### YouTube
+**Título:** Decoradores en Python: antes, durante y después
+
+```text
+@medir_tiempo envuelve a la función original: guarda t0, la ejecuta y reporta el tiempo transcurrido.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#python #decoradores #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Python decoradores | Python 装饰器
+
+```text
+@medir_tiempo envuelve la función: guarda t0, la ejecuta y muestra el tiempo.
+
+@medir_tiempo 包装原函数：先记录 t0，再执行，最后输出耗时。
+
+#python #decoradores #pythontips #编程 #程序员
+```
+
+## 014 · Python: return vs yield
+
+- **Carpeta:** `videos/014-yield-return/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** return devuelve todo de golpe; yield, uno a uno.
+- **Carrusel:** `carruseles/014-yield-return` (pending)
+
+### TikTok
+```text
+return construye toda la lista en memoria y la devuelve. yield entrega un valor a la vez y se pausa. Mira cuánta RAM usa cada uno.
+
+#python #yield #generadores #memoria #xeland314
+```
+
+### Instagram
+```text
+return vs yield en Python 🐍
+
+return: acumula todo en RAM, O(N).
+yield: un valor activo a la vez, O(1).
+
+Guárdalo para cuando proceses millones de datos.
+
+#python #yield #generadores #memoria #xeland314
+```
+
+### Threads
+```text
+Con yield, una función se convierte en generador: entrega un valor, se pausa y continúa cuando se lo piden. La memoria se mantiene constante.
+
+#python
+```
+
+### Facebook
+```text
+¿Por qué usar yield en lugar de return? Porque un generador no guarda todos los datos en memoria. Animación comparativa.
+
+#python #yield #xeland314
+```
+
+### YouTube
+**Título:** Python: return vs yield (generadores y memoria)
+
+```text
+return acumula toda la lista en RAM (O(N)); yield entrega un elemento a la vez (O(1)). Comparativa animada.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#python #yield #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** return vs yield | return 与 yield
+
+```text
+return 一次返回整个列表；yield 逐个产出并暂停，占用内存更少。
+
+return 一次性返回全部数据；yield 每次只产出一个值并暂停，内存占用恒定。
+
+#python #yield #generadores #编程 #程序员
+```
+
+## 015 · Python: match/case
+
+- **Carpeta:** `videos/015-match-case/`  ·  **Estado:** rendered  ·  **Duración:** 19 s
+- **Gancho:** match/case es un switch con superpoderes.
+- **Carrusel:** `carruseles/015-match-case` (pending)
+
+### TikTok
+```text
+match/case en Python: una máquina de bebidas elige el case correcto. Escanea cada caso hasta que coincide y libera la bebida. ¿Lo usabas ya?
+
+#python #matchcase #pythontips #control #xeland314
+```
+
+### Instagram
+```text
+match/case en Python 🐍
+
+bebida = "agua"
+match bebida: revisa case por case hasta coincidir.
+
+Más legible que una cadena de if/elif. Guárdalo.
+
+#python #matchcase #pythontips #control #xeland314
+```
+
+### Threads
+```text
+match/case llegó a Python 3.10: compara un valor con varios patrones y ejecuta el primero que coincide. Más claro que una cadena de if/elif.
+
+#python
+```
+
+### Facebook
+```text
+¿Cómo funciona match/case en Python? Una máquina de bebidas recorre los cases hasta encontrar el que coincide. Animación paso a paso.
+
+#python #matchcase #xeland314
+```
+
+### YouTube
+**Título:** Python match/case explicado con una máquina de bebidas
+
+```text
+Tres bebidas, tres cases: cómo match compara el valor con cada patrón hasta coincidir y ejecutar su bloque.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#python #matchcase #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Python match/case | Python match/case
+
+```text
+match/case compara un valor con cada patrón y ejecuta el primero que coincide.
+
+match/case 依次比较各个模式，执行第一个匹配的分支。
+
+#python #matchcase #pythontips #编程 #程序员
+```
+
+## 016 · Python: with (context manager)
+
+- **Carpeta:** `videos/016-python-with/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** with cierra el recurso aunque todo falle.
+- **Carrusel:** `carruseles/016-python-with` (pending)
+
+### TikTok
+```text
+with garantiza que la conexión se cierre, incluso si el bloque falla con una excepción. Mira __enter__ y __exit__ en dos escenarios: normal y con error.
+
+#python #with #contextmanager #recursos #xeland314
+```
+
+### Instagram
+```text
+with en Python 🐍
+
+__enter__ abre la conexión.
+__exit__ la cierra SIEMPRE, incluso con ZeroDivisionError.
+
+Guárdalo para no dejar recursos abiertos.
+
+#python #with #contextmanager #recursos #xeland314
+```
+
+### Threads
+```text
+El bloque with llama a __exit__ pase lo que pase: si hay una excepción, la conexión igual se cierra. Es la forma segura de manejar recursos.
+
+#python
+```
+
+### Facebook
+```text
+¿Qué hace with en Python? Abre el recurso con __enter__ y lo cierra con __exit__, incluso cuando hay un error. Animación con dos escenarios.
+
+#python #with #xeland314
+```
+
+### YouTube
+**Título:** Python with: context manager y cierre garantizado
+
+```text
+__enter__ abre la conexión y __exit__ la cierra siempre, incluso con una excepción. Escenario normal y escenario con error.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#python #with #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Python with | Python with
+
+```text
+with abre con __enter__ y cierra con __exit__, aunque haya error.
+
+with 用 __enter__ 打开、__exit__ 关闭，即使代码出错也会关闭。
+
+#python #with #contextmanager #编程 #程序员
 ```

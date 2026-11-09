@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 42px; font-size: 28px; }
+      #card { left: 72px; top: 800px; width: 936px; height: 540px; }
+      #wr { position: absolute; left: 24px; top: 24px; width: 888px; height: 492px; border: 6px solid var(--line); }
+      #wrl { position: absolute; left: 18px; top: 10px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .st { position: absolute; left: 18px; width: 840px; border: 5px solid var(--line); background: var(--panel-2); }
+      .st .k { position: absolute; left: 16px; top: 8px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .st .v { position: absolute; left: 16px; bottom: 8px; font-family: var(--font-code); font-weight: 700; font-size: 28px; color: var(--ink); }
+      #sA { top: 56px; height: 100px; } #sB { top: 172px; height: 190px; } #sC { top: 378px; height: 100px; }
+      #in { position: absolute; left: 16px; right: 16px; top: 50px; height: 124px; border: 5px solid var(--line); }
+      #in .nm { position: absolute; left: 14px; top: 8px; font-family: var(--font-code); font-weight: 800; font-size: 28px; color: var(--ink); }
+      #in .ph { position: absolute; left: 14px; top: 44px; width: 500px; height: 36px; }
+      #in .ph span { font-family: var(--font-label); font-weight: 700; font-size: 28px; }
+      #bar { position: absolute; left: 14px; right: 14px; bottom: 14px; height: 18px; background: var(--ground); border: 3px solid var(--line); }
+      #fill { width: 0; height: 100%; background: var(--sem-ok); }
+      #tm { position: absolute; right: 18px; top: 8px; width: 330px; height: 40px; }
+      #tm .stk { text-align: right; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); }
+      #term { left: 72px; top: 1370px; width: 936px; height: 330px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="18" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="18" data-track-index="0">PYTHON · DECORADORES</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="18" data-track-index="1">Decoradores:<br />antes, durante, después</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="18" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">decoradores.py</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="18" data-track-index="3">
+        <div id="wr"><div id="wrl">WRAPPER · medir_tiempo</div><div id="tm"></div>
+          <div class="st" id="sA"><span class="k">1 · ANTES</span><span class="v">t0 = time.time()</span></div>
+          <div class="st" id="sB"><span class="k">2 · DURANTE</span><div id="in"><span class="nm">procesar_datos()</span><div class="ph" id="ph"></div><div id="bar"><div id="fill"></div></div></div></div>
+          <div class="st" id="sC"><span class="k">3 · DESPUÉS</span><span class="v">print(Δt) · return res</span></div>
+        </div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="18" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="18" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="18" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="18" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.5" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.8" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="5.4" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/whoosh.wav" data-start="5.6" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="9.6" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/confirm.wav" data-start="13.0" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const Dc = (t) => `<span style="color:#f1a449">${t}</span>`;
+      const rows = XF.buildCode($("#codeBody"), [
+        `${K("def")} ${F("medir_tiempo")}(func)${Mu(":")}`, `    ${K("def")} ${F("wrapper")}()${Mu(":")}`,
+        `        t0 ${Mu("=")} time.${F("time")}()  ${Mu("# 1. ANTES")}`, `        res ${Mu("=")} ${F("func")}()      ${Mu("# 2. DURANTE")}`,
+        `        ${F("print")}(${S('f"Tiempo: {time()-t0:.2f}s"')})`, `        ${K("return")} res        ${Mu("# 3. DESPUÉS")}`, `${Dc("@medir_tiempo")}`, `${K("def")} ${F("procesar_datos")}()${Mu(":")} ${S("...")}`]);
+      const W = [PU, "rgba(192,132,252,.16)"], I = [OK, "rgba(124,251,76,.14)"];
+      const badge = mkBadges([["INVOCANDO", PU], ["WRAPPER: ANTES", PU], ["EJECUTANDO ORIGINAL", OK], ["WRAPPER: DESPUÉS", PU], ["FINALIZADO", OK]]);
+      const tm = XF.stack($("#tm"), ["Δt = 0.00s", "t0 iniciado...", "Δt = 1.52s"]); XF.only(tl, tm, tm[0], 0);
+      const ph = XF.stack($("#ph"), ["Función original", "Ejecutando...", "Finalizado"]); XF.only(tl, ph, ph[0], 0);
+      ph[0].style.color = MU; ph[1].style.color = AM; ph[2].style.color = OK;
+      mkTerm([["d1", ">>> procesar_datos()", PU], ["d2", "[wrapper] t0 = time.time()", PU], ["d3", "[procesar_datos] trabajo pesado...", OK], ["d4", "[wrapper] Tiempo transcurrido: 1.52s", "#f1a449"], ["d5", '>>> Resultado: "OK"', OK]]);
+      const lit = (id, c, t) => tl.set("#" + id, { borderColor: c }, t);
+      badge(0, 0.2); XF.activeLine(tl, rows, 7, 0.4, ...W); say("d1", 0.5);
+      // ANTES
+      badge(1, 2.8); XF.activeLine(tl, rows, 3, 2.8, ...W); lit("sA", "#c084fc", 2.8); lit("wr", "#c084fc", 2.8); XF.only(tl, tm, tm[1], 2.8); say("d2", 2.9);
+      // DURANTE
+      badge(2, 5.4); XF.activeLine(tl, rows, 4, 5.4, ...I); lit("sB", "#7cfb4c", 5.4); lit("in", "#7cfb4c", 5.4); XF.only(tl, ph, ph[1], 5.4); say("d3", 5.5);
+      tl.fromTo("#fill", { width: "0%" }, { width: "100%", duration: 3.2, ease: "steps(16)" }, 5.6);
+      tl.set("#fill", { width: "0%" }, 5.5);
+      XF.only(tl, ph, ph[2], 9.0);
+      // DESPUÉS
+      badge(3, 9.6); XF.activeLine(tl, rows, 5, 9.6, ...W); lit("sC", "#c084fc", 9.6); XF.only(tl, tm, tm[2], 9.6); say("d4", 9.7);
+      XF.activeLine(tl, rows, 6, 11.4, ...W);
+      badge(4, 13.0); say("d5", 13.0); XF.activeLine(tl, rows, 0, 14.6);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 35, yoyo: true }, 0);
+      tl.set({}, {}, 18);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
