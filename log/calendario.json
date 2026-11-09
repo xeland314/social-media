@@ -1,0 +1,228 @@
+{
+  "_nota": "Fuente única del calendario. Cambia startDate y ejecuta `npm run calendar`: recalcula fechas, actualiza post.json y regenera docs/calendario-30-dias.md.",
+  "startDate": "2026-11-16",
+  "plan": [
+    {
+      "video": "001",
+      "tema": "fork(): una llamada, dos procesos",
+      "serie": "linux",
+      "carrusel": "Un proceso, dos PID → qué devuelve fork en padre e hijo (0 / pid)",
+      "dia": 1
+    },
+    {
+      "video": "006",
+      "tema": "SIGTERM vs SIGKILL",
+      "serie": "linux",
+      "carrusel": "Pedir o aniquilar → exit 0 vs exit 137 y el orden recomendado",
+      "dia": 2
+    },
+    {
+      "video": "005",
+      "tema": "Bash: && vs ||",
+      "serie": "linux",
+      "carrusel": "Tabla de verdad con exit codes → ejemplos de scripts",
+      "dia": 3
+    },
+    {
+      "video": "002",
+      "tema": "Git: merge vs rebase",
+      "serie": "git",
+      "carrusel": "Historial con M1 vs lineal → regla de oro: no hagas rebase de ramas compartidas",
+      "dia": 4
+    },
+    {
+      "video": "003",
+      "tema": "TCP vs UDP",
+      "serie": "redes",
+      "carrusel": "Handshake de 3 pasos vs fire & forget → por qué las videollamadas usan UDP",
+      "dia": 5
+    },
+    {
+      "video": "007",
+      "tema": "chmod 755, bit a bit",
+      "serie": "linux",
+      "carrusel": "r=4, w=2, x=1 → tabla de permisos comunes",
+      "dia": 6
+    },
+    {
+      "video": null,
+      "recap": true,
+      "tema": "Recopilatorio de la semana",
+      "serie": "recap",
+      "carrusel": "Top 3 de la semana → qué funcionó y qué viene",
+      "dia": 7
+    },
+    {
+      "video": "013",
+      "tema": "Python: decoradores",
+      "serie": "python",
+      "carrusel": "Antes, durante, después → functools.wraps",
+      "dia": 8
+    },
+    {
+      "video": "004",
+      "tema": "Spoofing y phishing: DMARC lo frena",
+      "serie": "ti",
+      "carrusel": "SPF, DKIM y DMARC → ruta none/quarantine/reject (proyecto.json listo)",
+      "dia": 9
+    },
+    {
+      "video": "014",
+      "tema": "Python: return vs yield",
+      "serie": "python",
+      "carrusel": "RAM O(N) vs O(1) → ejemplo con un millón de elementos",
+      "dia": 10
+    },
+    {
+      "video": "009",
+      "tema": "Symlink vs hard link",
+      "serie": "linux",
+      "carrusel": "Inodo al centro → qué sobrevive a rm",
+      "dia": 11
+    },
+    {
+      "video": "010",
+      "tema": "Go: canal con buffer",
+      "serie": "go",
+      "carrusel": "Buffer 2: bloqueo al llenarse y al vaciarse → productor/consumidor",
+      "dia": 12
+    },
+    {
+      "video": "015",
+      "tema": "Python: match/case",
+      "serie": "python",
+      "carrusel": "if/elif vs match → patrones estructurales",
+      "dia": 13
+    },
+    {
+      "video": null,
+      "recap": true,
+      "tema": "Recopilatorio de la semana",
+      "serie": "recap",
+      "carrusel": "Top 3 de la semana → qué funcionó y qué viene",
+      "dia": 14
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "DMARC: de p=none a reject (ruta segura)",
+      "serie": "ti",
+      "carrusel": "none → quarantine → reject → cómo leer rua sin saltarse pasos",
+      "dia": 15
+    },
+    {
+      "video": "011",
+      "tema": "Go: defer (LIFO)",
+      "serie": "go",
+      "carrusel": "Pila LIFO → la trampa de defer dentro de un for",
+      "dia": 16
+    },
+    {
+      "video": "008",
+      "tema": "umask: restar permisos",
+      "serie": "linux",
+      "carrusel": "666/777 & ~máscara → tabla 022 vs 077",
+      "dia": 17
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "DMARC: cómo leer un reporte de seguimiento",
+      "serie": "ti",
+      "carrusel": "Qué mirar: fuentes, alineación, % de fallos → cuándo subir la política",
+      "dia": 18
+    },
+    {
+      "video": "012",
+      "tema": "File descriptors: 0, 1 y 2",
+      "serie": "linux",
+      "carrusel": "stdin/stdout/stderr → >, >>, 2>&1",
+      "dia": 19
+    },
+    {
+      "video": "016",
+      "tema": "Python: with (context manager)",
+      "serie": "python",
+      "carrusel": "__enter__/__exit__ → contextlib en 5 líneas",
+      "dia": 20
+    },
+    {
+      "video": null,
+      "recap": true,
+      "tema": "Recopilatorio de la semana",
+      "serie": "recap",
+      "carrusel": "Top 3 de la semana → qué funcionó y qué viene",
+      "dia": 21
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "Wi-Fi: un solo SSID (roaming)",
+      "serie": "ti",
+      "carrusel": "Antes/después de unificar → qué cambia al moverte entre puntos de acceso",
+      "dia": 22
+    },
+    {
+      "video": "017",
+      "tema": "HTTP/2: multiplexación",
+      "serie": "redes",
+      "carrusel": "Una conexión, muchos streams → vs HTTP/1.1",
+      "dia": 23
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "Wi-Fi: cómo se audita una red",
+      "serie": "ti",
+      "carrusel": "Lista de revisión: canales, potencia, DHCP, solapamientos",
+      "dia": 24
+    },
+    {
+      "video": "018",
+      "tema": "HTTP/2: HPACK",
+      "serie": "redes",
+      "carrusel": "Tabla dinámica → 128 B pasan a 24 B",
+      "dia": 25
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "Mi flujo de informes: YAML → HTML → PDF (WeasyPrint)",
+      "serie": "ti",
+      "carrusel": "Plantilla + datos + generador → por qué separar contenido y diseño",
+      "dia": 26
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "Ecuaciones en Word: LaTeX → MathML → OMML",
+      "serie": "ti",
+      "carrusel": "El truco: marcadores [MATH] → OMML nativo editable",
+      "dia": 27
+    },
+    {
+      "video": null,
+      "recap": true,
+      "tema": "Recopilatorio de la semana",
+      "serie": "recap",
+      "carrusel": "Top 3 de la semana + el mejor de las series Linux y TI",
+      "dia": 28
+    },
+    {
+      "video": null,
+      "build": true,
+      "tema": "De una semana de trabajo a minutos: informes en lote",
+      "serie": "ti",
+      "carrusel": "Excel → puntuar → texto → PDF en paralelo (sin marca ni cliente)",
+      "dia": 29
+    },
+    {
+      "video": null,
+      "recap": true,
+      "tema": "Balance del mes",
+      "serie": "recap",
+      "carrusel": "Top 5 por métricas → qué viene en el mes 2",
+      "dia": 30
+    }
+  ]
+}

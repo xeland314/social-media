@@ -5,7 +5,7 @@
   "series": "redes",
   "calendarDay": 5,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-20",
   "durationSec": 22,
   "hook": "TCP pregunta '¿me oyes?' antes de hablar. UDP solo dispara.",
   "topicTags": [

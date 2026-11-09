@@ -12,9 +12,10 @@
     "log": "node scripts/log.mjs",
     "captions": "node scripts/log.mjs --captions",
     "gallery": "node scripts/gallery.mjs",
-    "sync": "npm run log && npm run gallery",
+    "sync": "npm run calendar && npm run log && npm run gallery",
     "audio": "node scripts/make-audio.mjs",
-    "image": "node scripts/image.mjs"
+    "image": "node scripts/image.mjs",
+    "calendar": "node scripts/calendar.mjs"
   },
   "devDependencies": {
     "hyperframes": "0.9.26"

@@ -3,9 +3,9 @@
   "slug": "http2-multiplexing",
   "title": "HTTP/2: multiplexación",
   "series": "redes",
-  "calendarDay": 16,
+  "calendarDay": 23,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-08",
   "durationSec": 22,
   "hook": "HTTP/1.1 abre tres conexiones. HTTP/2 manda todo por una.",
   "topicTags": [

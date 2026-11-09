@@ -5,7 +5,7 @@
   "series": "linux",
   "calendarDay": 3,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-18",
   "durationSec": 21,
   "hook": "&& y || no son 'y' y 'o': dependen del código de salida.",
   "topicTags": [

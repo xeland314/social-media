@@ -3,9 +3,9 @@
   "slug": "umask-permissions",
   "title": "umask: permisos por defecto",
   "series": "linux",
-  "calendarDay": 7,
+  "calendarDay": 17,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-02",
   "durationSec": 20,
   "hook": "umask no da permisos: los resta.",
   "topicTags": [

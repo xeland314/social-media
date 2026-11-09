@@ -3,9 +3,9 @@
   "slug": "go-defer",
   "title": "Go: defer (LIFO)",
   "series": "go",
-  "calendarDay": 10,
+  "calendarDay": 16,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-01",
   "durationSec": 20,
   "hook": "defer ejecuta al revés: el último en entrar es el primero en salir.",
   "topicTags": [

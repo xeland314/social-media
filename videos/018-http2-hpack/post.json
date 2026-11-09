@@ -3,9 +3,9 @@
   "slug": "http2-hpack",
   "title": "HTTP/2: HPACK",
   "series": "redes",
-  "calendarDay": 17,
+  "calendarDay": 25,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-10",
   "durationSec": 22,
   "hook": "HPACK reduce 128 bytes de cabeceras a 24.",
   "topicTags": [

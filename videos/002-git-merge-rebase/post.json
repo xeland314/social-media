@@ -5,7 +5,7 @@
   "series": "git",
   "calendarDay": 4,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-19",
   "durationSec": 21,
   "hook": "Mismo resultado, dos historias: merge agrega un commit, rebase reescribe los tuyos.",
   "topicTags": [

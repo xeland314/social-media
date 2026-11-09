@@ -3,9 +3,9 @@
   "slug": "spoofing-phishing-dmarc",
   "title": "Spoofing y phishing: DMARC lo frena",
   "series": "ti",
-  "calendarDay": 24,
+  "calendarDay": 9,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-24",
   "durationSec": 24,
   "hook": "Le falsificó el correo al CEO… y su propio servidor lo rechazó.",
   "topicTags": [

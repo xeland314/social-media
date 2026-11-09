@@ -3,9 +3,9 @@
   "slug": "symlink-vs-hardlink",
   "title": "Symlink vs Hard Link",
   "series": "linux",
-  "calendarDay": 8,
+  "calendarDay": 11,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-26",
   "durationSec": 20,
   "hook": "Borra el original y mira qué sobrevive.",
   "topicTags": [

@@ -3,9 +3,9 @@
   "slug": "file-descriptors",
   "title": "File descriptors y redirecciones",
   "series": "linux",
-  "calendarDay": 11,
+  "calendarDay": 19,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-04",
   "durationSec": 20,
   "hook": "Cada redirección es reconectar un descriptor.",
   "topicTags": [

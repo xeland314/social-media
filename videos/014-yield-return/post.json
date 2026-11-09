@@ -3,9 +3,9 @@
   "slug": "yield-return",
   "title": "Python: return vs yield",
   "series": "python",
-  "calendarDay": 13,
+  "calendarDay": 10,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-25",
   "durationSec": 21,
   "hook": "return devuelve todo de golpe; yield, uno a uno.",
   "topicTags": [

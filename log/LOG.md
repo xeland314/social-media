@@ -7,21 +7,21 @@
 | 001 | [fork(): una llamada, dos procesos](../videos/001-fork-system-call/) | linux | rendered | 1 | — |
 | 002 | [Git: merge vs rebase](../videos/002-git-merge-rebase/) | git | rendered | 4 | — |
 | 003 | [TCP vs UDP: confianza vs velocidad](../videos/003-tcp-udp/) | redes | rendered | 5 | — |
-| 004 | [Spoofing y phishing: DMARC lo frena](../videos/004-spoofing-phishing-dmarc/) | ti | rendered | 24 | — |
+| 004 | [Spoofing y phishing: DMARC lo frena](../videos/004-spoofing-phishing-dmarc/) | ti | rendered | 9 | — |
 | 005 | [Bash: && vs ||](../videos/005-and-or-chains/) | linux | rendered | 3 | — |
 | 006 | [SIGTERM vs SIGKILL](../videos/006-sigterm-vs-sigkill/) | linux | rendered | 2 | — |
 | 007 | [chmod bit a bit](../videos/007-chmod-binary/) | linux | rendered | 6 | — |
-| 008 | [umask: permisos por defecto](../videos/008-umask-permissions/) | linux | rendered | 7 | — |
-| 009 | [Symlink vs Hard Link](../videos/009-symlink-vs-hardlink/) | linux | rendered | 8 | — |
-| 010 | [Go: canal con buffer](../videos/010-go-channels/) | go | rendered | 9 | — |
-| 011 | [Go: defer (LIFO)](../videos/011-go-defer/) | go | rendered | 10 | — |
-| 012 | [File descriptors y redirecciones](../videos/012-file-descriptors/) | linux | rendered | 11 | — |
-| 013 | [Python: decoradores](../videos/013-python-decorator/) | python | rendered | 12 | — |
-| 014 | [Python: return vs yield](../videos/014-yield-return/) | python | rendered | 13 | — |
-| 015 | [Python: match/case](../videos/015-match-case/) | python | rendered | 14 | — |
-| 016 | [Python: with (context manager)](../videos/016-python-with/) | python | rendered | 15 | — |
-| 017 | [HTTP/2: multiplexación](../videos/017-http2-multiplexing/) | redes | rendered | 16 | — |
-| 018 | [HTTP/2: HPACK](../videos/018-http2-hpack/) | redes | rendered | 17 | — |
+| 008 | [umask: permisos por defecto](../videos/008-umask-permissions/) | linux | rendered | 17 | — |
+| 009 | [Symlink vs Hard Link](../videos/009-symlink-vs-hardlink/) | linux | rendered | 11 | — |
+| 010 | [Go: canal con buffer](../videos/010-go-channels/) | go | rendered | 12 | — |
+| 011 | [Go: defer (LIFO)](../videos/011-go-defer/) | go | rendered | 16 | — |
+| 012 | [File descriptors y redirecciones](../videos/012-file-descriptors/) | linux | rendered | 19 | — |
+| 013 | [Python: decoradores](../videos/013-python-decorator/) | python | rendered | 8 | — |
+| 014 | [Python: return vs yield](../videos/014-yield-return/) | python | rendered | 10 | — |
+| 015 | [Python: match/case](../videos/015-match-case/) | python | rendered | 13 | — |
+| 016 | [Python: with (context manager)](../videos/016-python-with/) | python | rendered | 20 | — |
+| 017 | [HTTP/2: multiplexación](../videos/017-http2-multiplexing/) | redes | rendered | 23 | — |
+| 018 | [HTTP/2: HPACK](../videos/018-http2-hpack/) | redes | rendered | 25 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 

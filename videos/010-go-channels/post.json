@@ -3,9 +3,9 @@
   "slug": "go-channels",
   "title": "Go: canal con buffer",
   "series": "go",
-  "calendarDay": 9,
+  "calendarDay": 12,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-27",
   "durationSec": 22,
   "hook": "Un canal con buffer 2: el tercer envío se queda esperando.",
   "topicTags": [

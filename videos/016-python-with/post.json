@@ -3,9 +3,9 @@
   "slug": "python-with",
   "title": "Python: with (context manager)",
   "series": "python",
-  "calendarDay": 15,
+  "calendarDay": 20,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-05",
   "durationSec": 21,
   "hook": "with cierra el recurso aunque todo falle.",
   "topicTags": [

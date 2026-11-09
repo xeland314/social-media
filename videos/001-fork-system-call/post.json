@@ -5,7 +5,7 @@
   "series": "linux",
   "calendarDay": 1,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-16",
   "durationSec": 21,
   "hook": "Llamas una función una vez… y retorna dos veces.",
   "topicTags": [

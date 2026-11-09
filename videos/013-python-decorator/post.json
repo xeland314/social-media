@@ -3,9 +3,9 @@
   "slug": "python-decorator",
   "title": "Python: decoradores",
   "series": "python",
-  "calendarDay": 12,
+  "calendarDay": 8,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-11-23",
   "durationSec": 18,
   "hook": "Un decorador es una función que envuelve a otra: antes, durante y después.",
   "topicTags": [
