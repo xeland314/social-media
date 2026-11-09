@@ -6,6 +6,7 @@
 |---|---|---|---|---|---|
 | 001 | [fork(): una llamada, dos procesos](../videos/001-fork-system-call/) | linux | rendered | 1 | — |
 | 002 | [Git: merge vs rebase](../videos/002-git-merge-rebase/) | git | rendered | 4 | — |
+| 003 | [TCP vs UDP: confianza vs velocidad](../videos/003-tcp-udp/) | redes | rendered | 5 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -126,4 +127,65 @@ Merge conserva las ramas y agrega un commit de fusión. Rebase replanta tus comm
 merge 会保留分支并新增一个合并提交；rebase 会把你的提交重新接到 main 上，让历史保持线性。
 
 #git #merge #rebase #版本控制 #编程
+```
+
+## 003 · TCP vs UDP: confianza vs velocidad
+
+- **Carpeta:** `videos/003-tcp-udp/`  ·  **Estado:** rendered  ·  **Duración:** 22 s
+- **Gancho:** TCP pregunta '¿me oyes?' antes de hablar. UDP solo dispara.
+- **Carrusel:** `carruseles/003-tcp-udp` (pending)
+
+### TikTok
+```text
+TCP vs UDP en 22 segundos: TCP hace un saludo de 3 pasos (SYN, SYN-ACK, ACK) antes de enviar datos. UDP dispara y olvida: si un paquete se pierde, nadie lo reenvía. ¿Cuál usa tu videollamada?
+
+#tcp #udp #redes #handshake #xeland314
+```
+
+### Instagram
+```text
+TCP vs UDP 🐱
+
+TCP: saludo de 3 pasos (SYN → SYN-ACK → ACK) y reenvío si algo se pierde.
+UDP: dispara y olvida. Más rápido, sin garantías.
+
+Guárdalo para cuando te pregunten por qué las videollamadas usan UDP.
+
+#tcp #udp #redes #handshake #xeland314
+```
+
+### Threads
+```text
+TCP asegura que todo llegue en orden, con un saludo de 3 pasos. UDP no espera confirmación: si se pierde un paquete, sigue. Por eso las videollamadas prefieren UDP.
+
+#tcp
+```
+
+### Facebook
+```text
+¿Por qué una videollamada usa UDP y una descarga usa TCP? TCP confirma cada paso y reenvía lo perdido; UDP prioriza la velocidad. Animación paso a paso.
+
+#tcp #udp #xeland314
+```
+
+### YouTube
+**Título:** TCP vs UDP: handshake de 3 pasos vs fire & forget
+
+```text
+TCP establece la conexión con SYN, SYN-ACK y ACK antes de transmitir. UDP envía datagramas sin conexión ni confirmación. Animación paso a paso con el código.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#tcp #udp #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** TCP vs UDP | TCP 与 UDP 的区别
+
+```text
+TCP hace un saludo de 3 pasos y reenvía lo perdido; UDP dispara y olvida, más rápido pero sin garantías.
+
+TCP 先三次握手并重传丢失的数据；UDP 直接发送、不确认，更快但没有保证。
+
+#tcp #udp #redes #网络 #计算机网络
 ```

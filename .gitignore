@@ -3,3 +3,5 @@ node_modules/
 *.mp4
 !shared/**/*.mp4
 .DS_Store
+.env
+.env.*

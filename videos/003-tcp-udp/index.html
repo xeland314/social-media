@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      :root { --tcp: #3fd0e0; --udp: #ff9736; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #title .t { color: var(--tcp); } #title .u { color: var(--udp); }
+
+      #codePanel { left: 72px; top: 340px; width: 936px; }
+      #codePanel .code-line { height: 56px; font-size: 34px; }
+      #codeBody { position: relative; height: 252px; }
+      .set { position: absolute; left: 0; right: 0; top: 0; }
+      .fnm { position: absolute; left: 0; opacity: 0; }
+
+      #net { left: 72px; top: 700px; width: 936px; height: 470px; }
+      .node { position: absolute; top: 40px; width: 250px; text-align: center; }
+      #nClient { left: 16px; } #nServer { right: 16px; }
+      .node .cap { font-family: var(--font-label); font-weight: 700; font-size: 30px; color: var(--ink); margin-top: 14px; }
+      .node .st { position: relative; height: 36px; margin-top: 8px; }
+      .node .st span { position: absolute; left: 0; right: 0; font-family: var(--font-label); font-weight: 700; font-size: 26px; opacity: 0; white-space: nowrap; }
+      .glow { position: absolute; inset: -12px; opacity: 0; outline: 6px solid currentColor; }
+      .icon-wrap { position: relative; width: 150px; height: 150px; margin: 0 auto; }
+      #catC { width: 150px; height: 150px; }
+      .pkt { position: absolute; left: 0; top: 0; opacity: 0; font-size: 24px; padding: 8px 12px; white-space: nowrap; background: var(--panel-2); }
+      .lane { position: absolute; left: 270px; right: 270px; height: 6px; background: var(--line); }
+      #foot { position: absolute; left: 30px; right: 30px; bottom: 22px; font-family: var(--font-label); font-weight: 700; font-size: 28px; }
+      #foot .lbl { color: var(--muted); }
+      #foot span.g { position: absolute; left: 270px; opacity: 0; white-space: nowrap; }
+
+      #term { left: 72px; top: 1200px; width: 936px; height: 480px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="22" data-track-index="0">REDES · TRANSPORTE</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="22" data-track-index="1"><span class="t">TCP</span> vs <span class="u">UDP</span>:<br />confianza vs velocidad</h1>
+
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="22" data-track-index="2">
+        <div class="code-top">
+          <span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span>
+          <span class="code-file" style="position:relative;width:300px;height:36px"><span class="fnm" id="f-tcp" style="opacity:1">tcp_socket.c</span><span class="fnm" id="f-udp">udp_socket.c</span></span>
+          <span class="code-badge-slot" id="badges"></span>
+        </div>
+        <div class="code-body" id="codeBody"><div class="set" id="setTcp"></div><div class="set" id="setUdp" style="opacity:0"></div></div>
+      </div>
+
+      <div id="net" class="abs px-box clip" data-start="0" data-duration="22" data-track-index="3">
+        <div class="lane" style="top:128px"></div><div class="lane" style="top:178px"></div><div class="lane" style="top:228px"></div>
+        <div class="node" id="nClient">
+          <div class="icon-wrap"><div class="glow" id="gC"></div><img id="catC" class="pixelated" src="shared/sprites/gato-sin-fondo.svg" alt="" /></div>
+          <div class="cap">Cliente</div>
+          <div class="st" id="stC"></div>
+        </div>
+        <div class="node" id="nServer">
+          <div class="icon-wrap"><div class="glow" id="gS"></div>
+            <svg width="150" height="150" viewBox="0 0 15 15" style="shape-rendering:crispEdges">
+              <rect x="2" y="1" width="11" height="4" fill="#32231a" stroke="#9c9e8f" stroke-width="0.6" /><rect x="2" y="6" width="11" height="4" fill="#32231a" stroke="#9c9e8f" stroke-width="0.6" /><rect x="2" y="11" width="11" height="3" fill="#32231a" stroke="#9c9e8f" stroke-width="0.6" />
+              <rect x="3.5" y="2.5" width="1" height="1" fill="#7cfb4c" /><rect x="3.5" y="7.5" width="1" height="1" fill="#7cfb4c" /><rect x="3.5" y="12.2" width="1" height="1" fill="#f1a449" />
+              <rect x="7" y="2.5" width="4.5" height="1" fill="#483025" /><rect x="7" y="7.5" width="4.5" height="1" fill="#483025" />
+            </svg>
+          </div>
+          <div class="cap">Servidor</div>
+          <div class="st" id="stS"></div>
+        </div>
+        <div id="pkts"></div>
+        <div id="foot"><span class="lbl">Garantías:</span><span class="g" id="g-tcp" style="color:var(--tcp);opacity:1">Orden, ACK y reenvío</span><span class="g" id="g-udp" style="color:var(--udp)">Sin handshake · ultra rápido</span></div>
+      </div>
+
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="22" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="22" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="22" data-track-index="7">@xeland314</div>
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud1" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud2" src="shared/audio/packet.wav" data-start="2.6" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud3" src="shared/audio/packet.wav" data-start="5.0" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud4" src="shared/audio/packet.wav" data-start="7.2" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud5" src="shared/audio/confirm.wav" data-start="8.6" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/whoosh.wav" data-start="10.8" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud7" src="shared/audio/packet.wav" data-start="13.2" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud8" src="shared/audio/packet.wav" data-start="14.4" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud9" src="shared/audio/packet.wav" data-start="15.6" data-duration="0.3" data-track-index="24" data-volume="0.6"></audio>
+      <audio id="aud10" src="shared/audio/error.wav" data-start="16.8" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud11" src="shared/audio/packet.wav" data-start="18.0" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud12" src="shared/audio/confirm.wav" data-start="19.6" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const C = { tcp: "#3fd0e0", udp: "#ff9736", ok: "#7cfb4c", bad: "#ff5f57", mut: "#9c9e8f" };
+
+      // --- Código ---
+      const F = (t) => `<span class="tok-fn">${t}</span>`, S = (t) => `<span class="tok-str">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const T = (t) => `<span style="color:${C.tcp};font-weight:700">${t}</span>`;
+      const tRows = XF.buildCode($("#setTcp"), [
+        `${F("connect")}(sockfd, ${Mu("&amp;")}servaddr)${Mu(":")}`,
+        `  ${T("SYN")}      ${Mu("--&gt;")} Seq=100`,
+        `  ${T("SYN-ACK")} ${Mu("&lt;--")} Seq=300 Ack=101`,
+        `  ${T("ACK")}      ${Mu("--&gt;")} Ack=301 ${S("(ESTABLISHED)")}`,
+      ]);
+      const uRows = XF.buildCode($("#setUdp"), [
+        `${F("sendto")}(sockfd, buffer, len...)${Mu(":")}`,
+        `  ${S("Datagram 1")} ${Mu("--&gt;")} ${Mu("(Sin conexión)")}`,
+        `  ${S("Datagram 2")} ${Mu("--&gt;")} ${Mu("(Sin confirmación)")}`,
+        `  ${S("Datagram 3")} ${Mu("--&gt;")} ${Mu("(Fire &amp; Forget)")}`,
+      ]);
+      const TC = [C.tcp, "rgba(63,208,224,0.16)"], UC = [C.udp, "rgba(255,151,54,0.16)"];
+
+      // --- Insignias ---
+      const badgeDefs = [
+        ["INICIANDO HANDSHAKE", C.tcp], ["1/3 · SYN ENVIADO", C.tcp], ["2/3 · SYN-ACK", C.tcp], ["3/3 · ACK", C.ok], ["ESTABLISHED", C.ok],
+        ["DISPARANDO UDP", C.udp], ["DATAGRAMA 1", C.udp], ["DATAGRAMA 2", C.udp], ["PAQUETE 3 PERDIDO", C.bad], ["DATAGRAMA 4", C.udp], ["TRANSMISIÓN LISTA", C.udp],
+      ];
+      $("#badges").innerHTML = badgeDefs.map(([t, c], i) => `<span class="px-chip" id="b${i}" style="color:${c}">${t}</span>`).join("");
+      const bs = badgeDefs.map((_, i) => $("#b" + i));
+      const badge = (i, t) => XF.only(tl, bs, bs[i], t);
+
+      // --- Estados de nodos ---
+      const stDefs = {
+        stC: [["CLOSED", C.mut], ["SYN-SENT", C.tcp], ["ESTABLISHED", C.ok], ["UNCONNECTED", C.udp]],
+        stS: [["LISTEN", C.mut], ["SYN-RCVD", C.tcp], ["ESTABLISHED", C.ok], ["STATELESS", C.udp]],
+      };
+      const stEls = {};
+      for (const k in stDefs) {
+        $("#" + k).innerHTML = stDefs[k].map(([t, c], i) => `<span id="${k}${i}" style="color:${c}">${t}</span>`).join("");
+        stEls[k] = stDefs[k].map((_, i) => $(`#${k}${i}`));
+      }
+      const nodeState = (k, i, t) => XF.only(tl, stEls[k], stEls[k][i], t);
+      nodeState("stC", 0, 0); nodeState("stS", 0, 0);
+      const glow = (id, color, t, on = true) => tl.set(id, { opacity: on ? 1 : 0, color }, t);
+
+      // --- Consola ---
+      const term = $("#term");
+      const rowsDef = [
+        ["t0", "── TCP: conexión confiable con handshake ──", C.mut], ["t1", '$ connect("192.168.1.10:8080")', C.tcp],
+        ["t2", "[C → S] SYN (Seq=100)", C.tcp], ["t3", "[S → C] SYN-ACK (Seq=300, Ack=101)", C.tcp], ["t4", "[C → S] ACK (Ack=301)", C.ok], ["t5", "CONEXIÓN ESTABLECIDA, a transmitir", C.ok],
+        ["u0", "── UDP: fire & forget, sin garantías ──", C.mut], ["u1", "$ sendto(socket, buffer, len...)", C.udp], ["u2", "sin fase de conexión previa...", "#999"],
+        ["u3", "[C → S] UDP #1 (audio en vivo)", C.udp], ["u4", "[C → S] UDP #2 (video en vivo)", C.udp], ["u5", "[C → S] UDP #3 → se perdió en la red", C.bad],
+        ["u6", "[C → S] UDP #4 sin esperar ACK", C.udp], ["u7", "terminó sin retransmitir la pérdida", C.udp],
+      ];
+      rowsDef.forEach(([id, text, color]) => term.insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${color}">${text}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+
+      // --- Paquetes: chips pixel que viajan por un carril ---
+      const pktDefs = [
+        ["pSyn", "SYN [Seq=100]", C.tcp], ["pSynAck", "SYN-ACK [Ack=101]", C.tcp], ["pAck", "ACK [Ack=301]", C.ok],
+        ["p1", "UDP #1 [Audio]", C.udp], ["p2", "UDP #2 [Video]", C.udp], ["p3", "UDP #3 [Frame]", C.udp], ["p4", "UDP #4 [Audio]", C.udp],
+      ];
+      $("#pkts").innerHTML = pktDefs.map(([id, t, c]) => `<div class="px-chip pkt" id="${id}" style="color:${c}">${t}</div>`).join("");
+      const LEFT = 270, RIGHT = 936 - 270; // carriles entre nodos
+      const fly = (id, y, dir, t, d = 1.3) => {
+        const w = $("#" + id).offsetWidth || 280;
+        const x0 = dir > 0 ? LEFT : RIGHT - w, x1 = dir > 0 ? RIGHT - w : LEFT;
+        tl.set("#" + id, { x: x0, y, opacity: 1 }, t);
+        tl.fromTo("#" + id, { x: x0 }, { x: x1, duration: d, ease: "steps(10)" }, t);
+        tl.set("#" + id, { opacity: 0 }, t + d + 0.3);
+      };
+
+      // ===== TCP (0 – 10.6 s) =====
+      badge(0, 0.3); say("t0", 0.3);
+      XF.activeLine(tl, tRows, 1, 0.8, ...TC); say("t1", 0.8);
+      XF.activeLine(tl, tRows, 2, 2.6, ...TC); badge(1, 2.6); say("t2", 2.6);
+      nodeState("stC", 1, 2.6); glow("#gC", C.tcp, 2.6);
+      fly("pSyn", 100, 1, 2.6);
+      nodeState("stS", 1, 4.2); glow("#gS", C.tcp, 4.2);
+      XF.activeLine(tl, tRows, 3, 5.0, ...TC); badge(2, 5.0); say("t3", 5.0);
+      fly("pSynAck", 200, -1, 5.0);
+      nodeState("stC", 2, 6.4);
+      XF.activeLine(tl, tRows, 4, 7.2, C.ok, "rgba(124,251,76,0.14)"); badge(3, 7.2); say("t4", 7.2);
+      fly("pAck", 100, 1, 7.2);
+      nodeState("stS", 2, 8.6); glow("#gS", C.ok, 8.6); glow("#gC", C.ok, 8.6);
+      say("t5", 8.8); badge(4, 8.8);
+      XF.activeLine(tl, tRows, 0, 10.0);
+
+      // ===== TRANSICIÓN (10.8 s) =====
+      tl.set(["#gC", "#gS"], { opacity: 0 }, 10.8);
+      tl.set(["#t0", "#t1", "#t2", "#t3", "#t4", "#t5"], { display: "none" }, 10.8);
+      tl.set("#setTcp", { opacity: 0 }, 10.8); tl.set("#setUdp", { opacity: 1 }, 10.8);
+      tl.set("#f-tcp", { opacity: 0 }, 10.8); tl.set("#f-udp", { opacity: 1 }, 10.8);
+      tl.set("#g-tcp", { opacity: 0 }, 10.8); tl.set("#g-udp", { opacity: 1 }, 10.8);
+      nodeState("stC", 3, 10.8); nodeState("stS", 3, 10.8);
+      say("u0", 11.0); badge(5, 11.0);
+
+      // ===== UDP (11 – 22 s) =====
+      XF.activeLine(tl, uRows, 1, 11.4, ...UC); say("u1", 11.4); say("u2", 12.0);
+      XF.activeLine(tl, uRows, 2, 13.2, ...UC); badge(6, 13.2); say("u3", 13.2);
+      fly("p1", 100, 1, 13.2);
+      badge(7, 14.4); say("u4", 14.4); fly("p2", 150, 1, 14.4);
+      XF.activeLine(tl, uRows, 4, 15.6, ...UC); badge(8, 15.6); say("u5", 15.6);
+      // el paquete 3 viaja hasta la mitad, cae y se pierde
+      (() => {
+        const w = 300, x0 = LEFT, xm = (LEFT + RIGHT - w) / 2;
+        tl.set("#p3", { x: x0, y: 200, opacity: 1 }, 15.6);
+        tl.fromTo("#p3", { x: x0 }, { x: xm, duration: 0.8, ease: "steps(6)" }, 15.6);
+        tl.to("#p3", { y: 232, duration: 0.4, ease: "steps(3)" }, 16.4);
+        tl.set("#p3", { color: C.bad, borderColor: C.bad }, 16.8);
+        tl.set("#p3", { opacity: 0 }, 17.6);
+      })();
+      badge(9, 18.0); say("u6", 18.0); fly("p4", 100, 1, 18.0);
+      XF.activeLine(tl, uRows, 0, 19.0);
+      say("u7", 19.6); badge(10, 19.6);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 43, yoyo: true }, 0);
+      tl.set({}, {}, 22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
