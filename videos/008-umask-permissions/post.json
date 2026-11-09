@@ -1,0 +1,62 @@
+{
+  "id": "008",
+  "slug": "umask-permissions",
+  "title": "umask: permisos por defecto",
+  "series": "linux",
+  "calendarDay": 7,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 20,
+  "hook": "umask no da permisos: los resta.",
+  "topicTags": [
+    "#umask",
+    "#permisos",
+    "#linuxtips",
+    "#bash"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/umask-permissions",
+  "carousel": {
+    "path": "carruseles/008-umask-permissions",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "umask no agrega permisos: los resta. 666 menos 022 es 644 para archivos y 777 menos 022 es 755 para directorios. Y con 077 todo queda privado.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "umask en 20 segundos 🐧\n\nArchivo: 666 & ~022 = 644\nDirectorio: 777 & ~022 = 755\numask 077 → 600 / 700 (solo tú)\n\nGuárdalo para tus servidores.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "umask 022 es el clásico de servidores: archivos 644, directorios 755. La máscara solo resta bits, jamás los añade.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Por qué tus archivos nuevos salen con 644? Por el umask: una máscara que resta bits a los permisos por defecto. Animación bit a bit.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "umask explicado: por qué los archivos nacen con 644",
+      "text": "El umask resta permisos a 666 (archivos) y 777 (directorios). Con 022 queda 644/755; con 077 queda 600/700.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "umask resta bits",
+      "text": "umask 022: 666 → 644 y 777 → 755. La máscara resta bits, nunca los añade.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "umask：做减法的权限",
+      "textZh": "umask 022：文件 666→644，目录 777→755。掩码只会去掉权限，不会增加。"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 48px; font-size: 30px; }
+      #card { left: 72px; top: 770px; width: 936px; height: 520px; }
+      #perm { position: absolute; left: 30px; top: 26px; width: 560px; height: 50px; font-family: var(--font-display); font-size: 34px; color: var(--ink); }
+      #modeN { position: absolute; right: 30px; top: 22px; width: 260px; height: 56px; font-family: var(--font-display); font-size: 46px; color: var(--accent); text-align: right; }
+      #modeN .stk { text-align: right; }
+      .grp { position: absolute; top: 110px; width: 252px; height: 330px; border: 4px solid transparent; }
+      .gt { position: absolute; left: 0; right: 0; top: 8px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .bit { position: absolute; top: 70px; width: 72px; height: 88px; font-size: 44px; }
+      .dg { position: absolute; left: 0; right: 0; top: 200px; height: 70px; font-family: var(--font-display); font-size: 52px; color: var(--ink); text-align: center; }
+      .dg .stk { text-align: center; }
+      .sm { position: absolute; left: 0; right: 0; top: 280px; text-align: center; font-family: var(--font-code); font-size: 26px; color: var(--muted); }
+      #note { position: absolute; left: 30px; right: 30px; bottom: 16px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); height: 40px; }
+      #term { left: 72px; top: 1320px; width: 936px; height: 400px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="21" data-track-index="0">LINUX · PERMISOS</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="21" data-track-index="1">chmod 755:<br />bit a bit</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="21" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">script.sh</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="21" data-track-index="3">
+        <div id="perm"></div><div id="modeN"></div>
+        <div id="grps"></div>
+        <div id="note"></div>
+      </div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="21" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="21" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="21" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="21" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="3.7" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="4.8" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/blip.wav" data-start="7.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/pop.wav" data-start="9.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="10.4" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="11.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/confirm.wav" data-start="13.8" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud10" src="shared/audio/confirm.wav" data-start="17.2" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const rows = XF.buildCode($("#codeBody"), [
+        `${S("$ ls -l")} script.sh`, `${Mu("-")}${S("rw-r--r--")}  → ${N("644")}`, `${S("$ chmod")} ${N("755")} script.sh`,
+        `${S("$ ls -l")} script.sh`, `${Mu("-")}${F("rwxr-xr-x")}  → ${N("755")}`, `${S("$ ./script.sh")} ${Mu("→ hola desde script.sh")}`]);
+      const C = [PU, "rgba(192,132,252,.16)"];
+      const badge = mkBadges([["LISTANDO PERMISOS", GR], ["APLICANDO CHMOD 755", PU], ["MODO COMPUTADO", OK]]);
+
+      // Tres grupos de tres bits + dígito octal por grupo
+      const NAMES = ["DUEÑO", "GRUPO", "OTROS"], LET = ["r", "w", "x"];
+      $("#grps").innerHTML = NAMES.map((n, g) => `<div class="grp" id="g${g}" style="left:${30 + g * 300}px"><div class="gt">${n}</div>${LET.map((l, b) => `<div class="bit" id="c${g}${b}" style="left:${16 + b * 76}px">${l}</div>`).join("")}<div class="dg" id="dg${g}"></div><div class="sm" id="sm${g}"></div></div>`).join("");
+      const dig = [0, 1, 2].map((g) => XF.stack($("#dg" + g), ["0", "1", "2", "3", "4", "5", "6", "7"]));
+      const sm = [0, 1, 2].map((g) => XF.stack($("#sm" + g), ["---", "rw-", "r--", "r-x", "rwx"]));
+      const setDig = (g, d, t) => XF.only(tl, dig[g], dig[g][d], t);
+      const SMV = { "110": 1, "100": 2, "101": 3, "111": 4 };
+      const setSm = (g, bits, t) => XF.only(tl, sm[g], sm[g][SMV[bits.join("")]], t);
+      const perm = XF.stack($("#perm"), ["-rw-r--r--", "-rwxr-xr-x"]);
+      const modeN = XF.stack($("#modeN"), ["644", "755"]);
+      const note = XF.stack($("#note"), ["", "755: ejecuta todos, escribe el dueño"]);
+      XF.only(tl, perm, perm[0], 0); XF.only(tl, modeN, modeN[0], 0); XF.only(tl, note, note[0], 0);
+
+      let bits = [1, 1, 0, 1, 0, 0, 1, 0, 0];
+      const paint = (t) => bits.forEach((v, i) => XF.bitState(tl, $(`#c${Math.floor(i / 3)}${i % 3}`), v ? "on" : "off", t));
+      paint(0);
+      [0, 1, 2].forEach((g) => { setDig(g, bits[g * 3] * 4 + bits[g * 3 + 1] * 2 + bits[g * 3 + 2], 0); setSm(g, bits.slice(g * 3, g * 3 + 3), 0); });
+      const frame = (g, on, t) => tl.set("#g" + g, { borderColor: on ? "#f1a449" : "transparent" }, t);
+
+      mkTerm([["a0", "$ ls -l script.sh", GR], ["a1", "-rw-r--r-- script.sh", OK],
+        ["a2", "dueño: rw- → 110 (6)", PU], ["a3", "grupo: r-- → 100 (4)", PU], ["a4", "otros: r-- → 100 (4)", PU], ["a5", "modo actual → 644", AM],
+        ["b0", "$ chmod 755 script.sh", GR], ["b1", "755 = 111 101 101 → suma x", PU],
+        ["b2", "dueño: +x → rwx = 7", OK], ["b3", "grupo: +x → r-x = 5", OK], ["b4", "otros: +x → r-x = 5", OK],
+        ["c0", "$ ls -l script.sh", GR], ["c1", "-rwxr-xr-x script.sh", OK], ["c2", "$ ./script.sh", GR], ["c3", "hola desde script.sh", OK], ["c4", "755: ejecución para todos", OK]]);
+
+      // 0.3 listar
+      badge(0, 0.2); XF.activeLine(tl, rows, 1, 0.4, ...C); say("a0", 0.4);
+      XF.activeLine(tl, rows, 2, 1.8, ...C); say("a1", 1.8);
+      // 2.6 – 5.6 escaneo por grupos
+      [0, 1, 2].forEach((g) => { frame(g, true, 2.6 + g * 1.1); frame(g, false, 3.6 + g * 1.1); say("a" + (2 + g), 2.6 + g * 1.1); });
+      say("a5", 6.0);
+      // 7.4 chmod
+      tl.set(["#a0","#a1","#a2","#a3","#a4","#a5"], { display: "none" }, 7.2); badge(1, 7.2); XF.activeLine(tl, rows, 3, 7.4, ...C); say("b0", 7.4); say("b1", 8.2);
+      [0, 1, 2].forEach((g) => {
+        const t = 9.2 + g * 1.2;
+        bits[g * 3 + 2] = 1; XF.bitState(tl, $(`#c${g}2`), "on", t); frame(g, true, t); frame(g, false, t + 0.9);
+        setDig(g, bits[g * 3] * 4 + bits[g * 3 + 1] * 2 + 1, t); setSm(g, bits.slice(g * 3, g * 3 + 3), t); say("b" + (2 + g), t);
+      });
+      XF.only(tl, modeN, modeN[1], 12.8);
+      // 13.2 ls de nuevo
+      tl.set(["#b0","#b1","#b2","#b3","#b4"], { display: "none" }, 13.2); XF.activeLine(tl, rows, 4, 13.4, ...C); say("c0", 13.4); XF.only(tl, perm, perm[1], 13.8); XF.activeLine(tl, rows, 5, 14.0, ...C); say("c1", 14.0);
+      // 15.4 ejecutar
+      XF.activeLine(tl, rows, 6, 15.6, ...C); say("c2", 15.6); say("c3", 16.8);
+      badge(2, 17.2); say("c4", 17.4); XF.only(tl, note, note[1], 17.4);
+      XF.activeLine(tl, rows, 0, 19.0);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 41, yoyo: true }, 0);
+      tl.set({}, {}, 21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

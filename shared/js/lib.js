@@ -36,5 +36,22 @@ window.XF = (function () {
     tl.set(el, { opacity: 1 }, t);
   }
 
-  return { ease, buildCode, activeLine, only, typeRow, pop };
+  /** Crea spans apilados (uno visible a la vez con XF.only): cambia texto sin tl.call (seek-safe). */
+  function stack(el, texts) {
+    el.innerHTML = texts.map((t) => `<span class="stk">${t}</span>`).join("");
+    return [...el.children];
+  }
+
+  /** Celda de bit (r/w/x) con estado: on | off | cut (se quita) | mask. */
+  function bitState(tl, el, state, t) {
+    const S = {
+      on: { backgroundColor: "rgba(124,251,76,.2)", borderColor: "#7cfb4c", color: "#f9e6c6" },
+      off: { backgroundColor: "#261913", borderColor: "#483025", color: "#8c7a68" },
+      cut: { backgroundColor: "rgba(255,95,87,.2)", borderColor: "#ff5f57", color: "#ffb4ae" },
+      mask: { backgroundColor: "rgba(192,132,252,.2)", borderColor: "#c084fc", color: "#f9e6c6" },
+    };
+    tl.set(el, S[state], t);
+  }
+
+  return { ease, buildCode, activeLine, only, typeRow, pop, stack, bitState };
 })();

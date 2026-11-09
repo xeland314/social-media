@@ -35,3 +35,7 @@
 
 .mascot { position: absolute; width: 220px; height: 220px; image-rendering: pixelated; }
 .mark { position: absolute; font-size: 22px; }
+
+/* Texto apilado: un solo span visible a la vez (ver XF.stack) */
+.stk { position: absolute; left: 0; right: 0; opacity: 0; white-space: nowrap; }
+.bit { display: flex; align-items: center; justify-content: center; font-family: var(--font-code); font-weight: 800; border: 4px solid #483025; background: #261913; color: #8c7a68; }

@@ -1,0 +1,62 @@
+{
+  "id": "007",
+  "slug": "chmod-binary",
+  "title": "chmod bit a bit",
+  "series": "linux",
+  "calendarDay": 6,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 21,
+  "hook": "755 no es magia: son 9 bits.",
+  "topicTags": [
+    "#chmod",
+    "#permisos",
+    "#linuxtips",
+    "#octal"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/chmod-binary",
+  "carousel": {
+    "path": "carruseles/007-chmod-binary",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "chmod 755 no es magia: son 9 bits (rwx para dueño, grupo y otros). Mira cómo cada grupo suma su ejecución y el 644 se vuelve 755.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "chmod 755, bit a bit 🐧\n\nrwx = 4 + 2 + 1. Tres grupos, tres dígitos.\n644 → 755 solo agrega la ejecución.\n\nGuárdalo para no volver a adivinar permisos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "chmod 755 es la suma de bits: r=4, w=2, x=1 por cada grupo (dueño, grupo, otros). 7 = rwx, 5 = r-x.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué significa chmod 755? Cada dígito es la suma de lectura (4), escritura (2) y ejecución (1) para dueño, grupo y otros. Animación bit a bit.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "chmod 755 explicado bit a bit (rwx y octal)",
+      "text": "Los permisos de Linux son 9 bits agrupados de 3 en 3. Aquí se ve cómo 644 pasa a 755 al agregar la ejecución.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "chmod 755 bit a bit",
+      "text": "chmod 755 = rwx + r-x + r-x: cada dígito es la suma de r=4, w=2, x=1. Animación paso a paso.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "chmod 755 逐位解析",
+      "textZh": "chmod 755 由三组权限位组成：r=4、w=2、x=1，逐位演示 644 如何变成 755。"
+    }
+  }
+}

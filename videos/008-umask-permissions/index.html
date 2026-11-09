@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 52px; font-size: 30px; }
+      #card { left: 72px; top: 680px; width: 936px; height: 640px; }
+      .row { position: absolute; left: 0; width: 936px; height: 150px; opacity: 0; }
+      .rl { position: absolute; left: 30px; top: 6px; width: 600px; height: 36px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .rl .stk { text-align: left; }
+      .bit { position: absolute; top: 46px; width: 68px; height: 74px; font-size: 38px; }
+      .ro { position: absolute; right: 26px; top: 40px; width: 190px; height: 80px; font-family: var(--font-display); font-size: 44px; color: var(--accent); text-align: right; }
+      .ro .stk { text-align: right; }
+      #term { left: 72px; top: 1350px; width: 936px; height: 360px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="20" data-track-index="0">LINUX · PERMISOS</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="20" data-track-index="1">umask: restar<br />permisos</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="20" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">umask.sh</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="20" data-track-index="3"><div id="rows"></div></div>
+      <div id="term" class="abs px-box term clip" data-start="0" data-duration="20" data-track-index="4"><div class="term-label">CONSOLA</div></div>
+
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="20" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="20" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="20" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/blip.wav" data-start="0.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="4.2" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="5.1" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="6.0" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/confirm.wav" data-start="7.0" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="8.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/confirm.wav" data-start="11.0" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud9" src="shared/audio/whoosh.wav" data-start="12.0" data-duration="0.6" data-track-index="22" data-volume="0.5"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="13.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/pop.wav" data-start="14.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud12" src="shared/audio/pop.wav" data-start="14.8" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud13" src="shared/audio/confirm.wav" data-start="16.4" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const rows = XF.buildCode($("#codeBody"), [`${S("$ umask")} ${N("022")}`, `${Mu("archivo:")}  666 &amp; ~022 = ${S("644")}`, `${Mu("dir:")}      777 &amp; ~022 = ${S("755")}`, `${S("$ umask")} ${N("077")} ${Mu("→ 600 / 700")}`]);
+      const C = [PU, "rgba(192,132,252,.16)"];
+      const badge = mkBadges([["AND NOT BIT A BIT", PU], ["MODO PRIVADO 077", RD], ["MÁSCARA COMPUTADA", OK]]);
+
+      const DEF_F = [1,1,0,1,1,0,1,1,0], DEF_D = [1,1,1,1,1,1,1,1,1];
+      const MASK = { "022": [0,0,0,0,1,0,0,1,0], "077": [0,0,0,1,1,1,1,1,1] };
+      const RES_F = { "022": [1,1,0,1,0,0,1,0,0], "077": [1,1,0,0,0,0,0,0,0] };
+      const RES_D = { "022": [1,1,1,1,0,1,1,0,1], "077": [1,1,1,0,0,0,0,0,0] };
+      const mkRow = (id, top, labels, octs) => {
+        $("#rows").insertAdjacentHTML("beforeend", `<div class="row" id="row${id}" style="top:${top}px"><div class="rl" id="rl${id}"></div>${[...Array(9)].map((_, i) => `<div class="bit" id="${id}${i}" style="left:${30 + i * 68 + Math.floor(i / 3) * 30}px">${"rwx"[i % 3]}</div>`).join("")}<div class="ro" id="ro${id}"></div></div>`);
+        return { lab: XF.stack($("#rl" + id), labels), oct: XF.stack($("#ro" + id), octs) };
+      };
+      const A = mkRow("ra", 20, ["ARCHIVO POR DEFECTO"], ["666"]);
+      const B = mkRow("rb", 170, ["MÁSCARA 022 (SE QUITA)", "MÁSCARA 077 (SE QUITA)"], ["022", "077"]);
+      const Cc = mkRow("rc", 320, ["ARCHIVO NUEVO"], ["644", "600"]);
+      const D = mkRow("rd", 470, ["DIRECTORIO NUEVO (777)"], ["755", "700"]);
+      const cell = (id, i) => $(`#${id}${i}`);
+      const paintRow = (id, bits, state, t) => bits.forEach((v, i) => XF.bitState(tl, cell(id, i), v ? state : "off", t));
+      const reveal = (id, t, a = 1) => tl.set("#row" + id, { opacity: a }, t);
+      [A, B, Cc, D].forEach((r) => { XF.only(tl, r.lab, r.lab[0], 0); XF.only(tl, r.oct, r.oct[0], 0); });
+      tl.set([...Cc.oct, ...D.oct], { opacity: 0 }, 0.01); // los resultados aparecen solo al calcularse
+      paintRow("ra", DEF_F, "on", 0); paintRow("rb", MASK["022"], "mask", 0); paintRow("rc", Array(9).fill(0), "on", 0); paintRow("rd", Array(9).fill(0), "on", 0);
+
+      mkTerm([["q1", "$ umask 022", GR], ["q2", "máscara 022: bits que se QUITAN", RD], ["q3", "grupo 1: default & ~mask", PU], ["q4", "grupo 2: default & ~mask", PU], ["q5", "grupo 3: default & ~mask", PU], ["q6", "archivo nuevo → 644", OK], ["q7", "directorio nuevo → 755 (x hereda)", OK],
+        ["u1", "$ umask 077", GR], ["u2", "modo privado: nada para otros", RD], ["u3", "archivo nuevo → 600", OK], ["u4", "la máscara resta, jamás añade", OK]]);
+
+      // 0.3 umask 022
+      badge(0, 0.2); XF.activeLine(tl, rows, 1, 0.4, ...C); say("q1", 0.4); reveal("ra", 1.4);
+      XF.activeLine(tl, rows, 2, 2.6, ...C); reveal("rb", 2.6); XF.only(tl, B.oct, B.oct[0], 2.6); say("q2", 2.6);
+      reveal("rc", 3.8); XF.only(tl, A.oct, A.oct[0], 1.4);
+      [0, 1, 2].forEach((g) => {
+        const t = 4.2 + g * 0.9;
+        for (let b = 0; b < 3; b++) { const i = g * 3 + b;
+          if (MASK["022"][i] && DEF_F[i]) XF.bitState(tl, cell("ra", i), "cut", t);
+          XF.bitState(tl, cell("rc", i), RES_F["022"][i] ? "on" : "off", t); }
+        say("q" + (3 + g), t);
+      });
+      XF.only(tl, Cc.oct, Cc.oct[0], 7.0); say("q6", 7.0);
+      // 8.0 directorio
+      XF.activeLine(tl, rows, 3, 8.0, ...C); reveal("rd", 8.0); paintRow("rd", DEF_D, "on", 8.0);
+      [0, 1, 2].forEach((g) => { const t = 8.8 + g * 0.8; for (let b = 0; b < 3; b++) { const i = g * 3 + b; XF.bitState(tl, cell("rd", i), RES_D["022"][i] ? "on" : "off", t); } });
+      XF.only(tl, D.oct, D.oct[0], 11.0); say("q7", 11.2);
+      // 12.0 umask 077
+      tl.set(["#q1", "#q2", "#q3", "#q4", "#q5", "#q6", "#q7"], { display: "none" }, 11.8);
+      badge(1, 11.8); XF.activeLine(tl, rows, 4, 12.0, RD, "rgba(255,95,87,.16)"); say("u1", 12.0);
+      reveal("rd", 12.0, 0.3);
+      XF.only(tl, B.lab, B.lab[1], 12.2); XF.only(tl, B.oct, B.oct[1], 12.2); paintRow("rb", MASK["077"], "mask", 12.2);
+      paintRow("ra", DEF_F, "on", 12.2); paintRow("rc", Array(9).fill(0), "on", 12.2); tl.set(Cc.oct, { opacity: 0 }, 12.2);
+      say("u2", 12.4);
+      [0, 1, 2].forEach((g) => {
+        const t = 13.2 + g * 0.8;
+        for (let b = 0; b < 3; b++) { const i = g * 3 + b;
+          if (MASK["077"][i] && DEF_F[i]) XF.bitState(tl, cell("ra", i), "cut", t);
+          XF.bitState(tl, cell("rc", i), RES_F["077"][i] ? "on" : "off", t); }
+      });
+      XF.only(tl, Cc.oct, Cc.oct[1], 15.6); say("u3", 15.6);
+      badge(2, 16.4); say("u4", 16.4); XF.activeLine(tl, rows, 0, 17.8);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 39, yoyo: true }, 0);
+      tl.set({}, {}, 20);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

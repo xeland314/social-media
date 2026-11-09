@@ -10,6 +10,9 @@
 | 004 | [Spoofing y phishing: DMARC lo frena](../videos/004-spoofing-phishing-dmarc/) | ti | rendered | 24 | — |
 | 005 | [Bash: && vs ||](../videos/005-and-or-chains/) | linux | rendered | 3 | — |
 | 006 | [SIGTERM vs SIGKILL](../videos/006-sigterm-vs-sigkill/) | linux | rendered | 2 | — |
+| 007 | [chmod bit a bit](../videos/007-chmod-binary/) | linux | rendered | 6 | — |
+| 008 | [umask: permisos por defecto](../videos/008-umask-permissions/) | linux | rendered | 7 | — |
+| 009 | [Symlink vs Hard Link](../videos/009-symlink-vs-hardlink/) | linux | rendered | 8 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -375,4 +378,188 @@ SIGTERM pide cerrar con limpieza (exit 0); SIGKILL aniquila al instante (exit 13
 SIGTERM 让进程优雅退出（退出码 0）；SIGKILL 由内核直接终止（退出码 137）。附动画演示。
 
 #sigterm #sigkill #procesos #Linux #操作系统
+```
+
+## 007 · chmod bit a bit
+
+- **Carpeta:** `videos/007-chmod-binary/`  ·  **Estado:** rendered  ·  **Duración:** 21 s
+- **Gancho:** 755 no es magia: son 9 bits.
+- **Carrusel:** `carruseles/007-chmod-binary` (pending)
+
+### TikTok
+```text
+chmod 755 no es magia: son 9 bits (rwx para dueño, grupo y otros). Mira cómo cada grupo suma su ejecución y el 644 se vuelve 755.
+
+#chmod #permisos #linuxtips #octal #xeland314
+```
+
+### Instagram
+```text
+chmod 755, bit a bit 🐧
+
+rwx = 4 + 2 + 1. Tres grupos, tres dígitos.
+644 → 755 solo agrega la ejecución.
+
+Guárdalo para no volver a adivinar permisos.
+
+#chmod #permisos #linuxtips #octal #xeland314
+```
+
+### Threads
+```text
+chmod 755 es la suma de bits: r=4, w=2, x=1 por cada grupo (dueño, grupo, otros). 7 = rwx, 5 = r-x.
+
+#chmod
+```
+
+### Facebook
+```text
+¿Qué significa chmod 755? Cada dígito es la suma de lectura (4), escritura (2) y ejecución (1) para dueño, grupo y otros. Animación bit a bit.
+
+#chmod #permisos #xeland314
+```
+
+### YouTube
+**Título:** chmod 755 explicado bit a bit (rwx y octal)
+
+```text
+Los permisos de Linux son 9 bits agrupados de 3 en 3. Aquí se ve cómo 644 pasa a 755 al agregar la ejecución.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#chmod #permisos #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** chmod 755 bit a bit | chmod 755 逐位解析
+
+```text
+chmod 755 = rwx + r-x + r-x: cada dígito es la suma de r=4, w=2, x=1. Animación paso a paso.
+
+chmod 755 由三组权限位组成：r=4、w=2、x=1，逐位演示 644 如何变成 755。
+
+#chmod #permisos #linuxtips #Linux #操作系统
+```
+
+## 008 · umask: permisos por defecto
+
+- **Carpeta:** `videos/008-umask-permissions/`  ·  **Estado:** rendered  ·  **Duración:** 20 s
+- **Gancho:** umask no da permisos: los resta.
+- **Carrusel:** `carruseles/008-umask-permissions` (pending)
+
+### TikTok
+```text
+umask no agrega permisos: los resta. 666 menos 022 es 644 para archivos y 777 menos 022 es 755 para directorios. Y con 077 todo queda privado.
+
+#umask #permisos #linuxtips #bash #xeland314
+```
+
+### Instagram
+```text
+umask en 20 segundos 🐧
+
+Archivo: 666 & ~022 = 644
+Directorio: 777 & ~022 = 755
+umask 077 → 600 / 700 (solo tú)
+
+Guárdalo para tus servidores.
+
+#umask #permisos #linuxtips #bash #xeland314
+```
+
+### Threads
+```text
+umask 022 es el clásico de servidores: archivos 644, directorios 755. La máscara solo resta bits, jamás los añade.
+
+#umask
+```
+
+### Facebook
+```text
+¿Por qué tus archivos nuevos salen con 644? Por el umask: una máscara que resta bits a los permisos por defecto. Animación bit a bit.
+
+#umask #permisos #xeland314
+```
+
+### YouTube
+**Título:** umask explicado: por qué los archivos nacen con 644
+
+```text
+El umask resta permisos a 666 (archivos) y 777 (directorios). Con 022 queda 644/755; con 077 queda 600/700.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#umask #permisos #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** umask resta bits | umask：做减法的权限
+
+```text
+umask 022: 666 → 644 y 777 → 755. La máscara resta bits, nunca los añade.
+
+umask 022：文件 666→644，目录 777→755。掩码只会去掉权限，不会增加。
+
+#umask #permisos #linuxtips #Linux #操作系统
+```
+
+## 009 · Symlink vs Hard Link
+
+- **Carpeta:** `videos/009-symlink-vs-hardlink/`  ·  **Estado:** rendered  ·  **Duración:** 20 s
+- **Gancho:** Borra el original y mira qué sobrevive.
+- **Carrusel:** `carruseles/009-symlink-vs-hardlink` (pending)
+
+### TikTok
+```text
+Borras el archivo original. El symlink se rompe; el hard link sigue funcionando. Por qué: el hard link apunta al mismo inodo, el symlink solo guarda una ruta.
+
+#symlink #hardlink #inodo #linuxtips #xeland314
+```
+
+### Instagram
+```text
+Symlink vs hard link 🐧
+
+Hard link: otro nombre para el MISMO inodo.
+Symlink: guarda la RUTA del nombre.
+
+rm solo borra la entrada: los datos mueren con el último hard link.
+
+#symlink #hardlink #inodo #linuxtips #xeland314
+```
+
+### Threads
+```text
+rm no borra datos: borra un nombre. Mientras quede un hard link, el inodo sigue vivo; el symlink, en cambio, queda apuntando a nada.
+
+#symlink
+```
+
+### Facebook
+```text
+¿Qué pasa con un symlink y un hard link cuando borras el archivo original? Animación con el inodo en el centro.
+
+#symlink #hardlink #xeland314
+```
+
+### YouTube
+**Título:** Symlink vs hard link: qué sobrevive a rm
+
+```text
+Un hard link comparte el inodo y conserva los datos; un symlink guarda la ruta y se rompe al borrar el original.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#symlink #hardlink #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Symlink vs hard link | 软链接与硬链接
+
+```text
+El hard link comparte inodo y sobrevive a rm; el symlink guarda la ruta y se rompe.
+
+硬链接共享 inode，删除原文件后仍可访问；软链接只保存路径，会失效。
+
+#symlink #hardlink #inodo #Linux #操作系统
 ```

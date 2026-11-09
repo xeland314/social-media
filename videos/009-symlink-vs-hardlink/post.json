@@ -1,0 +1,62 @@
+{
+  "id": "009",
+  "slug": "symlink-vs-hardlink",
+  "title": "Symlink vs Hard Link",
+  "series": "linux",
+  "calendarDay": 8,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 20,
+  "hook": "Borra el original y mira qué sobrevive.",
+  "topicTags": [
+    "#symlink",
+    "#hardlink",
+    "#inodo",
+    "#linuxtips"
+  ],
+  "sourceAnimation": "xeland314.github.io/animations/symlink-vs-hardlink",
+  "carousel": {
+    "path": "carruseles/009-symlink-vs-hardlink",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Borras el archivo original. El symlink se rompe; el hard link sigue funcionando. Por qué: el hard link apunta al mismo inodo, el symlink solo guarda una ruta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Symlink vs hard link 🐧\n\nHard link: otro nombre para el MISMO inodo.\nSymlink: guarda la RUTA del nombre.\n\nrm solo borra la entrada: los datos mueren con el último hard link.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "rm no borra datos: borra un nombre. Mientras quede un hard link, el inodo sigue vivo; el symlink, en cambio, queda apuntando a nada.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué pasa con un symlink y un hard link cuando borras el archivo original? Animación con el inodo en el centro.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Symlink vs hard link: qué sobrevive a rm",
+      "text": "Un hard link comparte el inodo y conserva los datos; un symlink guarda la ruta y se rompe al borrar el original.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Symlink vs hard link",
+      "text": "El hard link comparte inodo y sobrevive a rm; el symlink guarda la ruta y se rompe.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "软链接与硬链接",
+      "textZh": "硬链接共享 inode，删除原文件后仍可访问；软链接只保存路径，会失效。"
+    }
+  }
+}
