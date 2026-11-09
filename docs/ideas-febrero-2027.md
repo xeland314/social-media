@@ -59,18 +59,17 @@
 
 - Total de febrero: **69 pts**; capacidad útil de la ventana: **78.4 pts** → ✅ cabe (holgura 9.4 pts).
 
-| Semana de construcción | Hasta | Piezas | Puntos |
-|---|---|---|---|
-| 1 | 2026-12-22 | T05, F01, R01 | 9 |
-| 2 | 2026-12-29 | F02, C01, F03, T01 | 8 |
-| 3 | 2027-01-05 | R02, F04, T02, L04 | 10 |
-| 4 | 2027-01-12 | R04, F05, A01 | 10.5 |
-| 5 | 2027-01-19 | L01, A02, C02 | 9.5 |
-| 6 | 2027-01-26 | T03, A03, L02, G01 | 9 |
-| 7 | 2027-02-02 | A04, L03, R03 | 8.5 |
-| 8 | 2027-02-09 | F06 | 4.5 |
+| Semana de construcción | Hasta | Piezas | Puntos | Menor holgura |
+|---|---|---|---|---|
+| 1 | 2026-12-22 | T05, F01, R01 | 9 | 40 días |
+| 2 | 2026-12-29 | F02, C01, F03, T01, R02 | 11.5 | 35 días |
+| 3 | 2027-01-05 | F04, T02, L04, R04 | 10 | 34 días |
+| 4 | 2027-01-12 | F05, A01, L01, A02 | 14 | 31 días |
+| 5 | 2027-01-19 | C02, T03, A03, L02, G01 | 11.5 | 29 días |
+| 6 | 2027-01-26 | A04, L03, R03 | 8.5 | 28 días |
+| 7 | 2027-02-02 | F06 | 4.5 | 24 días |
 
-Puntos de control: **10 de enero** (revisar métricas de noviembre-diciembre y reordenar semanas 3 y 4) y **25 de enero** (todo renderizado; solo queda programar).
+Puntos de control: **10 de enero** (revisar métricas de noviembre-diciembre y reordenar semanas 3 y 4) y **25 de enero** (todo lo de las semanas 1 a 6 renderizado y programado; la semana 7 es holgura y la capacidad por semana es un supuesto: si una semana se pasa de 11,2 pts, se mueve la pieza a la siguiente).
 
 ## Balance por serie (febrero)
 

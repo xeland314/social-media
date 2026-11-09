@@ -45,15 +45,17 @@ const weeks = Math.ceil(((new Date(w1) - new Date(w0)) / 86400000 + 1) / 7);
 const cap = Math.round(weeks * R.capacidadSemanalPuntos * R.factorSeguridad * 10) / 10;
 if (total > cap) problems.push(`esfuerzo ${total} pts > capacidad útil ${cap} pts (${weeks} semanas × ${R.capacidadSemanalPuntos} × ${R.factorSeguridad})`);
 
-// asignar cada pieza a una semana de construcción, en orden de fecha límite
-let acc = 0, wk = 1; const asign = [];
+// asignar cada pieza a una semana de construcción (flujo continuo de puntos, en orden de fecha límite)
+const capSem = R.capacidadSemanalPuntos * R.factorSeguridad;
+let acumulado = 0; const asign = [];
 [...plan, ...radOnly.map((r) => ({ dia: 0, id: r.id, b: byId[r.id], fecha: dateOf(1) }))].sort((a, b) => a.fecha - b.fecha || a.dia - b.dia).forEach((p) => {
-  const ef = efItem(p.b);
-  if (acc + ef > R.capacidadSemanalPuntos * R.factorSeguridad) { wk++; acc = 0; }
-  acc += ef; asign.push({ ...p, semanaBuild: wk, ef });
+  const ef = efItem(p.b); acumulado += ef;
+  asign.push({ ...p, semanaBuild: Math.ceil(acumulado / capSem - 1e-9), ef });
 });
 const ini = new Date(`${w0}T12:00:00Z`);
 const finSem = (n) => { const x = new Date(ini); x.setUTCDate(x.getUTCDate() + n * 7 - 1); return iso(x); };
+asign.forEach((a) => { const limite = new Date(a.fecha); limite.setUTCDate(limite.getUTCDate() - 1); a.holgura = Math.round((limite - new Date(`${finSem(a.semanaBuild)}T12:00:00Z`)) / 86400000); if (a.holgura < 0) problems.push(`${a.id}: termina el ${finSem(a.semanaBuild)} pero se publica el ${iso(a.fecha)}`); });
+if (Math.max(...asign.map((a) => a.semanaBuild)) > weeks) problems.push(`la construcción necesita más de ${weeks} semanas`);
 
 // ---- documento ----
 let md = `# Plan de febrero 2027 · ideas y producción\n\n> Generado por \`npm run plan\` desde \`log/ideas.json\` (backlog, plan, reglas). Edita el JSON, no este archivo.\n\n`;
@@ -68,10 +70,10 @@ d.febrero.forEach((e) => {
 });
 md += `\n## Radiografías (posts del portafolio)\n\n| Semana | Publicar | Tema | Nota |\n|---|---|---|---|\n`;
 d.radiografias.forEach((r) => { const b = byId[r.id]; md += `| ${r.semana} | ${iso(dateOf((r.semana - 1) * 7 + 1))} | ${b.tema} (${b.id}) | ${r.nota} |\n`; });
-md += `\n## Esfuerzo y construcción\n\n- Total de febrero: **${total} pts**; capacidad útil de la ventana: **${cap} pts** → ${total <= cap ? "✅ cabe" : "⚠️ no cabe"} (holgura ${Math.round((cap - total) * 10) / 10} pts).\n\n| Semana de construcción | Hasta | Piezas | Puntos |\n|---|---|---|---|\n`;
+md += `\n## Esfuerzo y construcción\n\n- Total de febrero: **${total} pts**; capacidad útil de la ventana: **${cap} pts** → ${total <= cap ? "✅ cabe" : "⚠️ no cabe"} (holgura ${Math.round((cap - total) * 10) / 10} pts).\n\n| Semana de construcción | Hasta | Piezas | Puntos | Menor holgura |\n|---|---|---|---|---|\n`;
 const wkMax = Math.max(...asign.map((a) => a.semanaBuild));
-for (let n = 1; n <= wkMax; n++) { const g = asign.filter((a) => a.semanaBuild === n); md += `| ${n} | ${finSem(n)} | ${g.map((a) => a.id).join(", ")} | ${g.reduce((s, a) => s + a.ef, 0)} |\n`; }
-md += `\nPuntos de control: **10 de enero** (revisar métricas de noviembre-diciembre y reordenar semanas 3 y 4) y **25 de enero** (todo renderizado; solo queda programar).\n`;
+for (let n = 1; n <= wkMax; n++) { const g = asign.filter((a) => a.semanaBuild === n); md += `| ${n} | ${finSem(n)} | ${g.map((a) => a.id).join(", ")} | ${g.reduce((s, a) => s + a.ef, 0)} | ${Math.min(...g.map((a) => a.holgura))} días |\n`; }
+md += `\nPuntos de control: **10 de enero** (revisar métricas de noviembre-diciembre y reordenar semanas 3 y 4) y **25 de enero** (todo lo de las semanas 1 a 6 renderizado y programado; la semana 7 es holgura y la capacidad por semana es un supuesto: si una semana se pasa de 11,2 pts, se mueve la pieza a la siguiente).\n`;
 const porSerie = {}; plan.forEach((p) => (porSerie[p.b.serie] = (porSerie[p.b.serie] ?? 0) + 1));
 md += `\n## Balance por serie (febrero)\n\n${Object.entries(porSerie).map(([s, n]) => `- ${d.series[s]} (${s}): ${n}`).join("\n")}\n`;
 const reserva = d.backlog.filter((b) => !used.has(b.id) && b.formatos.includes("video"));
