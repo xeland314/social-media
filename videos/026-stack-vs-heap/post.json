@@ -1,0 +1,64 @@
+{
+  "id": "026",
+  "slug": "stack-vs-heap",
+  "title": "Stack vs heap: dos bodegas de memoria",
+  "series": "fundamentos",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": "2027-02-01",
+  "durationSec": 24,
+  "hook": "Dos bodegas de memoria: una se limpia sola, la otra hay que ordenarla.",
+  "topicTags": [
+    "#stack",
+    "#heap",
+    "#memoria",
+    "#c"
+  ],
+  "sourceAnimation": "(original, plan de febrero 2027)",
+  "carousel": {
+    "path": "carruseles/026-stack-vs-heap",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Stack vs heap en 24 segundos: el stack se limpia solo al salir de la función; el heap lo pides con malloc y lo devuelves con free. ¿Qué pasa si olvidas free? Una fuga de memoria.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Stack vs heap 🧠\n\nSTACK: variables locales, se apilan y se limpian solas.\nHEAP: lo pides con malloc y lo devuelves con free.\n\nSi olvidas free, el bloque queda huérfano: fuga de memoria.\n\nGuárdalo para tu próxima entrevista.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "El stack se limpia solo al salir de la función; el heap no. Si haces malloc y olvidas free, el bloque queda sin dueño: eso es una fuga de memoria.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Dónde vive cada variable? Las locales van al stack y se liberan solas al salir de la función. Lo que pides con malloc va al heap y lo tienes que devolver tú con free. Animación con las dos zonas y una fuga de memoria.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Stack vs heap: dos bodegas de memoria",
+      "text": "Dos zonas de memoria: el stack (automático, LIFO) y el heap (manual, flexible). Ejemplo en C con malloc y free, y qué pasa cuando olvidas free.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "栈和堆的区别",
+      "text": "Stack 自动回收，heap 要手动 free。忘了 free 就会内存泄漏。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "栈 vs 堆",
+      "textZh": "栈上的局部变量函数结束自动释放；堆上用 malloc 申请，必须自己 free。忘记 free 就会造成内存泄漏。"
+    }
+  },
+  "plan": "febrero-2027",
+  "ideaId": "F01"
+}

@@ -29,6 +29,7 @@
 | 023 | [Informes: YAML a PDF con WeasyPrint](../videos/023-informes-yaml-pdf/) | ti | rendered | 26 | — |
 | 024 | [Ecuaciones en Word: LaTeX a OMML](../videos/024-ecuaciones-word/) | ti | rendered | 27 | — |
 | 025 | [Informes en lote: de una semana a minutos](../videos/025-informes-en-lote/) | ti | carousel-only | 29 | — |
+| 026 | [Stack vs heap: dos bodegas de memoria](../videos/026-stack-vs-heap/) | fundamentos | rendered | — | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1570,4 +1571,67 @@ Pieza solo de carrusel: no se publica como video. Flujo y pseudocódigo: leer y 
 从表格到上百份 PDF：先校验数据，再按规则打分，用模板写文字，最后并行导出。流程加伪代码，全部使用虚构数据。
 
 #automatizacion #python #excel #IT运维 #网络安全
+```
+
+## 026 · Stack vs heap: dos bodegas de memoria
+
+- **Carpeta:** `videos/026-stack-vs-heap/`  ·  **Estado:** rendered  ·  **Duración:** 24 s
+- **Gancho:** Dos bodegas de memoria: una se limpia sola, la otra hay que ordenarla.
+- **Carrusel:** `carruseles/026-stack-vs-heap` (pending)
+
+### TikTok
+```text
+Stack vs heap en 24 segundos: el stack se limpia solo al salir de la función; el heap lo pides con malloc y lo devuelves con free. ¿Qué pasa si olvidas free? Una fuga de memoria.
+
+#stack #heap #memoria #c #xeland314
+```
+
+### Instagram
+```text
+Stack vs heap 🧠
+
+STACK: variables locales, se apilan y se limpian solas.
+HEAP: lo pides con malloc y lo devuelves con free.
+
+Si olvidas free, el bloque queda huérfano: fuga de memoria.
+
+Guárdalo para tu próxima entrevista.
+
+#stack #heap #memoria #c #xeland314
+```
+
+### Threads
+```text
+El stack se limpia solo al salir de la función; el heap no. Si haces malloc y olvidas free, el bloque queda sin dueño: eso es una fuga de memoria.
+
+#stack
+```
+
+### Facebook
+```text
+¿Dónde vive cada variable? Las locales van al stack y se liberan solas al salir de la función. Lo que pides con malloc va al heap y lo tienes que devolver tú con free. Animación con las dos zonas y una fuga de memoria.
+
+#stack #heap #xeland314
+```
+
+### YouTube
+**Título:** Stack vs heap: dos bodegas de memoria
+
+```text
+Dos zonas de memoria: el stack (automático, LIFO) y el heap (manual, flexible). Ejemplo en C con malloc y free, y qué pasa cuando olvidas free.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#stack #heap #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 栈和堆的区别 | 栈 vs 堆
+
+```text
+Stack 自动回收，heap 要手动 free。忘了 free 就会内存泄漏。
+
+栈上的局部变量函数结束自动释放；堆上用 malloc 申请，必须自己 free。忘记 free 就会造成内存泄漏。
+
+#stack #heap #memoria #计算机科学 #数据结构
 ```

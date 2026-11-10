@@ -30,7 +30,9 @@ for (const e of cal.plan) {
   else estado = "♻️ recopilatorio (clips + carrusel)";
   md += `| ${e.dia} | ${fecha} | ${e.tema} | ${e.serie} | ${estado} | ${e.carrusel} |\n`;
 }
-const sinUsar = names.filter((n) => !used.has(n));
+// Piezas de otros planes (p. ej. febrero 2027, campo "plan" en post.json) no cuentan como "sin día".
+const otroPlan = (n) => !!readJson(path.join(videoDir(n), "post.json")).plan;
+const sinUsar = names.filter((n) => !used.has(n) && !otroPlan(n));
 if (sinUsar.length) problems.push(`videos sin día asignado: ${sinUsar.join(", ")}`);
 
 const nb = cal.plan.filter((e) => e.build), firstNeed = Math.min(...nb.map((e) => e.dia));

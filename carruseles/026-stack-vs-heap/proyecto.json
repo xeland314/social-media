@@ -1,0 +1,70 @@
+{
+  "id": "p026",
+  "name": "026 Stack vs heap",
+  "lastModified": 1794400000000,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Stack vs heap",
+        "subtitle": "Dos zonas de memoria, dos reglas distintas",
+        "category": "FUNDAMENTOS · MEMORIA",
+        "iconChar": "🧠"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Stack\n\n- Variables **locales**\n- Se apila y se desapila **solo**\n- Tamaño fijo y muy rápido\n- Vive mientras dura la función",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Heap\n\n- Lo pides con `malloc`\n- Tú decides **cuándo** devolverlo\n- Tamaño flexible\n- Más lento y puede **fragmentarse**",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Ejemplo\n\n```c\nvoid main() {\n  int n = 5;\n  int *p = malloc(40);\n  usar(p);\n  free(p);\n}\n```\n**n** y **p** están en el **stack**. Los 40 bytes, en el **heap**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Al salir de main()\n\n- El stack se limpia **solo**\n- El heap, solo si hiciste `free`\n\n**p** vive en el stack pero **apunta** al heap.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## La fuga\n\n```c\nint *p = malloc(40);\nusar(p);\n// sin free(p)\n```\nAl salir, **p** desaparece y el bloque queda **sin dueño**: nadie puede liberarlo.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Cómo evitarlo\n\n- Un `free` por cada `malloc`\n- Libera en **un solo sitio**\n- Valgrind o AddressSanitizer para cazarlas\n- Otros lenguajes usan recolector de basura o RAII",
+        "fontScale": 1.35
+      },
+      {
+        "id": "8",
+        "type": "end",
+        "firstText": "Stack y heap,",
+        "secondText": "sin misterio",
+        "description": "Sígueme para más conceptos de programación explicados con animaciones.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "FUNDAMENTOS • MEMORIA • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

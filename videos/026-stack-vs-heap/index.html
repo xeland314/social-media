@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #codePanel { left: 72px; top: 330px; width: 936px; }
+      #codePanel .code-line { height: 42px; font-size: 28px; }
+      #card { left: 72px; top: 720px; width: 936px; height: 640px; }
+      .zone { position: absolute; top: 24px; width: 420px; height: 592px; border: 5px solid var(--line); background: var(--panel-2); }
+      .zone .zl { position: absolute; left: 0; right: 0; top: 12px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 30px; }
+      .zone .zs { position: absolute; left: 0; right: 0; top: 54px; text-align: center; font-family: var(--font-label); font-size: 28px; color: var(--muted); }
+      #stk { left: 24px; } #hp { left: 492px; }
+      .slot { position: absolute; left: 24px; right: 24px; height: 86px; border: 5px solid; opacity: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-code); font-weight: 800; font-size: 32px; color: var(--ink); }
+      .blk { position: absolute; left: 60px; width: 300px; height: 150px; border: 5px solid; opacity: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-code); font-weight: 800; font-size: 34px; color: var(--ink); }
+      .cell { position: absolute; width: 56px; height: 56px; border: 3px dashed #483025; opacity: .55; }
+      #arrow { position: absolute; left: 440px; top: 215px; width: 70px; text-align: center; font-family: var(--font-code); font-weight: 800; font-size: 46px; color: #7cfb4c; opacity: 0; }
+      #tag { position: absolute; left: 60px; width: 300px; top: 380px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: #ff5f57; opacity: 0; }
+      #cap { left: 72px; top: 1400px; width: 936px; height: 250px; }
+      #cap .stk { position: absolute; left: 36px; right: 36px; top: 34px; font-family: var(--font-label); font-weight: 700; font-size: 40px; line-height: 1.35; color: var(--ink); }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="24" data-track-index="0">FUNDAMENTOS · MEMORIA</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="24" data-track-index="1">Stack vs heap:<br />dos bodegas</h1>
+      
+      <div id="codePanel" class="abs px-box code-panel clip" data-start="0" data-duration="24" data-track-index="2">
+        <div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file" style="position:relative;width:360px;height:36px">memoria.c</span><span class="code-badge-slot" id="badges"></span></div>
+        <div class="code-body" id="codeBody"></div>
+      </div>
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="3">
+        <div class="zone" id="stk"><div class="zl" style="color:#3fd0e0">STACK</div><div class="zs">automático · LIFO</div><div class="slot" id="s0" style="bottom:20px"></div><div class="slot" id="s1" style="bottom:116px"></div><div class="slot" id="s2" style="bottom:212px"></div></div>
+        <div class="zone" id="hp"><div class="zl" style="color:#c084fc">HEAP</div><div class="zs">manual · flexible</div>
+          <div class="cell" style="left:30px;top:120px"></div><div class="cell" style="left:110px;top:120px"></div><div class="cell" style="left:190px;top:120px"></div><div class="cell" style="left:270px;top:120px"></div><div class="cell" style="left:350px;top:120px"></div>
+          <div class="cell" style="left:30px;top:200px"></div><div class="cell" style="left:350px;top:200px"></div><div class="cell" style="left:30px;top:280px"></div><div class="cell" style="left:350px;top:280px"></div>
+          <div class="cell" style="left:30px;top:360px"></div><div class="cell" style="left:350px;top:360px"></div><div class="cell" style="left:110px;top:450px"></div><div class="cell" style="left:190px;top:450px"></div><div class="cell" style="left:270px;top:450px"></div>
+          <div class="blk" id="h0" style="top:190px"></div><div id="tag">HUÉRFANO</div></div>
+        <div id="arrow">◄</div>
+      </div>
+      <div id="cap" class="abs px-box clip" data-start="0" data-duration="24" data-track-index="4"></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="24" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="24" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/pop.wav" data-start="0.4" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="3.0" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="5.0" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="5.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/blip.wav" data-start="7.4" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/error.wav" data-start="9.1" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/whoosh.wav" data-start="11.0" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="15.3" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/pop.wav" data-start="16.5" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="16.9" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/whoosh.wav" data-start="18.9" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud12" src="shared/audio/error.wav" data-start="21.0" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const CY2 = "#3fd0e0";
+      const rows = XF.buildCode($("#codeBody"), [
+        `${K("void")} ${F("main")}() {`,
+        `  ${K("int")} n ${Mu("=")} ${N("5")}${Mu(";")}`,
+        `  ${K("int")} *p ${Mu("=")} ${F("malloc")}(${N("40")})${Mu(";")}`,
+        `  ${F("usar")}(p)${Mu(";")}`,
+        "", `}`]);
+      const l5 = rows[4].children[1]; l5.style.cssText = "position:relative;display:inline-block;width:700px;height:42px";
+      const fr = XF.stack(l5, [`&nbsp;&nbsp;${F("free")}(p)${Mu(";")}`, `&nbsp;&nbsp;${Mu("// ¡se olvidó free!")}`]);
+      fr.forEach((e) => { e.style.top = "0"; e.style.lineHeight = "42px"; });
+      XF.only(tl, fr, fr[0], 0);
+      const badge = mkBadges([["STACK", CY2], ["malloc → HEAP", "#c084fc"], ["free", OK], ["FUGA", RD]]);
+      const cap = XF.stack($("#cap"), [
+        "Stack y heap:<br />dos zonas",
+        "Variable local:<br />se apila sola",
+        "malloc: un bloque<br />en el heap",
+        "p (stack) apunta<br />al heap",
+        "free: tú devuelves<br />el bloque",
+        "Sale main():<br />el stack se limpia solo",
+        "¿Y si olvidas free?",
+        "Sale main(): el bloque<br />queda huérfano",
+        "FUGA DE MEMORIA:<br />nadie puede liberarlo"]);
+      const C = (i, t) => XF.only(tl, cap, cap[i], t);
+      const slot = (i, txt, col, t) => { tl.set("#s" + i, { opacity: 1, borderColor: col, backgroundColor: col + "26", color: "#f9e6c6" }, t); $("#s" + i).innerHTML = $("#s" + i).innerHTML; };
+      const slots = [["main()", "#7e7f7f"], ["n = 5", CY2], ["p = 0x7f3a", CY2]];
+      slots.forEach(([t], i) => ($("#s" + i).textContent = t));
+      const show = (i, t) => tl.set("#s" + i, { opacity: 1, borderColor: slots[i][1], backgroundColor: slots[i][1] + "26" }, t);
+      const hide = (i, t) => tl.set("#s" + i, { opacity: 0 }, t);
+      $("#h0").textContent = "40 bytes";
+      const heap = (state, t) => tl.set("#h0", state === "on" ? { opacity: 1, borderColor: "#c084fc", backgroundColor: "rgba(192,132,252,.22)" } : state === "hot" ? { opacity: 1, borderColor: "#f9e6c6", backgroundColor: "rgba(192,132,252,.45)" } : state === "bad" ? { opacity: 1, borderColor: RD, backgroundColor: "rgba(255,95,87,.25)" } : { opacity: 0 }, t);
+      const arrow = (on, t) => tl.set("#arrow", { opacity: on ? 1 : 0 }, t);
+      const tag = (on, t) => tl.set("#tag", { opacity: on ? 1 : 0 }, t);
+      const MC = [OK, "rgba(124,251,76,.14)"];
+
+      // ---- pasada 1: con free ----
+      C(0, 0); show(0, 0.4); badge(0, 0.4);
+      let T = 2.6;
+      XF.activeLine(tl, rows, 2, T, ...MC); C(1, T); show(1, T + 0.4); badge(0, T);
+      T = 4.6;
+      XF.activeLine(tl, rows, 3, T, ...MC); C(2, T); heap("on", T + 0.4); badge(1, T);
+      show(2, T + 1.0); arrow(true, T + 1.0); C(3, T + 2.0);
+      T = 7.4;
+      XF.activeLine(tl, rows, 4, T, ...MC); heap("hot", T);
+      T = 8.8;
+      XF.activeLine(tl, rows, 5, T, ...MC); C(4, T); badge(2, T); heap("bad", T + 0.3); heap("off", T + 0.9); arrow(false, T + 0.9);
+      T = 10.8;
+      XF.activeLine(tl, rows, 6, T, ...MC); C(5, T); hide(2, T + 0.3); hide(1, T + 0.6); hide(0, T + 0.9);
+      // ---- pasada 2: sin free ----
+      T = 13.6;
+      XF.activeLine(tl, rows, 0, T); C(6, T); XF.only(tl, fr, fr[1], T); badge(0, T);
+      show(0, T + 0.3);
+      T = 15.0;
+      XF.activeLine(tl, rows, 2, T, ...MC); show(1, T + 0.3);
+      T = 16.2;
+      XF.activeLine(tl, rows, 3, T, ...MC); badge(1, T); heap("on", T + 0.3); show(2, T + 0.7); arrow(true, T + 0.7);
+      T = 17.6;
+      XF.activeLine(tl, rows, 5, T, ...MC);
+      T = 18.6;
+      XF.activeLine(tl, rows, 6, T, ...MC); C(7, T); hide(2, T + 0.3); hide(1, T + 0.6); hide(0, T + 0.9); arrow(false, T + 0.9);
+      T = 21.0;
+      heap("bad", T); tag(true, T); badge(3, T); C(8, T); XF.activeLine(tl, rows, 0, T);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 47, yoyo: true }, 0);
+      tl.set({}, {}, 24);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
