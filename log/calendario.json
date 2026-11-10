@@ -203,11 +203,10 @@
       "dia": 28
     },
     {
-      "video": null,
-      "build": true,
-      "tema": "De una semana de trabajo a minutos: informes en lote",
+      "video": "025",
+      "tema": "Informes en lote: de una semana a minutos",
       "serie": "ti",
-      "carrusel": "Excel → puntuar → texto → PDF en paralelo (sin marca ni cliente)",
+      "carrusel": "Excel → validar → puntuar → redactar → PDF en paralelo (pseudocódigo, datos ficticios; solo carrusel)",
       "dia": 29
     },
     {

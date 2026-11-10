@@ -1,0 +1,76 @@
+{
+  "id": "p025",
+  "name": "025 Informes en lote",
+  "lastModified": 1794300000000,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "De una semana a minutos",
+        "subtitle": "Informes en lote: de una hoja de cálculo a cientos de PDF",
+        "category": "AUTOMATIZACIÓN · PYTHON",
+        "iconChar": "⚡"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nCopiar cifras, puntuar, redactar, maquetar, exportar… para **cada** persona.\n\nA mano, es el trabajo de varias personas durante días.\n\nPero cada paso se puede escribir como una **regla**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## El flujo\n\n```text\nExcel\n  ↓ validar\n  ↓ puntuar\n  ↓ redactar\n  ↓ PDF (en paralelo)\n  ↓ revisar y entregar\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 1 · Leer y validar\n\n```text\nfilas = leer_excel(\"datos.xlsx\")\n\npara fila en filas:\n  si faltan_campos(fila):\n    anotar_error(fila)\n```\nLo que no pasa, se **separa**; no se adivina.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## 2 · Puntuar\n\n```text\npuntaje = 0\npara regla en reglas:\n  puntaje += regla.peso\n            * fila[regla.campo]\nnivel = nivel_de(puntaje)\n```\nLas reglas viven en un archivo **versionado**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## 3 · Redactar\n\n```text\ntexto = frases[nivel]\ntexto += detalle(fila.top3)\n```\nPlantillas por nivel. Una IA local puede **pulir** el texto, nunca decidir el puntaje.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## 4 · PDF en paralelo\n\n```text\ncon Pool(n_nucleos) como p:\n  p.map(generar_pdf, filas)\n```\nUn PDF por fila, **un núcleo por tarea**. Cientos en minutos.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Lo que no se automatiza\n\n- Revisar una **muestra** a mano\n- Guardar el **registro de errores**\n- Probar con datos **ficticios** primero\n\nAutomatizar no es quitar el criterio: es quitar la copia.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "9",
+        "type": "end",
+        "firstText": "Minutos,",
+        "secondText": "no semanas",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "AUTOMATIZACIÓN • PYTHON • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

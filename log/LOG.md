@@ -28,6 +28,7 @@
 | 022 | [Wi-Fi: cómo se audita una red](../videos/022-wifi-auditoria/) | ti | rendered | 24 | — |
 | 023 | [Informes: YAML a PDF con WeasyPrint](../videos/023-informes-yaml-pdf/) | ti | rendered | 26 | — |
 | 024 | [Ecuaciones en Word: LaTeX a OMML](../videos/024-ecuaciones-word/) | ti | rendered | 27 | — |
+| 025 | [Informes en lote: de una semana a minutos](../videos/025-informes-en-lote/) | ti | carousel-only | 29 | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1507,4 +1508,66 @@ Más animaciones: https://xeland314.github.io/animations
 先用标记找到公式，再用 latex2mathml 和 mathml2omml 转换，最后用 python-docx 写入段落，生成可编辑的原生公式。
 
 #word #latex #python #IT运维 #网络安全
+```
+
+## 025 · Informes en lote: de una semana a minutos
+
+- **Carpeta:** `videos/025-informes-en-lote/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Lo que tomaba una semana a varias personas, en minutos: así se automatizan informes en lote.
+- **Carrusel:** `carruseles/025-informes-en-lote` (pending)
+
+### TikTok
+```text
+De una hoja de cálculo a cientos de informes en PDF: validar, puntuar, redactar y exportar en paralelo. Pseudocódigo paso a paso, con datos ficticios.
+
+#automatizacion #python #excel #pdf #xeland314
+```
+
+### Instagram
+```text
+De una semana de trabajo a minutos ⚡
+
+1. Leer y validar el Excel
+2. Puntuar con reglas versionadas
+3. Redactar con plantillas por nivel
+4. Generar los PDF en paralelo
+5. Revisar una muestra a mano
+
+Automatizar no es quitar el criterio: es quitar la copia. Guárdalo.
+
+#automatizacion #python #excel #pdf #xeland314
+```
+
+### Threads
+```text
+Cada paso de un informe en lote se puede escribir como regla: validar, puntuar, redactar y exportar los PDF en paralelo. Lo que no se automatiza: revisar una muestra y guardar el registro de errores.
+
+#automatizacion
+```
+
+### Facebook
+```text
+¿Cómo se automatiza el trabajo de varias personas durante una semana? Con un flujo simple: hoja de cálculo, validación, puntaje por reglas, texto por plantillas y un PDF por fila en paralelo. Carrusel con el flujo y el pseudocódigo, con datos ficticios.
+
+#automatizacion #python #xeland314
+```
+
+### YouTube
+**Título:** Informes en lote: de una semana a minutos
+
+```text
+Pieza solo de carrusel: no se publica como video. Flujo y pseudocódigo: leer y validar, puntuar, redactar, PDF en paralelo.
+
+#automatizacion #python #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 从一周到几分钟 | 批量报告自动化
+
+```text
+批量生成报告：校验数据、按规则打分、模板写文本、并行导出 PDF。流程和伪代码，全部使用虚构数据。
+
+从表格到上百份 PDF：先校验数据，再按规则打分，用模板写文字，最后并行导出。流程加伪代码，全部使用虚构数据。
+
+#automatizacion #python #excel #IT运维 #网络安全
 ```

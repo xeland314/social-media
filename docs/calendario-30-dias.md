@@ -34,14 +34,13 @@ Reglas: **un video y un carrusel por día**, mismo tema. Carrusel con Cover Crea
 | 26 | vie 12-11 | Mi flujo de informes: YAML → HTML → PDF (WeasyPrint) | ti | ✅ 023 · 21 s | Plantilla + datos + generador → por qué separar contenido y diseño |
 | 27 | sáb 12-12 | Ecuaciones en Word: LaTeX → MathML → OMML | ti | ✅ 024 · 22 s | El truco: marcadores [MATH] → OMML nativo editable |
 | 28 | dom 12-13 | Recopilatorio de la semana | recap | ♻️ recopilatorio (clips + carrusel) | Top 3 de la semana + el mejor de las series Linux y TI |
-| 29 | lun 12-14 | De una semana de trabajo a minutos: informes en lote | ti | 🛠️ por construir | Excel → puntuar → texto → PDF en paralelo (sin marca ni cliente) |
+| 29 | lun 12-14 | Informes en lote: de una semana a minutos | ti | ✅ 025 · ? s | Excel → validar → puntuar → redactar → PDF en paralelo (pseudocódigo, datos ficticios; solo carrusel) |
 | 30 | mar 12-15 | Balance del mes | recap | ♻️ recopilatorio (clips + carrusel) | Top 5 por métricas → qué viene en el mes 2 |
 
 ## Qué hay que construir y para cuándo
 
-- Día 29 (2026-12-14): **De una semana de trabajo a minutos: informes en lote** — debe estar renderizado la víspera (día 28).
 
-El primero se necesita el día 29: construirlo durante la semana 1, que ya tiene todo hecho.
+El primero se necesita el día Infinity: construirlo durante la semana 1, que ya tiene todo hecho.
 
 ## Ritmo y revisión
 
