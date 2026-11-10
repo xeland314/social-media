@@ -1,0 +1,64 @@
+{
+  "id": "027",
+  "slug": "dns-resolucion",
+  "title": "DNS: de un nombre a una IP en 4 saltos",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": "2027-02-02",
+  "durationSec": 28,
+  "hook": "De un nombre a una IP en 4 saltos: así resuelve DNS example.com.",
+  "topicTags": [
+    "#dns",
+    "#redes",
+    "#networking",
+    "#internet"
+  ],
+  "sourceAnimation": "(original, plan de febrero 2027)",
+  "carousel": {
+    "path": "carruseles/027-dns-resolucion",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Así resuelve DNS un nombre: el resolver pregunta a la raíz, al TLD .com y al servidor autoritativo hasta obtener la IP. La segunda vez sale de la caché. 4 saltos en 28 segundos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "DNS: de un nombre a una IP en 4 saltos 🌐\n\n1. La raíz te manda al TLD (.com)\n2. El TLD te da el servidor autoritativo\n3. El autoritativo conoce la IP\n4. El resolver te responde y la guarda en caché\n\nLa segunda vez: 0 saltos. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Cuando abres una web, tu resolver DNS pregunta a la raíz, luego al TLD y por último al servidor autoritativo. Con la respuesta en caché, la próxima vez no pregunta a nadie.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Cómo sabe tu navegador la IP de un sitio? El resolver DNS pregunta en cadena: raíz, TLD y servidor autoritativo, y guarda la respuesta en caché. Animación del recorrido completo, con una IP de ejemplo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "DNS: de un nombre a una IP en 4 saltos",
+      "text": "Resolución DNS paso a paso: resolver, servidores raíz, TLD (.com) y servidor autoritativo, con caché y TTL. Ejemplo con example.com y una IP de documentación.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "DNS 域名解析",
+      "text": "解析器依次询问根服务器、顶级域和权威服务器，得到 IP 后缓存起来。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "4 步看懂 DNS",
+      "textZh": "解析器先问根服务器，再问 .com 顶级域，最后问权威服务器拿到 IP，并按 TTL 缓存。第二次访问直接读缓存。"
+    }
+  },
+  "plan": "febrero-2027",
+  "ideaId": "R01"
+}

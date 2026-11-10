@@ -30,6 +30,7 @@
 | 024 | [Ecuaciones en Word: LaTeX a OMML](../videos/024-ecuaciones-word/) | ti | rendered | 27 | — |
 | 025 | [Informes en lote: de una semana a minutos](../videos/025-informes-en-lote/) | ti | carousel-only | 29 | — |
 | 026 | [Stack vs heap: dos bodegas de memoria](../videos/026-stack-vs-heap/) | fundamentos | rendered | — | — |
+| 027 | [DNS: de un nombre a una IP en 4 saltos](../videos/027-dns-resolucion/) | redes | rendered | — | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1634,4 +1635,67 @@ Stack 自动回收，heap 要手动 free。忘了 free 就会内存泄漏。
 栈上的局部变量函数结束自动释放；堆上用 malloc 申请，必须自己 free。忘记 free 就会造成内存泄漏。
 
 #stack #heap #memoria #计算机科学 #数据结构
+```
+
+## 027 · DNS: de un nombre a una IP en 4 saltos
+
+- **Carpeta:** `videos/027-dns-resolucion/`  ·  **Estado:** rendered  ·  **Duración:** 28 s
+- **Gancho:** De un nombre a una IP en 4 saltos: así resuelve DNS example.com.
+- **Carrusel:** `carruseles/027-dns-resolucion` (pending)
+
+### TikTok
+```text
+Así resuelve DNS un nombre: el resolver pregunta a la raíz, al TLD .com y al servidor autoritativo hasta obtener la IP. La segunda vez sale de la caché. 4 saltos en 28 segundos.
+
+#dns #redes #networking #internet #xeland314
+```
+
+### Instagram
+```text
+DNS: de un nombre a una IP en 4 saltos 🌐
+
+1. La raíz te manda al TLD (.com)
+2. El TLD te da el servidor autoritativo
+3. El autoritativo conoce la IP
+4. El resolver te responde y la guarda en caché
+
+La segunda vez: 0 saltos. Guárdalo.
+
+#dns #redes #networking #internet #xeland314
+```
+
+### Threads
+```text
+Cuando abres una web, tu resolver DNS pregunta a la raíz, luego al TLD y por último al servidor autoritativo. Con la respuesta en caché, la próxima vez no pregunta a nadie.
+
+#dns
+```
+
+### Facebook
+```text
+¿Cómo sabe tu navegador la IP de un sitio? El resolver DNS pregunta en cadena: raíz, TLD y servidor autoritativo, y guarda la respuesta en caché. Animación del recorrido completo, con una IP de ejemplo.
+
+#dns #redes #xeland314
+```
+
+### YouTube
+**Título:** DNS: de un nombre a una IP en 4 saltos
+
+```text
+Resolución DNS paso a paso: resolver, servidores raíz, TLD (.com) y servidor autoritativo, con caché y TTL. Ejemplo con example.com y una IP de documentación.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#dns #redes #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** DNS 域名解析 | 4 步看懂 DNS
+
+```text
+解析器依次询问根服务器、顶级域和权威服务器，得到 IP 后缓存起来。
+
+解析器先问根服务器，再问 .com 顶级域，最后问权威服务器拿到 IP，并按 TTL 缓存。第二次访问直接读缓存。
+
+#dns #redes #networking #网络 #计算机网络
 ```

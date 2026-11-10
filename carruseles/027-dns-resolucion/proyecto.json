@@ -1,0 +1,70 @@
+{
+  "id": "p027",
+  "name": "027 DNS",
+  "lastModified": 1794500000000,
+  "data": {
+    "mode": "ambercat",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "DNS en 4 saltos",
+        "subtitle": "De un nombre a una IP",
+        "category": "REDES · DNS",
+        "iconChar": "🌐"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nTu navegador necesita una **IP**, pero tú escribes un **nombre**.\n\nDNS es la libreta de direcciones de Internet.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## 0 · El resolver\n\nTu equipo no pregunta a todos: pregunta a un **resolver** (tu ISP o `1.1.1.1`).\n\nEl resolver hace el trabajo **por ti**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 1 · La raíz\n\n```text\n¿example.com?\n→ No sé. Pregunta\n  a los de .com\n```\nLa raíz solo conoce a los **TLD**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## 2 · El TLD\n\n```text\n¿example.com?\n→ Pregunta a\n  ns1.example.com\n```\nEl TLD conoce al servidor **autoritativo**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## 3 · El autoritativo\n\n```text\nexample.com  A\n  203.0.113.10\n  TTL 300\n```\nAquí vive la **respuesta**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## 4 · Respuesta y caché\n\nEl resolver te responde y guarda la IP **300 s** (el TTL).\n\nLa segunda vez: **0 saltos**.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "8",
+        "type": "end",
+        "firstText": "Un nombre,",
+        "secondText": "una IP",
+        "description": "Sígueme para más conceptos de redes explicados con animaciones.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • DNS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

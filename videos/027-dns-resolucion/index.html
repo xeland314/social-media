@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      
+      #card { left: 72px; top: 330px; width: 936px; height: 860px; }
+      .nd { position: absolute; left: 24px; width: 330px; height: 110px; border: 5px solid var(--line); background: var(--panel-2); display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--font-label); font-weight: 700; font-size: 32px; color: var(--ink); }
+      .nd small { font-size: 28px; color: var(--muted); font-weight: 400; }
+      .tx { position: absolute; left: 450px; width: 470px; height: 110px; }
+      .tx .stk { position: absolute; left: 0; top: 0; width: 470px; height: 110px; display: flex; align-items: center; font-family: var(--font-code); font-weight: 700; font-size: 30px; line-height: 1.25; color: var(--ink); }
+      .ln { position: absolute; left: 175px; width: 6px; height: 40px; background: var(--line); }
+      #pk { position: absolute; left: 368px; top: 0; width: 64px; height: 64px; border: 5px solid #f9e6c6; background: #c084fc; color: #1a110c; display: flex; align-items: center; justify-content: center; font-family: var(--font-label); font-weight: 800; font-size: 30px; opacity: 0; }
+      #cap { left: 72px; top: 1240px; width: 936px; height: 300px; }
+      #cap .stk { position: absolute; left: 36px; right: 36px; top: 34px; font-family: var(--font-label); font-weight: 700; font-size: 40px; line-height: 1.35; color: var(--ink); }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="28" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="28" data-track-index="0">REDES · DNS</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="28" data-track-index="1">DNS: de un nombre<br />a una IP</h1>
+      
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="28" data-track-index="2">
+        <div class="nd" id="n0" style="top:30px">TÚ<small>navegador</small></div><div class="tx" id="t0" style="top:30px"></div><div class="ln" style="top:144px"></div><div class="nd" id="n1" style="top:194px">RESOLVER<small>1.1.1.1 / tu ISP</small></div><div class="tx" id="t1" style="top:194px"></div><div class="ln" style="top:308px"></div><div class="nd" id="n2" style="top:358px">RAÍZ<small>.</small></div><div class="tx" id="t2" style="top:358px"></div><div class="ln" style="top:472px"></div><div class="nd" id="n3" style="top:522px">TLD<small>.com</small></div><div class="tx" id="t3" style="top:522px"></div><div class="ln" style="top:636px"></div><div class="nd" id="n4" style="top:686px">AUTORITATIVO<small>example.com</small></div><div class="tx" id="t4" style="top:686px"></div>
+        <div id="pk">?</div>
+      </div>
+      <div id="cap" class="abs px-box clip" data-start="0" data-duration="28" data-track-index="3"></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="28" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="28" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/make-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud0" src="shared/audio/piano-retro.wav" data-start="0" data-duration="22" data-track-index="20" data-volume="0.22" data-fade-in="0.5" data-fade-out="2"></audio>
+      <audio id="aud1" src="shared/audio/pop.wav" data-start="0.4" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/whoosh.wav" data-start="2.8" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud3" src="shared/audio/blip.wav" data-start="3.9" data-duration="0.12" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud4" src="shared/audio/whoosh.wav" data-start="5.6" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud5" src="shared/audio/blip.wav" data-start="6.7" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud6" src="shared/audio/whoosh.wav" data-start="8.6" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud7" src="shared/audio/blip.wav" data-start="9.7" data-duration="0.12" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/whoosh.wav" data-start="11.6" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud9" src="shared/audio/confirm.wav" data-start="12.8" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud10" src="shared/audio/whoosh.wav" data-start="14.8" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud11" src="shared/audio/confirm.wav" data-start="18.2" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud12" src="shared/audio/pop.wav" data-start="21.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud13" src="shared/audio/confirm.wav" data-start="23.3" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "#7cfb4c", RD = "#ff5f57", PU = "#c084fc", AM = "#fbbf24", GR = "#d1d5db", MU = "#9c9e8f", CY = "#3fd0e0";
+      const S = (t) => `<span class="tok-str">${t}</span>`, K = (t) => `<span class="tok-kw">${t}</span>`, F = (t) => `<span class="tok-fn">${t}</span>`, N = (t) => `<span class="tok-num">${t}</span>`, Mu = (t) => `<span class="tok-mut">${t}</span>`;
+      const mkTerm = (rows) => rows.forEach(([id, t, c]) => $("#term").insertAdjacentHTML("beforeend", `<div class="term-row" id="${id}" style="display:none;color:${c}">${t}</div>`));
+      const say = (id, t) => tl.set("#" + id, { display: "block", opacity: 1 }, t);
+      const mkBadges = (defs) => { $("#badges").innerHTML = defs.map(([t, c], i) => `<span class="px-chip" id="bdg${i}" style="color:${c}">${t}</span>`).join(""); const bs = defs.map((_, i) => $("#bdg" + i)); return (i, t) => XF.only(tl, bs, bs[i], t); };
+      const bar = (name) => `<div class="code-top"><span class="code-dot" style="color:#ff5f57"></span><span class="code-dot" style="color:#febc2e"></span><span class="code-dot" style="color:#28c840"></span><span class="code-file">${name}</span><span class="code-badge-slot" id="badges"></span></div>`;
+
+      const Y = (i) => 30 + i * 164 + 23;
+      const TX = [
+        ["¿example.com?", "203.0.113.10<br />→ abro la web", "¿example.com?<br />(en caché: 0 ms)"],
+        ["Pregunto yo<br />por ti", "Guardo la IP<br />300 s en caché", "Caché: respondo<br />sin preguntar"],
+        ["No sé, pregunta<br />a los de .com"],
+        ["Pregunta a<br />ns1.example.com"],
+        ["example.com =<br />203.0.113.10"]];
+      const tx = TX.map((arr, i) => XF.stack($("#t" + i), ["", ...arr]));
+      tx.forEach((g) => XF.only(tl, g, g[0], 0));
+      const say2 = (i, k, t) => XF.only(tl, tx[i], tx[i][k], t);
+      const nodeOn = (i, t, col = "#c084fc") => [0, 1, 2, 3, 4].forEach((j) => tl.set("#n" + j, j === i ? { borderColor: col, backgroundColor: col + "30" } : { borderColor: "#483025", backgroundColor: "#32231a" }, t));
+      const move = (a, b, t, d = 1.1) => { tl.fromTo("#pk", { y: Y(a) }, { y: Y(b), duration: d, ease: "steps(8)" }, t); };
+      const pk = (txt, col, t) => { tl.set("#pk", { opacity: 1, backgroundColor: col }, t); $("#pk").textContent = ""; };
+      const PKT = XF.stack($("#pk"), ["?", "IP"]); XF.only(tl, PKT, PKT[0], 0);
+      const cap = XF.stack($("#cap"), [
+        "Quieres abrir<br />example.com",
+        "El resolver pregunta<br />por ti",
+        "1 · La raíz te manda<br />al TLD (.com)",
+        "2 · El TLD te da el<br />servidor autoritativo",
+        "3 · El autoritativo<br />conoce la IP",
+        "4 · El resolver<br />te responde y guarda",
+        "Segunda vez:<br />sale de la caché",
+        "Nombre → IP:<br />4 saltos, o 1 con caché"]);
+      const C = (i, t) => XF.only(tl, cap, cap[i], t);
+      const MCOL = "#7cfb4c", PU2 = "#c084fc", CY2 = "#3fd0e0";
+      // consulta 1
+      C(0, 0); nodeOn(0, 0.3, CY2); say2(0, 1, 0.3); tl.set("#pk", { opacity: 1, y: Y(0), backgroundColor: PU2 }, 0.3);
+      C(1, 2.8); move(0, 1, 2.8); nodeOn(1, 3.9, CY2); say2(1, 1, 3.9);
+      C(2, 5.6); move(1, 2, 5.6); nodeOn(2, 6.7, PU2); say2(2, 1, 6.7);
+      C(3, 8.6); move(2, 3, 8.6); nodeOn(3, 9.7, PU2); say2(3, 1, 9.7);
+      C(4, 11.6); move(3, 4, 11.6); nodeOn(4, 12.7, MCOL); say2(4, 1, 12.7);
+      XF.only(tl, PKT, PKT[1], 12.7);
+      C(5, 14.8); move(4, 1, 14.8, 1.5); nodeOn(1, 16.3, MCOL); say2(1, 2, 16.3);
+      move(1, 0, 17.4, 0.8); nodeOn(0, 18.2, MCOL); say2(0, 2, 18.2);
+      // consulta 2 (caché)
+      [2, 3, 4].forEach((i) => say2(i, 0, 21.0));
+      C(6, 21.0); XF.only(tl, PKT, PKT[0], 21.0); say2(0, 3, 21.0); say2(1, 3, 21.0); tl.set("#pk", { y: Y(0) }, 21.0);
+      move(0, 1, 21.6, 0.6); nodeOn(1, 22.2, CY2); XF.only(tl, PKT, PKT[1], 22.2);
+      move(1, 0, 22.7, 0.6); nodeOn(0, 23.3, MCOL);
+      C(7, 24.4);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 55, yoyo: true }, 0);
+      tl.set({}, {}, 28);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
