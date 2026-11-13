@@ -24,7 +24,7 @@
       .hr { position: absolute; left: 30px; width: 876px; height: 66px; display: flex; align-items: center; padding: 0 20px; gap: 24px; font-family: var(--font-code); font-weight: 700; font-size: 28px; color: var(--ink); background: var(--panel-2); border: 4px solid var(--line); opacity: 0; }
       .hr b { width: 80px; color: var(--accent); font-weight: 800; }
       .cp { position: absolute; right: 44px; top: 0; opacity: 0; font-size: 26px; padding: 2px 12px; }
-      .bar { position: absolute; left: 30px; height: 46px; display: flex; align-items: center; padding: 0 14px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: #14100d; opacity: 0; }
+      .bar { position: absolute; left: 30px; height: 46px; display: flex; align-items: center; padding: 0 14px; font-family: var(--font-label); font-weight: 700; font-size: 28px; color: #000000; opacity: 0; }
       #sv { position: absolute; right: 30px; top: 520px; width: 330px; height: 80px; }
       #sv .stk { text-align: right; font-family: var(--font-display); font-size: 46px; color: var(--sem-ok); }
       #term { left: 72px; top: 1390px; width: 936px; height: 330px; }
@@ -100,7 +100,7 @@
       [["h62", 2, 3.6], ["h63", 3, 5.2], ["h64", 4, 6.8]].forEach(([id, ln, t], i) => { XF.activeLine(tl, rows, ln, t, ...HC); rowOn(id, t); sayK("p" + (2 + i), t + 0.1); });
       XF.activeLine(tl, rows, 5, 8.4, ...HC); badge(1, 8.4); sayK("p5", 8.5); tl.set("#b1", { opacity: 1 }, 8.8);
       // request 2: solo índices
-      badge(2, 10.6); tl.set(["#hs", "#h62", "#h63", "#h64"], { borderColor: "#483025" }, 10.6);
+      badge(2, 10.6); tl.set(["#hs", "#h62", "#h63", "#h64"], { borderColor: "#2e2e2e" }, 10.6);
       [["cps", "hs", 1], ["cp62", "h62", 2], ["cp63", "h63", 3], ["cp64", "h64", 4]].forEach(([cp, row, ln], i) => { const t = 11.0 + i * 1.1; XF.activeLine(tl, rows, ln, t, ...HC); tl.set("#" + cp, { opacity: 1 }, t); tl.set("#" + row, { borderColor: "#3fd0e0" }, t); sayK("q" + (1 + i), t + 0.1); });
       XF.activeLine(tl, rows, 5, 15.6, ...HC); tl.set("#b2", { opacity: 1 }, 15.6); tl.fromTo("#b2", { width: "876px" }, { width: "170px", duration: 1.0, ease: "steps(10)" }, 15.6); sayK("q5", 15.7);
       tl.set(sv, { opacity: 1 }, 17.0); badge(3, 17.0); sayK("q6", 17.0); XF.activeLine(tl, rows, 0, 18.6);

@@ -46,7 +46,7 @@ window.XF = (function () {
   function bitState(tl, el, state, t) {
     const S = {
       on: { backgroundColor: "rgba(124,251,76,.2)", borderColor: "#7cfb4c", color: "#f9e6c6" },
-      off: { backgroundColor: "#261913", borderColor: "#483025", color: "#8c7a68" },
+      off: { backgroundColor: "#0b0b0b", borderColor: "#2e2e2e", color: "#8c7a68" },
       cut: { backgroundColor: "rgba(255,95,87,.2)", borderColor: "#ff5f57", color: "#ffb4ae" },
       mask: { backgroundColor: "rgba(192,132,252,.2)", borderColor: "#c084fc", color: "#f9e6c6" },
     };

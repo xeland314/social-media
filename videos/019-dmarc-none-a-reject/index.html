@@ -101,7 +101,7 @@
       const res = XF.stack($("#res"), ["ENTREGADO", "A SPAM", "RECHAZADO"]); res[0].style.color = RD; res[1].style.color = "#f1a449"; res[2].style.color = OK;
       tl.set(res, { opacity: 0 }, 0);
       const rt = XF.stack($("#rt"), ["82 % alineado · 1 fuente desconocida", "99 % alineado · 0 desconocidas"]); XF.only(tl, rt, rt[0], 0);
-      const stepOn = (i, c, t) => [0, 1, 2].forEach((k) => tl.set("#st" + k, k === i ? { opacity: 1, borderColor: c, backgroundColor: "rgba(255,255,255,.06)" } : { opacity: 0.45, borderColor: "#483025", backgroundColor: "#32231a" }, t));
+      const stepOn = (i, c, t) => [0, 1, 2].forEach((k) => tl.set("#st" + k, k === i ? { opacity: 1, borderColor: c, backgroundColor: "rgba(255,255,255,.06)" } : { opacity: 0.45, borderColor: "#2e2e2e", backgroundColor: "#161616" }, t));
       mkTerm([["m1", "_dmarc.example.com → p=none", "#facc15"], ["m2", "reporte semanal: 82 % alineado", GR], ["m3", "fuente desconocida: newsletter.example.com", RD], ["m4", "newsletter: SPF y DKIM configurados", PU], ["m5", "reporte: 99 % alineado", OK],
         ["m6", "p=quarantine → la suplantación va a spam", "#f1a449"], ["m7", "1 semana sin falsos positivos", OK], ["m8", "p=reject → 550 5.7.1 rechazado", OK], ["m9", "sube de nivel solo con el reporte limpio", AM]]);
       let shown = []; const sayK = (id, t) => { say(id, t); shown.push(id); if (shown.length > 5) tl.set("#" + shown[shown.length - 6], { display: "none" }, t); };

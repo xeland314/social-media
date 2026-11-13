@@ -1,0 +1,8 @@
+/* Variante tipográfica "Inter" (la de pixel-art es la predeterminada). Se carga después de tokens.css. */
+:root {
+  --font-display: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+  --font-term: "JetBrains Mono", monospace;
+}
+.px-title { font-weight: 800; letter-spacing: -0.01em; line-height: 1.3; }
+.px-eyebrow, .px-chip { letter-spacing: 0.08em; }

@@ -100,7 +100,7 @@
       const badge = mkBadges([["BUSCANDO CASE", MU], ["MATCH: GASEOSA", OK], ["MATCH: AGUA", OK], ["MATCH: LIMONADA", OK], ["FINALIZADO", OK]]);
       const tn = XF.stack($("#tn"), ["", ...NM]); XF.only(tl, tn, tn[0], 0);
       mkTerm([["c1", 'liberar_bebida("Gaseosa negra")', OK], ["c2", 'liberar_bebida("Agua natural")', OK], ["c3", 'liberar_bebida("Limonada")', OK]]);
-      const vs = (i, on, t) => tl.set("#v" + i, { borderColor: on ? "#7cfb4c" : "#483025", backgroundColor: on ? "rgba(124,251,76,.12)" : "#32231a" }, t);
+      const vs = (i, on, t) => tl.set("#v" + i, { borderColor: on ? "#7cfb4c" : "#2e2e2e", backgroundColor: on ? "rgba(124,251,76,.12)" : "#161616" }, t);
       XF.only(tl, asg, asg[0], 0);
       badge(0, 0.2);
       DR.forEach((d, r) => {

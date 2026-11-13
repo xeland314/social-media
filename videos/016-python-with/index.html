@@ -85,13 +85,13 @@
       const rowsLock = ["...#####...", "..#.....#..", "..#.....#..", "..#.....#..", "###########", "#YYYYYYYYY#", "#YYYYKYYYY#", "#YYYYKYYYY#", "#YYYYYYYYY#", "###########"];
       const rowsOpen = ["...#####...", "..#.....#..", "..#........", "..#........", "###########", "#YYYYYYYYY#", "#YYYYKYYYY#", "#YYYYKYYYY#", "#YYYYYYYYY#", "###########"];
       const rowsBang = [".....R.....", "..R..R..R..", "...RRYRR...", "R.RRYYYRR.R", ".RRYYYYYRR.", "RRRYYWYYYRR", ".RRYYYYYRR.", "R.RRYYYRR.R", "...RRYRR...", "..R..R..R..", ".....R....."];
-      const pal = { "#": "#483025", Y: "#f1a449", K: "#14100d", R: "#ff5f57", W: "#f9e6c6" };
+      const pal = { "#": "#2e2e2e", Y: "#f1a449", K: "#000000", R: "#ff5f57", W: "#f9e6c6" };
       const icons = XF.stack($("#ic"), [SPR.fromRows(rowsLock, pal, 18), SPR.fromRows(rowsOpen, pal, 18), SPR.fromRows(rowsBang, pal, 18)]);
       const tag = XF.stack($("#tg"), ["CERRADO", "ABIERTO", "FALLO EN BLOQUE"]); tag[0].style.color = MU; tag[1].style.color = OK; tag[2].style.color = RD;
       const tit = XF.stack($("#tt"), ["Conexión inactiva", "Conexión establecida", "ZeroDivisionError!"]); tit[2].style.color = RD;
       const sub = XF.stack($("#sb"), ["Puerto 5432 · standby", "Puerto 5432 · transacción activa", "Excepción lanzada en ejecución"]);
       const state = (i, t, border) => { XF.only(tl, tag, tag[i], t); XF.only(tl, tit, tit[i], t); XF.only(tl, sub, sub[i], t); XF.only(tl, icons, icons[i === 0 ? 0 : i === 1 ? 1 : 2], t); tl.set("#card", { borderColor: border }, t); };
-      state(0, 0, "#483025");
+      state(0, 0, "#2e2e2e");
       mkTerm([["n0", ">>> with ConexionDB() as db:", "#f1a449"], ["n1", "[__enter__] conexión a DB abierta", OK], ["n2", "[db] SELECT * FROM usuarios...", GR], ["n3", "consulta completada con éxito", OK], ["n4", "[__exit__] cierre seguro de conexión", "#f1a449"], ["n5", "terminó bien: conexión cerrada", OK],
         ["e0", ">>> with ConexionDB() as db:", "#f1a449"], ["e1", "[__enter__] conexión a DB abierta", OK], ["e2", "[error] ZeroDivisionError: division by zero", RD], ["e3", "[__exit__] cierre seguro de conexión", "#f1a449"], ["e4", "la DB se cerró limpia a pesar del error", OK]]);
 
@@ -102,7 +102,7 @@
       badge(3, 6.8); XF.activeLine(tl, rows, 5, 6.8, ...AC); state(0, 7.2, "#f1a449"); say("n4", 7.2);
       badge(4, 8.6); say("n5", 8.6);
       // ===== escenario con error =====
-      tl.set(["#n0", "#n1", "#n2", "#n3", "#n4", "#n5"], { display: "none" }, 10.2); state(0, 10.2, "#483025");
+      tl.set(["#n0", "#n1", "#n2", "#n3", "#n4", "#n5"], { display: "none" }, 10.2); state(0, 10.2, "#2e2e2e");
       badge(0, 10.4); XF.activeLine(tl, rows, 7, 10.4, ...AC); say("e0", 10.5);
       badge(1, 11.8); XF.activeLine(tl, rows, 3, 11.8, ...GC); state(1, 12.2, "#7cfb4c"); say("e1", 12.2);
       badge(5, 14.0); XF.activeLine(tl, rows, 8, 14.0, ...BC); state(2, 14.0, "#ff5f57"); say("e2", 14.2);

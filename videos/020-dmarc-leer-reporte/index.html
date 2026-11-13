@@ -95,7 +95,7 @@
       const mtx = XF.stack($("#mtx"), ["1 550 de 1 685 mensajes (92 %)", "1 590 de 1 685 mensajes (94 %)"]); XF.only(tl, mtx, mtx[0], 0);
       const VD = [["#7cfb4c"], ["#7cfb4c"], ["#fbbf24"], ["#ff5f57"]];
       VD.forEach(([c], i) => tl.set("#vd" + i, { color: c }, 0));
-      const hi = (i, on, c, t) => tl.set("#tr" + i, { borderColor: on ? c : "#483025", backgroundColor: on ? "rgba(255,255,255,.07)" : "#32231a" }, t);
+      const hi = (i, on, c, t) => tl.set("#tr" + i, { borderColor: on ? c : "#2e2e2e", backgroundColor: on ? "rgba(255,255,255,.07)" : "#161616" }, t);
 
       badge(0, 0.2); tl.set("#set0", { opacity: 1 }, 0.3); XF.activeLine(tl, sets[0], 2, 0.4, ...RC);
       [0, 1, 2, 3].forEach((i) => tl.set("#tr" + i, { opacity: 1 }, 0.6 + i * 0.35));

@@ -23,17 +23,21 @@ for (const name of listVideos()) {
   const dest = path.join(root, folder);
   fs.mkdirSync(dest, { recursive: true });
   const hasVideo = fs.existsSync(path.join(dir, "render.mp4"));
-  if (hasVideo) fs.copyFileSync(path.join(dir, "render.mp4"), path.join(dest, "video.mp4"));
-  const imgDir = path.join(ROOT, "carruseles", name, "img");
+  if (hasVideo) fs.copyFileSync(path.join(dir, "render.mp4"), path.join(dest, "video-pixel.mp4"));
+  if (fs.existsSync(path.join(dir, "render-inter.mp4"))) fs.copyFileSync(path.join(dir, "render-inter.mp4"), path.join(dest, "video-inter.mp4"));
   let n = 0;
-  if (fs.existsSync(imgDir)) {
-    fs.mkdirSync(path.join(dest, "carrusel"));
+  for (const v of ["pixel", "inter"]) {
+    const imgDir = path.join(ROOT, "carruseles", name, "img", v);
+    if (!fs.existsSync(imgDir)) continue;
+    fs.mkdirSync(path.join(dest, `carrusel-${v}`));
+    let k = 0;
     for (const f of fs.readdirSync(imgDir).filter((f) => /\.(png|jpe?g)$/i.test(f)).sort()) {
-      n++;
-      fs.copyFileSync(path.join(imgDir, f), path.join(dest, "carrusel", `${String(n).padStart(2, "0")}${path.extname(f)}`));
+      k++;
+      fs.copyFileSync(path.join(imgDir, f), path.join(dest, `carrusel-${v}`, `${String(k).padStart(2, "0")}${path.extname(f)}`));
     }
+    n = k;
   }
-  let t = `PUBLICAR EL: ${fecha}\nPieza: ${name} · ${post.title}\nGancho: ${post.hook ?? ""}\nContenido: ${hasVideo ? "video.mp4" : "(sin video)"}${n ? ` + carrusel/ (${n} imágenes, en orden)` : ""}\n`;
+  let t = `PUBLICAR EL: ${fecha}\nPieza: ${name} · ${post.title}\nGancho: ${post.hook ?? ""}\nContenido: ${hasVideo ? "video-pixel.mp4 / video-inter.mp4" : "(sin video)"}${n ? ` + carrusel-pixel/ y carrusel-inter/ (${n} imágenes c/u, en orden; sube UNA variante)` : ""}\n`;
   for (const net of NETS) {
     const usa = [hasVideo ? "video" : null, n && CARRUSEL.has(net) ? "carrusel" : null].filter(Boolean);
     const c = composeCaption(post, net);
@@ -44,5 +48,5 @@ for (const name of listVideos()) {
   fs.writeFileSync(path.join(dest, "publicar.txt"), t);
   index.push(`${fecha}  ${name}  ${post.title}${hasVideo ? "" : "  (solo carrusel)"}`);
 }
-fs.writeFileSync(path.join(root, "LEEME.txt"), `SocialMedia · piezas por fecha de publicación\nCada carpeta: video.mp4, carrusel/ y publicar.txt (texto por red para copiar y pegar).\nVideo en las seis redes; carrusel en Instagram, Facebook, Threads y RedNote.\n\n${index.sort().join("\n")}\n`);
+fs.writeFileSync(path.join(root, "LEEME.txt"), `SocialMedia · piezas por fecha de publicación\nCada carpeta: video-pixel.mp4 / video-inter.mp4, carrusel-pixel/ / carrusel-inter/ y publicar.txt (texto por red para copiar y pegar).\nVideo en las seis redes; carrusel en Instagram, Facebook, Threads y RedNote.\n\n${index.sort().join("\n")}\n`);
 console.log(`✓ ${index.length} piezas en ${root}`);

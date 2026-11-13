@@ -95,7 +95,7 @@
       const WC = [CY, "rgba(63,208,224,.16)"], PC = [PU, "rgba(192,132,252,.16)"];
       const badge = mkBadges([["ANTES · 3 REDES", RD], ["DESPUÉS · UN SSID", OK]]);
       const AP = SPR.fromRows(["..#.....#..", "..#.....#..", "###########", "#OOOOOOOGO#", "###########"], { "#": "#f9e6c6", O: "#f1a449", G: "#7cfb4c" }, 7);
-      const PH = SPR.fromRows([".#####.", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "###K###"], { "#": "#f9e6c6", B: "#3fd0e0", K: "#14100d" }, 8);
+      const PH = SPR.fromRows([".#####.", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "#BBBBB#", "###K###"], { "#": "#f9e6c6", B: "#3fd0e0", K: "#000000" }, 8);
       const CX = [190, 468, 746];
       CX.forEach((x, i) => $("#aps").insertAdjacentHTML("beforeend", `<div class="ap" id="ap${i}" style="left:${x - 40}px">${AP}</div><div class="al" id="al${i}" style="left:${x - 120}px"></div>`));
       const lab = [0, 1, 2].map((i) => XF.stack($("#al" + i), [["RED-A", "RED-B", "RED-C"][i], "MI-RED"]));

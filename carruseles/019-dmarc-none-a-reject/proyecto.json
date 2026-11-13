@@ -3,7 +3,7 @@
   "name": "019 DMARC: de p=none a reject",
   "lastModified": 1794200140913,
   "data": {
-    "mode": "ambercat",
+    "mode": "light",
     "accent": "orange",
     "showLogo": false,
     "logoImage": "",
