@@ -1,4 +1,5 @@
-// Sintetiza SFX chiptune y un mini piano retro, de forma determinista, sin dependencias.
+// Sintetiza los SFX chiptune, de forma determinista, sin dependencias.
+// La música de fondo opcional está en scripts/make-music.mjs.
 // Salida: shared/audio/*.wav (mono, 16 bit). Uso: npm run audio
 import fs from "node:fs";
 import path from "node:path";
@@ -79,39 +80,3 @@ const sfx = {
 };
 console.log("SFX:");
 for (const [name, make] of Object.entries(sfx)) save(name, crush(make(), 8), 0.6);
-
-// ---------- Mini canción de piano retro (22 s, 96 BPM, La menor: Am – F – C – G) ----------
-function piano(out, t0, note, { vol = 0.5, len = 1.4 } = {}) {
-  const f = midi(note), n = Math.floor(len * SR), s = Math.floor(t0 * SR);
-  const H = [1, 0.6, 0.35, 0.2, 0.1];
-  for (let i = 0; i < n && s + i < out.length; i++) {
-    const t = i / SR;
-    let v = 0;
-    H.forEach((a, h) => { v += a * Math.sin(2 * Math.PI * f * (h + 1) * (1 + 0.0004 * h * h) * t) * Math.exp(-t * (2.2 + h * 1.1)); });
-    out[s + i] += v * vol * Math.min(1, t / 0.004) * Math.min(1, (n - i) / (0.05 * SR));
-  }
-}
-const music = buf(22);
-const STEP = 60 / 96 / 2; // corcheas
-const chords = [
-  { bass: 45, tones: [57, 60, 64] }, // Am
-  { bass: 41, tones: [53, 57, 60] }, // F
-  { bass: 48, tones: [55, 60, 64] }, // C
-  { bass: 43, tones: [55, 59, 62] }, // G
-];
-const pattern = [0, 1, 2, 1, 0, 1, 2, 1];
-let t = 0, bar = 0;
-while (t < 20 - 1e-6) {
-  const c = chords[Math.floor(bar / 2) % 4];
-  piano(music, t, c.bass, { vol: 0.55, len: 2.2 });
-  for (let k = 0; k < 8; k++) {
-    const when = t + k * STEP;
-    const note = c.tones[pattern[k]] + (k === 4 ? 12 : 0);
-    piano(music, when, note, { vol: k === 4 ? 0.42 : 0.32, len: 1.1 });
-  }
-  t += STEP * 8; bar++;
-}
-// cierre: La menor sostenido
-[45, 57, 60, 64, 69].forEach((n, i) => piano(music, 20 + i * 0.04, n, { vol: 0.35, len: 2.0 }));
-console.log("Música:");
-save("piano-retro.wav", crush(music, 10, 2), 0.5);
