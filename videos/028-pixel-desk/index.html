@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 44px; width: 936px; line-height: 1.2; }
+      #title .alt { color: var(--sem-alt); }
+      #shotWrap { left: 72px; top: 290px; width: 936px; height: 560px; display: flex; align-items: center; justify-content: center; }
+      .shot { max-width: 936px; max-height: 560px; object-fit: contain; border: 2px solid var(--line); }
+      .caption { left: 72px; top: 880px; width: 936px; padding: 18px 22px; }
+      .cap-title { font-family: var(--font-display); font-size: 30px; color: var(--ink); margin-bottom: 10px; }
+      .cap-body { font-family: var(--font-body, var(--font-display)); font-size: 24px; color: var(--muted); line-height: 1.4; }
+      .cap-body b { color: var(--accent); }
+      #tech { left: 72px; top: 290px; width: 936px; }
+      .tech-row { font-family: var(--font-display); font-size: 26px; color: var(--ink); margin-bottom: 14px; }
+      .tech-row span { color: var(--accent); }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="45" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="45" data-track-index="0">PROYECTO · PIXEL-DESK</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="45" data-track-index="1">pixel-<span class="alt">desk</span></h1>
+
+      <!-- Escenas con capturas del README -->
+      <div id="shotWrap" class="abs" style="left:72px; top:290px; width:936px; height:560px; display:flex; align-items:center; justify-content:center;">
+        <img id="sh0" class="shot clip" src="img/escena-oscura.png" alt="" data-start="0" data-duration="3.5" />
+        <img id="sh1" class="shot clip" src="img/cuartos-tira.png" alt="" data-start="3.5" data-duration="3.5" />
+        <img id="sh2" class="shot clip" src="img/cuarto-tablero.png" alt="" data-start="7" data-duration="3.5" />
+        <img id="sh3" class="shot clip" src="img/cuarto-monitor.png" alt="" data-start="10.5" data-duration="3.5" />
+        <img id="sh4" class="shot clip" src="img/cuarto-calendario.png" alt="" data-start="14" data-duration="3.5" />
+        <img id="sh5" class="shot clip" src="img/cuarto-rack.png" alt="" data-start="17.5" data-duration="3.5" />
+      </div>
+
+      <!-- Caption por escena -->
+      <div class="abs clip px-box caption" data-start="0" data-duration="3.5" data-track-index="3">
+        <div class="cap-title">Un escritorio pixel-art 2.5D</div>
+        <div class="cap-body">Tu fondo de escritorio es una <b>casa de cinco cuartos</b>: cada objeto abre una app o herramienta.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="3.5" data-duration="3.5" data-track-index="3">
+        <div class="cap-title">Los cinco cuartos</div>
+        <div class="cap-body">Escritorio · Tablero · Monitor · Calendario · <b>Rack de servidores</b>.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="7" data-duration="3.5" data-track-index="3">
+        <div class="cap-title">Tablero de corcho</div>
+        <div class="cap-body">Kanban de 3 columnas + pizarra de info fija. Notas con chincheta, arrastrar y soltar.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="10.5" data-duration="3.5" data-track-index="3">
+        <div class="cap-title">Monitor del sistema</div>
+        <div class="cap-body">CPU por núcleo, RAM, procesos tipo htop, red, discos, temperatura, batería. Lee <b>/proc y /sys</b>.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="14" data-duration="3.5" data-track-index="3">
+        <div class="cap-title">Calendario</div>
+        <div class="cap-body">Mes completo, agenda, próximos 7 días, fase lunar y <b>suscripciones ICS</b>.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="17.5" data-duration="3.5" data-track-index="3">
+        <div class="cap-title">Rack de servidores</div>
+        <div class="cap-body">TCP, HTTP, TLS, ping, DNS y contenedores Docker. Comprobaciones HTTP con keyword.</div>
+      </div>
+        <div class="cap-body">Marcos de ventana, panel, menú, iconos y rofi salen de los mismos tokens de color.</div>
+      </div>
+        <div class="cap-body"><b>T</b> alterna en vivo, en cualquier cuarto. Paleta cover-creator-cli en modo claro.</div>
+      </div>
+        <div class="cap-body">Filtra tus comandos frecuentes; <b>Enter</b> copia y cierra. Nunca ejecuta nada.</div>
+      </div>
+        <div class="cap-body">Notas del día con hora, etiquetas, exporta la semana a Markdown. Archivo solo añadir.</div>
+      </div>
+        <div class="cap-body">Papirus → pixel-art con algoritmo determinista. ~550 iconos en 7 s.</div>
+      </div>
+        <div class="cap-body">Emblemas para Inicio, Escritorio, Documentos, Descargas, Música, Imágenes, Vídeos y Red.</div>
+      </div>
+
+
+      <!-- Slides de texto -->
+      <div class="abs clip px-box caption" data-start="21" data-duration="4" data-track-index="3">
+        <div class="cap-title">Todo el escritorio a juego</div>
+        <div class="cap-body">Marcos, panel, menú, iconos y rofi salen de los mismos tokens. Claro/oscuro con <b>T</b> en vivo.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="25" data-duration="4" data-track-index="3">
+        <div class="cap-title">Los objetos abren apps</div>
+        <div class="cap-body">Monitor CRT → terminal · Libros → VS Code · Gato → rofi · Tocadiscos → Spotify · Cajones → paneles.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="29" data-duration="4" data-track-index="3">
+        <div class="cap-title">Bóveda y bitácora</div>
+        <div class="cap-body">Bóveda: filtra comandos, copia, nunca ejecuta. Bitácora: notas del día, etiquetas, exporta Markdown.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="33" data-duration="4" data-track-index="3">
+        <div class="cap-title">Iconos y carpetas</div>
+        <div class="cap-body">Papirus → pixel-art determinista (~550 iconos). Carpetas dibujadas a mano con emblemas.</div>
+      </div>
+      <div class="abs clip px-box caption" data-start="37" data-duration="4" data-track-index="3">
+        <div class="cap-title">Tecnologías</div>
+        <div class="cap-body">Go + WebKitGTK (sin Electron, 11 MB) · three.js 0.180 · GTK3 · /proc /sys · Netdata · ICS · Python (tema).</div>
+      </div>
+
+      <div id="shotWrap" class="abs" style="left:72px; top:290px; width:936px; height:560px; display:flex; align-items:center; justify-content:center;">
+        <img id="sh6" class="shot clip" src="img/gato-detalle.png" alt="" data-start="41" data-duration="4" />
+      </div>
+      <div class="abs clip px-box caption" data-start="41" data-duration="4" data-track-index="3">
+        <div class="cap-title">Hecho por @xeland314</div>
+        <div class="cap-body">Escritorio pixel-art para <b>LXQt + xfwm4 en X11</b>. Compila con Go, corre con WebKitGTK.</div>
+      </div>
+
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="45" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="45" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/add-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud1" src="shared/audio/pop.wav" data-start="0.4" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/whoosh.wav" data-start="3.3" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud3" src="shared/audio/whoosh.wav" data-start="6.8" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud4" src="shared/audio/whoosh.wav" data-start="10.3" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud5" src="shared/audio/whoosh.wav" data-start="13.8" data-duration="0.6" data-track-index="22" data-volume="0.5"></audio>
+      <audio id="aud6" src="shared/audio/whoosh.wav" data-start="17.3" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud7" src="shared/audio/whoosh.wav" data-start="20.8" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud8" src="shared/audio/blip.wav" data-start="25" data-duration="0.12" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/blip.wav" data-start="29" data-duration="0.12" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud10" src="shared/audio/blip.wav" data-start="33" data-duration="0.12" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/blip.wav" data-start="37" data-duration="0.12" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud12" src="shared/audio/whoosh.wav" data-start="40.8" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud13" src="shared/audio/confirm.wav" data-start="41.4" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <!-- audio:end -->
+
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 89, yoyo: true }, 0);
+      tl.set({}, {}, 45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

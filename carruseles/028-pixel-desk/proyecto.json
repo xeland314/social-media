@@ -1,0 +1,64 @@
+{
+  "id": "p028",
+  "name": "028 pixel-desk: escritorio pixel-art 2.5D para Linux",
+  "lastModified": 1794200000000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "pixel-desk",
+        "subtitle": "Escritorio pixel-art 2.5D para Linux (X11)",
+        "category": "PROYECTO · PIXEL-DESK",
+        "iconChar": "🐈"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## ¿Qué es pixel-desk?\n\nUn **fondo de escritorio** que es una casa de cinco cuartos. Cada objeto abre una app o herramienta.\n\n- Sin Electron, binario de 11 MB\n- Render a 640×400, escalado ×3\n- Animación a 8 fps",
+        "fontScale": 1.35
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Los cinco cuartos\n\n1. **Escritorio**: la habitación principal\n2. **Tablero**: kanban + info fija\n3. **Monitor**: CPU, RAM, procesos, red\n4. **Calendario**: eventos e ICS\n5. **Rack**: servidores y Docker",
+        "fontScale": 1.35
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Objeto → app\n\n| Objeto | Abre |\n| --- | --- |\n| Monitor CRT | terminal |\n| Libros | VS Code |\n| Gato | rofi |\n| Tocadiscos | Spotify |\n| Cajones | paneles |",
+        "fontScale": 1.35
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Tecnologías\n\n```go\nGo + WebKitGTK (sin Electron)\nthree.js 0.180 (proyección oblicua)\nGTK3 ventana tipo DESKTOP\nlee /proc y /sys directo\nNetdata para otras máquinas\nPython: tema e iconos\n```",
+        "fontScale": 1.35
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Claro y oscuro\n\n- `T` alterna en vivo, en cualquier cuarto\n- Modo claro: paleta cover-creator-cli\n- Marcos, panel, rofi e iconos a juego\n\nEl tema se genera con `theme/theme.py`.",
+        "fontScale": 1.35
+      },
+      {
+        "id": "7",
+        "type": "end",
+        "firstText": "¿Te sirvió?",
+        "secondText": "Guárdalo",
+        "description": "Sígueme para más proyectos y animaciones de código.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "PIXEL-DESK · @xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

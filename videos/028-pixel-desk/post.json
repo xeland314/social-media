@@ -1,0 +1,55 @@
+{
+  "id": "028",
+  "slug": "pixel-desk",
+  "title": "pixel-desk: escritorio pixel-art 2.5D para Linux",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 45,
+  "hook": "",
+  "topicTags": [],
+  "sourceAnimation": null,
+  "carousel": {
+    "path": "carruseles/028-pixel-desk",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "",
+      "text": "",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "",
+      "text": "",
+      "url": null,
+      "publishedAt": null
+    }
+  }
+}
