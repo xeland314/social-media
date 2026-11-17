@@ -5,10 +5,16 @@
   "series": "ti",
   "calendarDay": null,
   "status": "rendered",
-  "publishDate": null,
+  "publishDate": "2026-12-19",
   "durationSec": 45,
-  "hook": "",
-  "topicTags": [],
+  "hook": "Mi fondo de escritorio es una casa de cinco cuartos: cada objeto abre una app.",
+  "topicTags": [
+    "#linux",
+    "#pixelart",
+    "#golang",
+    "#desktop",
+    "#threejs"
+  ],
   "sourceAnimation": null,
   "carousel": {
     "path": "carruseles/028-pixel-desk",
@@ -17,39 +23,42 @@
   "platforms": {
     "tiktok": {
       "title": "",
-      "text": "",
+      "text": "Convertí mi escritorio de Linux en una casa pixel-art de cinco cuartos. El monitor abre la terminal, los libros abren el editor y el gato abre el lanzador. Hecho con Go + WebKitGTK, sin Electron.",
       "url": null,
       "publishedAt": null
     },
     "instagram": {
       "title": "",
-      "text": "",
+      "text": "Mi escritorio de Linux ahora es una casa pixel-art 2.5D 🏠\n\n1. Escritorio: cada objeto abre una app\n2. Tablero de corcho: kanban con chinchetas\n3. Monitor: CPU, RAM, red y discos\n4. Calendario con fase lunar\n5. Rack: comprueba TCP, HTTP, TLS y DNS\n\nGo + WebKitGTK + three.js. Sin Electron: 11 MB. Tema claro y oscuro con una tecla.",
       "url": null,
       "publishedAt": null
     },
     "threads": {
       "title": "",
-      "text": "",
+      "text": "Hice que mi fondo de escritorio sea una casa pixel-art de cinco cuartos: escritorio, tablero kanban, monitor del sistema, calendario y rack de servidores. Go + WebKitGTK, sin Electron, 11 MB. Los marcos de ventana, el panel y los iconos salen de los mismos tokens de color.",
       "url": null,
       "publishedAt": null
     },
     "facebook": {
       "title": "",
-      "text": "",
+      "text": "¿Y si el fondo de escritorio sirviera para algo? Este es pixel-desk: una casa pixel-art 2.5D de cinco cuartos para Linux (LXQt + xfwm4). Cada objeto abre una aplicación, hay un tablero kanban, un monitor del sistema, un calendario y un rack que comprueba servicios. Está hecho con Go y WebKitGTK, sin Electron, y cambia entre tema claro y oscuro con una tecla.",
       "url": null,
       "publishedAt": null
     },
     "youtube": {
-      "title": "",
-      "text": "",
+      "title": "pixel-desk: un escritorio pixel-art 2.5D para Linux",
+      "text": "Recorrido por pixel-desk: un escritorio pixel-art 2.5D de cinco cuartos (escritorio, tablero, monitor, calendario y rack) para LXQt + xfwm4 en X11. Go + WebKitGTK + three.js, sin Electron. Tema claro/oscuro, bóveda de comandos, bitácora e iconos convertidos a pixel-art.\n\nMás animaciones: https://xeland314.github.io/animations",
       "url": null,
       "publishedAt": null
     },
     "rednote": {
-      "title": "",
-      "text": "",
+      "title": "Escritorio pixel-art",
+      "text": "Mi escritorio de Linux es una casa pixel-art de cinco cuartos. Go + WebKitGTK, sin Electron.",
       "url": null,
-      "publishedAt": null
+      "publishedAt": null,
+      "titleZh": "像素风 Linux 桌面",
+      "textZh": "我把 Linux 桌面做成了一座 2.5D 像素小屋：五个房间，分别是书桌、看板、系统监视器、日历和服务器机架。用 Go 和 WebKitGTK 编写，没有 Electron，只有 11 MB。"
     }
-  }
+  },
+  "plan": "puente-2026-12"
 }

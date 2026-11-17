@@ -1,0 +1,64 @@
+{
+  "id": "029",
+  "slug": "historia-de-la-shell",
+  "title": "Historia de la shell: de Thompson a fish",
+  "series": "linux",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2026-12-16",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "La shell que usas hoy tiene más de 50 años de historia: de la Thompson shell de 1971 a fish.",
+  "topicTags": [
+    "#bash",
+    "#zsh",
+    "#fish",
+    "#historiadelacomputacion"
+  ],
+  "sourceAnimation": "(presentación del autor: historia_shell.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/029-historia-de-la-shell",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "De la Thompson shell de 1971 a fish: quién inventó las tuberías, por qué /bin/sh es dash en Debian y en qué se diferencian bash, zsh y fish. Medio siglo de shell en un carrusel.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "50 años de shell 🐚\n\n1971 · Thompson shell: redirecciones; las tuberías llegan en 1973\n1979 · Bourne shell: la shell se vuelve lenguaje\n1978-83 · csh y ksh: historial, alias, edición de línea\n1989 · bash: el sh libre de GNU\n1990 · zsh · 2005 · fish: la experiencia primero\n\nTrampa incluida: en Debian y Ubuntu, /bin/sh es dash. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Shell y terminal no son lo mismo. La terminal dibuja el texto; la shell lo interpreta. De la Thompson shell (1971) a fish (2005), cada una resolvió el problema de su época. Dato útil: en Debian y Ubuntu /bin/sh es dash, así que un script con [[ ]] que declara /bin/sh como intérprete puede fallar.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Por qué existen tantas shells? Porque cada una resolvió el problema de su época. La Thompson shell (1971) solo ejecutaba comandos; la Bourne shell (1979) la convirtió en lenguaje; csh y ksh añadieron historial y edición de línea; bash (1989) llevó todo eso al software libre; zsh y fish pusieron la experiencia primero. En el carrusel: la línea de tiempo, la diferencia entre bash y fish con código y una chuleta para elegir.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Historia de la shell: de Thompson (1971) a fish (2005)",
+      "text": "Pieza solo de carrusel: no se publica como video. Línea de tiempo de la shell: Thompson, Bourne, csh, ksh, bash, dash, zsh y fish, con una comparación de sintaxis bash vs fish.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Historia de la shell",
+      "text": "De la Thompson shell (1971) a fish (2005): qué aportó cada shell y cuál usar hoy.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Shell 五十年简史",
+      "textZh": "从 1971 年的 Thompson shell 到 2005 年的 fish：每一代 shell 带来了什么，以及 bash、zsh、fish 该怎么选。"
+    }
+  }
+}

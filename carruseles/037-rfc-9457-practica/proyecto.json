@@ -1,0 +1,82 @@
+{
+  "id": "p037",
+  "name": "037 RFC 9457 práctica",
+  "lastModified": 1794800200000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Problem Details paso a paso",
+        "subtitle": "RFC 9457, parte 2: definir tipos, implementarlo y no filtrar de más",
+        "category": "REDES · HTTP · APIs",
+        "iconChar": "🛠️"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## ¿Necesitas un tipo nuevo?\n\nEn la parte 1 viste el formato. Ahora, cómo usarlo. Antes de inventar un `type`, confirma que aporta algo que el cliente vaya a **usar**.\n\n- ¿El código HTTP ya basta? Usa `about:blank`\n- ¿Ya existe en el registro de IANA? Reutilízalo\n- ¿El cliente actuará distinto según el tipo? Entonces sí\n\nProblem Details no obliga a tirar un formato de error que ya funciona.",
+        "fontScale": 1.17
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Define el tipo como un contrato\n\nUn tipo de problema es parte de tu API. Documenta, en la página a la que apunta su URI:\n\n| Qué | Ejemplo |\n| :--- | :--- |\n| URI del tipo | `/probs/saldo` (absoluta) |\n| Título | Saldo insuficiente |\n| Código HTTP | 403 |\n| Extensiones | `balance`, `accounts` |\n\nIndica también si conviene enviar `Retry-After` y cómo resolver el problema.",
+        "fontScale": 1.1
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## URIs de tipo bien elegidas\n\nEl `type` es lo que comparan tus clientes: si lo cambias, rompes su código.\n\n```text\n✅ https://example.com/probs/saldo\n⚠️ ../probs/saldo      (relativa)\n✅ tag:example.com,2027:Saldo\n```\n\n- **Absoluta**: las relativas dependen de la URL base\n- **Estable**: no la cambies entre versiones\n- Resoluble si puedes; si no, una URI `tag:` (RFC 4151) deja claro que no se consulta",
+        "fontScale": 1.12
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Reutiliza: el registro de IANA\n\nLa RFC 9457 creó el registro **HTTP Problem Types** para tipos genéricos que muchas APIs pueden compartir.\n\n- Prefijo de sus URIs: `iana.org/assignments/` `http-problem-types#`\n- Política *Specification Required*: revisión de expertos\n- No admite tipos de un solo proveedor o despliegue\n- La propia RFC registra `about:blank`\n\nConsúltalo antes de crear el tuyo.",
+        "fontScale": 1.17
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Impleméntalo (Express)\n\nDos detalles importan: el `Content-Type` correcto y un `type` documentado. Lo demás es un objeto normal.\n\n```js\nconst SALDO =\n  \"https://example.com/probs/saldo\";\n\nres.status(403)\n  .type(\"application/problem+json\")\n  .json({ type: SALDO, status: 403,\n    title: \"Saldo insuficiente\",\n    detail: `Saldo ${s}, costo ${c}.`,\n    balance: s });\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Lo que nunca va en la respuesta\n\nUn error demasiado detallado le enseña tu sistema a un atacante. Problem Details **no** es una herramienta de depuración.\n\n- ❌ Stack traces y rutas del servidor\n- ❌ Consultas SQL, tablas o variables internas\n- ❌ Datos de otros usuarios\n- ✅ Lo que el cliente necesita para corregir **su** petición\n- ✅ Enlaces a documentación\n\nLo interno va a tu log, enlazado por `instance`.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Adóptalo sin migrar todo\n\nNo necesitas reescribir la API. El cliente puede anunciar que entiende el formato con `Accept: application/json, application/problem+json`, y tú lo usas solo en los errores:\n\n```text\n200 OK\nContent-Type: application/json\n\n404 Not Found\nContent-Type: application/problem+json\n```\n\nCon `Accept-Language` puedes traducir `title` y `detail`.",
+        "fontScale": 1.05
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta para tu próxima API\n\n- `type` absoluto, estable y documentado\n- `instance` enlazado a tus logs\n- Datos en extensiones; `detail` solo para personas\n- Revisa IANA antes de inventar un tipo\n- Nada interno en la respuesta\n- ¿API en XML? Existe `application/problem+xml`\n\n¿Vienes de la RFC 7807? Los campos no cambiaron. La 9457 añade el registro de IANA y guías para varios problemas y URIs no resolubles.",
+        "fontScale": 1.1
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Errores claros,",
+        "secondText": "no indiscretos",
+        "description": "Guárdalo junto con la parte 1. Sígueme para más de HTTP y APIs.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • HTTP • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

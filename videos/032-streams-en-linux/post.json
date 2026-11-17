@@ -1,0 +1,64 @@
+{
+  "id": "032",
+  "slug": "streams-en-linux",
+  "title": "Streams en Linux: stdin, stdout y stderr en C",
+  "series": "linux",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2026-12-23",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Por qué tu aviso sale antes que el resultado: stdin, stdout y stderr vistos desde C.",
+  "topicTags": [
+    "#stdout",
+    "#stderr",
+    "#lenguajec",
+    "#redireccion"
+  ],
+  "sourceAnimation": "(presentación del autor: linux_streams, ejemplo1-4.c; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/032-streams-en-linux",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "stdin, stdout y stderr vistos desde C: escribir en cada uno, redirigirlos, leer de un pipe, detectar la terminal con isatty y por qué el orden cambia al redirigir a un archivo. Complementa el video de file descriptors 0, 1 y 2 de la cuenta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "stdin, stdout y stderr en C 🔢\n\nfd 0: entrada · fd 1: resultados · fd 2: errores\n\n✔ printf para datos, fprintf(stderr, ...) para avisos\n✔ isatty() para saber si hay una terminal\n✔ fflush(stdout) si te importa el orden\n\nLa trampa: al redirigir a un archivo, stdout usa buffer por bloques y el aviso sale primero. Complementa el video File descriptors 0, 1 y 2 de la cuenta. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Redirige ./programa > todo.txt 2>&1 y el aviso de stderr aparece antes que el resultado, aunque se escribió después. La razón: hacia un archivo, stdout usa buffer por bloques y stderr no usa buffer. Carrusel con cuatro ejemplos en C; complementa el video de file descriptors 0, 1 y 2 de la cuenta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Todo proceso en Linux nace con tres streams: stdin (0), stdout (1) y stderr (2). En este carrusel los usamos desde C con cuatro ejemplos que puedes compilar: escribir en cada uno, separar datos y errores al redirigir, leer de un pipe y detectar si la salida va a una terminal con isatty(). Además, la trampa del buffer: por qué el orden de las líneas cambia al redirigir a un archivo y cómo arreglarlo con fflush. Complementa el video File descriptors 0, 1 y 2 que ya está en la cuenta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Streams en Linux: stdin, stdout y stderr en C",
+      "text": "Pieza solo de carrusel: no se publica como video. Cuatro ejemplos en C: fprintf a stdout y stderr, redirecciones, fgets desde stdin, isatty y el buffer de stdout. Complementa el video File descriptors 0, 1 y 2 del canal.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "stdin/stdout/stderr",
+      "text": "Los tres streams estándar desde C: redirección, isatty y la trampa del buffer de stdout.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Linux 标准流与 C",
+      "textZh": "用 C 语言看 stdin、stdout、stderr：重定向、isatty 判断终端，以及 stdout 缓冲导致输出顺序变化的陷阱。是账号里文件描述符 0、1、2 视频的补充。"
+    }
+  }
+}

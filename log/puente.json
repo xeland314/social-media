@@ -1,0 +1,63 @@
+{
+  "_nota": "Puente entre el mes 1 (log/calendario.json) y febrero (log/ideas.json). Edita y ejecuta `npm run trimestre`: valida y regenera docs/plan-3-meses.md. `fuente` es relativa a ~/Documentos/50-conocimiento/presentaciones salvo que empiece por workspace/ o videos/.",
+  "inicio": "2026-12-16",
+  "fin": "2027-01-31",
+  "horizonte": ["2026-11-16", "2027-02-14"],
+  "reglas": {
+    "ritmo": "lun, mié y vie: carrusel nacido de una presentación ya escrita · sáb: video · mar, jue y dom: descanso",
+    "carruselPuntos": 0.5,
+    "feriados": ["2026-12-25", "2027-01-01"]
+  },
+  "piezas": [
+    { "fecha": "2026-12-16", "tipo": "carrusel", "tema": "Historia de la shell: de Thompson a fish", "serie": "L", "fuente": "historia_shell/historia_shell.md", "enlaza": "005" },
+    { "fecha": "2026-12-18", "tipo": "carrusel", "tema": "La filosofía Unix: haz una cosa y hazla bien", "serie": "L", "fuente": "unix-filosofia/filosofia_unix.md" },
+    { "fecha": "2026-12-19", "tipo": "video", "video": "028", "tema": "pixel-desk: escritorio pixel-art 2.5D para Linux", "serie": "X", "fuente": "videos/028-pixel-desk (ya renderizado)" },
+    { "fecha": "2026-12-21", "tipo": "carrusel", "tema": "Manejo de señales: salida limpia en programas de terminal", "serie": "L", "fuente": "manejo_señales/manejo_senales.md", "enlaza": "006" },
+    { "fecha": "2026-12-23", "tipo": "carrusel", "tema": "Streams en Linux con ejemplos en C", "serie": "L", "fuente": "linux_streams/ (ejemplo1-4.c)", "enlaza": "012" },
+    { "fecha": "2026-12-26", "tipo": "rescate", "tema": "Rescate: el video más guardado del mes 1 (variante Inter)", "serie": "recap", "fuente": "métricas de log/publicaciones.csv" },
+    { "fecha": "2026-12-28", "tipo": "carrusel", "tema": "Cómo estructurar un proyecto CLI en C", "serie": "D", "fuente": "cli/estructura_cli_c.md" },
+    { "fecha": "2026-12-30", "tipo": "carrusel", "tema": "slides.c: presentaciones sin lag, escritas en C", "serie": "X", "fuente": "slidesc/slides-c-presentacion.md" },
+    { "fecha": "2027-01-02", "tipo": "rescate", "tema": "Rescate: el video más compartido del mes 1 (variante Inter)", "serie": "recap", "fuente": "métricas de log/publicaciones.csv" },
+    { "fecha": "2027-01-04", "tipo": "carrusel", "tema": "Los métodos HTTP, uno por lámina", "serie": "R", "fuente": "http-methods/ (láminas ya exportadas)", "enlaza": "017" },
+    { "fecha": "2027-01-06", "tipo": "carrusel", "tema": "RFC 9457: errores de API que sí explican qué pasó", "serie": "R", "fuente": "rfc-9457/rfc9457-fundamentos.md" },
+    { "fecha": "2027-01-08", "tipo": "carrusel", "tema": "RFC 9457 en la práctica: Problem Details paso a paso", "serie": "R", "fuente": "rfc-9457/rfc9457-practica.md" },
+    { "fecha": "2027-01-09", "tipo": "video", "idea": "T07", "tema": "El lector de código de barras es un teclado", "serie": "T", "fuente": "workspace/escaner_codigo_barras" },
+    { "fecha": "2027-01-11", "tipo": "carrusel", "tema": "mkcert + Wireshark: HTTPS local sin advertencias", "serie": "R", "fuente": "mkcert/README.md" },
+    { "fecha": "2027-01-13", "tipo": "carrusel", "tema": "iptables y nftables para quien viene del mundo web", "serie": "R", "fuente": "iptables/iptables_nftables.md" },
+    { "fecha": "2027-01-15", "tipo": "carrusel", "tema": "Wi-Fi en Linux: red abierta vs cifrada con hostapd", "serie": "R", "fuente": "wifi_tutorial/README.md", "enlaza": "021" },
+    { "fecha": "2027-01-16", "tipo": "video", "idea": "F11", "tema": "Por qué 0.1 + 0.2 no es 0.3", "serie": "F", "fuente": "portafolio/posts (IEEE 754)" },
+    { "fecha": "2027-01-18", "tipo": "carrusel", "tema": "Catsplash: un portal cautivo en Go", "serie": "R", "fuente": "catsplash/README.md", "enlaza": "R04 (12 de febrero)" },
+    { "fecha": "2027-01-20", "tipo": "carrusel", "tema": "Expresiones regulares: la teoría en 3 reglas", "serie": "F", "fuente": "re/README.md" },
+    { "fecha": "2027-01-22", "tipo": "carrusel", "tema": "Tokens: las seis categorías del análisis léxico", "serie": "F", "fuente": "tokens.md" },
+    { "fecha": "2027-01-23", "tipo": "video", "idea": "D04", "tema": "git reflog: nada se pierde", "serie": "D", "fuente": "portafolio/ideas_posts.md", "enlaza": "002" },
+    { "fecha": "2027-01-25", "tipo": "carrusel", "tema": "Automatiza Word con Python: de {{marcadores}} a decenas de .docx", "serie": "T", "fuente": "automatizacion-word-python.md", "enlaza": "024" },
+    { "fecha": "2027-01-27", "tipo": "carrusel", "tema": "Python y el límite de 4300 dígitos", "serie": "P", "fuente": "project-python-limit-4300.json (proyecto Cover Creator listo)" },
+    { "fecha": "2027-01-29", "tipo": "carrusel", "tema": "Cómo escribir Skills para agentes de IA que sí funcionan", "serie": "A", "fuente": "skills.md/README.md" },
+    { "fecha": "2027-01-30", "tipo": "avance", "tema": "Lo que viene en febrero: 4 semanas temáticas", "serie": "recap", "fuente": "clips de 026 y 027 + docs/ideas-febrero-2027.md" }
+  ],
+  "reserva": [
+    { "tema": "Clean Code: parámetros booleanos", "fuente": "flags/flags.json (proyecto Cover Creator listo)", "riesgo": "verde" },
+    { "tema": "Clean Code: primitive obsession", "fuente": "primitivos/primitives.json (proyecto Cover Creator listo)", "riesgo": "verde" },
+    { "tema": "Cómo funciona una shell por dentro", "fuente": "historia_shell/how_it_works.md", "riesgo": "verde" },
+    { "tema": "Lex en dos partes", "fuente": "curso-lex/lex-1 y lex-2", "riesgo": "verde" },
+    { "tema": "Arreglé un bug de Web/Wasm en dart_toon: del issue al PR", "fuente": "dart_toon/README.md", "riesgo": "verde" },
+    { "tema": "C-Slides por dentro: un parser lineal de Markdown", "fuente": "slides/README.md", "riesgo": "verde" },
+    { "tema": "Django a escala (resumen de una charla ajena)", "fuente": "django-a-escala/django-a-escala.md", "riesgo": "verde (citar la fuente original)" },
+    { "tema": "5 patrones de diseño para Agent Skills (contenido ajeno)", "fuente": "skills patterns/", "riesgo": "verde (citar la fuente original)" },
+    { "tema": "La web de un taller mecánico familiar", "fuente": "talleres_serviauto.md", "riesgo": "amarillo (nombra un negocio real: decidir si se publica con nombre)" }
+  ],
+  "ideasNuevas": [
+    { "tema": "Parsear un chat exportado de WhatsApp", "fuente": "workspace/chat-analyzer-ui", "riesgo": "verde" },
+    { "tema": "Cómo evoluciona un repo por lenguaje (git log → gráfico)", "fuente": "workspace/code-changes", "riesgo": "verde" },
+    { "tema": "Chain of Responsibility en 20 segundos", "fuente": "workspace/code-changes", "riesgo": "verde" },
+    { "tema": "Revivir una tablet que no enciende tras una actualización", "fuente": "workspace/tablet_lenovo", "riesgo": "verde" },
+    { "tema": "Diplomas en lote desde una plantilla de PowerPoint", "fuente": "workspace/generador-diplomas", "riesgo": "verde" },
+    { "tema": "Un analizador léxico que se recupera de errores", "fuente": "workspace/analizador-lexico", "riesgo": "verde" },
+    { "tema": "SMART: cómo avisa un disco antes de morir", "fuente": "workspace/smart-monitor", "riesgo": "amarillo" },
+    { "tema": "Respaldos nocturnos consistentes (y cómo probar que restauran)", "fuente": "workspace/server-backups", "riesgo": "amarillo" },
+    { "tema": "Bot de Telegram con roles y permisos", "fuente": "workspace/icon-bot", "riesgo": "amarillo" },
+    { "tema": "AES-256-GCM: cifrar un campo de la base de datos", "fuente": "workspace/inventory", "riesgo": "amarillo" },
+    { "tema": "Asistencia con QR desde la cámara del navegador", "fuente": "workspace/asistencia_estudiantes", "riesgo": "amarillo" },
+    { "tema": "Reportes HTML portables con PowerShell (sin dependencias)", "fuente": "workspace/WindowsDiagnosis", "riesgo": "amarillo" }
+  ]
+}

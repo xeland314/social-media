@@ -1,0 +1,65 @@
+{
+  "id": "035",
+  "slug": "metodos-http",
+  "title": "Los métodos HTTP, uno por lámina",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-04",
+  "durationSec": null,
+  "hook": "GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y QUERY: qué hace cada uno y qué promete.",
+  "topicTags": [
+    "#http",
+    "#api",
+    "#rest",
+    "#backend",
+    "#desarrolloweb"
+  ],
+  "sourceAnimation": "(presentación propia: http-methods; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/035-metodos-http",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Ocho métodos HTTP en ocho láminas: GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y el nuevo QUERY. Para cada uno: qué hace, un ejemplo de petición y si es seguro, idempotente y cacheable.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Los métodos HTTP, uno por lámina 📨\n\nGET lee · POST procesa · PUT reemplaza · PATCH modifica una parte · DELETE elimina · OPTIONS pregunta · TRACE devuelve el eco · QUERY busca con cuerpo\n\nY tres preguntas para cada uno:\n1. ¿Es seguro? (no cambia nada)\n2. ¿Es idempotente? (repetirlo deja el mismo estado)\n3. ¿Es cacheable?\n\nDELETE es idempotente aunque la segunda vez responda 404. Guárdalo para tu próxima API.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Pregunta de entrevista: ¿DELETE es idempotente si la segunda llamada devuelve 404? Sí. La idempotencia habla del estado del servidor, no del código de respuesta. En el carrusel: los 8 métodos HTTP, incluido QUERY, con seguro / idempotente / cacheable.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Sabes cuándo usar PUT y cuándo PATCH, o por qué existe el nuevo método QUERY? En este carrusel repaso los 8 métodos HTTP, uno por lámina: qué hace cada uno, un ejemplo de petición y una tabla con tres propiedades clave: si es seguro, si es idempotente y si se puede guardar en caché.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Los métodos HTTP, uno por lámina",
+      "text": "Pieza solo de carrusel: no se publica como video. Los métodos HTTP GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y QUERY, con su semántica: seguro, idempotente y cacheable.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "HTTP 方法速查",
+      "text": "Los 8 métodos HTTP, uno por lámina: GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y QUERY. Seguro, idempotente y cacheable.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "8 个 HTTP 方法",
+      "textZh": "GET、POST、PUT、PATCH、DELETE、OPTIONS、TRACE 和新的 QUERY，每页一个：用途、请求示例，以及是否安全、幂等、可缓存。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

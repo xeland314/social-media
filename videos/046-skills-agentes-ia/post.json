@@ -1,0 +1,64 @@
+{
+  "id": "046",
+  "slug": "skills-agentes-ia",
+  "title": "Cómo escribir Skills para agentes de IA que sí funcionan",
+  "series": "ia",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-29",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Si tu skill no se activa, casi nunca son las instrucciones: es la descripción.",
+  "topicTags": [
+    "#ia",
+    "#agentesdeia",
+    "#skills",
+    "#claudecode"
+  ],
+  "sourceAnimation": "(presentación del autor sobre Skills de agentes de IA; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/046-skills-agentes-ia",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Si tu Skill de agente de IA no se activa, el problema casi nunca son las instrucciones: es la descripción. Estructura que funciona, carga progresiva, cómo depurar y reglas de seguridad.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "¿Tu skill no se activa? Revisa la descripción 🧠\n\nNo es un resumen: es la condición de activación.\n\nQué hace + cuándo usarla + qué frases la activan.\n\nAdemás:\n- Carga en 3 fases: metadata, instrucciones, referencias\n- Depura: ruta, YAML, sesión nueva, llamada explícita\n- Lee los scripts antes de instalar cualquier skill\n\nGuárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Si tu skill de agente de IA no se activa, casi nunca fallan las instrucciones: falla la descripción. Escríbela como condición de activación: qué hace, cuándo usarla y qué frases la disparan.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Escribiste una Skill para tu agente de IA y no la usa? Casi siempre el problema es la descripción del encabezado, que funciona como condición de activación y no como resumen. En el carrusel: la estructura de una skill, cómo se carga por fases, un SKILL.md completo, cómo depurar y las reglas de seguridad antes de instalar skills de terceros.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Cómo escribir Skills para agentes de IA que sí funcionan",
+      "text": "Pieza solo de carrusel: no se publica como video. Descripción como disparador, carga progresiva, depuración y seguridad de skills.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "让AI技能真正生效",
+      "text": "AI智能体的技能不触发？问题通常在描述而非指令。写法、加载机制、调试与安全要点。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "如何写出有效的AI技能",
+      "textZh": "技能不被触发，几乎总是描述的问题：描述应是触发条件，包含它做什么、何时使用、哪些说法会触发。技能分三阶段加载：元数据、指令、引用和脚本。安装第三方技能前务必先阅读其脚本。"
+    }
+  }
+}

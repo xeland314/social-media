@@ -1,0 +1,64 @@
+{
+  "id": "030",
+  "slug": "filosofia-unix",
+  "title": "La filosofía Unix: haz una cosa y hazla bien",
+  "series": "linux",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2026-12-18",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Tres reglas de los años 70 que explican por qué grep, sort y los pipes siguen funcionando igual.",
+  "topicTags": [
+    "#unix",
+    "#filosofiaunix",
+    "#bash",
+    "#cli"
+  ],
+  "sourceAnimation": "(presentación del autor: filosofia_unix.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/030-filosofia-unix",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Haz una cosa y hazla bien, trabaja con otros programas y usa texto como interfaz. Las tres reglas de Doug McIlroy con pipelines reales, la trampa de pipefail y sus límites.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "La filosofía Unix en 3 reglas 🧩\n\n1. Haz una cosa y hazla bien\n2. Escribe programas que trabajen juntos\n3. Usa flujos de texto: son una interfaz universal\n\nIncluye un pipeline real, por qué uniq va después de sort, la trampa de pipefail y una chuleta para diseñar tu propio CLI. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "grep filtra, sort ordena, wc cuenta. Ninguno conoce a los demás y aun así forman pipelines enormes. Esa es la filosofía Unix de Doug McIlroy. Trampa útil: en bash, el estado de un pipeline es el del último comando; sin set -o pipefail, un fallo intermedio pasa desapercibido.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Unix nació en 1969 como reacción a la complejidad de Multics: herramientas pequeñas que se combinan con pipes en lugar de un sistema enorme. Doug McIlroy lo resumió en tres reglas: haz una cosa y hazla bien, escribe programas que trabajen juntos y usa texto como interfaz universal. En el carrusel: ejemplos con grep, sort, uniq, xargs y jq, la trampa de pipefail, los límites del modelo y preguntas para diseñar tu próxima herramienta de terminal.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "La filosofía Unix: haz una cosa y hazla bien",
+      "text": "Pieza solo de carrusel: no se publica como video. Las tres reglas de McIlroy, pipelines con grep, sort y uniq, texto y JSON como contrato, la trampa de pipefail y los límites del modelo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Filosofía Unix",
+      "text": "Haz una cosa y hazla bien: las tres reglas de Unix con pipelines reales y la trampa de pipefail.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Unix 哲学三原则",
+      "textZh": "只做一件事并做好、程序之间相互协作、用文本作为通用接口。附真实的管道示例和 pipefail 陷阱。"
+    }
+  }
+}

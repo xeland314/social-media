@@ -1,0 +1,64 @@
+{
+  "id": "042",
+  "slug": "expresiones-regulares",
+  "title": "Expresiones regulares: la teoría en 3 reglas",
+  "series": "fundamentos",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-20",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Todo `grep`, todo `re` de Python y todo compilador se apoya en solo tres reglas: alternación, concatenación y Kleene.",
+  "topicTags": [
+    "#regex",
+    "#expresionesregulares",
+    "#compiladores",
+    "#teoriadelacomputacion"
+  ],
+  "sourceAnimation": "(presentación del autor sobre análisis léxico; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/042-expresiones-regulares",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Las expresiones regulares se construyen con solo tres reglas: alternación (s|t), concatenación (st) y clausura de Kleene (s*). Precedencia, operadores extendidos y una trampa común con el punto.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Toda regex nace de tres reglas 🔤\n\n1. Alternación: s|t\n2. Concatenación: st\n3. Kleene: s*\n\nLos atajos ?, + y [ ] son comodidad, no poder extra. Y recuerda: * pesa más que la concatenación, y esta más que |.\n\nTrampa: en [0-9]+(.[0-9]+)? el punto sin escapar acepta cualquier carácter. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Toda expresión regular se construye con tres reglas: alternación (s|t), concatenación (st) y Kleene (s*). Lo demás (?, +, [a-z]) es notación abreviada. Ojo con el punto: sin escapar acepta cualquier carácter.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué hay debajo de grep, del módulo re de Python y del scanner de cualquier compilador? Un modelo formal con casos base y tres reglas: alternación, concatenación y clausura de Kleene. En el carrusel: la definición de L(s), la precedencia de operadores, los operadores extendidos y una trampa frecuente al escribir decimales.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Expresiones regulares: la teoría en 3 reglas",
+      "text": "Pieza solo de carrusel: no se publica como video. Casos base, alternación, concatenación, Kleene, precedencia y operadores extendidos.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "三条规则讲透正则",
+      "text": "正则表达式只靠三条规则构建：选择、连接和克林闭包。含优先级、扩展运算符，以及未转义点号的常见陷阱。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "正则表达式的理论",
+      "textZh": "正则表达式的全部语法都建立在三条规则上：选择（s|t）、连接（st）和克林闭包（s*）。?、+、[ ] 只是简写。注意：未转义的点号会匹配任意字符。"
+    }
+  }
+}

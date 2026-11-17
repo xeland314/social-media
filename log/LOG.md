@@ -31,6 +31,25 @@
 | 025 | [Informes en lote: de una semana a minutos](../videos/025-informes-en-lote/) | ti | carousel-only | 29 | — |
 | 026 | [Stack vs heap: dos bodegas de memoria](../videos/026-stack-vs-heap/) | fundamentos | rendered | — | — |
 | 027 | [DNS: de un nombre a una IP en 4 saltos](../videos/027-dns-resolucion/) | redes | rendered | — | — |
+| 028 | [pixel-desk: escritorio pixel-art 2.5D para Linux](../videos/028-pixel-desk/) | ti | rendered | — | — |
+| 029 | [Historia de la shell: de Thompson a fish](../videos/029-historia-de-la-shell/) | linux | carousel-only | — | — |
+| 030 | [La filosofía Unix: haz una cosa y hazla bien](../videos/030-filosofia-unix/) | linux | carousel-only | — | — |
+| 031 | [Manejo de señales: salida limpia en programas de terminal](../videos/031-manejo-de-senales/) | linux | carousel-only | — | — |
+| 032 | [Streams en Linux: stdin, stdout y stderr en C](../videos/032-streams-en-linux/) | linux | carousel-only | — | — |
+| 033 | [Cómo estructurar un proyecto CLI en C](../videos/033-proyecto-cli-en-c/) | herramientas | carousel-only | — | — |
+| 034 | [slides.c: presentaciones sin lag, escritas en C](../videos/034-slides-c/) | pixel | carousel-only | — | — |
+| 035 | [Los métodos HTTP, uno por lámina](../videos/035-metodos-http/) | redes | carousel-only | — | — |
+| 036 | [RFC 9457: errores de API que sí explican qué pasó](../videos/036-rfc-9457-fundamentos/) | redes | carousel-only | — | — |
+| 037 | [RFC 9457 en la práctica: Problem Details paso a paso](../videos/037-rfc-9457-practica/) | redes | carousel-only | — | — |
+| 038 | [mkcert + Wireshark: HTTPS local sin advertencias](../videos/038-mkcert-wireshark/) | redes | carousel-only | — | — |
+| 039 | [iptables y nftables para quien viene del mundo web](../videos/039-iptables-nftables/) | redes | carousel-only | — | — |
+| 040 | [Wi-Fi en Linux: red abierta vs cifrada con hostapd](../videos/040-wifi-hostapd/) | redes | carousel-only | — | — |
+| 041 | [Catsplash: un portal cautivo en Go](../videos/041-catsplash/) | redes | carousel-only | — | — |
+| 042 | [Expresiones regulares: la teoría en 3 reglas](../videos/042-expresiones-regulares/) | fundamentos | carousel-only | — | — |
+| 043 | [Tokens: las seis categorías del análisis léxico](../videos/043-tokens-lexico/) | fundamentos | carousel-only | — | — |
+| 044 | [Automatiza Word con Python: de {{marcadores}} a decenas de .docx](../videos/044-word-con-python/) | ti | carousel-only | — | — |
+| 045 | [Python y el límite de 4300 dígitos](../videos/045-python-4300-digitos/) | python | carousel-only | — | — |
+| 046 | [Cómo escribir Skills para agentes de IA que sí funcionan](../videos/046-skills-agentes-ia/) | ia | carousel-only | — | — |
 
 ## 001 · fork(): una llamada, dos procesos
 
@@ -1698,4 +1717,1191 @@ Más animaciones: https://xeland314.github.io/animations
 解析器先问根服务器，再问 .com 顶级域，最后问权威服务器拿到 IP，并按 TTL 缓存。第二次访问直接读缓存。
 
 #dns #redes #networking #网络 #计算机网络
+```
+
+## 028 · pixel-desk: escritorio pixel-art 2.5D para Linux
+
+- **Carpeta:** `videos/028-pixel-desk/`  ·  **Estado:** rendered  ·  **Duración:** 45 s
+- **Gancho:** Mi fondo de escritorio es una casa de cinco cuartos: cada objeto abre una app.
+- **Carrusel:** `carruseles/028-pixel-desk` (pending)
+
+### TikTok
+```text
+Convertí mi escritorio de Linux en una casa pixel-art de cinco cuartos. El monitor abre la terminal, los libros abren el editor y el gato abre el lanzador. Hecho con Go + WebKitGTK, sin Electron.
+
+#linux #pixelart #golang #desktop #xeland314
+```
+
+### Instagram
+```text
+Mi escritorio de Linux ahora es una casa pixel-art 2.5D 🏠
+
+1. Escritorio: cada objeto abre una app
+2. Tablero de corcho: kanban con chinchetas
+3. Monitor: CPU, RAM, red y discos
+4. Calendario con fase lunar
+5. Rack: comprueba TCP, HTTP, TLS y DNS
+
+Go + WebKitGTK + three.js. Sin Electron: 11 MB. Tema claro y oscuro con una tecla.
+
+#linux #pixelart #golang #desktop #xeland314
+```
+
+### Threads
+```text
+Hice que mi fondo de escritorio sea una casa pixel-art de cinco cuartos: escritorio, tablero kanban, monitor del sistema, calendario y rack de servidores. Go + WebKitGTK, sin Electron, 11 MB. Los marcos de ventana, el panel y los iconos salen de los mismos tokens de color.
+
+#linux
+```
+
+### Facebook
+```text
+¿Y si el fondo de escritorio sirviera para algo? Este es pixel-desk: una casa pixel-art 2.5D de cinco cuartos para Linux (LXQt + xfwm4). Cada objeto abre una aplicación, hay un tablero kanban, un monitor del sistema, un calendario y un rack que comprueba servicios. Está hecho con Go y WebKitGTK, sin Electron, y cambia entre tema claro y oscuro con una tecla.
+
+#linux #pixelart #xeland314
+```
+
+### YouTube
+**Título:** pixel-desk: un escritorio pixel-art 2.5D para Linux
+
+```text
+Recorrido por pixel-desk: un escritorio pixel-art 2.5D de cinco cuartos (escritorio, tablero, monitor, calendario y rack) para LXQt + xfwm4 en X11. Go + WebKitGTK + three.js, sin Electron. Tema claro/oscuro, bóveda de comandos, bitácora e iconos convertidos a pixel-art.
+
+Más animaciones: https://xeland314.github.io/animations
+
+#linux #pixelart #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Escritorio pixel-art | 像素风 Linux 桌面
+
+```text
+Mi escritorio de Linux es una casa pixel-art de cinco cuartos. Go + WebKitGTK, sin Electron.
+
+我把 Linux 桌面做成了一座 2.5D 像素小屋：五个房间，分别是书桌、看板、系统监视器、日历和服务器机架。用 Go 和 WebKitGTK 编写，没有 Electron，只有 11 MB。
+
+#linux #pixelart #golang #IT运维 #网络安全
+```
+
+## 029 · Historia de la shell: de Thompson a fish
+
+- **Carpeta:** `videos/029-historia-de-la-shell/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** La shell que usas hoy tiene más de 50 años de historia: de la Thompson shell de 1971 a fish.
+- **Carrusel:** `carruseles/029-historia-de-la-shell` (pending)
+
+### TikTok
+```text
+De la Thompson shell de 1971 a fish: quién inventó las tuberías, por qué /bin/sh es dash en Debian y en qué se diferencian bash, zsh y fish. Medio siglo de shell en un carrusel.
+
+#bash #zsh #fish #historiadelacomputacion #xeland314
+```
+
+### Instagram
+```text
+50 años de shell 🐚
+
+1971 · Thompson shell: redirecciones; las tuberías llegan en 1973
+1979 · Bourne shell: la shell se vuelve lenguaje
+1978-83 · csh y ksh: historial, alias, edición de línea
+1989 · bash: el sh libre de GNU
+1990 · zsh · 2005 · fish: la experiencia primero
+
+Trampa incluida: en Debian y Ubuntu, /bin/sh es dash. Guárdalo.
+
+#bash #zsh #fish #historiadelacomputacion #xeland314
+```
+
+### Threads
+```text
+Shell y terminal no son lo mismo. La terminal dibuja el texto; la shell lo interpreta. De la Thompson shell (1971) a fish (2005), cada una resolvió el problema de su época. Dato útil: en Debian y Ubuntu /bin/sh es dash, así que un script con [[ ]] que declara /bin/sh como intérprete puede fallar.
+
+#bash
+```
+
+### Facebook
+```text
+¿Por qué existen tantas shells? Porque cada una resolvió el problema de su época. La Thompson shell (1971) solo ejecutaba comandos; la Bourne shell (1979) la convirtió en lenguaje; csh y ksh añadieron historial y edición de línea; bash (1989) llevó todo eso al software libre; zsh y fish pusieron la experiencia primero. En el carrusel: la línea de tiempo, la diferencia entre bash y fish con código y una chuleta para elegir.
+
+#bash #zsh #xeland314
+```
+
+### YouTube
+**Título:** Historia de la shell: de Thompson (1971) a fish (2005)
+
+```text
+Pieza solo de carrusel: no se publica como video. Línea de tiempo de la shell: Thompson, Bourne, csh, ksh, bash, dash, zsh y fish, con una comparación de sintaxis bash vs fish.
+
+#bash #zsh #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Historia de la shell | Shell 五十年简史
+
+```text
+De la Thompson shell (1971) a fish (2005): qué aportó cada shell y cuál usar hoy.
+
+从 1971 年的 Thompson shell 到 2005 年的 fish：每一代 shell 带来了什么，以及 bash、zsh、fish 该怎么选。
+
+#bash #zsh #fish #Linux #操作系统
+```
+
+## 030 · La filosofía Unix: haz una cosa y hazla bien
+
+- **Carpeta:** `videos/030-filosofia-unix/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Tres reglas de los años 70 que explican por qué grep, sort y los pipes siguen funcionando igual.
+- **Carrusel:** `carruseles/030-filosofia-unix` (pending)
+
+### TikTok
+```text
+Haz una cosa y hazla bien, trabaja con otros programas y usa texto como interfaz. Las tres reglas de Doug McIlroy con pipelines reales, la trampa de pipefail y sus límites.
+
+#unix #filosofiaunix #bash #cli #xeland314
+```
+
+### Instagram
+```text
+La filosofía Unix en 3 reglas 🧩
+
+1. Haz una cosa y hazla bien
+2. Escribe programas que trabajen juntos
+3. Usa flujos de texto: son una interfaz universal
+
+Incluye un pipeline real, por qué uniq va después de sort, la trampa de pipefail y una chuleta para diseñar tu propio CLI. Guárdalo.
+
+#unix #filosofiaunix #bash #cli #xeland314
+```
+
+### Threads
+```text
+grep filtra, sort ordena, wc cuenta. Ninguno conoce a los demás y aun así forman pipelines enormes. Esa es la filosofía Unix de Doug McIlroy. Trampa útil: en bash, el estado de un pipeline es el del último comando; sin set -o pipefail, un fallo intermedio pasa desapercibido.
+
+#unix
+```
+
+### Facebook
+```text
+Unix nació en 1969 como reacción a la complejidad de Multics: herramientas pequeñas que se combinan con pipes en lugar de un sistema enorme. Doug McIlroy lo resumió en tres reglas: haz una cosa y hazla bien, escribe programas que trabajen juntos y usa texto como interfaz universal. En el carrusel: ejemplos con grep, sort, uniq, xargs y jq, la trampa de pipefail, los límites del modelo y preguntas para diseñar tu próxima herramienta de terminal.
+
+#unix #filosofiaunix #xeland314
+```
+
+### YouTube
+**Título:** La filosofía Unix: haz una cosa y hazla bien
+
+```text
+Pieza solo de carrusel: no se publica como video. Las tres reglas de McIlroy, pipelines con grep, sort y uniq, texto y JSON como contrato, la trampa de pipefail y los límites del modelo.
+
+#unix #filosofiaunix #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Filosofía Unix | Unix 哲学三原则
+
+```text
+Haz una cosa y hazla bien: las tres reglas de Unix con pipelines reales y la trampa de pipefail.
+
+只做一件事并做好、程序之间相互协作、用文本作为通用接口。附真实的管道示例和 pipefail 陷阱。
+
+#unix #filosofiaunix #bash #Linux #操作系统
+```
+
+## 031 · Manejo de señales: salida limpia en programas de terminal
+
+- **Carpeta:** `videos/031-manejo-de-senales/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Ctrl+C no debería dejar locks ni archivos a medias: así se atrapan SIGINT y SIGTERM en C.
+- **Carrusel:** `carruseles/031-manejo-de-senales` (pending)
+
+### TikTok
+```text
+Cómo cerrar bien un programa en C cuando recibe Ctrl+C o SIGTERM: sigaction, una bandera volatile sig_atomic_t y la limpieza fuera del handler. Complementa el video de SIGTERM vs SIGKILL de la cuenta.
+
+#signals #sigterm #lenguajec #procesos #xeland314
+```
+
+### Instagram
+```text
+Salida limpia con señales 🚦
+
+1. Atrapa SIGINT y SIGTERM con sigaction()
+2. El handler solo baja una bandera volatile sig_atomic_t
+3. La limpieza va después del bucle, no dentro del handler
+4. Nada de printf ni malloc en el handler
+5. Prueba con kill -TERM: 0 si cierras bien, 143 si no
+
+Complementa el video SIGTERM vs SIGKILL de la cuenta. Guárdalo.
+
+#signals #sigterm #lenguajec #procesos #xeland314
+```
+
+### Threads
+```text
+Si tu programa en C muere con Ctrl+C, deja locks, temporales y buffers sin vaciar. El patrón seguro: sigaction, una bandera volatile sig_atomic_t y la limpieza fuera del handler. Complementa el video de SIGTERM vs SIGKILL que ya está en la cuenta.
+
+#signals
+```
+
+### Facebook
+```text
+¿Qué pasa cuando presionas Ctrl+C o systemd detiene tu servicio? El kernel envía una señal y, si no la manejas, el proceso termina en seco: sin vaciar buffers ni borrar archivos de lock. En este carrusel: las señales más comunes, el patrón bandera + bucle con sigaction, por qué volatile sig_atomic_t, la trampa de usar printf dentro del handler y cómo probarlo con kill -TERM. Complementa el video SIGTERM vs SIGKILL que ya publiqué en la cuenta.
+
+#signals #sigterm #xeland314
+```
+
+### YouTube
+**Título:** Manejo de señales en C: salida limpia con SIGINT y SIGTERM
+
+```text
+Pieza solo de carrusel: no se publica como video. sigaction, bandera volatile sig_atomic_t, funciones async-signal-safe y systemd. Complementa el video SIGTERM vs SIGKILL del canal.
+
+#signals #sigterm #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Señales en C | C 语言信号处理
+
+```text
+Atrapa SIGINT y SIGTERM con sigaction y cierra tu programa sin dejar basura.
+
+用 sigaction 捕获 SIGINT 和 SIGTERM，处理函数只设置标志，清理放在主循环之后。是账号里 SIGTERM 与 SIGKILL 视频的补充。
+
+#signals #sigterm #lenguajec #Linux #操作系统
+```
+
+## 032 · Streams en Linux: stdin, stdout y stderr en C
+
+- **Carpeta:** `videos/032-streams-en-linux/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Por qué tu aviso sale antes que el resultado: stdin, stdout y stderr vistos desde C.
+- **Carrusel:** `carruseles/032-streams-en-linux` (pending)
+
+### TikTok
+```text
+stdin, stdout y stderr vistos desde C: escribir en cada uno, redirigirlos, leer de un pipe, detectar la terminal con isatty y por qué el orden cambia al redirigir a un archivo. Complementa el video de file descriptors 0, 1 y 2 de la cuenta.
+
+#stdout #stderr #lenguajec #redireccion #xeland314
+```
+
+### Instagram
+```text
+stdin, stdout y stderr en C 🔢
+
+fd 0: entrada · fd 1: resultados · fd 2: errores
+
+✔ printf para datos, fprintf(stderr, ...) para avisos
+✔ isatty() para saber si hay una terminal
+✔ fflush(stdout) si te importa el orden
+
+La trampa: al redirigir a un archivo, stdout usa buffer por bloques y el aviso sale primero. Complementa el video File descriptors 0, 1 y 2 de la cuenta. Guárdalo.
+
+#stdout #stderr #lenguajec #redireccion #xeland314
+```
+
+### Threads
+```text
+Redirige ./programa > todo.txt 2>&1 y el aviso de stderr aparece antes que el resultado, aunque se escribió después. La razón: hacia un archivo, stdout usa buffer por bloques y stderr no usa buffer. Carrusel con cuatro ejemplos en C; complementa el video de file descriptors 0, 1 y 2 de la cuenta.
+
+#stdout
+```
+
+### Facebook
+```text
+Todo proceso en Linux nace con tres streams: stdin (0), stdout (1) y stderr (2). En este carrusel los usamos desde C con cuatro ejemplos que puedes compilar: escribir en cada uno, separar datos y errores al redirigir, leer de un pipe y detectar si la salida va a una terminal con isatty(). Además, la trampa del buffer: por qué el orden de las líneas cambia al redirigir a un archivo y cómo arreglarlo con fflush. Complementa el video File descriptors 0, 1 y 2 que ya está en la cuenta.
+
+#stdout #stderr #xeland314
+```
+
+### YouTube
+**Título:** Streams en Linux: stdin, stdout y stderr en C
+
+```text
+Pieza solo de carrusel: no se publica como video. Cuatro ejemplos en C: fprintf a stdout y stderr, redirecciones, fgets desde stdin, isatty y el buffer de stdout. Complementa el video File descriptors 0, 1 y 2 del canal.
+
+#stdout #stderr #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** stdin/stdout/stderr | Linux 标准流与 C
+
+```text
+Los tres streams estándar desde C: redirección, isatty y la trampa del buffer de stdout.
+
+用 C 语言看 stdin、stdout、stderr：重定向、isatty 判断终端，以及 stdout 缓冲导致输出顺序变化的陷阱。是账号里文件描述符 0、1、2 视频的补充。
+
+#stdout #stderr #lenguajec #Linux #操作系统
+```
+
+## 033 · Cómo estructurar un proyecto CLI en C
+
+- **Carpeta:** `videos/033-proyecto-cli-en-c/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Un main.c gigante no escala: carpetas, headers y un Makefile incremental para tu CLI en C.
+- **Carrusel:** `carruseles/033-proyecto-cli-en-c` (pending)
+
+### TikTok
+```text
+Cómo organizar una herramienta de terminal en C: src e include separados, headers con include guard, un Makefile con compilación incremental, pkg-config, códigos de salida claros y los targets clean, test e install.
+
+#lenguajec #makefile #cli #gcc #xeland314
+```
+
+### Instagram
+```text
+Tu CLI en C, bien organizado 🗂️
+
+✔ src/ para .c, include/ para .h
+✔ main.c solo orquesta
+✔ Makefile con wildcard y regla patrón
+✔ -MMD -MP para que un cambio en un .h recompile lo necesario
+✔ pkg-config y LDLIBS para las bibliotecas
+✔ clean, test e install como .PHONY
+
+Guárdalo para tu próximo proyecto.
+
+#lenguajec #makefile #cli #gcc #xeland314
+```
+
+### Threads
+```text
+Trampa clásica del Makefile en C: cambias un .h y make no recompila nada, porque solo mira los .c. La solución son las flags -MMD -MP y un -include de los .d. En el carrusel: estructura de carpetas, headers, Makefile mínimo, pkg-config y códigos de salida.
+
+#lenguajec
+```
+
+### Facebook
+```text
+Un solo main.c sirve para un script, pero no para una herramienta que va a crecer. En este carrusel armo la base de un CLI en C: carpetas src e include, headers como contrato, un Makefile mínimo con compilación incremental (incluida la trampa de los headers que no disparan recompilación), bibliotecas con pkg-config, códigos de salida claros y los targets clean, test e install. Todo probado con gcc y GNU make.
+
+#lenguajec #makefile #xeland314
+```
+
+### YouTube
+**Título:** Cómo estructurar un proyecto CLI en C (Makefile incluido)
+
+```text
+Pieza solo de carrusel: no se publica como video. Carpetas, headers con include guard, Makefile incremental con -MMD -MP, pkg-config, códigos de salida y targets clean, test e install.
+
+#lenguajec #makefile #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** CLI en C ordenado | C 语言命令行项目结构
+
+```text
+Carpetas, headers y un Makefile incremental para tu herramienta de terminal en C.
+
+src 与 include 分离、头文件保护、带 -MMD -MP 的增量 Makefile、pkg-config 和清晰的退出码。
+
+#lenguajec #makefile #cli #编程 #程序员
+```
+
+## 034 · slides.c: presentaciones sin lag, escritas en C
+
+- **Carpeta:** `videos/034-slides-c/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Presentaciones en Markdown que abren al instante: un presentador nativo en C con Cairo y Pango.
+- **Carrusel:** `carruseles/034-slides-c` (pending)
+
+### TikTok
+```text
+slides.c es mi presentador de diapositivas en C: escribes Markdown, lo presentas en una ventana nativa con Cairo y Pango, con hot reload, 11 temas y exportación a PDF, PNG, SVG, JPG y GIF. Código abierto, licencia MIT.
+
+#lenguajec #markdown #opensource #presentaciones #xeland314
+```
+
+### Instagram
+```text
+slides.c: presentaciones sin lag 🖥️
+
+✔ Escribes Markdown, separas con ---
+✔ Ventana nativa en C con Cairo y Pango, sin navegador
+✔ Hot reload cada 500 ms
+✔ 11 temas, tablas, código con resaltado, notas
+✔ Exporta a PDF, PNG, SVG, JPG y GIF
+
+Código abierto (MIT) en github.com/xeland314/slides.c. Guárdalo.
+
+#lenguajec #markdown #opensource #presentaciones #xeland314
+```
+
+### Threads
+```text
+Hice slides.c: un presentador de diapositivas en C que lee Markdown y lo dibuja con Cairo y Pango, sin Electron ni navegador. Hot reload, 11 temas, exportación a PDF, PNG y GIF. Código abierto en github.com/xeland314/slides.c
+
+#lenguajec
+```
+
+### Facebook
+```text
+Presento slides.c, un proyecto propio: un presentador de diapositivas escrito en C que lee archivos Markdown y los muestra en una ventana nativa (X11 en Linux, Win32 en Windows) con Cairo y Pango. Sin Electron ni navegador. Tiene hot reload, 11 temas, tablas, código con resaltado, notas del presentador, transiciones y exportación a PDF, PNG, SVG, JPG y GIF desde la terminal. Es código abierto con licencia MIT: github.com/xeland314/slides.c
+
+#lenguajec #markdown #xeland314
+```
+
+### YouTube
+**Título:** slides.c: presentaciones en Markdown sin lag, escritas en C
+
+```text
+Pieza solo de carrusel: no se publica como video. Presentador nativo en C con Cairo y Pango: Markdown, hot reload, 11 temas y exportación a PDF, PNG, SVG, JPG y GIF. Código: github.com/xeland314/slides.c
+
+#lenguajec #markdown #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** slides.c en C | 用 C 写的幻灯片工具
+
+```text
+Presentaciones en Markdown con una ventana nativa en C, Cairo y Pango: hot reload, 11 temas y exportación.
+
+用 Markdown 写幻灯片，由 C、Cairo 和 Pango 原生渲染，无需浏览器：热重载、11 种主题，可导出 PDF、PNG、GIF。MIT 开源。
+
+#lenguajec #markdown #opensource #编程 #程序员
+```
+
+## 035 · Los métodos HTTP, uno por lámina
+
+- **Carpeta:** `videos/035-metodos-http/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y QUERY: qué hace cada uno y qué promete.
+- **Carrusel:** `carruseles/035-metodos-http` (pending)
+
+### TikTok
+```text
+Ocho métodos HTTP en ocho láminas: GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y el nuevo QUERY. Para cada uno: qué hace, un ejemplo de petición y si es seguro, idempotente y cacheable.
+
+#http #api #rest #backend #xeland314
+```
+
+### Instagram
+```text
+Los métodos HTTP, uno por lámina 📨
+
+GET lee · POST procesa · PUT reemplaza · PATCH modifica una parte · DELETE elimina · OPTIONS pregunta · TRACE devuelve el eco · QUERY busca con cuerpo
+
+Y tres preguntas para cada uno:
+1. ¿Es seguro? (no cambia nada)
+2. ¿Es idempotente? (repetirlo deja el mismo estado)
+3. ¿Es cacheable?
+
+DELETE es idempotente aunque la segunda vez responda 404. Guárdalo para tu próxima API.
+
+#http #api #rest #backend #xeland314
+```
+
+### Threads
+```text
+Pregunta de entrevista: ¿DELETE es idempotente si la segunda llamada devuelve 404? Sí. La idempotencia habla del estado del servidor, no del código de respuesta. En el carrusel: los 8 métodos HTTP, incluido QUERY, con seguro / idempotente / cacheable.
+
+#http
+```
+
+### Facebook
+```text
+¿Sabes cuándo usar PUT y cuándo PATCH, o por qué existe el nuevo método QUERY? En este carrusel repaso los 8 métodos HTTP, uno por lámina: qué hace cada uno, un ejemplo de petición y una tabla con tres propiedades clave: si es seguro, si es idempotente y si se puede guardar en caché.
+
+#http #api #xeland314
+```
+
+### YouTube
+**Título:** Los métodos HTTP, uno por lámina
+
+```text
+Pieza solo de carrusel: no se publica como video. Los métodos HTTP GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y QUERY, con su semántica: seguro, idempotente y cacheable.
+
+#http #api #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** HTTP 方法速查 | 8 个 HTTP 方法
+
+```text
+Los 8 métodos HTTP, uno por lámina: GET, POST, PUT, PATCH, DELETE, OPTIONS, TRACE y QUERY. Seguro, idempotente y cacheable.
+
+GET、POST、PUT、PATCH、DELETE、OPTIONS、TRACE 和新的 QUERY，每页一个：用途、请求示例，以及是否安全、幂等、可缓存。
+
+#http #api #rest #网络 #计算机网络
+```
+
+## 036 · RFC 9457: errores de API que sí explican qué pasó
+
+- **Carpeta:** `videos/036-rfc-9457-fundamentos/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Un 403 no dice por qué. La RFC 9457 define un formato estándar para que tu API sí lo diga.
+- **Carrusel:** `carruseles/036-rfc-9457-fundamentos` (pending)
+
+### TikTok
+```text
+Un 403 puede significar falta de permisos, saldo insuficiente o IP bloqueada. La RFC 9457 (Problem Details) define un JSON estándar para explicar el error: type, title, detail, status e instance, más extensiones. Parte 1 de 2.
+
+#api #http #rfc9457 #backend #xeland314
+```
+
+### Instagram
+```text
+Errores de API que sí explican qué pasó 🧩
+
+RFC 9457 · Problem Details, parte 1:
+
+• type: la clase de error (lo que compara tu código)
+• title: resumen estable para personas
+• detail: qué pasó en este caso
+• status: copia informativa del código HTTP
+• instance: ID de esta ocurrencia
+
+Más extensiones para datos y un formato para varios errores de validación. Guárdalo; la parte 2 trae la práctica.
+
+#api #http #rfc9457 #backend #xeland314
+```
+
+### Threads
+```text
+Cada API inventaba su formato de error: error, msg, errors… La RFC 9457 (sucesora de la 7807) lo estandariza con application/problem+json y cinco campos. El detalle clave: tu código compara type, nunca el texto de detail. Parte 1 de 2.
+
+#api
+```
+
+### Facebook
+```text
+¿Tu API responde 403 y el cliente tiene que adivinar el motivo? La RFC 9457, publicada en 2023 como sucesora de la RFC 7807, define Problem Details: un formato JSON común para describir errores HTTP. En esta primera parte repaso los cinco campos, las extensiones y cómo reportar varios errores de validación a la vez.
+
+#api #http #xeland314
+```
+
+### YouTube
+**Título:** RFC 9457: errores de API que sí explican qué pasó
+
+```text
+Pieza solo de carrusel: no se publica como video. RFC 9457 (Problem Details for HTTP APIs), parte 1: los campos type, title, detail, status e instance, extensiones y errores de validación múltiples.
+
+#api #http #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** RFC 9457 第一部分 | 让 API 错误说清原因
+
+```text
+RFC 9457 · Problem Details, parte 1: un JSON estándar para explicar errores de API.
+
+RFC 9457 定义了 application/problem+json：type、title、detail、status、instance 五个字段，加上扩展字段和多个校验错误的写法。第 1 部分，共 2 部分。
+
+#api #http #rfc9457 #网络 #计算机网络
+```
+
+## 037 · RFC 9457 en la práctica: Problem Details paso a paso
+
+- **Carpeta:** `videos/037-rfc-9457-practica/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Parte 2 de RFC 9457: cómo definir tus tipos de error, implementarlos y no filtrar de más.
+- **Carrusel:** `carruseles/037-rfc-9457-practica` (pending)
+
+### TikTok
+```text
+Parte 2 de RFC 9457: cuándo crear un tipo de error propio, cómo elegir su URI, el registro de IANA, un ejemplo en Express con application/problem+json y lo que nunca debe ir en la respuesta.
+
+#api #http #rfc9457 #backend #xeland314
+```
+
+### Instagram
+```text
+Problem Details paso a paso 🛠️ (parte 2)
+
+1. Pregúntate si necesitas un tipo nuevo
+2. Defínelo como un contrato: URI, título, código, extensiones
+3. URI absoluta y estable
+4. Revisa el registro de IANA
+5. Responde con application/problem+json
+6. Nada de stack traces ni SQL
+
+Y puedes adoptarlo solo en los errores, sin migrar toda la API. Guárdalo con la parte 1.
+
+#api #http #rfc9457 #backend #xeland314
+```
+
+### Threads
+```text
+Problem Details (RFC 9457) no es una herramienta de depuración. Un stack trace en detail le enseña tu sistema a un atacante. Lo interno va a tu log, enlazado por instance; al cliente, solo lo que necesita para corregir su petición. Parte 2 de 2.
+
+#api
+```
+
+### Facebook
+```text
+Segunda parte sobre la RFC 9457. Ya conoces el formato; ahora toca usarlo bien: cuándo vale la pena un tipo de error propio, cómo elegir una URI estable, qué ofrece el registro de IANA, un ejemplo mínimo en Express y qué datos nunca deberías exponer en una respuesta de error. Además, cómo adoptarlo sin migrar toda tu API de golpe.
+
+#api #http #xeland314
+```
+
+### YouTube
+**Título:** RFC 9457 en la práctica: Problem Details paso a paso
+
+```text
+Pieza solo de carrusel: no se publica como video. RFC 9457 en la práctica, parte 2: definir tipos de problema, URIs, registro de IANA, implementación en Express, seguridad y adopción gradual.
+
+#api #http #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** RFC 9457 第二部分 | Problem Details 实战
+
+```text
+RFC 9457 en la práctica, parte 2: definir tipos, implementarlo y no exponer datos internos.
+
+如何定义自己的错误类型、选择稳定的 URI、查阅 IANA 注册表、用 Express 返回 application/problem+json，以及哪些内部信息绝不能出现在响应里。第 2 部分。
+
+#api #http #rfc9457 #网络 #计算机网络
+```
+
+## 038 · mkcert + Wireshark: HTTPS local sin advertencias
+
+- **Carpeta:** `videos/038-mkcert-wireshark/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** HTTPS en localhost sin advertencias, y una captura de Wireshark que prueba que el JSON viaja cifrado.
+- **Carrusel:** `carruseles/038-mkcert-wireshark` (pending)
+
+### TikTok
+```text
+HTTPS local sin advertencias: mkcert crea una CA en tu equipo, generas un certificado para tu API, la sirves con TLS y compruebas en Wireshark que el JSON viaja cifrado. Paso a paso, con example.com.
+
+#https #tls #mkcert #wireshark #xeland314
+```
+
+### Instagram
+```text
+HTTPS local sin advertencias 🔒
+
+1. mkcert -install crea tu CA local
+2. Un nombre en /etc/hosts apuntando a 127.0.0.1
+3. mkcert genera certificado y clave
+4. Sirves la API con TLS
+5. Wireshark: Client Hello, Server Hello y Application Data cifrado
+
+La trampa: nunca compartas rootCA-key.pem. Puede firmar cualquier dominio. Guárdalo.
+
+#https #tls #mkcert #wireshark #xeland314
+```
+
+### Threads
+```text
+Un error común con mkcert: compartir la carpeta de la CA con todo el equipo. rootCA-key.pem puede firmar certificados para cualquier dominio que tu equipo aceptará. Cada persona debe correr su propio mkcert -install. Carrusel con el flujo completo y la prueba en Wireshark.
+
+#https
+```
+
+### Facebook
+```text
+¿Tu app de escritorio o tu WebView exige HTTPS y los certificados autofirmados te dan advertencias? Con mkcert creas una autoridad certificadora local de confianza, generas certificados para tu API y la sirves con TLS. Después, con Wireshark, compruebas que los datos realmente viajan cifrados. Todo con nombres de ejemplo.
+
+#https #tls #xeland314
+```
+
+### YouTube
+**Título:** mkcert + Wireshark: HTTPS local sin advertencias
+
+```text
+Pieza solo de carrusel: no se publica como video. HTTPS local con mkcert (CA local, certificados con varios nombres, uvicorn con TLS) y verificación del cifrado con Wireshark.
+
+#https #tls #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 本地 HTTPS 无警告 | mkcert 本地证书
+
+```text
+mkcert + Wireshark: HTTPS local sin advertencias y prueba de que el tráfico va cifrado.
+
+用 mkcert 在本机创建受信任的 CA，为 API 生成证书并启用 TLS，再用 Wireshark 确认 JSON 是加密传输的。注意：rootCA-key.pem 绝不能分享。
+
+#https #tls #mkcert #网络 #计算机网络
+```
+
+## 039 · iptables y nftables para quien viene del mundo web
+
+- **Carpeta:** `videos/039-iptables-nftables/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Un firewall es un middleware que corre antes que tu app. Así se escribe en iptables y en nftables.
+- **Carrusel:** `carruseles/039-iptables-nftables` (pending)
+
+### TikTok
+```text
+Si vienes de Express o Django, piensa el firewall como un middleware que corre en el kernel antes que tu app. Cadenas, conntrack y el mismo firewall escrito en iptables y en nftables, con los errores que te dejan fuera del servidor.
+
+#iptables #nftables #firewall #linux #xeland314
+```
+
+### Instagram
+```text
+iptables y nftables para devs web 🧱
+
+• Regla = middleware
+• ACCEPT = next()
+• DROP = no responder
+• REJECT = error inmediato
+
+En el carrusel: cadenas INPUT/OUTPUT/FORWARD, conntrack, un ejemplo en iptables y el mismo en nftables.
+
+La trampa clásica: aplicar DROP antes de aceptar el puerto 22 y perder el SSH. Guárdalo.
+
+#iptables #nftables #firewall #linux #xeland314
+```
+
+### Threads
+```text
+Con iptables, -A agrega al final. Si tu regla DROP va antes que la de ESTABLISHED,RELATED, esa regla nunca se evalúa y dejan de llegar las respuestas de DNS o apt. Mejor: estado primero, puertos después y DROP como política de la cadena.
+
+#iptables
+```
+
+### Facebook
+```text
+¿Vienes del desarrollo web y te toca configurar un firewall en Linux? En este carrusel traduzco iptables y nftables a conceptos que ya conoces: reglas como middlewares, ACCEPT como next(), DROP como no responder. Incluye un ejemplo completo en ambas herramientas y los errores que te dejan sin acceso al servidor.
+
+#iptables #nftables #xeland314
+```
+
+### YouTube
+**Título:** iptables y nftables para quien viene del mundo web
+
+```text
+Pieza solo de carrusel: no se publica como video. iptables y nftables explicados para desarrolladores web: cadenas, conntrack, ejemplos equivalentes y errores comunes.
+
+#iptables #nftables #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** iptables 与 nftables | 写给 Web 开发者的防火墙
+
+```text
+iptables y nftables para devs web: el firewall como middleware que corre antes de tu app.
+
+把防火墙规则看成在内核里运行的中间件：链、连接跟踪，以及同一套规则的 iptables 和 nftables 写法，还有会把你锁在服务器外的常见错误。
+
+#iptables #nftables #firewall #网络 #计算机网络
+```
+
+## 040 · Wi-Fi en Linux: red abierta vs cifrada con hostapd
+
+- **Carpeta:** `videos/040-wifi-hostapd/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Tu Linux como punto de acceso Wi-Fi: red abierta o cifrada con hostapd, y las tres piezas para tener Internet.
+- **Carrusel:** `carruseles/040-wifi-hostapd` (pending)
+
+### TikTok
+```text
+Convierte un equipo con Linux en punto de acceso Wi-Fi: red abierta o cifrada con hostapd, IP fija y DHCP con dnsmasq, y reenvío más NAT para salir a Internet. Con la trampa del puerto 53 ocupado.
+
+#wifi #linux #hostapd #redes #xeland314
+```
+
+### Instagram
+```text
+Wi-Fi en Linux: abierta vs cifrada 📶
+
+1. hostapd crea la red (abierta o WPA2/WPA3)
+2. IP fija para el punto de acceso
+3. dnsmasq reparte IP y DNS
+4. ip_forward + NAT para salir a Internet
+
+hostapd solo crea el Wi-Fi: sin los pasos 2 a 4, tus clientes se conectan pero no navegan. Guárdalo.
+
+#wifi #linux #hostapd #redes #xeland314
+```
+
+### Threads
+```text
+Configuraste hostapd, tu teléfono ve la red y se conecta… pero no navega. Es normal: hostapd solo crea el Wi-Fi. Faltan una IP fija en la interfaz, DHCP/DNS con dnsmasq y reenvío con NAT. El carrusel trae las cuatro piezas.
+
+#wifi
+```
+
+### Facebook
+```text
+¿Quieres montar una red Wi-Fi para invitados con un equipo Linux? En este carrusel comparo una red abierta con una cifrada usando hostapd, y explico las piezas que faltan para tener Internet: IP fija, dnsmasq para DHCP y DNS, y reenvío de paquetes con NAT. También, qué hacer si dnsmasq no arranca porque el puerto 53 está ocupado.
+
+#wifi #linux #xeland314
+```
+
+### YouTube
+**Título:** Wi-Fi en Linux: red abierta vs cifrada con hostapd
+
+```text
+Pieza solo de carrusel: no se publica como video. Punto de acceso Wi-Fi en Linux con hostapd (red abierta y WPA2/WPA3), dnsmasq, ip_forward y NAT con iptables.
+
+#wifi #linux #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Linux 搭建 Wi-Fi 热点 | 开放 vs 加密 Wi-Fi
+
+```text
+Wi-Fi en Linux con hostapd: red abierta vs cifrada, más dnsmasq y NAT para tener Internet.
+
+用 hostapd 把 Linux 变成无线接入点：开放网络和 WPA2/WPA3 加密网络的配置，再加上固定 IP、dnsmasq 和 NAT 才能上网。
+
+#wifi #linux #hostapd #网络 #计算机网络
+```
+
+## 041 · Catsplash: un portal cautivo en Go
+
+- **Carpeta:** `videos/041-catsplash/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Así funciona un portal cautivo por dentro: DNAT al portal, detección del sistema y reglas por IP + MAC.
+- **Carrusel:** `carruseles/041-catsplash` (pending)
+
+### TikTok
+```text
+Catsplash es un portal cautivo de código abierto escrito en Go: redirige el HTTP al portal con iptables, aprovecha la detección de Android, iOS y Windows, libera por IP + MAC y limita sesiones, datos y velocidad.
+
+#golang #iptables #wifi #linux #xeland314
+```
+
+### Instagram
+```text
+Un portal cautivo en Go 🐱
+
+1. DNAT: todo el HTTP del cliente va al portal
+2. Android, iOS y Windows detectan el portal y lo abren
+3. Al aceptar, se libera el par IP + MAC
+4. Sesiones, cuotas y velocidad bajo control (iptables + tc)
+5. SQLite para clientes y sesiones
+
+Código abierto, aún en desarrollo: úsalo en entornos controlados. Guárdalo.
+
+#golang #iptables #wifi #linux #xeland314
+```
+
+### Threads
+```text
+¿Por qué el portal del Wi-Fi del hotel se abre solo? Tu teléfono pide una URL de prueba en HTTP (/generate_204 en Android) y, si no recibe lo esperado, abre el portal. HTTPS no se puede redirigir sin romper el certificado. Así lo hace Catsplash, mi portal cautivo en Go.
+
+#golang
+```
+
+### Facebook
+```text
+Construí Catsplash, un portal cautivo de código abierto para redes Wi-Fi de invitados en Linux. Está escrito en Go, guarda clientes y sesiones en SQLite y controla el tráfico con iptables y tc. En este carrusel explico cómo funciona por dentro: la redirección al portal, la detección automática de Android, iOS y Windows, y cómo se libera a cada cliente. Todavía no está listo para producción.
+
+#golang #iptables #xeland314
+```
+
+### YouTube
+**Título:** Catsplash: un portal cautivo en Go
+
+```text
+Pieza solo de carrusel: no se publica como video. Catsplash, un portal cautivo en Go: DNAT con iptables, detección de portal cautivo, reglas por IP y MAC, cuotas y límites con tc. Código: github.com/xeland314/catsplash
+
+#golang #iptables #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Go 写的强制门户 | Catsplash 强制门户
+
+```text
+Catsplash: un portal cautivo de código abierto en Go, con SQLite e iptables.
+
+用 Go、SQLite 和 iptables 实现的开源强制门户：把 HTTP 重定向到门户页，利用手机系统的自动检测，按 IP + MAC 放行，并限制时长、流量和速度。
+
+#golang #iptables #wifi #网络 #计算机网络
+```
+
+## 042 · Expresiones regulares: la teoría en 3 reglas
+
+- **Carpeta:** `videos/042-expresiones-regulares/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Todo `grep`, todo `re` de Python y todo compilador se apoya en solo tres reglas: alternación, concatenación y Kleene.
+- **Carrusel:** `carruseles/042-expresiones-regulares` (pending)
+
+### TikTok
+```text
+Las expresiones regulares se construyen con solo tres reglas: alternación (s|t), concatenación (st) y clausura de Kleene (s*). Precedencia, operadores extendidos y una trampa común con el punto.
+
+#regex #expresionesregulares #compiladores #teoriadelacomputacion #xeland314
+```
+
+### Instagram
+```text
+Toda regex nace de tres reglas 🔤
+
+1. Alternación: s|t
+2. Concatenación: st
+3. Kleene: s*
+
+Los atajos ?, + y [ ] son comodidad, no poder extra. Y recuerda: * pesa más que la concatenación, y esta más que |.
+
+Trampa: en [0-9]+(.[0-9]+)? el punto sin escapar acepta cualquier carácter. Guárdalo.
+
+#regex #expresionesregulares #compiladores #teoriadelacomputacion #xeland314
+```
+
+### Threads
+```text
+Toda expresión regular se construye con tres reglas: alternación (s|t), concatenación (st) y Kleene (s*). Lo demás (?, +, [a-z]) es notación abreviada. Ojo con el punto: sin escapar acepta cualquier carácter.
+
+#regex
+```
+
+### Facebook
+```text
+¿Qué hay debajo de grep, del módulo re de Python y del scanner de cualquier compilador? Un modelo formal con casos base y tres reglas: alternación, concatenación y clausura de Kleene. En el carrusel: la definición de L(s), la precedencia de operadores, los operadores extendidos y una trampa frecuente al escribir decimales.
+
+#regex #expresionesregulares #xeland314
+```
+
+### YouTube
+**Título:** Expresiones regulares: la teoría en 3 reglas
+
+```text
+Pieza solo de carrusel: no se publica como video. Casos base, alternación, concatenación, Kleene, precedencia y operadores extendidos.
+
+#regex #expresionesregulares #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 三条规则讲透正则 | 正则表达式的理论
+
+```text
+正则表达式只靠三条规则构建：选择、连接和克林闭包。含优先级、扩展运算符，以及未转义点号的常见陷阱。
+
+正则表达式的全部语法都建立在三条规则上：选择（s|t）、连接（st）和克林闭包（s*）。?、+、[ ] 只是简写。注意：未转义的点号会匹配任意字符。
+
+#regex #expresionesregulares #compiladores #计算机科学 #数据结构
+```
+
+## 043 · Tokens: las seis categorías del análisis léxico
+
+- **Carpeta:** `videos/043-tokens-lexico/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Antes de entender tu código, el compilador lo trocea en tokens: seis categorías y una decisión de diseño en cada una.
+- **Carrusel:** `carruseles/043-tokens-lexico` (pending)
+
+### TikTok
+```text
+Qué es un token y cuáles son las seis categorías del análisis léxico: keywords, identificadores, números, strings, comentarios y espacios. Más el conflicto keyword vs identificador en Flex.
+
+#tokens #compiladores #analisislexico #flex #xeland314
+```
+
+### Instagram
+```text
+Antes de entender tu código, el compilador lo parte en tokens 🧩
+
+1. Keywords
+2. Identificadores
+3. Números
+4. Strings
+5. Comentarios
+6. Espacios en blanco
+
+Cada categoría esconde decisiones de diseño: ¿se permite _? ¿es válido 3.? ¿qué pasa con while? Una regex lo deja sin ambigüedad. Guárdalo.
+
+#tokens #compiladores #analisislexico #flex #xeland314
+```
+
+### Threads
+```text
+Un token es lo que el scanner entrega al parser: tipo + valor. Seis categorías base y un conflicto clásico: while también parece un identificador. En Flex gana la coincidencia más larga y, si empatan, la regla escrita primero.
+
+#tokens
+```
+
+### Facebook
+```text
+¿De qué "palabras" está hecho un programa para el compilador? Del análisis léxico salen tokens en seis categorías: keywords, identificadores, números, strings, comentarios y espacios. En el carrusel: por qué las definiciones informales fallan, cómo una regex las precisa, el conflicto keyword vs identificador y cómo recuperarse de errores sin abortar.
+
+#tokens #compiladores #xeland314
+```
+
+### YouTube
+**Título:** Tokens: las seis categorías del análisis léxico
+
+```text
+Pieza solo de carrusel: no se publica como video. Categorías de tokens, regex como especificación y manejo de errores en Flex.
+
+#tokens #compiladores #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 词法分析的六类词法单元 | 词法分析：六类 token
+
+```text
+词法单元（token）的六大类别：关键字、标识符、数字、字符串、注释、空白。含关键字与标识符冲突的处理。
+
+扫描器把字符转换成 token，每个 token 有类型和值。六大类别：关键字、标识符、数字、字符串、注释、空白。用正则表达式可以消除定义中的歧义，Flex 按最长匹配、先出现的规则优先。
+
+#tokens #compiladores #analisislexico #计算机科学 #数据结构
+```
+
+## 044 · Automatiza Word con Python: de {{marcadores}} a decenas de .docx
+
+- **Carpeta:** `videos/044-word-con-python/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Escribe el documento una vez y genera decenas de versiones: plantilla con {{marcadores}}, python-docx y un CSV.
+- **Carrusel:** `carruseles/044-word-con-python` (pending)
+
+### TikTok
+```text
+De una plantilla Word con {{marcadores}} a decenas de .docx con Python, python-docx y uv. Incluye la trampa de los runs de Word y el checklist antes de generar en lote. Datos ficticios.
+
+#python #automatizacion #word #pythondocx #xeland314
+```
+
+### Instagram
+```text
+Escribe el Word una vez, genera N versiones 📄
+
+1. Redacta el documento final con un caso de ejemplo
+2. Cambia lo variable por {{marcadores}}
+3. Un CSV con una fila por documento
+4. Un script con python-docx y uv
+
+La trampa: Word parte el texto en runs, así que replace() por run no basta. Une el párrafo y reemplaza ahí. Guárdalo.
+
+#python #automatizacion #word #pythondocx #xeland314
+```
+
+### Threads
+```text
+Un marcador como {{nombre}} casi nunca vive en un solo run de Word, por eso run.text.replace() falla. Solución: unir el texto del párrafo, reemplazar y volcarlo en el primer run. Con python-docx + CSV generas cientos de .docx.
+
+#python
+```
+
+### Facebook
+```text
+¿Tienes que enviar la misma carta o constancia a decenas de personas? Se puede escribir una plantilla de Word con {{marcadores}} y generar un documento por cada fila de un CSV con Python, python-docx y uv, sin abrir Word. En el carrusel: el flujo completo, el código del reemplazo, el error más común con los runs y un checklist previo. Ejemplos con datos ficticios.
+
+#python #automatizacion #xeland314
+```
+
+### YouTube
+**Título:** Automatiza Word con Python: de {{marcadores}} a .docx
+
+```text
+Pieza solo de carrusel: no se publica como video. Plantilla con marcadores, python-docx, uv, CSV y la trampa de los runs.
+
+#python #automatizacion #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 用Python批量生成Word | Python自动生成Word文档
+
+```text
+用{{占位符}}模板、python-docx和CSV批量生成Word文档，并避开 run 拆分的常见陷阱。示例数据均为虚构。
+
+先写好一份Word模板，把变化的内容换成{{占位符}}，再用python-docx和CSV为每一行数据生成一份文档。注意：Word会把文字拆成多个run，必须先合并段落文本再替换。示例数据均为虚构。
+
+#python #automatizacion #word #IT运维 #网络安全
+```
+
+## 045 · Python y el límite de 4300 dígitos
+
+- **Carpeta:** `videos/045-python-4300-digitos/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** print(5 ** 6789) lanza ValueError: Python limita a 4300 dígitos la conversión de enteros a texto.
+- **Carrusel:** `carruseles/045-python-4300-digitos` (pending)
+
+### TikTok
+```text
+¿Qué imprime print(5 ** 6789) en Python? ValueError: el límite de 4300 dígitos para convertir int a str. Por qué existe (CVE-2020-10735), qué operaciones afecta y cómo cambiarlo.
+
+#python #pythontips #seguridad #enteros #xeland314
+```
+
+### Instagram
+```text
+print(5 ** 6789) falla en Python 🔢
+
+No es un desbordamiento: el cálculo funciona, pero convertirlo a texto supera los 4300 dígitos (el resultado tiene 4746).
+
+- Desde Python 3.11 y parches de 3.7 a 3.10
+- Solo int ↔ str en base 10
+- hex(), bin() y la aritmética no se afectan
+- sys.set_int_max_str_digits(0) lo desactiva
+
+Pero ojo con las entradas no confiables. Guárdalo.
+
+#python #pythontips #seguridad #enteros #xeland314
+```
+
+### Threads
+```text
+print(5 ** 6789) lanza ValueError en Python 3.11+: el cálculo funciona, pero convertir 4746 dígitos a texto supera el límite de 4300 (protección contra DoS, CVE-2020-10735). Solo afecta int↔str en base 10; hex() y bin() no.
+
+#python
+```
+
+### Facebook
+```text
+¿Por qué Python se niega a imprimir un número grande? Desde la versión 3.11 (y en parches de seguridad de 3.7 a 3.10) limita a 4300 dígitos la conversión entre enteros y texto en base 10, para evitar ataques de denegación de servicio por coste cuadrático (CVE-2020-10735). En el carrusel: qué operaciones afecta, cuáles no y cómo ajustar el límite con criterio.
+
+#python #pythontips #xeland314
+```
+
+### YouTube
+**Título:** Python y el límite de 4300 dígitos
+
+```text
+Pieza solo de carrusel: no se publica como video. ValueError al convertir enteros grandes, CVE-2020-10735 y sys.set_int_max_str_digits.
+
+#python #pythontips #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** Python的4300位限制 | Python整数转字符串的限制
+
+```text
+print(5 ** 6789) 为什么报 ValueError？Python 3.11 起限制整数与字符串转换最多 4300 位，用 sys.set_int_max_str_digits 调整。
+
+Python 3.11 起（以及 3.7 至 3.10 的安全补丁）默认限制十进制整数与字符串互转最多 4300 位，以防范拒绝服务攻击（CVE-2020-10735）。运算本身不受影响，hex()、bin() 也不受限；可用 sys.set_int_max_str_digits(0) 关闭限制。
+
+#python #pythontips #seguridad #编程 #程序员
+```
+
+## 046 · Cómo escribir Skills para agentes de IA que sí funcionan
+
+- **Carpeta:** `videos/046-skills-agentes-ia/`  ·  **Estado:** carousel-only  ·  **Duración:** ? s
+- **Gancho:** Si tu skill no se activa, casi nunca son las instrucciones: es la descripción.
+- **Carrusel:** `carruseles/046-skills-agentes-ia` (pending)
+
+### TikTok
+```text
+Si tu Skill de agente de IA no se activa, el problema casi nunca son las instrucciones: es la descripción. Estructura que funciona, carga progresiva, cómo depurar y reglas de seguridad.
+
+#ia #agentesdeia #skills #claudecode #xeland314
+```
+
+### Instagram
+```text
+¿Tu skill no se activa? Revisa la descripción 🧠
+
+No es un resumen: es la condición de activación.
+
+Qué hace + cuándo usarla + qué frases la activan.
+
+Además:
+- Carga en 3 fases: metadata, instrucciones, referencias
+- Depura: ruta, YAML, sesión nueva, llamada explícita
+- Lee los scripts antes de instalar cualquier skill
+
+Guárdalo.
+
+#ia #agentesdeia #skills #claudecode #xeland314
+```
+
+### Threads
+```text
+Si tu skill de agente de IA no se activa, casi nunca fallan las instrucciones: falla la descripción. Escríbela como condición de activación: qué hace, cuándo usarla y qué frases la disparan.
+
+#ia
+```
+
+### Facebook
+```text
+¿Escribiste una Skill para tu agente de IA y no la usa? Casi siempre el problema es la descripción del encabezado, que funciona como condición de activación y no como resumen. En el carrusel: la estructura de una skill, cómo se carga por fases, un SKILL.md completo, cómo depurar y las reglas de seguridad antes de instalar skills de terceros.
+
+#ia #agentesdeia #xeland314
+```
+
+### YouTube
+**Título:** Cómo escribir Skills para agentes de IA que sí funcionan
+
+```text
+Pieza solo de carrusel: no se publica como video. Descripción como disparador, carga progresiva, depuración y seguridad de skills.
+
+#ia #agentesdeia #xeland314 #Shorts
+```
+
+### RedNote
+**Título:** 让AI技能真正生效 | 如何写出有效的AI技能
+
+```text
+AI智能体的技能不触发？问题通常在描述而非指令。写法、加载机制、调试与安全要点。
+
+技能不被触发，几乎总是描述的问题：描述应是触发条件，包含它做什么、何时使用、哪些说法会触发。技能分三阶段加载：元数据、指令、引用和脚本。安装第三方技能前务必先阅读其脚本。
+
+#ia #agentesdeia #skills #编程 #程序员
 ```

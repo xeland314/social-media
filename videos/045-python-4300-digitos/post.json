@@ -1,0 +1,64 @@
+{
+  "id": "045",
+  "slug": "python-4300-digitos",
+  "title": "Python y el límite de 4300 dígitos",
+  "series": "python",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-27",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "print(5 ** 6789) lanza ValueError: Python limita a 4300 dígitos la conversión de enteros a texto.",
+  "topicTags": [
+    "#python",
+    "#pythontips",
+    "#seguridad",
+    "#enteros"
+  ],
+  "sourceAnimation": "(proyecto Cover Creator del autor ampliado; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/045-python-4300-digitos",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "¿Qué imprime print(5 ** 6789) en Python? ValueError: el límite de 4300 dígitos para convertir int a str. Por qué existe (CVE-2020-10735), qué operaciones afecta y cómo cambiarlo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "print(5 ** 6789) falla en Python 🔢\n\nNo es un desbordamiento: el cálculo funciona, pero convertirlo a texto supera los 4300 dígitos (el resultado tiene 4746).\n\n- Desde Python 3.11 y parches de 3.7 a 3.10\n- Solo int ↔ str en base 10\n- hex(), bin() y la aritmética no se afectan\n- sys.set_int_max_str_digits(0) lo desactiva\n\nPero ojo con las entradas no confiables. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "print(5 ** 6789) lanza ValueError en Python 3.11+: el cálculo funciona, pero convertir 4746 dígitos a texto supera el límite de 4300 (protección contra DoS, CVE-2020-10735). Solo afecta int↔str en base 10; hex() y bin() no.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Por qué Python se niega a imprimir un número grande? Desde la versión 3.11 (y en parches de seguridad de 3.7 a 3.10) limita a 4300 dígitos la conversión entre enteros y texto en base 10, para evitar ataques de denegación de servicio por coste cuadrático (CVE-2020-10735). En el carrusel: qué operaciones afecta, cuáles no y cómo ajustar el límite con criterio.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Python y el límite de 4300 dígitos",
+      "text": "Pieza solo de carrusel: no se publica como video. ValueError al convertir enteros grandes, CVE-2020-10735 y sys.set_int_max_str_digits.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Python的4300位限制",
+      "text": "print(5 ** 6789) 为什么报 ValueError？Python 3.11 起限制整数与字符串转换最多 4300 位，用 sys.set_int_max_str_digits 调整。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Python整数转字符串的限制",
+      "textZh": "Python 3.11 起（以及 3.7 至 3.10 的安全补丁）默认限制十进制整数与字符串互转最多 4300 位，以防范拒绝服务攻击（CVE-2020-10735）。运算本身不受影响，hex()、bin() 也不受限；可用 sys.set_int_max_str_digits(0) 关闭限制。"
+    }
+  }
+}

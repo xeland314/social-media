@@ -1,0 +1,82 @@
+{
+  "id": "p039",
+  "name": "039 iptables y nftables",
+  "lastModified": 1794800400000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Firewalls para devs web",
+        "subtitle": "iptables y nftables explicados como middlewares",
+        "category": "REDES · LINUX",
+        "iconChar": "🧱"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Un middleware antes de tu app\n\nUn firewall decide qué paquetes entran, salen o se reenvían. Corre en el kernel (netfilter), **antes** de que el paquete llegue a tu socket.\n\n| En tu API | En el firewall |\n| :--- | :--- |\n| Middleware | Regla |\n| `next()` | `ACCEPT` |\n| No responder (timeout) | `DROP` |\n| Error inmediato | `REJECT` |\n\nComo con los middlewares, el orden importa.",
+        "fontScale": 1.09
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Cadenas: por dónde pasa el paquete\n\niptables agrupa reglas en tablas (`filter`, `nat`…) y cadenas. Gana la **primera** regla que decide; si ninguna lo hace, aplica la política de la cadena.\n\n| Cadena | Qué paquetes ve |\n| :--- | :--- |\n| INPUT | Los que van a esta máquina |\n| OUTPUT | Los que genera esta máquina |\n| FORWARD | Los que la atraviesan (router) |",
+        "fontScale": 1.25
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## conntrack: la sesión del firewall\n\nEl kernel recuerda cada conexión, como una sesión en tu app. Así aceptas las respuestas a lo que **tú** iniciaste sin abrir más puertos.\n\n| Estado | Significa |\n| :--- | :--- |\n| NEW | Primer paquete de la conexión |\n| ESTABLISHED | Ya hubo tráfico en ambos sentidos |\n| RELATED | Nace de otra (p. ej., un ICMP de error) |\n\nAceptar `ESTABLISHED,RELATED` primero también ahorra trabajo.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Ejemplo en iptables\n\nPermitir SSH y HTTP y cerrar el resto. `-A` agrega **al final**: la regla de estado va antes que todo y el cierre va en la política.\n\n```bash\niptables -A INPUT -i lo -j ACCEPT\niptables -A INPUT -m conntrack \\\n  --ctstate ESTABLISHED,RELATED \\\n  -j ACCEPT\niptables -A INPUT -p tcp \\\n  -m multiport --dports 22,80 \\\n  -j ACCEPT\niptables -P INPUT DROP\n```\n\nPara IPv6, repítelo con `ip6tables`.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## nftables: el sucesor\n\nDesde Linux 3.13 (2014), nftables reemplaza a iptables, ip6tables, arptables y ebtables con una sola herramienta: `nft`.\n\n- Familia `inet`: IPv4 e IPv6 en la misma regla\n- **Sets**: muchos puertos o IPs en una sola regla\n- `nft -f` carga el archivo completo de forma atómica\n- Nada predefinido: tú creas tablas y cadenas\n\nEn Debian y RHEL, el comando `iptables` ya suele ser `iptables-nft` por debajo.",
+        "fontScale": 1.1
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## El mismo firewall en nftables\n\nGuárdalo en un archivo y cárgalo con `sudo nft -f firewall.nft`: se aplica todo o nada.\n\n```text\ntable inet filter {\n  chain input {\n    type filter hook input priority 0;\n    policy drop;\n    iif lo accept\n    ct state established,related accept\n    tcp dport { 22, 80, 443 } accept\n  }\n}\n```\n\nCubre IPv4 e IPv6 a la vez.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Errores que te dejan fuera\n\nUn firewall mal aplicado por SSH te deja sin acceso al servidor.\n\n- Poner la política `DROP` antes de aceptar el puerto 22\n- Olvidar `ESTABLISHED,RELATED`: dejan de llegar las respuestas de DNS o `apt`\n- Olvidar `lo`: rompes servicios locales\n- `nft add rule … {22,80}` sin comillas: bash expande las llaves\n- Mezclar reglas de `iptables` y `nft` sobre lo mismo\n\nPrueba con `iptables-apply`: revierte si no confirmas.",
+        "fontScale": 1.0
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n| | iptables | nftables |\n| :--- | :--- | :--- |\n| IPv4 + IPv6 | 2 herramientas | `inet` |\n| Varios puertos | `multiport` | sets `{ }` |\n| Cargar archivo | `iptables-restore` | `nft -f` |\n| Estado | Legado, vigente | Recomendado |\n\n\"Denegar por defecto\" es la misma idea que un guard que rechaza todo salvo las rutas que declaras.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "El primer",
+        "secondText": "middleware",
+        "description": "El firewall decide antes que tu código. Sígueme para más de redes y Linux.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • LINUX • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

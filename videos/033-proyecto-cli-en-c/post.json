@@ -1,0 +1,64 @@
+{
+  "id": "033",
+  "slug": "proyecto-cli-en-c",
+  "title": "Cómo estructurar un proyecto CLI en C",
+  "series": "herramientas",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2026-12-28",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Un main.c gigante no escala: carpetas, headers y un Makefile incremental para tu CLI en C.",
+  "topicTags": [
+    "#lenguajec",
+    "#makefile",
+    "#cli",
+    "#gcc"
+  ],
+  "sourceAnimation": "(presentación del autor: estructura_cli_c.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/033-proyecto-cli-en-c",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Cómo organizar una herramienta de terminal en C: src e include separados, headers con include guard, un Makefile con compilación incremental, pkg-config, códigos de salida claros y los targets clean, test e install.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Tu CLI en C, bien organizado 🗂️\n\n✔ src/ para .c, include/ para .h\n✔ main.c solo orquesta\n✔ Makefile con wildcard y regla patrón\n✔ -MMD -MP para que un cambio en un .h recompile lo necesario\n✔ pkg-config y LDLIBS para las bibliotecas\n✔ clean, test e install como .PHONY\n\nGuárdalo para tu próximo proyecto.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Trampa clásica del Makefile en C: cambias un .h y make no recompila nada, porque solo mira los .c. La solución son las flags -MMD -MP y un -include de los .d. En el carrusel: estructura de carpetas, headers, Makefile mínimo, pkg-config y códigos de salida.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Un solo main.c sirve para un script, pero no para una herramienta que va a crecer. En este carrusel armo la base de un CLI en C: carpetas src e include, headers como contrato, un Makefile mínimo con compilación incremental (incluida la trampa de los headers que no disparan recompilación), bibliotecas con pkg-config, códigos de salida claros y los targets clean, test e install. Todo probado con gcc y GNU make.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Cómo estructurar un proyecto CLI en C (Makefile incluido)",
+      "text": "Pieza solo de carrusel: no se publica como video. Carpetas, headers con include guard, Makefile incremental con -MMD -MP, pkg-config, códigos de salida y targets clean, test e install.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "CLI en C ordenado",
+      "text": "Carpetas, headers y un Makefile incremental para tu herramienta de terminal en C.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "C 语言命令行项目结构",
+      "textZh": "src 与 include 分离、头文件保护、带 -MMD -MP 的增量 Makefile、pkg-config 和清晰的退出码。"
+    }
+  }
+}

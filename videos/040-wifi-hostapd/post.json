@@ -1,0 +1,65 @@
+{
+  "id": "040",
+  "slug": "wifi-hostapd",
+  "title": "Wi-Fi en Linux: red abierta vs cifrada con hostapd",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-15",
+  "durationSec": null,
+  "hook": "Tu Linux como punto de acceso Wi-Fi: red abierta o cifrada con hostapd, y las tres piezas para tener Internet.",
+  "topicTags": [
+    "#wifi",
+    "#linux",
+    "#hostapd",
+    "#redes",
+    "#sysadmin"
+  ],
+  "sourceAnimation": "(presentación propia: wifi_tutorial/README.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/040-wifi-hostapd",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Convierte un equipo con Linux en punto de acceso Wi-Fi: red abierta o cifrada con hostapd, IP fija y DHCP con dnsmasq, y reenvío más NAT para salir a Internet. Con la trampa del puerto 53 ocupado.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Wi-Fi en Linux: abierta vs cifrada 📶\n\n1. hostapd crea la red (abierta o WPA2/WPA3)\n2. IP fija para el punto de acceso\n3. dnsmasq reparte IP y DNS\n4. ip_forward + NAT para salir a Internet\n\nhostapd solo crea el Wi-Fi: sin los pasos 2 a 4, tus clientes se conectan pero no navegan. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Configuraste hostapd, tu teléfono ve la red y se conecta… pero no navega. Es normal: hostapd solo crea el Wi-Fi. Faltan una IP fija en la interfaz, DHCP/DNS con dnsmasq y reenvío con NAT. El carrusel trae las cuatro piezas.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Quieres montar una red Wi-Fi para invitados con un equipo Linux? En este carrusel comparo una red abierta con una cifrada usando hostapd, y explico las piezas que faltan para tener Internet: IP fija, dnsmasq para DHCP y DNS, y reenvío de paquetes con NAT. También, qué hacer si dnsmasq no arranca porque el puerto 53 está ocupado.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Wi-Fi en Linux: red abierta vs cifrada con hostapd",
+      "text": "Pieza solo de carrusel: no se publica como video. Punto de acceso Wi-Fi en Linux con hostapd (red abierta y WPA2/WPA3), dnsmasq, ip_forward y NAT con iptables.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Linux 搭建 Wi-Fi 热点",
+      "text": "Wi-Fi en Linux con hostapd: red abierta vs cifrada, más dnsmasq y NAT para tener Internet.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "开放 vs 加密 Wi-Fi",
+      "textZh": "用 hostapd 把 Linux 变成无线接入点：开放网络和 WPA2/WPA3 加密网络的配置，再加上固定 IP、dnsmasq 和 NAT 才能上网。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

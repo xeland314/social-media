@@ -1,0 +1,82 @@
+{
+  "id": "p042",
+  "name": "042 Expresiones regulares",
+  "lastModified": 1794600000000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Regex en 3 reglas",
+        "subtitle": "La teoría detrás de grep, Python re y todo compilador",
+        "category": "FUNDAMENTOS · REGEX",
+        "iconChar": "🔤"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## ¿Qué describe una regex?\n\nUna expresión regular `s` es **sintaxis**: la notación que escribes. Lo que acepta es su **lenguaje L(s)**: un conjunto de strings.\n\n- `a` → L = { a }\n- `ε` → solo la cadena vacía\n- `∅` → ninguna cadena\n\nNo confundas `ε` (acepta vacío) con `∅` (no acepta nada).",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Regla 1 · Alternación\n\n`s|t` acepta lo que acepte `s` **o** lo que acepte `t`: la unión L(s) ∪ L(t).\n\n```text\nc(a|u)t    →  { cat, cut }\na|b|c      →  { a, b, c }\n(a|b)(c|d) →  { ac, ad, bc, bd }\n```\nLos paréntesis limitan dónde ocurre la elección.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Regla 2 · Concatenación\n\n`st` acepta un string de `s` **seguido** de uno de `t`, en ese orden.\n\n```text\ngato      →  { gato }\nab        →  { ab }\n(a|b)c    →  { ac, bc }\n```\nUna regex sin operadores es un literal: una palabra reservada como `while` es solo la concatenación de sus letras.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Regla 3 · Clausura de Kleene\n\n`s*` repite `s` **cero o más** veces. Siempre acepta la cadena vacía.\n\n```text\nmii*      →  { mi, mii, miii, … }\n(miau)*   →  { ε, miau, miaumiau, … }\na(b|a)*a  →  { aa, aba, abaa, … }\n```\nSin paréntesis, `*` afecta solo al símbolo anterior; con ellos, a todo el grupo.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Precedencia\n\nDe mayor a menor prioridad:\n\n| Operador | Símbolo | Nivel |\n| :--- | :---: | :---: |\n| Kleene | `*` | Alta |\n| Concatenación | `st` | Media |\n| Alternación | `|` | Baja |\n\n- `ab*` es `a(b*)`, no `(ab)*`\n- `a|bc` es `a|(bc)`, no `(a|b)c`\n\nEn duda, usa paréntesis.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Operadores extendidos\n\nAtajos de notación. **No añaden poder**: cada uno se traduce a las tres reglas.\n\n| Atajo | Significa | Equivale a |\n| :--- | :--- | :--- |\n| `s?` | cero o una vez | `(s|ε)` |\n| `s+` | una o más | `ss*` |\n| `[a-c]` | rango | `(a|b|c)` |\n| `[^x]` | todo menos `x` | `Σ − x` |",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## En la práctica\n\nUn identificador sin atajos sería ilegible:\n\n```text\n(a|b|…|z)(a|…|z|0|…|9)*\n```Con atajos:\n\n```text\n[a-z][a-z0-9]*\n```**Trampa:** un decimal es `[0-9]+(\\.[0-9]+)?`. Sin la barra, `.` significa \"cualquier carácter\" y aceptaría `3x4`.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta para guardar\n\n- **L(s)** = conjunto de strings que acepta `s`\n- Casos base: un símbolo y `ε`\n- Tres reglas: `s|t`, `st`, `s*`\n- Precedencia: `*` > concatenar > `|`\n- `?`, `+`, `[ ]` son comodidad, no poder\n- Mismo modelo en `grep`, `sed`, Python `re`, JavaScript y Flex\n\nKleene la formalizó en los años 50.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Tres reglas,",
+        "secondText": "todo patrón",
+        "description": "Sígueme para más fundamentos de ciencias de la computación.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "FUNDAMENTOS • REGEX • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

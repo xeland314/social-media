@@ -1,0 +1,65 @@
+{
+  "id": "037",
+  "slug": "rfc-9457-practica",
+  "title": "RFC 9457 en la práctica: Problem Details paso a paso",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-08",
+  "durationSec": null,
+  "hook": "Parte 2 de RFC 9457: cómo definir tus tipos de error, implementarlos y no filtrar de más.",
+  "topicTags": [
+    "#api",
+    "#http",
+    "#rfc9457",
+    "#backend",
+    "#nodejs"
+  ],
+  "sourceAnimation": "(presentación propia: rfc-9457/rfc9457-practica.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/037-rfc-9457-practica",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Parte 2 de RFC 9457: cuándo crear un tipo de error propio, cómo elegir su URI, el registro de IANA, un ejemplo en Express con application/problem+json y lo que nunca debe ir en la respuesta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Problem Details paso a paso 🛠️ (parte 2)\n\n1. Pregúntate si necesitas un tipo nuevo\n2. Defínelo como un contrato: URI, título, código, extensiones\n3. URI absoluta y estable\n4. Revisa el registro de IANA\n5. Responde con application/problem+json\n6. Nada de stack traces ni SQL\n\nY puedes adoptarlo solo en los errores, sin migrar toda la API. Guárdalo con la parte 1.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Problem Details (RFC 9457) no es una herramienta de depuración. Un stack trace en detail le enseña tu sistema a un atacante. Lo interno va a tu log, enlazado por instance; al cliente, solo lo que necesita para corregir su petición. Parte 2 de 2.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Segunda parte sobre la RFC 9457. Ya conoces el formato; ahora toca usarlo bien: cuándo vale la pena un tipo de error propio, cómo elegir una URI estable, qué ofrece el registro de IANA, un ejemplo mínimo en Express y qué datos nunca deberías exponer en una respuesta de error. Además, cómo adoptarlo sin migrar toda tu API de golpe.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "RFC 9457 en la práctica: Problem Details paso a paso",
+      "text": "Pieza solo de carrusel: no se publica como video. RFC 9457 en la práctica, parte 2: definir tipos de problema, URIs, registro de IANA, implementación en Express, seguridad y adopción gradual.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "RFC 9457 第二部分",
+      "text": "RFC 9457 en la práctica, parte 2: definir tipos, implementarlo y no exponer datos internos.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Problem Details 实战",
+      "textZh": "如何定义自己的错误类型、选择稳定的 URI、查阅 IANA 注册表、用 Express 返回 application/problem+json，以及哪些内部信息绝不能出现在响应里。第 2 部分。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

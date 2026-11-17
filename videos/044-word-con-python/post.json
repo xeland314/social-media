@@ -1,0 +1,65 @@
+{
+  "id": "044",
+  "slug": "word-con-python",
+  "title": "Automatiza Word con Python: de {{marcadores}} a decenas de .docx",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-25",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Escribe el documento una vez y genera decenas de versiones: plantilla con {{marcadores}}, python-docx y un CSV.",
+  "topicTags": [
+    "#python",
+    "#automatizacion",
+    "#word",
+    "#pythondocx",
+    "#uv"
+  ],
+  "sourceAnimation": "(presentación del autor sobre automatización de Word; solo carrusel, datos ficticios)",
+  "carousel": {
+    "path": "carruseles/044-word-con-python",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "De una plantilla Word con {{marcadores}} a decenas de .docx con Python, python-docx y uv. Incluye la trampa de los runs de Word y el checklist antes de generar en lote. Datos ficticios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Escribe el Word una vez, genera N versiones 📄\n\n1. Redacta el documento final con un caso de ejemplo\n2. Cambia lo variable por {{marcadores}}\n3. Un CSV con una fila por documento\n4. Un script con python-docx y uv\n\nLa trampa: Word parte el texto en runs, así que replace() por run no basta. Une el párrafo y reemplaza ahí. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un marcador como {{nombre}} casi nunca vive en un solo run de Word, por eso run.text.replace() falla. Solución: unir el texto del párrafo, reemplazar y volcarlo en el primer run. Con python-docx + CSV generas cientos de .docx.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Tienes que enviar la misma carta o constancia a decenas de personas? Se puede escribir una plantilla de Word con {{marcadores}} y generar un documento por cada fila de un CSV con Python, python-docx y uv, sin abrir Word. En el carrusel: el flujo completo, el código del reemplazo, el error más común con los runs y un checklist previo. Ejemplos con datos ficticios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Automatiza Word con Python: de {{marcadores}} a .docx",
+      "text": "Pieza solo de carrusel: no se publica como video. Plantilla con marcadores, python-docx, uv, CSV y la trampa de los runs.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "用Python批量生成Word",
+      "text": "用{{占位符}}模板、python-docx和CSV批量生成Word文档，并避开 run 拆分的常见陷阱。示例数据均为虚构。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Python自动生成Word文档",
+      "textZh": "先写好一份Word模板，把变化的内容换成{{占位符}}，再用python-docx和CSV为每一行数据生成一份文档。注意：Word会把文字拆成多个run，必须先合并段落文本再替换。示例数据均为虚构。"
+    }
+  }
+}

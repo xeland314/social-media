@@ -18,7 +18,8 @@
     "calendar": "node scripts/calendar.mjs",
     "carousel": "node scripts/carousel.mjs",
     "plan": "node scripts/plan.mjs",
-    "music": "node scripts/make-music.mjs"
+    "music": "node scripts/make-music.mjs",
+    "trimestre": "node scripts/trimestre.mjs"
   },
   "devDependencies": {
     "hyperframes": "0.9.26"

@@ -1,0 +1,65 @@
+{
+  "id": "038",
+  "slug": "mkcert-wireshark",
+  "title": "mkcert + Wireshark: HTTPS local sin advertencias",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-11",
+  "durationSec": null,
+  "hook": "HTTPS en localhost sin advertencias, y una captura de Wireshark que prueba que el JSON viaja cifrado.",
+  "topicTags": [
+    "#https",
+    "#tls",
+    "#mkcert",
+    "#wireshark",
+    "#desarrolloweb"
+  ],
+  "sourceAnimation": "(presentación propia: mkcert/README.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/038-mkcert-wireshark",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "HTTPS local sin advertencias: mkcert crea una CA en tu equipo, generas un certificado para tu API, la sirves con TLS y compruebas en Wireshark que el JSON viaja cifrado. Paso a paso, con example.com.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "HTTPS local sin advertencias 🔒\n\n1. mkcert -install crea tu CA local\n2. Un nombre en /etc/hosts apuntando a 127.0.0.1\n3. mkcert genera certificado y clave\n4. Sirves la API con TLS\n5. Wireshark: Client Hello, Server Hello y Application Data cifrado\n\nLa trampa: nunca compartas rootCA-key.pem. Puede firmar cualquier dominio. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un error común con mkcert: compartir la carpeta de la CA con todo el equipo. rootCA-key.pem puede firmar certificados para cualquier dominio que tu equipo aceptará. Cada persona debe correr su propio mkcert -install. Carrusel con el flujo completo y la prueba en Wireshark.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Tu app de escritorio o tu WebView exige HTTPS y los certificados autofirmados te dan advertencias? Con mkcert creas una autoridad certificadora local de confianza, generas certificados para tu API y la sirves con TLS. Después, con Wireshark, compruebas que los datos realmente viajan cifrados. Todo con nombres de ejemplo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "mkcert + Wireshark: HTTPS local sin advertencias",
+      "text": "Pieza solo de carrusel: no se publica como video. HTTPS local con mkcert (CA local, certificados con varios nombres, uvicorn con TLS) y verificación del cifrado con Wireshark.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "本地 HTTPS 无警告",
+      "text": "mkcert + Wireshark: HTTPS local sin advertencias y prueba de que el tráfico va cifrado.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "mkcert 本地证书",
+      "textZh": "用 mkcert 在本机创建受信任的 CA，为 API 生成证书并启用 TLS，再用 Wireshark 确认 JSON 是加密传输的。注意：rootCA-key.pem 绝不能分享。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

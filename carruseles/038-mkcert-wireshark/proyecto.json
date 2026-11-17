@@ -1,0 +1,82 @@
+{
+  "id": "p038",
+  "name": "038 mkcert + Wireshark",
+  "lastModified": 1794800300000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "HTTPS local sin advertencias",
+        "subtitle": "mkcert para la confianza, Wireshark para comprobar el cifrado",
+        "category": "REDES · TLS",
+        "iconChar": "🔒"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nMuchas apps de escritorio y WebViews exigen HTTPS, y un certificado autofirmado con OpenSSL rompe la validación. Probar en HTTP plano tampoco sirve: no es lo que irá a producción.\n\n- Autofirmado → advertencia de \"conexión no segura\"\n- `curl -k` o `verify=False` → malos hábitos en el código\n- HTTP plano → credenciales legibles en la red",
+        "fontScale": 1.25
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## mkcert: tu propia CA local\n\nmkcert crea una autoridad certificadora en tu equipo y la registra en el sistema, Firefox y Chrome. Lo que firma es válido **solo en tu máquina**.\n\n```bash\n# Debian/Ubuntu\nsudo apt install mkcert libnss3-tools\n# Arch\nsudo pacman -S mkcert nss\n\nmkcert -install\nmkcert -CAROOT   # dónde vive la CA\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Un nombre para tu API\n\nUsa un nombre en lugar de una IP, el mismo que escribirá tu app. Apúntalo a loopback en `/etc/hosts`:\n\n```text\n# /etc/hosts\n127.0.0.1   api.example.com\n```\n\n- Mientras esa línea exista, ese nombre no sale a Internet\n- Evita `.local`: lo reserva mDNS (Avahi) y puede resolver lento o mal\n- Bórrala cuando termines",
+        "fontScale": 1.1
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Genera el certificado\n\nUn solo certificado puede cubrir varios nombres (SAN): el dominio, `localhost` y la IP de loopback.\n\n```bash\nmkdir certs\nmkcert -cert-file certs/api.pem \\\n  -key-file certs/api-key.pem \\\n  api.example.com localhost 127.0.0.1\n```\n\n- `api.pem`: el certificado (público)\n- `api-key.pem`: la clave privada, **nunca** al repositorio",
+        "fontScale": 1.2
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Sirve la API con TLS\n\nEjemplo con FastAPI y uvicorn (en un proyecto creado con `uv init`); cualquier servidor que acepte certificado y clave funciona igual.\n\n```bash\nuv add fastapi uvicorn\nuv run uvicorn main:app \\\n  --host api.example.com \\\n  --port 8443 \\\n  --ssl-certfile certs/api.pem \\\n  --ssl-keyfile certs/api-key.pem\n```\n\nLa API queda en `https://api.example.com:8443`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Captura con Wireshark\n\nAbre Wireshark en la interfaz de loopback (`lo`), filtra por `tcp.port == 8443` y envía un secreto de prueba:\n\n```bash\ncurl https://api.example.com:8443/ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"secret\": \"1234\"}'\n```\n\ncurl valida el certificado **sin** `-k`: confía en la CA que instaló mkcert. Si falla, no sigas: algo está mal en la confianza.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Qué deberías ver\n\nLa prueba no es el candado del navegador: es la captura.\n\n| Paquete | Qué significa |\n| :--- | :--- |\n| Client Hello | El cliente inicia TLS |\n| Server Hello | Acuerdan versión y cifrado |\n| Application Data | Tu JSON, cifrado |\n\nRepite la petición contra un servidor en HTTP plano y verás `{\"secret\": \"1234\"}` en texto claro en el panel de bytes.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## La trampa: tu CA es poderosa\n\nLa CA de mkcert puede firmar certificados para **cualquier** dominio, y tu equipo los aceptará. Trátala como una contraseña.\n\n- Nunca compartas ni subas `rootCA-key.pem`\n- Cada persona del equipo corre su propio `mkcert -install`\n- `*-key.pem` en tu `.gitignore`\n- Solo para desarrollo: en producción, una CA pública como Let's Encrypt",
+        "fontScale": 1.25
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "No supongas,",
+        "secondText": "verifica",
+        "description": "No confíes en que está cifrado: compruébalo en la captura. Sígueme para más de redes.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • TLS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

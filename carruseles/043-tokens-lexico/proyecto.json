@@ -1,0 +1,82 @@
+{
+  "id": "p043",
+  "name": "043 Tokens y análisis léxico",
+  "lastModified": 1794600000000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Tokens: 6 categorías",
+        "subtitle": "Lo que el scanner entrega al parser",
+        "category": "FUNDAMENTOS · COMPILADORES",
+        "iconChar": "🧩"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## ¿Qué es un token?\n\nAntes de entender un programa, el compilador necesita saber de qué *palabras* está hecho. El **scanner** convierte caracteres en **tokens**; cada uno tiene un **tipo** y, a veces, un **valor** (el texto original).\n\n| Texto | Tipo | Valor |\n| :--- | :--- | :--- |\n| `while` | KEYWORD | — |\n| `n` | IDENT | `n` |\n| `42` | NÚMERO | `42` |",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Las seis categorías\n\n- **Keywords**: `while`, `class`, `true`\n- **Identificadores**: nombres que elige quien programa\n- **Números**: enteros, flotantes, `0b`, `0o`, `0x`\n- **Strings**: texto literal entre comillas\n- **Comentarios**: notas para humanos\n- **Espacios en blanco**: separan y dan formato\n\nLos operadores y signos (`+`, `(`) suelen sumar una categoría extra.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Keyword o identificador\n\n`while` también cumple la definición de identificador. Tres formas de resolverlo en Flex:\n\n- **Regla específica primero**: cada keyword antes del identificador\n- **Tabla de búsqueda**: una regla y un mapa de keywords\n- **Delegar al parser**: todo es identificador y el contexto decide\n\nFlex elige la coincidencia **más larga**; si empatan, la regla **escrita primero**.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Identificadores\n\nDefinición informal típica:\n\n> Una letra seguida de letras y dígitos.\n\nParece clara, pero esconde decisiones:\n\n- ¿Se permite `_`?\n- ¿Y Unicode?\n- ¿Importan las mayúsculas?\n\nUna decisión explícita, como regex:\n\n```text\n[A-Za-z_][A-Za-z0-9_]*\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Números\n\n\"Dígitos con un punto decimal opcional\" es ambiguo: ¿`3.`? ¿`.5`? ¿`3.1.4`?\n\nLa regex lo fija sin margen:\n\n```text\n[0-9]+(\\.[0-9]+)?\n```\n- **Acepta:** `123`, `3.14`\n- **Rechaza:** `.15`, `30.`, `3.1.4`\n\nOtras bases (`0b`, `0o`, `0x`) necesitan sus propias reglas.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Strings\n\nParecen simples, pero hay que decidir:\n\n- Comillas simples o dobles\n- Escapes: `\\n`, `\\t`, `\\\\`, `\\\"`\n- Strings multilínea\n\nAdemás, el texto **fuente** no es el valor **interno**. Al leer `\"hola\\n\"` el scanner debe quitar las comillas y convertir `\\n` en un salto de línea real. A eso se le llama limpiar el token.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Ingeniería real\n\n- **Posición:** guarda línea y columna para errores útiles: `Undefined symbol 'spider' at line 153, column 7`\n- **Longitud:** ¿un identificador de 1000 letras? Valida contra un máximo.\n- **Errores:** no abortes al primero. Una regla final de Flex captura el resto:\n\n```c\n.   { return TOKEN_ERROR; }\n```Así se reportan todos los errores de una vez.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta para guardar\n\n- Scanner: caracteres → tokens (tipo + valor)\n- Seis categorías base: keywords, identificadores, números, strings, comentarios, espacios\n- Lenguaje natural = ambiguo; **regex = especificación**\n- Empates: coincidencia más larga, luego primera regla\n- Guarda posición y recupérate de errores\n\nEl scanner parece simple, pero cada decisión pesa en todo el compilador.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Del texto",
+        "secondText": "al token",
+        "description": "Sígueme para más fundamentos de compiladores y ciencias de la computación.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "FUNDAMENTOS • TOKENS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

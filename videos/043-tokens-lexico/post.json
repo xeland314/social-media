@@ -1,0 +1,64 @@
+{
+  "id": "043",
+  "slug": "tokens-lexico",
+  "title": "Tokens: las seis categorías del análisis léxico",
+  "series": "fundamentos",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-22",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Antes de entender tu código, el compilador lo trocea en tokens: seis categorías y una decisión de diseño en cada una.",
+  "topicTags": [
+    "#tokens",
+    "#compiladores",
+    "#analisislexico",
+    "#flex"
+  ],
+  "sourceAnimation": "(presentación del autor sobre tokens y análisis léxico; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/043-tokens-lexico",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Qué es un token y cuáles son las seis categorías del análisis léxico: keywords, identificadores, números, strings, comentarios y espacios. Más el conflicto keyword vs identificador en Flex.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Antes de entender tu código, el compilador lo parte en tokens 🧩\n\n1. Keywords\n2. Identificadores\n3. Números\n4. Strings\n5. Comentarios\n6. Espacios en blanco\n\nCada categoría esconde decisiones de diseño: ¿se permite _? ¿es válido 3.? ¿qué pasa con while? Una regex lo deja sin ambigüedad. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un token es lo que el scanner entrega al parser: tipo + valor. Seis categorías base y un conflicto clásico: while también parece un identificador. En Flex gana la coincidencia más larga y, si empatan, la regla escrita primero.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿De qué \"palabras\" está hecho un programa para el compilador? Del análisis léxico salen tokens en seis categorías: keywords, identificadores, números, strings, comentarios y espacios. En el carrusel: por qué las definiciones informales fallan, cómo una regex las precisa, el conflicto keyword vs identificador y cómo recuperarse de errores sin abortar.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Tokens: las seis categorías del análisis léxico",
+      "text": "Pieza solo de carrusel: no se publica como video. Categorías de tokens, regex como especificación y manejo de errores en Flex.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "词法分析的六类词法单元",
+      "text": "词法单元（token）的六大类别：关键字、标识符、数字、字符串、注释、空白。含关键字与标识符冲突的处理。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "词法分析：六类 token",
+      "textZh": "扫描器把字符转换成 token，每个 token 有类型和值。六大类别：关键字、标识符、数字、字符串、注释、空白。用正则表达式可以消除定义中的歧义，Flex 按最长匹配、先出现的规则优先。"
+    }
+  }
+}

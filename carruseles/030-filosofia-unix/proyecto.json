@@ -1,0 +1,82 @@
+{
+  "id": "p030",
+  "name": "030 La filosofía Unix",
+  "lastModified": 1794600030000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Haz una cosa y hazla bien",
+        "subtitle": "La filosofía Unix, de Bell Labs a tu terminal",
+        "category": "LINUX · FILOSOFÍA UNIX",
+        "iconChar": "🧩"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## De Multics a Unix\n\nMultics (MIT, General Electric y Bell Labs) era ambicioso y complejo. Bell Labs se retiró en 1969 y ese año Ken Thompson y Dennis Ritchie empezaron Unix en una PDP-7.\n\n- Herramientas pequeñas en vez de un sistema enorme\n- La cultura se transmitió con el código: `ls`, `grep`, `sort`, `wc`",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Las 3 reglas\n\nDoug McIlroy, quien propuso los pipes, las resumió así (citado por Peter Salus, 1994):\n\n1. Escribe programas que hagan **una cosa** y la hagan bien.\n2. Escribe programas que **trabajen juntos**.\n3. Escribe programas que manejen **flujos de texto**: es una interfaz universal.\n\nUna versión anterior apareció en 1978 en el *Bell System Technical Journal*.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Regla 1 · Una cosa bien\n\nUna responsabilidad clara por programa: menos código, menos bugs y piezas fáciles de reemplazar.\n\n| Comando | Hace | No hace |\n| --- | --- | --- |\n| `grep` | filtra líneas | ordenar |\n| `sort` | ordena | filtrar |\n| `wc -l` | cuenta líneas | modificar |\n| `head` | toma el inicio | transformar |",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Regla 2 · Componer\n\nLos 5 errores más repetidos de un log:\n\n```bash\ngrep ERROR app.log \\\n  | sort \\\n  | uniq -c \\\n  | sort -rn \\\n  | head -5\n```\nEl pipe `|` conecta la salida de uno con la entrada del siguiente. Ojo: `uniq` solo junta líneas **contiguas**; por eso va después de `sort`.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Regla 3 · Texto como contrato\n\nSi tu programa lee stdin y escribe stdout, cualquier otro puede usarlo sin conocerlo.\n\n```bash\n# solo IDs, uno por línea\ndocker ps -q | xargs -r docker stop\n\n# JSON es la versión moderna\ncurl -s https://api.example.com/u \\\n  | jq -r '.items[].name'\n```\n`-q` existe para componer. `-r` evita ejecutar `docker stop` sin argumentos.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## La trampa: pipefail\n\nEl estado de un pipeline es el del **último** comando. Si falla una etapa intermedia, el script sigue como si nada.\n\n```bash\nfalse | true; echo $?   # 0\nset -o pipefail\nfalse | true; echo $?   # 1\n```\nCon `pipefail` obtienes el código del último comando que falló (el más a la derecha). En scripts: `set -euo pipefail`.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## No es dogma\n\nEs una guía de diseño, no una ley física. Componer también tiene costos:\n\n- Cada etapa es un proceso: `fork`, `exec` y copias de datos\n- `ripgrep` y `fd` integran recorrido y filtrado para ganar velocidad\n- El estado compartido y las transacciones encajan mal en un pipeline\n- GUI y bases de datos siguen otros modelos",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta para tu próximo CLI\n\nPreguntas antes de añadir otra flag:\n\n- [ ] ¿Hace más de una cosa? Divídelo\n- [ ] ¿Su salida funciona detrás de un `|`?\n- [ ] ¿Tiene salida limpia (`-q`, `--json`)?\n- [ ] ¿Errores a stderr y código de salida ≠ 0?\n- [ ] ¿Reinventa lo que ya hacen `grep`, `sed` o `awk`?",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "firstText": "Una cosa,",
+        "secondText": "bien hecha",
+        "description": "Sígueme para más ideas de Linux y diseño de herramientas.",
+        "finalText": "LINUX • UNIX • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

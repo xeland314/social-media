@@ -1,0 +1,82 @@
+{
+  "id": "p033",
+  "name": "033 Proyecto CLI en C",
+  "lastModified": 1794600033000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Tu CLI en C, bien organizado",
+        "subtitle": "Carpetas, headers y un Makefile que escala",
+        "category": "C · HERRAMIENTAS",
+        "iconChar": "🗂️"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Más allá de un main.c\n\nUn archivo basta para un script. Para una herramienta real, separa por responsabilidad.\n\n```text\nmi_cli/\n├── include/  # .h: el contrato\n├── src/\n│   ├── main.c    # orquesta\n│   ├── parser.c  # argumentos\n│   └── render.c  # salida\n├── tests/\n├── build/    # generado, sin versionar\n└── Makefile\n```",
+        "fontScale": 1.15
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## El header es el contrato\n\n```c\n/* include/parser.h */\n#ifndef PARSER_H\n#define PARSER_H\ntypedef struct {\n  const char *input;\n  int verbose;\n} Options;\n\nint parse_args(int, char **, Options *);\n#endif\n```\nEl `.h` dice **qué** existe; el `.c`, **cómo**. El include guard evita definiciones duplicadas.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Makefile mínimo\n\n```makefile\nCC     = gcc\nCFLAGS = -Wall -Wextra -std=c11\nCFLAGS += -Iinclude\nSRC = $(wildcard src/*.c)\nOBJ = $(SRC:src/%.c=build/%.o)\n\nmi_cli: $(OBJ)\n\t$(CC) $(OBJ) -o $@ $(LDLIBS)\n```\n`wildcard` recoge cada `.c` nuevo sin editar el Makefile. Las recetas empiezan con **tabulador**, no con espacios.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Compilación incremental\n\n```makefile\nCFLAGS += -MMD -MP\n\nbuild/%.o: src/%.c\n\t@mkdir -p build\n\t$(CC) $(CFLAGS) -c $< -o $@\n\n-include $(OBJ:.o=.d)\n```\n`make` solo recompila lo que cambió. Trampa: si editas un `.h`, sin `-MMD -MP` no se entera y enlaza objetos viejos. Esas flags generan un `.d` con las dependencias de cada objeto.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Bibliotecas con pkg-config\n\n```makefile\nP  = cairo pangocairo x11\nPC = pkg-config\nCFLAGS += $(shell $(PC) --cflags $P)\nLDLIBS += $(shell $(PC) --libs $P)\n```\n`pkg-config` da las rutas correctas en cada distro, sin rutas fijas. Trampa común: poner las bibliotecas en `LDFLAGS` y no usarlas al enlazar. Van en `LDLIBS`, **después** de los objetos.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Errores con códigos claros\n\n```c\nenum { OK, ERR_ARGS = 2, ERR_IO };\n\nint main(int argc, char **argv) {\n  Options o;\n  if (parse_args(argc, argv, &o) != 0)\n    return ERR_ARGS;\n  return run(&o);  /* OK o ERR_IO */\n}\n```\nCada función devuelve un estado verificable y `main` lo traduce al código de salida. Así se prueba fácil y los scripts saben qué falló.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Targets de siempre\n\n```makefile\n.PHONY: clean test install\nPREFIX ?= /usr/local\nBIN = $(DESTDIR)$(PREFIX)/bin\n\nclean:\n\trm -rf build mi_cli\ntest: mi_cli\n\t./tests/run.sh\ninstall: mi_cli\n\tinstall -Dm755 -t $(BIN) mi_cli\n```\n`.PHONY` evita que un archivo llamado `clean` bloquee el target. `PREFIX` y `DESTDIR` permiten instalar en `~/.local` o empaquetar.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Checklist para arrancar\n\nLa estructura de la primera semana es la que arrastras durante años.\n\n- [x] `src/` e `include/` separados\n- [x] Include guard en cada header\n- [x] `-Wall -Wextra` y `-MMD -MP`\n- [x] `clean`, `test` e `install` como `.PHONY`\n- [x] `main` traduce estados a códigos de salida\n- [x] `--help` y README desde el primer commit",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "firstText": "Estructura",
+        "secondText": "desde el día 1",
+        "description": "Sígueme para más herramientas y proyectos en C.",
+        "finalText": "C • MAKEFILE • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

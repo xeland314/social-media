@@ -1,0 +1,64 @@
+{
+  "id": "031",
+  "slug": "manejo-de-senales",
+  "title": "Manejo de señales: salida limpia en programas de terminal",
+  "series": "linux",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2026-12-21",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Ctrl+C no debería dejar locks ni archivos a medias: así se atrapan SIGINT y SIGTERM en C.",
+  "topicTags": [
+    "#signals",
+    "#sigterm",
+    "#lenguajec",
+    "#procesos"
+  ],
+  "sourceAnimation": "(presentación del autor: manejo_senales.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/031-manejo-de-senales",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Cómo cerrar bien un programa en C cuando recibe Ctrl+C o SIGTERM: sigaction, una bandera volatile sig_atomic_t y la limpieza fuera del handler. Complementa el video de SIGTERM vs SIGKILL de la cuenta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Salida limpia con señales 🚦\n\n1. Atrapa SIGINT y SIGTERM con sigaction()\n2. El handler solo baja una bandera volatile sig_atomic_t\n3. La limpieza va después del bucle, no dentro del handler\n4. Nada de printf ni malloc en el handler\n5. Prueba con kill -TERM: 0 si cierras bien, 143 si no\n\nComplementa el video SIGTERM vs SIGKILL de la cuenta. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Si tu programa en C muere con Ctrl+C, deja locks, temporales y buffers sin vaciar. El patrón seguro: sigaction, una bandera volatile sig_atomic_t y la limpieza fuera del handler. Complementa el video de SIGTERM vs SIGKILL que ya está en la cuenta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Qué pasa cuando presionas Ctrl+C o systemd detiene tu servicio? El kernel envía una señal y, si no la manejas, el proceso termina en seco: sin vaciar buffers ni borrar archivos de lock. En este carrusel: las señales más comunes, el patrón bandera + bucle con sigaction, por qué volatile sig_atomic_t, la trampa de usar printf dentro del handler y cómo probarlo con kill -TERM. Complementa el video SIGTERM vs SIGKILL que ya publiqué en la cuenta.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Manejo de señales en C: salida limpia con SIGINT y SIGTERM",
+      "text": "Pieza solo de carrusel: no se publica como video. sigaction, bandera volatile sig_atomic_t, funciones async-signal-safe y systemd. Complementa el video SIGTERM vs SIGKILL del canal.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Señales en C",
+      "text": "Atrapa SIGINT y SIGTERM con sigaction y cierra tu programa sin dejar basura.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "C 语言信号处理",
+      "textZh": "用 sigaction 捕获 SIGINT 和 SIGTERM，处理函数只设置标志，清理放在主循环之后。是账号里 SIGTERM 与 SIGKILL 视频的补充。"
+    }
+  }
+}

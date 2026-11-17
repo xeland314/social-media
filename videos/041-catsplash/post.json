@@ -1,0 +1,65 @@
+{
+  "id": "041",
+  "slug": "catsplash",
+  "title": "Catsplash: un portal cautivo en Go",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-18",
+  "durationSec": null,
+  "hook": "Así funciona un portal cautivo por dentro: DNAT al portal, detección del sistema y reglas por IP + MAC.",
+  "topicTags": [
+    "#golang",
+    "#iptables",
+    "#wifi",
+    "#linux",
+    "#opensource"
+  ],
+  "sourceAnimation": "(presentación propia: catsplash/README.md y README del repositorio; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/041-catsplash",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Catsplash es un portal cautivo de código abierto escrito en Go: redirige el HTTP al portal con iptables, aprovecha la detección de Android, iOS y Windows, libera por IP + MAC y limita sesiones, datos y velocidad.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Un portal cautivo en Go 🐱\n\n1. DNAT: todo el HTTP del cliente va al portal\n2. Android, iOS y Windows detectan el portal y lo abren\n3. Al aceptar, se libera el par IP + MAC\n4. Sesiones, cuotas y velocidad bajo control (iptables + tc)\n5. SQLite para clientes y sesiones\n\nCódigo abierto, aún en desarrollo: úsalo en entornos controlados. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "¿Por qué el portal del Wi-Fi del hotel se abre solo? Tu teléfono pide una URL de prueba en HTTP (/generate_204 en Android) y, si no recibe lo esperado, abre el portal. HTTPS no se puede redirigir sin romper el certificado. Así lo hace Catsplash, mi portal cautivo en Go.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Construí Catsplash, un portal cautivo de código abierto para redes Wi-Fi de invitados en Linux. Está escrito en Go, guarda clientes y sesiones en SQLite y controla el tráfico con iptables y tc. En este carrusel explico cómo funciona por dentro: la redirección al portal, la detección automática de Android, iOS y Windows, y cómo se libera a cada cliente. Todavía no está listo para producción.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Catsplash: un portal cautivo en Go",
+      "text": "Pieza solo de carrusel: no se publica como video. Catsplash, un portal cautivo en Go: DNAT con iptables, detección de portal cautivo, reglas por IP y MAC, cuotas y límites con tc. Código: github.com/xeland314/catsplash",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Go 写的强制门户",
+      "text": "Catsplash: un portal cautivo de código abierto en Go, con SQLite e iptables.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Catsplash 强制门户",
+      "textZh": "用 Go、SQLite 和 iptables 实现的开源强制门户：把 HTTP 重定向到门户页，利用手机系统的自动检测，按 IP + MAC 放行，并限制时长、流量和速度。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

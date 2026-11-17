@@ -1,0 +1,82 @@
+{
+  "id": "p029",
+  "name": "029 Historia de la shell",
+  "lastModified": 1794600029000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Historia de la shell",
+        "subtitle": "De Thompson (1971) a fish (2005)",
+        "category": "LINUX · SHELL",
+        "iconChar": "🐚"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Shell no es terminal\n\nLa **terminal** dibuja el texto y recibe tus teclas. La **shell** interpreta lo que escribes y lanza los procesos.\n\n| Pieza | Qué hace | Ejemplos |\n| --- | --- | --- |\n| Terminal | muestra texto | Alacritty, iTerm2 |\n| Shell | interpreta comandos | bash, zsh, fish |\n\nPuedes usar cualquier shell dentro de cualquier terminal.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## 1971 · Thompson shell\n\nKen Thompson la escribió para el primer Unix. Sin variables ni control de flujo: solo leía un comando y lo ejecutaba.\n\n- `<` y `>` para redirigir, desde el principio\n- `|` llegó en 1973 (Unix V3), idea de Doug McIlroy\n- `who | sort > lista` ya funcionaba así hace 50 años",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## 1979 · Bourne shell (sh)\n\nStephen Bourne, en Bell Labs, la convirtió en un lenguaje. Se distribuyó con Unix V7.\n\n```sh\nfor f in *.log; do\n  if [ -s \"$f\" ]; then\n    echo \"$f tiene datos\"\n  fi\ndone\n```\nVariables, `if`, `for`, `case` y here-docs: la base del `sh` de POSIX.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Los 80: csh y ksh\n\nDos caminos: **csh** (Bill Joy, Berkeley, 1978) apostó por la comodidad interactiva; **ksh** (David Korn, Bell Labs, 1983) la unió con la compatibilidad Bourne.\n\n| Shell | Aportó |\n| --- | --- |\n| csh | historial `!!`, alias, `~` |\n| ksh | edición vi/emacs, arrays, `(( ))` |\n\nksh88 fue la base principal del `sh` de POSIX.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## 1989 · bash (y dash)\n\nBrian Fox la escribió para GNU: un `sh` libre con ideas de ksh y csh. **B**ourne-**A**gain **SH**ell.\n\n```bash\n$ readlink /bin/sh\ndash\n```\nEn Debian y Ubuntu, `/bin/sh` es **dash**: más pequeña y rápida. Trampa: si tu script usa `[[ ]]` o arrays, pon `#!/bin/bash`, no `#!/bin/sh`.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## 1990 y 2005 · zsh y fish\n\nLa prioridad pasa a ser la experiencia en la terminal.\n\n- **zsh** (Paul Falstad, 1990): compatible con `sh` en lo esencial, pero no es un superconjunto de bash\n- Autocompletado potente, `**/*.c`, Oh My Zsh; por defecto en macOS desde 2019\n- **fish** (2005): autosugerencias y resaltado sin configurar nada\n- fish rompe con POSIX a propósito para simplificar la sintaxis",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Misma idea, otra sintaxis\n\n```bash\n# bash\nn=$(ls *.txt | wc -l)\nif [ \"$n\" -gt 0 ]; then\n  echo \"hay $n\"\nfi\n# fish\nset n (count *.txt)\nif test $n -gt 0; echo \"hay $n\"; end\n```\nUn script de bash falla en fish y viceversa: fish brilla en tu terminal, no en scripts del sistema.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta: ¿cuál uso?\n\nNinguna ganó: cada una resolvió el problema de su época y hoy conviven.\n\n| Shell | Año | Úsala para |\n| --- | --- | --- |\n| sh / dash | 1979 / 1997 | scripts portables |\n| bash | 1989 | servidores y CI |\n| zsh | 1990 | terminal diaria |\n| fish | 2005 | terminal sin configurar |",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "firstText": "50 años",
+        "secondText": "de shell",
+        "description": "Sígueme para más historia y trucos de Linux.",
+        "finalText": "LINUX • SHELL • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

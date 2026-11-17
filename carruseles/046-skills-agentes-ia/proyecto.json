@@ -1,0 +1,82 @@
+{
+  "id": "p046",
+  "name": "046 Skills para agentes de IA",
+  "lastModified": 1794600000000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Skills que sí funcionan",
+        "subtitle": "Cómo escribir Skills para agentes de IA",
+        "category": "IA · AGENTES",
+        "iconChar": "🧠"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nEscribes un `SKILL.md`, lo copias a tu proyecto, le pides al agente que lo use… y no pasa nada. Reescribes las instrucciones: nada.\n\nCasi nunca fallan las **instrucciones**. Falla la **descripción**: las dos líneas del encabezado que el agente usa para decidir si activa la skill.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Qué es una Skill\n\nNo es un plugin: es una **guía de incorporación** para un compañero nuevo.\n\n```text\nnombre-de-tu-skill/\n├── SKILL.md     (obligatorio)\n├── scripts/     (código)\n├── references/  (docs bajo demanda)\n└── assets/      (plantillas, imágenes)\n````SKILL.md` es un formato abierto (agentskills.io). En Claude Code vive en `~/.claude/skills/` (personal) o `.claude/skills/` (proyecto).",
+        "fontScale": 1.15
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Cómo se carga\n\nEn tres fases, para gastar poco contexto:\n\n| Fase | Tamaño | Cuándo |\n| :--- | :---: | :--- |\n| Metadata | ~100 tokens | Al iniciar |\n| Instrucciones | < 5000 | Al activarla |\n| Referencias/scripts | Libre | Bajo demanda |\n\nLa metadata (nombre y descripción) **sí** entra en el contexto, y es lo único que el agente ve de todas tus skills para elegir.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## La descripción es un disparador\n\nNo es un resumen ni está escrita para humanos: es la **condición de activación**.\n\n```yaml\n# Mal\ndescription: \"Ayuda con documentos\"\n\n# Bien\ndescription: \"Crea README.md. Úsala si\n  piden 'escribe un README' o\n  'documenta este proyecto'.\"\n```Fórmula: **qué hace** + **cuándo usarla** + **qué frases la activan**.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Un SKILL.md completo\n\n```yaml\n---\nname: analizador-de-logs\ndescription: Analiza logs. Úsala si\n  piden revisar errores en un .log.\nallowed-tools: Read Grep Glob\n---\n\n# Pasos\n1. Lee el archivo con Read…\n```- `name`: minúsculas y guiones, igual al nombre de la carpeta (máx. 64)\n- `description`: hasta 1024 caracteres\n- `allowed-tools` (experimental): herramientas preaprobadas",
+        "fontScale": 1.1
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Cómo depurar una Skill\n\n- **Descripción:** añade frases concretas que la activen\n- **Ruta:** `~/.claude/skills/tu-skill/SKILL.md`\n- **Cabecera:** `---` en la línea 1 y YAML válido\n- **Sesión nueva:** las cabeceras se leen al iniciar; si editaste a mitad de sesión, reinicia\n- **Llamada explícita:** \"Usa la skill readme-writer para esto\"\n\nSi una skill crece mucho, divídela: `SKILL.md` corto + `references/`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Seguridad\n\nUna skill puede traer **código ejecutable**: ahí está el riesgo.\n\n- **Nunca** instales una que pida contraseñas, secretos o variables de entorno\n- **Lee** sus scripts antes de instalarla\n- Desconfía de las que se conectan a internet o a servicios externos\n- Prefiere fuentes oficiales o de tu equipo\n\nMás vale \"aquí no se ejecutó\" que \"aquí se borró todo\".",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta para guardar\n\n- Si no se activa, **revisa la descripción primero**\n- Descripción = qué hace + cuándo + frases gatillo\n- Carga: metadata → instrucciones → referencias/scripts\n- Empieza simple y añade complejidad poco a poco\n- Divide en skills pequeñas y `references/`\n- Lee los scripts antes de instalar\n- `SKILL.md` es un estándar abierto",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Descripción",
+        "secondText": "primero",
+        "description": "Sígueme para más sobre agentes de IA y herramientas para desarrolladores.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "IA • AGENTES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

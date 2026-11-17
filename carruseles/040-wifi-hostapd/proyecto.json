@@ -1,0 +1,82 @@
+{
+  "id": "p040",
+  "name": "040 Wi-Fi con hostapd",
+  "lastModified": 1794800500000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Wi-Fi abierta vs cifrada",
+        "subtitle": "Un punto de acceso en Linux con hostapd, dnsmasq y NAT",
+        "category": "REDES · WI-FI",
+        "iconChar": "📶"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Qué necesitas\n\nhostapd convierte tu tarjeta Wi-Fi en punto de acceso; dnsmasq reparte IP y DNS. Antes, comprueba que tu tarjeta soporte el modo AP:\n\n```bash\niw list | grep -A8 \"interface modes\"\n# debe aparecer:  * AP\n\nsudo apt install hostapd dnsmasq\n```\n\nUna tarjeta con buen soporte en Linux te ahorra pelear con controladores.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Red abierta\n\nLa configuración mínima: interfaz, nombre y canal. Sin clave, cualquiera se conecta y el tráfico viaja **sin cifrar** por el aire.\n\n```conf\n# /etc/hostapd/hostapd.conf\ninterface=wlan0\ndriver=nl80211\nssid=RedInvitados\nhw_mode=g\nchannel=6\nauth_algs=1\n```\n\n`hw_mode=g` con el canal 6: banda de 2,4 GHz.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Red cifrada (WPA2)\n\nEl mismo archivo con cuatro líneas más. Ahora hace falta la clave y el aire va cifrado con CCMP (AES).\n\n```conf\nssid=RedSegura\nwpa=2\nwpa_key_mgmt=WPA-PSK\nwpa_passphrase=CambiaEstaClave\nrsn_pairwise=CCMP\n```\n\n- La clave: de 8 a 63 caracteres\n- Si tu hardware lo admite, WPA3: `wpa_key_mgmt=SAE` con `ieee80211w=2`",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Arranca hostapd\n\nEn Debian y Raspberry Pi OS el servicio suele quedar **enmascarado** tras instalarlo. Además, NetworkManager no debe gestionar esa interfaz.\n\n```bash\nsudo nmcli dev set wlan0 managed no\nsudo systemctl unmask hostapd\nsudo systemctl enable --now hostapd\njournalctl -u hostapd -f\n```\n\nSi el SSID aparece en tu teléfono, el punto de acceso funciona. Pero todavía no hay Internet.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## hostapd solo crea el Wi-Fi\n\nLos clientes se asocian, pero sin IP no hacen nada. Da una IP fija al punto de acceso y deja que dnsmasq reparta el resto:\n\n```text\n# IP fija del punto de acceso\nip addr add 192.0.2.1/24 dev wlan0\n\n# /etc/dnsmasq.conf\ninterface=wlan0\nbind-interfaces\ndhcp-range=192.0.2.10,192.0.2.100,12h\n```\n\ndnsmasq anuncia su propia IP como gateway y DNS. Usa un rango privado en tu red; este es de documentación.",
+        "fontScale": 1.07
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Salida a Internet: reenvío + NAT\n\nEl kernel no reenvía paquetes por defecto. Actívalo y enmascara las IP de los clientes tras la interfaz de salida (`eth0`):\n\n```bash\nsysctl -w net.ipv4.ip_forward=1\niptables -t nat -A POSTROUTING \\\n  -o eth0 -j MASQUERADE\niptables -A FORWARD -i wlan0 \\\n  -o eth0 -j ACCEPT\niptables -A FORWARD -i eth0 \\\n  -o wlan0 -m conntrack \\\n  --ctstate ESTABLISHED,RELATED \\\n  -j ACCEPT\n```\n\nPara que dure, pon `net.ipv4.ip_forward=1` en `/etc/sysctl.d/`.",
+        "fontScale": 1.0
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## La trampa: puerto 53 ocupado\n\nSi dnsmasq no arranca con \"Address already in use\", otro proceso escucha en el puerto 53 (DNS). Averigua cuál:\n\n```bash\nsudo ss -lntup 'sport = :53'\n```\n\n- `systemd-resolved` usa `127.0.0.53`: con `bind-interfaces`, dnsmasq suele convivir con él\n- connman u otro dnsmasq en todas las interfaces: desactiva su DNS\n- Revisa los logs: `journalctl -u dnsmasq`",
+        "fontScale": 1.1
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Abierta vs cifrada\n\n| | Abierta | WPA2 / WPA3 |\n| :--- | :--- | :--- |\n| Aire cifrado | No | Sí |\n| Quién entra | Cualquiera | Quien sepa la clave |\n| Uso típico | Invitados + portal | Casa, oficina |\n\nLa clave protege el **aire**; un portal cautivo controla **quién navega**. Son capas distintas y se combinan. (Wi-Fi *Enhanced Open*, OWE, cifra sin clave si tus clientes lo soportan.)",
+        "fontScale": 1.15
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Cifra el aire,",
+        "secondText": "controla el acceso",
+        "description": "Próximo: un portal cautivo encima de esta red. Sígueme para más de redes.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • WI-FI • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

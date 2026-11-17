@@ -1,0 +1,82 @@
+{
+  "id": "p035",
+  "name": "035 Métodos HTTP",
+  "lastModified": 1794800000000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Los métodos HTTP",
+        "subtitle": "Uno por lámina: qué hace cada uno y si es seguro, idempotente y cacheable",
+        "category": "REDES · HTTP",
+        "iconChar": "📨"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## GET · leer\n\nPide una representación del recurso. Es **seguro**: no cambia nada en el servidor, por eso navegadores, cachés y buscadores lo repiten sin pedir permiso.\n\n```text\nGET /libros/42 HTTP/1.1\nHost: api.example.com\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ✅ | ✅ | ✅ |\n\nNunca borres con GET: un *prefetch* lo ejecutaría.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## POST · procesar\n\nEnvía datos para que el servidor los procese: crear, disparar una acción, subir un archivo. **No es idempotente**: si repites la petición, puedes crear dos pedidos.\n\n```text\nPOST /pedidos HTTP/1.1\nContent-Type: application/json\n\n{\"libro\": 42, \"cantidad\": 1}\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ❌ | ❌ | Casi nunca |\n\nPara reintentar sin duplicar, usa una clave de idempotencia.",
+        "fontScale": 1.05
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## PUT · reemplazar\n\nReemplaza el recurso **completo** con lo que envías, o lo crea en esa URL. Es **idempotente**: enviarlo 1 o 10 veces deja el mismo estado final.\n\n```text\nPUT /libros/42 HTTP/1.1\nContent-Type: application/json\n\n{\"titulo\": \"Dune\", \"anio\": 1965}\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ❌ | ✅ | ❌ |\n\nOjo: el campo que omites se pierde. PUT no mezcla.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## PATCH · modificar una parte\n\nAplica cambios **parciales** (RFC 5789): solo lo que indicas. Sirve con JSON Merge Patch (RFC 7396) o, como aquí, JSON Patch (RFC 6902, `application/json-patch+json`).\n\n```text\nPATCH /libros/42 HTTP/1.1\n\n[{\"op\": \"replace\",\n  \"path\": \"/anio\",\n  \"value\": 1966}]\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ❌ | No garantizado | ❌ |\n\n\"Suma 1 al stock\" repetido no da lo mismo.",
+        "fontScale": 1.0
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## DELETE · eliminar\n\nBorra el recurso. Es **idempotente** aunque la respuesta cambie: lo que cuenta es el estado del servidor, no el código que recibes.\n\n```text\nDELETE /libros/42  → 204 No Content\nDELETE /libros/42  → 404 Not Found\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ❌ | ✅ | ❌ |\n\nTras la primera o la décima llamada, el libro 42 ya no existe. Ese es el efecto que se repite.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## OPTIONS · preguntar\n\nConsulta qué admite un recurso; el servidor responde con la cabecera `Allow`. El navegador lo envía solo, como **preflight** de CORS, antes de peticiones \"no simples\" (PUT, DELETE, JSON…).\n\n```text\nOPTIONS /libros/42 HTTP/1.1\nOrigin: https://app.example.com\nAccess-Control-Request-Method: PUT\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ✅ | ✅ | ❌ |\n\nEl navegador recuerda el preflight según `Access-Control-Max-Age`.",
+        "fontScale": 1.0
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## TRACE · ver el eco\n\nDevuelve, en el cuerpo, la petición tal como **llegó** al servidor. Sirve para ver qué cambiaron los proxies en el camino; `Max-Forwards` limita los saltos.\n\n```text\nTRACE / HTTP/1.1\nHost: api.example.com\nMax-Forwards: 2\n\n→ 200 OK\nContent-Type: message/http\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ✅ | ✅ | ❌ |\n\nCasi siempre está **desactivado**: reflejar cabeceras facilitó ataques XST.",
+        "fontScale": 1.0
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## QUERY · buscar con cuerpo\n\nEl método más nuevo, del grupo HTTP del IETF. Es como GET, pero los filtros van en el **cuerpo**: para búsquedas que no caben en una URL y que POST no debería hacer.\n\n```text\nQUERY /libros HTTP/1.1\nContent-Type: application/json\n\n{\"autor\": \"Herbert\",\n \"anio\": {\"desde\": 1960}}\n```\n\n| Seguro | Idempotente | Cacheable |\n| :---: | :---: | :---: |\n| ✅ | ✅ | ✅ |\n\nLa caché usa el cuerpo como parte de la clave. Verifica que tu servidor y tu CDN lo soporten.",
+        "fontScale": 1.0
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "8 métodos,",
+        "secondText": "3 preguntas",
+        "description": "Guárdalo para diseñar tu próxima API. Sígueme para más de redes y HTTP.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • HTTP • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

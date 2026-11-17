@@ -1,0 +1,82 @@
+{
+  "id": "p036",
+  "name": "036 RFC 9457 fundamentos",
+  "lastModified": 1794800100000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Errores de API que sí explican",
+        "subtitle": "RFC 9457 · Problem Details, parte 1: el formato",
+        "category": "REDES · HTTP · APIs",
+        "iconChar": "🧩"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nUn código HTTP dice la **categoría** del error, no el motivo. Un `403` puede ser falta de permisos, saldo insuficiente o una IP bloqueada.\n\n- Cada API inventaba su formato: `error`, `msg`, `errors`…\n- Un SDK no puede leer una página HTML de error\n- El cliente acaba comparando textos\n\nLa RFC 9457 (julio de 2023, reemplaza a la RFC 7807) propone un formato común.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Así se ve un Problem Details\n\nUn objeto JSON con `Content-Type: application/problem+json`. Ejemplo adaptado de la propia RFC, en una respuesta `403`:\n\n```json\n{\n  \"type\":\n    \"https://example.com/probs/saldo\",\n  \"title\": \"Saldo insuficiente\",\n  \"detail\": \"Saldo 30, costo 50.\",\n  \"status\": 403,\n  \"instance\": \"/cuentas/12345/msgs/abc\"\n}\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## type y title: la clase de error\n\n`type` es una URI que identifica la **clase** de problema: es lo que tu código debe comparar. `title` es su resumen para personas.\n\n- `type`: absoluta y estable; si es `https`, que lleve a la documentación\n- Sin `type`, vale `about:blank`: \"solo el código HTTP\"\n- Con `about:blank`, `title` = frase estándar (`Not Found`)\n- `title` no cambia entre ocurrencias; solo se traduce",
+        "fontScale": 1.05
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## detail e instance: este caso\n\n`detail` explica **esta** ocurrencia para que el cliente pueda corregirla. `instance` identifica la ocurrencia concreta.\n\n- `detail` es para personas: no lo parsees\n- Si el cliente necesita datos, van en extensiones\n- `instance` es una URI; si no se puede consultar, sirve como ID opaco\n- Piénsalo como \"el error que tuvo Ana el jueves\": útil para soporte y logs",
+        "fontScale": 1.2
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## status: solo informativo\n\n`status` repite el código HTTP dentro del cuerpo. Sirve cuando el JSON se guarda fuera de HTTP o cuando un proxy cambia el código en el camino.\n\n| Situación | Qué manda |\n| :--- | :--- |\n| Coinciden | Da igual |\n| Un proxy cambió el código | El código HTTP real |\n| JSON guardado en un log | `status` |\n\nGenera siempre el mismo valor que envías en la respuesta.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Extensiones: datos, no texto\n\nCada tipo de problema puede añadir campos propios. Así el cliente obtiene datos estructurados sin parsear `detail`.\n\n```json\n{\n  \"title\": \"Saldo insuficiente\",\n  \"balance\": 30,\n  \"accounts\": [\"/cuentas/12345\",\n               \"/cuentas/67890\"]\n}\n```\n\n- El cliente **ignora** las extensiones que no conoce\n- Nombres recomendados: empiezan con letra, ≥ 3 caracteres, solo `A-Z a-z 0-9 _`",
+        "fontScale": 0.97
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Varios errores a la vez\n\nPara errores de validación del **mismo tipo**, la RFC sugiere una extensión con un arreglo; cada elemento señala el campo con un JSON Pointer (RFC 6901). Respuesta `422`:\n\n```json\n\"errors\": [\n  {\"detail\": \"debe ser entero > 0\",\n   \"pointer\": \"#/age\"},\n  {\"detail\": \"green, red o blue\",\n   \"pointer\": \"#/profile/color\"}\n]\n```\n\nSi son de tipos distintos, responde con el más relevante o urgente.",
+        "fontScale": 1.12
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta: los 5 campos\n\nTodos son opcionales; el cliente usa `type` para decidir qué hacer.\n\n| Campo | Tipo | Para qué |\n| :--- | :--- | :--- |\n| `type` | URI | Clase de problema |\n| `title` | texto | Resumen estable |\n| `detail` | texto | Esta ocurrencia |\n| `status` | entero | Código HTTP (copia) |\n| `instance` | URI | ID de la ocurrencia |\n\nParte 2: cómo definir tus tipos e implementarlo.",
+        "fontScale": 1.07
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Menos 403,",
+        "secondText": "más contexto",
+        "description": "Guárdalo y espera la parte 2: Problem Details en la práctica.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • HTTP • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

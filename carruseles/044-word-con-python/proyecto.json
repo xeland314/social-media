@@ -1,0 +1,82 @@
+{
+  "id": "p044",
+  "name": "044 Word con Python",
+  "lastModified": 1794600000000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Un Word, N documentos",
+        "subtitle": "De {{marcadores}} a decenas de .docx con Python",
+        "category": "AUTOMATIZACIÓN · PYTHON",
+        "iconChar": "📄"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nLa misma carta, el mismo contrato o la misma constancia para 40 personas: copiar, pegar el nombre, cambiar la fecha, revisar. Tarda y se cuelan errores.\n\nLa idea: escribir el documento **una vez** y dejar que un script genere las versiones.\n\n```text\n1 plantilla.docx + 1 datos.csv\n        ↓\n  N documentos .docx\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Plantilla con {{marcadores}}\n\n1. Redacta el `.docx` final, tal como debe verse, con **un** destinatario de ejemplo.\n2. Reemplaza lo que cambia por marcadores.\n3. Guárdalo como `plantilla.docx`.\n\n- `{{nombre}}`\n- `{{empresa}}`\n- `{{fecha}}`\n- `{{monto}}`\n\nEl formato queda definitivo: el script solo toca el texto.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Proyecto y datos\n\nEntorno reproducible con `uv`:\n\n```bash\nuv init word-automation\ncd word-automation\nuv add python-docx\n```Una fila del `.csv` = un documento; una columna por marcador:\n\n```csv\nnombre,empresa,fecha,monto\nAna Pérez,Empresa Uno,2027-01-15,120.50\nLuis Mora,Empresa Dos,2027-01-16,80.00\n```",
+        "fontScale": 1.15
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## La trampa de los runs\n\nWord parte un párrafo en **runs** cada vez que cambia el formato (negrita, color…). Un marcador casi nunca vive en un solo run.\n\n```python\n# Mal: busca run por run\nfor run in p.runs:\n    run.text = run.text.replace(\n        \"{{nombre}}\", nombre)\n```Aunque se vea `{{nombre}}` en pantalla, puede estar partido en dos o tres runs: el reemplazo no encuentra nada.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## El motor de reemplazo\n\nUne el texto del párrafo, reemplaza ahí y vuelca el resultado en el primer run:\n\n```python\nMARCADOR = re.compile(\n    r\"\\{\\{\\s*(\\w+)\\s*\\}\\}\")\n\ntexto = \"\".join(r.text for r in p.runs)\nnuevo = MARCADOR.sub(\n    lambda m: str(d.get(m[1], m[0])),\n    texto)\np.runs[0].text = nuevo\nfor r in p.runs[1:]: r.text = \"\"\n```Si falta un dato, el marcador queda visible.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Ojo con el formato\n\nEste método **conserva el formato del primer run**: si en un mismo párrafo mezclas negrita y texto normal, todo tomará el estilo del primero.\n\n- Mantén cada marcador en párrafos de formato uniforme\n- Recorre también **tablas**, **encabezados** y **pies de página**: `doc.paragraphs` no los incluye\n- Las tablas pueden anidar otras tablas",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## La CLI\n\nUn comando, un documento por fila:\n\n```bash\nuv run generar-docs \\\n  --plantilla plantilla.docx \\\n  --datos destinatarios.csv \\\n  --salida salida/\n```- `--datos` acepta `.csv` o `.json`\n- Los archivos se nombran con la columna `nombre`\n- Sin abrir Word ni Excel: se puede repetir y versionar",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Antes de generar en lote\n\n- Prueba con **un solo registro**\n- Verifica que cada columna coincide con un marcador\n- Busca `{{` en el resultado: no debe quedar ninguno\n- Guarda una copia de la plantilla original\n\n**Mito:** \"mail merge es solo de Word con Excel\". **Realidad:** `python-docx` + un `.csv` generan cientos de documentos desde una CLI.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "Una plantilla,",
+        "secondText": "N documentos",
+        "description": "Sígueme para más casos de la serie TI, con datos ficticios.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "AUTOMATIZACIÓN • PYTHON • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

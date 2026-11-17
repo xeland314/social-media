@@ -1,0 +1,65 @@
+{
+  "id": "036",
+  "slug": "rfc-9457-fundamentos",
+  "title": "RFC 9457: errores de API que sí explican qué pasó",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-06",
+  "durationSec": null,
+  "hook": "Un 403 no dice por qué. La RFC 9457 define un formato estándar para que tu API sí lo diga.",
+  "topicTags": [
+    "#api",
+    "#http",
+    "#rfc9457",
+    "#backend",
+    "#rest"
+  ],
+  "sourceAnimation": "(presentación propia: rfc-9457/rfc9457-fundamentos.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/036-rfc-9457-fundamentos",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Un 403 puede significar falta de permisos, saldo insuficiente o IP bloqueada. La RFC 9457 (Problem Details) define un JSON estándar para explicar el error: type, title, detail, status e instance, más extensiones. Parte 1 de 2.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Errores de API que sí explican qué pasó 🧩\n\nRFC 9457 · Problem Details, parte 1:\n\n• type: la clase de error (lo que compara tu código)\n• title: resumen estable para personas\n• detail: qué pasó en este caso\n• status: copia informativa del código HTTP\n• instance: ID de esta ocurrencia\n\nMás extensiones para datos y un formato para varios errores de validación. Guárdalo; la parte 2 trae la práctica.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Cada API inventaba su formato de error: error, msg, errors… La RFC 9457 (sucesora de la 7807) lo estandariza con application/problem+json y cinco campos. El detalle clave: tu código compara type, nunca el texto de detail. Parte 1 de 2.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Tu API responde 403 y el cliente tiene que adivinar el motivo? La RFC 9457, publicada en 2023 como sucesora de la RFC 7807, define Problem Details: un formato JSON común para describir errores HTTP. En esta primera parte repaso los cinco campos, las extensiones y cómo reportar varios errores de validación a la vez.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "RFC 9457: errores de API que sí explican qué pasó",
+      "text": "Pieza solo de carrusel: no se publica como video. RFC 9457 (Problem Details for HTTP APIs), parte 1: los campos type, title, detail, status e instance, extensiones y errores de validación múltiples.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "RFC 9457 第一部分",
+      "text": "RFC 9457 · Problem Details, parte 1: un JSON estándar para explicar errores de API.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "让 API 错误说清原因",
+      "textZh": "RFC 9457 定义了 application/problem+json：type、title、detail、status、instance 五个字段，加上扩展字段和多个校验错误的写法。第 1 部分，共 2 部分。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

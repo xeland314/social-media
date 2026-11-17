@@ -1,0 +1,65 @@
+{
+  "id": "039",
+  "slug": "iptables-nftables",
+  "title": "iptables y nftables para quien viene del mundo web",
+  "series": "redes",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2027-01-13",
+  "durationSec": null,
+  "hook": "Un firewall es un middleware que corre antes que tu app. Así se escribe en iptables y en nftables.",
+  "topicTags": [
+    "#iptables",
+    "#nftables",
+    "#firewall",
+    "#linux",
+    "#sysadmin"
+  ],
+  "sourceAnimation": "(presentación propia: iptables/iptables_nftables.md; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/039-iptables-nftables",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Si vienes de Express o Django, piensa el firewall como un middleware que corre en el kernel antes que tu app. Cadenas, conntrack y el mismo firewall escrito en iptables y en nftables, con los errores que te dejan fuera del servidor.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "iptables y nftables para devs web 🧱\n\n• Regla = middleware\n• ACCEPT = next()\n• DROP = no responder\n• REJECT = error inmediato\n\nEn el carrusel: cadenas INPUT/OUTPUT/FORWARD, conntrack, un ejemplo en iptables y el mismo en nftables.\n\nLa trampa clásica: aplicar DROP antes de aceptar el puerto 22 y perder el SSH. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Con iptables, -A agrega al final. Si tu regla DROP va antes que la de ESTABLISHED,RELATED, esa regla nunca se evalúa y dejan de llegar las respuestas de DNS o apt. Mejor: estado primero, puertos después y DROP como política de la cadena.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Vienes del desarrollo web y te toca configurar un firewall en Linux? En este carrusel traduzco iptables y nftables a conceptos que ya conoces: reglas como middlewares, ACCEPT como next(), DROP como no responder. Incluye un ejemplo completo en ambas herramientas y los errores que te dejan sin acceso al servidor.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "iptables y nftables para quien viene del mundo web",
+      "text": "Pieza solo de carrusel: no se publica como video. iptables y nftables explicados para desarrolladores web: cadenas, conntrack, ejemplos equivalentes y errores comunes.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "iptables 与 nftables",
+      "text": "iptables y nftables para devs web: el firewall como middleware que corre antes de tu app.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "写给 Web 开发者的防火墙",
+      "textZh": "把防火墙规则看成在内核里运行的中间件：链、连接跟踪，以及同一套规则的 iptables 和 nftables 写法，还有会把你锁在服务器外的常见错误。"
+    }
+  },
+  "plan": "puente-2026-12"
+}

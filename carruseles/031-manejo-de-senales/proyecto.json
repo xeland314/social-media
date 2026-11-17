@@ -1,0 +1,82 @@
+{
+  "id": "p031",
+  "name": "031 Manejo de señales",
+  "lastModified": 1794600031000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Salida limpia con señales",
+        "subtitle": "Ctrl+C y SIGTERM sin dejar basura, en C",
+        "category": "LINUX · SEÑALES",
+        "iconChar": "🚦"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## ¿Qué es una señal?\n\nUn aviso **asíncrono** que el kernel entrega a un proceso: interrumpe lo que esté haciendo. Cada señal tiene un número y una acción por defecto.\n\n| Señal | Nº | Origen típico |\n| --- | --- | --- |\n| SIGHUP | 1 | se cierra la terminal |\n| SIGINT | 2 | Ctrl+C |\n| SIGKILL | 9 | `kill -9` |\n| SIGTERM | 15 | `kill`, `systemctl stop` |",
+        "fontScale": 1.15
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Qué pasa si no haces nada\n\nSIGINT y SIGTERM se pueden **manejar**; SIGKILL y SIGSTOP no: el kernel actúa sin avisar al proceso.\n\nSin handler, SIGINT y SIGTERM terminan el proceso en seco:\n\n- Los buffers de `stdio` no se vacían\n- Las funciones de `atexit()` no se ejecutan\n- Quedan temporales, locks y conexiones a medias",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## El patrón: bandera + bucle\n\n```c\nstatic volatile sig_atomic_t run = 1;\n\nstatic void on_sig(int sig) {\n  (void)sig;\n  run = 0;   /* solo esto */\n}\n```\nEl handler solo baja una bandera. El trabajo y la limpieza siguen en el flujo normal del programa, donde puedes llamar a cualquier función.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## sigaction(), no signal()\n\n```c\nstruct sigaction sa = {0};\nsa.sa_handler = on_sig;\nsigemptyset(&sa.sa_mask);\nsigaction(SIGINT, &sa, NULL);\nsigaction(SIGTERM, &sa, NULL);\n\nwhile (run) trabajar();\nlimpiar();   /* fuera del handler */\n```\nLa semántica de `signal()` varía entre sistemas; `sigaction()` es POSIX y te deja elegir máscara y flags.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## ¿Por qué volatile sig_atomic_t?\n\nEl handler puede ejecutarse entre dos instrucciones cualesquiera de tu programa.\n\n- `volatile`: el compilador vuelve a leer `run` en cada vuelta y no la guarda en un registro\n- `sig_atomic_t`: la escritura ocurre de una sola vez, sin estados a medias\n- Sin `volatile`, con `-O2` el `while (run)` puede quedar como bucle infinito",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## La trampa: printf en el handler\n\nDentro de un handler solo puedes llamar funciones **async-signal-safe**. Si la señal llega mientras `malloc` o `printf` tenían un lock, el programa puede bloquearse o corromper memoria.\n\n| Evita | Usa en su lugar |\n| --- | --- |\n| `printf` | `write(2, ...)` |\n| `exit` | `_exit` |\n| `malloc`, `free` | nada: hazlo fuera |",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Pruébalo como systemd\n\n`systemctl stop` envía SIGTERM, espera `TimeoutStopSec` (90 s por defecto) y, si el proceso sigue vivo, manda SIGKILL. Tu limpieza debe caber en ese tiempo.\n\n```bash\n./mi_app & pid=$!\nkill -TERM \"$pid\"\nwait \"$pid\"; echo \"exit: $?\"\n```\nSin handler verás `143` (128 + 15); con salida limpia, `0`.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Checklist de salida limpia\n\nSIGKILL no se puede atrapar: por eso SIGTERM es tu única oportunidad.\n\n- [x] `sigaction` para SIGINT y SIGTERM\n- [x] Bandera `volatile sig_atomic_t`\n- [x] Handler mínimo: solo la bandera\n- [x] Borrar locks y temporales, cerrar sockets\n- [x] Limpieza después del bucle, no dentro del handler\n- [x] Probar con Ctrl+C y `kill -TERM`",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "firstText": "Cierra",
+        "secondText": "bien",
+        "description": "Complementa el video SIGTERM vs SIGKILL. Sígueme para más Linux y C.",
+        "finalText": "LINUX • SEÑALES • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

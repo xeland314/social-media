@@ -1,0 +1,64 @@
+{
+  "id": "034",
+  "slug": "slides-c",
+  "title": "slides.c: presentaciones sin lag, escritas en C",
+  "series": "pixel",
+  "calendarDay": null,
+  "status": "carousel-only",
+  "format": "carrusel",
+  "publishDate": "2026-12-30",
+  "plan": "puente-2026-12",
+  "durationSec": null,
+  "hook": "Presentaciones en Markdown que abren al instante: un presentador nativo en C con Cairo y Pango.",
+  "topicTags": [
+    "#lenguajec",
+    "#markdown",
+    "#opensource",
+    "#presentaciones"
+  ],
+  "sourceAnimation": "(presentación del autor: slides-c-presentacion.md + README de slides.c; solo carrusel)",
+  "carousel": {
+    "path": "carruseles/034-slides-c",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "slides.c es mi presentador de diapositivas en C: escribes Markdown, lo presentas en una ventana nativa con Cairo y Pango, con hot reload, 11 temas y exportación a PDF, PNG, SVG, JPG y GIF. Código abierto, licencia MIT.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "slides.c: presentaciones sin lag 🖥️\n\n✔ Escribes Markdown, separas con ---\n✔ Ventana nativa en C con Cairo y Pango, sin navegador\n✔ Hot reload cada 500 ms\n✔ 11 temas, tablas, código con resaltado, notas\n✔ Exporta a PDF, PNG, SVG, JPG y GIF\n\nCódigo abierto (MIT) en github.com/xeland314/slides.c. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Hice slides.c: un presentador de diapositivas en C que lee Markdown y lo dibuja con Cairo y Pango, sin Electron ni navegador. Hot reload, 11 temas, exportación a PDF, PNG y GIF. Código abierto en github.com/xeland314/slides.c",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Presento slides.c, un proyecto propio: un presentador de diapositivas escrito en C que lee archivos Markdown y los muestra en una ventana nativa (X11 en Linux, Win32 en Windows) con Cairo y Pango. Sin Electron ni navegador. Tiene hot reload, 11 temas, tablas, código con resaltado, notas del presentador, transiciones y exportación a PDF, PNG, SVG, JPG y GIF desde la terminal. Es código abierto con licencia MIT: github.com/xeland314/slides.c",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "slides.c: presentaciones en Markdown sin lag, escritas en C",
+      "text": "Pieza solo de carrusel: no se publica como video. Presentador nativo en C con Cairo y Pango: Markdown, hot reload, 11 temas y exportación a PDF, PNG, SVG, JPG y GIF. Código: github.com/xeland314/slides.c",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "slides.c en C",
+      "text": "Presentaciones en Markdown con una ventana nativa en C, Cairo y Pango: hot reload, 11 temas y exportación.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "用 C 写的幻灯片工具",
+      "textZh": "用 Markdown 写幻灯片，由 C、Cairo 和 Pango 原生渲染，无需浏览器：热重载、11 种主题，可导出 PDF、PNG、GIF。MIT 开源。"
+    }
+  }
+}

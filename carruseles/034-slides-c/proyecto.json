@@ -1,0 +1,82 @@
+{
+  "id": "p034",
+  "name": "034 slides.c",
+  "lastModified": 1794600034000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "slides.c",
+        "subtitle": "Presentaciones en Markdown, sin lag, escritas en C",
+        "category": "PROYECTO · C",
+        "iconChar": "🖥️"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nMuchas herramientas de presentaciones cargan un navegador entero para mostrar texto y formas, y te obligan a diseñar con el mouse.\n\n- Sin Electron ni navegador: C + Cairo + Pango\n- Ventana nativa X11 en Linux y Win32 en Windows\n- Texto plano: fácil de versionar y de editar con IA\n- Licencia MIT",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Tus slides son Markdown\n\n```markdown\n---\ntheme: dracula\n---\n# Título\n## Subtítulo\n\n- Idea clave\n---\n# Segunda lámina\n```\nUna línea `---` separa cada diapositiva. Si no hay ninguna, divide sola por títulos `#` y `##`: puedes presentar un README tal cual.",
+        "fontScale": 1.12
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Hecho para ir rápido\n\nDibuja directo con Cairo, sin motor web de por medio.\n\n- **Hot reload**: revisa el `.md` cada 500 ms y recarga solo\n- **Doble buffer** y framerate adaptativo en X11\n- **Caché de 64 imágenes**: no relee del disco\n- **Transiciones** de 300 ms con suavizado smoothstep",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Lo que sabe dibujar\n\nTodo con Markdown y directivas en comentarios HTML, así el archivo sigue siendo Markdown válido.\n\n- Código con resaltado: c, python, go, bash, rust…\n- Tablas con alineación y filas alternadas\n- Checklists `- [x]` y citas `>`\n- Imágenes: `<!-- img: width=40%, radius=20 -->`\n- Notas: `<!-- notes: ... -->`\n- Transición por lámina: `<!-- transition: fade -->`",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Exporta desde la terminal\n\n```bash\n# un solo PDF\n./slides -e pdf charla.md\n# un PNG por slide, a 1920x1080\n./slides -e png -er 1920x1080 charla.md\n# solo la tercera (índice desde 0)\n./slides -e png -sl 2 charla.md\n# GIF animado\n./slides -e gif charla.md\n```\nTambién SVG y JPG. Sin `-er`, exporta a 1080x1080.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## En vivo\n\n| Tecla | Acción |\n| --- | --- |\n| → / ← | siguiente / anterior |\n| Tab | vista general de todas |\n| T | cambiar de tema en vivo |\n| F | pantalla completa |\n\n11 temas integrados (dracula, nord, gruvbox, tokyo-night…) o tus colores en el frontmatter. `--kiosk 5` avanza solo cada 5 s, en bucle.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Por dentro\n\n```text\nslider.h      API pública\nsrc/\n├── core/     parser, temas, resaltado\n├── render/   Cairo/Pango y exportación\n└── ui/       X11, Win32, pestañas\n```\nEl núcleo se compila también como biblioteca (`libslider.so`) y los tests en Python la prueban vía `ctypes`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Pruébalo\n\n```bash\nsudo apt install libcairo2-dev \\\n  libpango1.0-dev libx11-dev\ngit clone \\\n  https://github.com/xeland314/slides.c\ncd slides.c && make\n./slides charla.md\n```\nSin argumentos abre un selector de archivos; con varios `.md`, cada uno va en una pestaña.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "firstText": "Markdown",
+        "secondText": "sin lag",
+        "description": "Dale una estrella en GitHub: xeland314/slides.c. Sígueme para más proyectos en C.",
+        "finalText": "PROYECTOS • C • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "p041",
+  "name": "041 Catsplash",
+  "lastModified": 1794800600000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "Un portal cautivo en Go",
+        "subtitle": "Catsplash: Wi-Fi de invitados con Go, SQLite e iptables",
+        "category": "REDES · GO",
+        "iconChar": "🐱"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## El problema\n\nEventos, talleres y negocios necesitan Wi-Fi para invitados con algo de control. Las soluciones comerciales suelen ser pesadas o de pago.\n\n- Aceptar términos antes de navegar\n- Sesiones que expiran solas\n- Cuota de datos y velocidad por cliente\n- Un panel para ver quién está conectado\n\nCatsplash es un portal cautivo de código abierto que hace eso en Linux.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## La arquitectura\n\nVa encima de un punto de acceso con hostapd y dnsmasq. El binario de Go coordina todo:\n\n```text\nCliente Wi-Fi\n  ↓ hostapd + dnsmasq\nCatsplash (Go)\n  ├─ iptables: bloquea y libera\n  ├─ tc: ancho de banda\n  ├─ SQLite: clientes y sesiones\n  └─ HTTP :8080: portal y /admin\n```\n\nMás una CLI, `catsctl`, para ver el estado.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Cómo atrapa al cliente\n\nHasta que acepta los términos, el cliente solo puede usar DHCP y DNS. Su tráfico HTTP (puerto 80) se redirige al portal:\n\n```bash\niptables -t nat -A PREROUTING \\\n  -i wlan0 -p tcp --dport 80 \\\n  -j DNAT --to-destination \\\n  192.0.2.1:8080\niptables -I FORWARD -i wlan0 -j DROP\n```\n\nLas excepciones para DHCP y DNS se insertan antes del `DROP`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## El sistema abre el portal solo\n\nAl conectarse, cada sistema pide una URL de prueba. Si no recibe la respuesta esperada, abre el portal (Captive Network Assistant):\n\n| Sistema | URL de prueba |\n| :--- | :--- |\n| Android | `/generate_204` |\n| Apple | `/hotspot-detect.html` |\n| Windows | `/ncsi.txt` |\n\nCatsplash responde con un 302 a `/portal`. HTTPS no se puede redirigir sin romper el certificado: por eso todo depende de estas pruebas en HTTP.",
+        "fontScale": 1.07
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Liberar al cliente\n\nAl aceptar, Catsplash busca la MAC del cliente y abre el paso solo para ese par IP + MAC. Las reglas van **al inicio** (`-I … 1`) para ganarle al `DROP`:\n\n```bash\niptables -I FORWARD 1 -i wlan0 \\\n  -s 192.0.2.23 \\\n  -m mac --mac-source <MAC> \\\n  -j ACCEPT\n```\n\nOtra regla deja pasar la bajada y una más lo saca de la redirección al portal.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Sesiones, cuotas y velocidad\n\nCada 10 segundos, dos tareas en segundo plano revisan a los clientes autenticados:\n\n- **Reaper**: expira la sesión por tiempo total o por inactividad (1 h y 15 min en la configuración de ejemplo)\n- **Monitor**: lee los contadores de iptables y corta al superar la cuota de datos\n- **tc (HTB)**: limita subida y bajada por cliente\n- **/admin**, con contraseña: autorizar, desconectar y limitar",
+        "fontScale": 1.25
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Instalación\n\nPensado para Debian/Ubuntu. Necesitas Go 1.26+, gcc (el driver de SQLite usa CGO), hostapd, dnsmasq e iptables.\n\n```bash\ngit clone \\\n  https://github.com/xeland314/catsplash\ncd catsplash\nmake build\nsudo ./setup.sh\nsudo ./bin/catsctl status\n```\n\n`setup.sh` prepara las interfaces, los servicios de systemd y `/opt/catsplash`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Aún no es para producción\n\nÚsalo en laboratorios o eventos controlados. Pendientes conocidos:\n\n- La base SQLite no está cifrada\n- Falta HTTPS en partes del portal y del panel\n- Falta una política de protección de datos\n- Cambia la contraseña del panel que trae por defecto\n\nEn una prueba con 100 clientes simultáneos en un Core 2 Duo, respondió 100 de 100 y usó menos de 24 MB de RAM.",
+        "fontScale": 1.25
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "firstText": "La clave cifra,",
+        "secondText": "el portal decide",
+        "description": "Código abierto en GitHub: xeland314/catsplash. Sígueme para más de redes.",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "finalText": "REDES • GO • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}

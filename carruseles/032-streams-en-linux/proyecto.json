@@ -1,0 +1,82 @@
+{
+  "id": "p032",
+  "name": "032 Streams en Linux",
+  "lastModified": 1794600032000,
+  "data": {
+    "mode": "light",
+    "accent": "orange",
+    "showLogo": false,
+    "logoImage": "",
+    "username": "@xeland314",
+    "slides": [
+      {
+        "id": "1",
+        "type": "cover",
+        "title": "stdin, stdout y stderr en C",
+        "subtitle": "Los streams estándar con ejemplos que puedes compilar",
+        "category": "LINUX · C",
+        "iconChar": "🔢"
+      },
+      {
+        "id": "2",
+        "type": "markdown",
+        "content": "## Tres streams desde el arranque\n\nTodo proceso nace con tres descriptores abiertos. En C, `stdio.h` los envuelve como `FILE *`.\n\n| fd | FILE * | Para qué |\n| --- | --- | --- |\n| 0 | `stdin` | leer la entrada |\n| 1 | `stdout` | resultados |\n| 2 | `stderr` | errores y avisos |\n\nSepararlos te deja guardar los datos sin mezclar los errores.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "3",
+        "type": "markdown",
+        "content": "## Escribir en cada uno\n\n```c\n#include <stdio.h>\n\nint main(void) {\n  fprintf(stdout, \"NORMAL\\n\");\n  fprintf(stderr, \"ERROR\\n\");\n  printf(\"Otro normal\\n\");\n  return 0;\n}\n```\n`printf(...)` equivale a `fprintf(stdout, ...)`. En la terminal ves las tres líneas, pero viajan por dos canales distintos.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "4",
+        "type": "markdown",
+        "content": "## Redirigir cada fd\n\n```bash\n./ej1 > salida.txt    # solo fd 1\n./ej1 2> errores.txt  # solo fd 2\n./ej1 > out 2> err    # por separado\n./ej1 2> /dev/null    # calla errores\n```\nCon `> salida.txt` el ERROR sigue apareciendo en pantalla: solo redirigiste stdout. Eso es justo lo que quieres cuando algo falla.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "5",
+        "type": "markdown",
+        "content": "## Dato a stdout, aviso a stderr\n\n```c\nif (argc < 2) {\n  fprintf(stderr, \"Uso: %s <n>\\n\",\n          argv[0]);\n  return 1;\n}\nint n = atoi(argv[1]);\nprintf(\"%d * 2 = %d\\n\", n, n * 2);\nif (n > 100)\n  fprintf(stderr, \"AVISO: n > 100\\n\");\n```\n`./ej2 150 > r.txt` guarda solo el resultado, y el `return 1` avisa del error a `&&` y a los scripts.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "6",
+        "type": "markdown",
+        "content": "## Leer de stdin\n\n```c\nchar buf[100];\nprintf(\"Tu nombre: \");\nif (fgets(buf, sizeof buf, stdin)) {\n  buf[strcspn(buf, \"\\n\")] = '\\0';\n  printf(\"¡Hola, %s!\\n\", buf);\n}\n```\n```bash\necho María | ./ej3\n```\nAl programa le da igual si la entrada viene del teclado, de un archivo (`< nombre.txt`) o de un pipe.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## ¿Terminal o archivo?\n\n```c\n#include <unistd.h>\n\nif (isatty(STDOUT_FILENO))\n  puts(\"stdout: terminal\");\nelse\n  puts(\"stdout: archivo o pipe\");\n```\n```bash\n./ej4 | cat   # archivo o pipe\n```\n`isatty()` es lo que usa `ls` para decidir entre columnas o un archivo por línea, y `grep --color=auto` para poner color.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## La trampa: el orden cambia\n\n```bash\n$ ./ej2 150 > todo.txt 2>&1\n$ cat todo.txt\nAVISO: n > 100\n150 * 2 = 300\n```\nEl aviso se escribió después y sale primero. Hacia una terminal, stdout se vacía por líneas; hacia un archivo o pipe, por bloques. stderr no usa buffer. Solución: `fflush(stdout)` antes del aviso.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n| Quieres | Usa |\n| --- | --- |\n| datos | `printf` → stdout |\n| errores y avisos | `fprintf(stderr, ...)` |\n| saber si hay terminal | `isatty(fd)` |\n| conservar el orden | `fflush(stdout)` |\n\nY recuerda: `> f 2>&1` no es lo mismo que `2>&1 > f`. Las redirecciones se aplican de izquierda a derecha.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
+        "type": "end",
+        "likeText": "Like",
+        "commentText": "Comenta",
+        "saveText": "Guarda",
+        "firstText": "0, 1 y 2",
+        "secondText": "desde C",
+        "description": "Complementa el video File descriptors 0, 1 y 2. Sígueme para más Linux y C.",
+        "finalText": "LINUX • STREAMS • xeland314"
+      }
+    ],
+    "selectedSlideId": "1"
+  }
+}
