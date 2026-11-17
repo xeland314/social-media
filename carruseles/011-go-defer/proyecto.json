@@ -20,29 +20,47 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## defer\n\nPospone una llamada hasta que la función **termina**.\n\n```go\ndefer fmt.Println(\"cerrando db\")\n```",
-        "fontScale": 1.35
+        "content": "## Para qué sirve\n\nLiberar un recurso justo donde lo abres, aunque la función tenga varios `return`.\n\n```go\nf, err := os.Open(\"datos.txt\")\nif err != nil {\n    return err\n}\ndefer f.Close()\n// usar f...\n```\n`Close` corre al salir de la función.",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Tres defers\n\n```go\ndefer db.Close()\ndefer lock.Unlock()\ndefer log.Flush()\n```\nSe apilan en una **pila**.",
-        "fontScale": 1.35
+        "content": "## Cómo funciona\n\n`defer` no ejecuta la llamada: la **apila**. Cuando la función termina, Go vacía la pila.\n\nSe ejecuta con un `return` normal, con un `return` temprano y también si hay un `panic`.\n\nAsí el cierre queda junto a la apertura y no se olvida.",
+        "fontScale": 1.3
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Orden de salida\n\n1. `log.Flush()`\n2. `lock.Unlock()`\n3. `db.Close()`\n\nAl revés de como los registraste.",
-        "fontScale": 1.35
+        "content": "## Tres defers\n\n```go\nfunc main() {\n    defer fmt.Println(\"1\")\n    defer fmt.Println(\"2\")\n    defer fmt.Println(\"3\")\n}\n```\nSalida:\n\n```text\n3\n2\n1\n```",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Cuidado\n\nUn `defer` dentro de un `for` se acumula hasta que la función termina, no en cada vuelta.",
-        "fontScale": 1.35
+        "content": "## Por qué LIFO\n\nSe cierra en orden **inverso** al de apertura, como al desarmar una torre:\n\n```go\ndefer db.Close()\ndefer lock.Unlock()\ndefer log.Flush()\n```\nSale primero `log.Flush()`, luego `lock.Unlock()` y al final `db.Close()`.",
+        "fontScale": 1.3
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Los argumentos se evalúan ya\n\n```go\nx := 1\ndefer fmt.Println(x)\nx = 2\n```\nImprime **1**, no 2: Go congela el valor de `x` en el momento del `defer`.\n\nSi necesitas el valor final, usa una función anónima: `defer func() { ... }()`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Error común: defer en un for\n\n```go\nfor _, n := range archivos {\n    f, _ := os.Open(n)\n    defer f.Close()\n}\n```\nLos archivos se cierran **al terminar la función**, no en cada vuelta. Con miles de archivos agotas los descriptores.\n\nMueve el cuerpo a una función auxiliar.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- `defer f()` apila la llamada\n- Corre al salir: `return` o `panic`\n- Orden: **LIFO**\n- Argumentos evaluados al diferir\n- Úsalo con `Close`, `Unlock`, `Flush`\n- Evítalo dentro de bucles largos",
+        "fontScale": 1.3
+      },
+      {
+        "id": "9",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

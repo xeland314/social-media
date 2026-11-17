@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## Exit codes\n\nCada comando termina con un número:\n\n- `0` → éxito\n- distinto de `0` → fallo\n\n```bash\necho $?\n```",
-        "fontScale": 1.35
+        "content": "## Exit codes\n\nCada comando termina con un número, y `$?` guarda el del último:\n\n- `0` → éxito\n- distinto de `0` → fallo\n\n```bash\ntrue;  echo $?   # 0\nfalse; echo $?   # 1\n```",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## &&\n\nAvanza **solo si** el anterior salió con `0`.\n\n```bash\nmkdir proyectos && cd proyectos\n```",
-        "fontScale": 1.35
+        "content": "## &&\n\nAvanza **solo si** el anterior salió con `0`. Es un \"y luego\".\n\n```bash\nmkdir proyectos && cd proyectos\n```\nSi `mkdir` falla, no entras a ningún lado.",
+        "fontScale": 1.3
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## ||\n\nActúa **solo si** el anterior falló.\n\n```bash\nping -c1 srv || echo \"sin conexión\"\n```",
-        "fontScale": 1.35
+        "content": "## ||\n\nActúa **solo si** el anterior falló. Es un \"si no, entonces\".\n\n```bash\nping -c1 srv || echo \"sin conexión\"\n```\nÚtil para avisos y valores por defecto.",
+        "fontScale": 1.3
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Juntos\n\n```bash\ncmd1 && cmd2 || cmd3\n```\nSi `cmd2` falla, también corre `cmd3`. Para algo estricto usa `if`.",
-        "fontScale": 1.35
+        "content": "## La trampa: A && B || C\n\n```bash\ntrue && false || echo \"C corre\"\n```\nSale `C corre`: `||` mira el resultado de **B**, no de A. Si `cmd2` falla, también corre `cmd3`.\n\nPara algo estricto usa `if`.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## ; vs &&\n\nCon `;` el siguiente comando corre **siempre**.\n\n```bash\ncd /ruta/mal; rm -rf ./*\ncd /tmp/build && rm -rf ./*\n```\nSi el `cd` falla, la primera línea borra donde estés. La segunda se detiene.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Patrón de guarda\n\nSal del script cuando algo crítico falla:\n\n```bash\ncd \"$dir\" || exit 1\n\nmake || {\n  echo \"falló make\" >&2\n  exit 1\n}\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Pipes y $?\n\n`$?` es el código del **último** comando de la tubería.\n\n```bash\nfalse | true; echo $?   # 0\nset -o pipefail\nfalse | true; echo $?   # 1\n```\nCon `pipefail`, un fallo en cualquier etapa cuenta.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n| Operador | Corre el siguiente si… |\n| --- | --- |\n| `;` | siempre |\n| `&&` | el anterior dio `0` |\n| `\\|\\|` | el anterior falló |\n\nTodo se decide con `$?`.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

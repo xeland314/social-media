@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## HTTP/1.1\n\nUna petición por conexión TCP, en fila.\n\n```text\nGET /index.html\nGET /style.css\nGET /app.js\n```",
-        "fontScale": 1.35
+        "content": "## El problema de HTTP/1.1\n\nEn una conexión TCP, las respuestas llegan **en orden**: si la primera es lenta, las demás esperan (*head-of-line blocking* a nivel HTTP).\n\nPara escapar, los navegadores abren varias conexiones por host (típicamente 6). Cada una cuesta un handshake TCP y, con HTTPS, otro de TLS.",
+        "fontScale": 1.3
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## HTTP/2\n\nUna sola conexión con **frames intercalados** de varios streams.\n\n```text\nStream 1 · 3 · 5\n```",
-        "fontScale": 1.35
+        "content": "## HTTP/1.1 en fila\n\n```text\nGET /index.html  -> espera respuesta\nGET /style.css   -> espera respuesta\nGET /app.js      -> espera respuesta\n```\nUna petición a la vez por conexión. Para cargar una página con decenas de recursos se necesitan **muchas conexiones**.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Qué se gana\n\n- Menos conexiones TCP\n- Sin esperar la respuesta anterior\n- Mejor uso del ancho de banda",
-        "fontScale": 1.35
+        "content": "## Tres conceptos\n\n| Concepto | Qué es |\n| --- | --- |\n| Conexión | un solo TCP (con TLS) |\n| Stream | un intercambio petición-respuesta |\n| Frame | pieza binaria de un stream |\n\nCada frame lleva el **ID** del stream al que pertenece.",
+        "fontScale": 1.3
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Ojo\n\nHTTP/2 elimina el bloqueo a nivel HTTP, pero **TCP** aún puede bloquear si se pierde un paquete (HTTP/3 lo resuelve con QUIC).",
-        "fontScale": 1.35
+        "content": "## Frames intercalados\n\n```text\nuna conexión TCP\n[S1 HEADERS][S3 HEADERS]\n[S1 DATA]\n[S3 DATA]\n[S1 DATA]\n```\nEl receptor reensambla cada stream por su ID. Una respuesta grande en S1 **no frena** a S3.\n\nLos streams iniciados por el cliente usan IDs impares.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Qué se gana\n\n- **Una** conexión TCP por origen\n- Un solo handshake TLS\n- No hay que esperar la respuesta anterior\n- Mejor uso del ancho de banda\n- Cabeceras comprimidas (HPACK)\n\nTodo esto sin cambiar métodos, códigos de estado ni URLs de HTTP.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Compruébalo con curl\n\n```bash\ncurl -s -o /dev/null \\\n  -w '%{http_version}\\n' \\\n  --http2 https://example.com\n```\nImprime `2` si el servidor negocia HTTP/2 (por ALPN, durante el TLS) y `1.1` si cae a la versión anterior.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Ojo: TCP sigue ahí\n\nHTTP/2 elimina el bloqueo a nivel HTTP, pero **TCP** entrega los bytes en orden: si se pierde un paquete, **todos** los streams esperan la retransmisión.\n\nHTTP/3 lo resuelve usando **QUIC** sobre UDP, donde cada stream se recupera por separado.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- HTTP/2: RFC 9113. HTTP/3: RFC 9114\n- Una conexión, muchos streams\n- Frames binarios con ID de stream\n- Los trucos de HTTP/1.1 (sprites, *domain sharding*) dejan de ayudar\n- Pérdida de paquetes: TCP bloquea todo\n- Se negocia con ALPN en TLS",
+        "fontScale": 1.3
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

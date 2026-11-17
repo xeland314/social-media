@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## TCP: handshake\n\n```text\nSYN      -->\nSYN-ACK  <--\nACK      -->\n```\nTres pasos antes de enviar datos. Orden, confirmación y **reenvío**.",
-        "fontScale": 1.35
+        "content": "## El problema\n\nIP entrega paquetes sin garantías: pueden **perderse, duplicarse o llegar desordenados**.\n\nEl protocolo de transporte decide qué hacer con eso, y los **puertos** indican a qué aplicación va cada paquete.",
+        "fontScale": 1.25
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## UDP: dispara y olvida\n\nNo hay conexión ni confirmación.\n\n- Más **rápido**\n- Si un paquete se pierde, **nadie lo reenvía**",
-        "fontScale": 1.35
+        "content": "## TCP: handshake\n\n```text\nSYN      -->\nSYN-ACK  <--\nACK      -->\n```\nTres pasos antes de enviar datos. Así ambos lados acuerdan los números de secuencia.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## ¿Cuál uso?\n\n| Caso | Protocolo |\n| --- | --- |\n| Descargas, web, correo | TCP |\n| Videollamadas, juegos | UDP |\n| DNS (consultas cortas) | UDP |",
-        "fontScale": 1.35
+        "content": "## TCP: qué te da\n\n- **Orden**: numera cada byte\n- **Confirmación**: ACK de lo recibido\n- **Reenvío** de lo que se pierde\n- **Control de flujo y de congestión**\n\nTodo eso cuesta tiempo extra.",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Idea clave\n\nTCP asegura que **todo llegue en orden**.\n\nUDP prefiere llegar **a tiempo** aunque falte algo.",
-        "fontScale": 1.35
+        "content": "## UDP: dispara y olvida\n\nNo hay conexión ni confirmación: envías y listo.\n\n- Cabecera de **8 bytes** (TCP: mínimo 20)\n- Si un paquete se pierde, **nadie lo reenvía**\n- Cada datagrama es independiente",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Lado a lado\n\n| | TCP | UDP |\n| --- | --- | --- |\n| Conexión | sí | no |\n| Orden | garantizado | no |\n| Reenvío | automático | no |\n| Cabecera | 20+ bytes | 8 bytes |",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## ¿Cuál uso?\n\n| Caso | Protocolo |\n| --- | --- |\n| Web, correo, SSH | TCP |\n| Videollamadas, juegos | UDP |\n| DNS (consultas cortas) | UDP |\n| HTTP/3 (QUIC) | UDP |",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Míralo en tu equipo\n\n```bash\n# conexiones TCP establecidas\nss -tn state established\n# sockets UDP\nss -uan\n# ¿puerto TCP abierto?\nnc -vz example.com 443\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Trampa común\n\n\"UDP no es confiable\" no significa \"inútil\": la aplicación puede añadir su propia fiabilidad (QUIC lo hace).\n\nDNS usa UDP, pero cambia a **TCP** si la respuesta es demasiado grande.\n\nTCP asegura que **todo llegue en orden**; UDP prefiere llegar **a tiempo**.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

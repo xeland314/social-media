@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## 9 bits\n\n`rwx rwx rwx`\n\nDueño · grupo · otros. Cada grupo tiene **lectura, escritura y ejecución**.",
-        "fontScale": 1.35
+        "content": "## El problema\n\nEjecutas `./script.sh` y recibes `Permission denied`. Miras los permisos:\n\n```text\n-rw-r--r-- 1 ana ana 42 script.sh\n```\nNadie tiene `x`. `chmod` lo arregla; hay que leer esos 9 caracteres.",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Los valores\n\n| Bit | Valor |\n| --- | --- |\n| r | 4 |\n| w | 2 |\n| x | 1 |\n\n`rwx = 4 + 2 + 1 = 7`",
-        "fontScale": 1.35
+        "content": "## 9 bits\n\n`rwx rwx rwx`\n\nDueño · grupo · otros. Cada grupo tiene **lectura, escritura y ejecución**. Un guion `-` significa que el bit está apagado.\n\nEl primer carácter de `ls -l` es el tipo: `-` archivo, `d` directorio, `l` enlace.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## 644 → 755\n\n```bash\nchmod 755 script.sh\n```\n`rw-r--r--` pasa a `rwxr-xr-x`: solo agrega la **ejecución**.",
-        "fontScale": 1.35
+        "content": "## Los valores\n\n| Bit | Valor |\n| --- | --- |\n| r | 4 |\n| w | 2 |\n| x | 1 |\n\nSuma los que quieras: `rwx = 4 + 2 + 1 = 7`, `r-x = 4 + 1 = 5`, `rw- = 4 + 2 = 6`.",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Permisos comunes\n\n- `644` archivos normales\n- `755` scripts y directorios\n- `600` claves privadas",
-        "fontScale": 1.35
+        "content": "## 755 desglosado\n\n```text\n7 = 4+2+1 = rwx  (dueño)\n5 = 4+0+1 = r-x  (grupo)\n5 = 4+0+1 = r-x  (otros)\n```\n```bash\nchmod 755 script.sh\n```\n`rw-r--r--` (644) pasa a `rwxr-xr-x`: solo agrega la **ejecución**.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Notación simbólica\n\nCuando solo quieres cambiar un bit, no calcules:\n\n```bash\nchmod u+x script.sh\nchmod go-w datos.txt\nchmod a+r leeme.txt\n```\n`u` dueño, `g` grupo, `o` otros, `a` todos; `+` añade y `-` quita.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## En directorios\n\nLos bits significan otra cosa:\n\n- `r`: **listar** su contenido\n- `w`: **crear o borrar** entradas dentro\n- `x`: **entrar** y atravesarlo (`cd`, acceder a rutas)\n\nSin `x` en un directorio no llegas a sus archivos, aunque tengan permisos.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Errores comunes\n\n`chmod 777` abre todo a todos: casi nunca es la solución.\n\n`chmod -R 755 .` vuelve ejecutables **todos los archivos**. Separa:\n\n```bash\nfind . -type d -exec chmod 755 {} +\nfind . -type f -exec chmod 644 {} +\n```",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Permisos comunes\n\n| Modo | Úsalo en |\n| --- | --- |\n| `644` | archivos normales |\n| `755` | scripts y directorios |\n| `600` | claves privadas, `.env` |\n| `700` | directorios privados |\n\nSSH rechaza una clave privada con permisos abiertos.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

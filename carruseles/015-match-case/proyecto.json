@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## La forma antigua\n\n```python\nif b == \"gaseosa\":\n    ...\nelif b == \"agua\":\n    ...\nelif b == \"limonada\":\n    ...\n```",
-        "fontScale": 1.35
+        "content": "## La forma antigua\n\nUna cadena de `if/elif` que repite la comparación:\n\n```python\nif b == \"gaseosa\":\n    precio = 1.5\nelif b == \"agua\":\n    precio = 1.0\nelif b == \"limonada\":\n    precio = 2.0\nelse:\n    precio = 0\n```",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## match/case\n\n```python\nmatch bebida:\n    case \"gaseosa\": ...\n    case \"agua\": ...\n    case \"limonada\": ...\n```",
-        "fontScale": 1.35
+        "content": "## match/case\n\n```python\nmatch b:\n    case \"gaseosa\":\n        precio = 1.5\n    case \"agua\":\n        precio = 1.0\n    case \"limonada\":\n        precio = 2.0\n    case _:\n        precio = 0\n```\n`_` es el comodín: equivale al `else`.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Cómo evalúa\n\nRevisa cada `case` **en orden** hasta que uno coincide y ejecuta solo ese bloque.",
-        "fontScale": 1.35
+        "content": "## Cómo evalúa\n\nRevisa cada `case` **en orden** y ejecuta solo el primero que coincide.\n\n- No hay *fall-through*: no necesitas `break`\n- Si ninguno coincide y no hay `_`, simplemente no pasa nada\n- Disponible desde **Python 3.10**",
+        "fontScale": 1.3
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Más que un switch\n\nTambién coincide con **estructuras**: tuplas, listas, diccionarios y clases. Disponible desde Python 3.10.",
-        "fontScale": 1.35
+        "content": "## Varias opciones con |\n\n```python\nmatch b:\n    case \"agua\" | \"soda\":\n        print(\"sin azúcar\")\n    case \"gaseosa\" | \"limonada\":\n        print(\"con azúcar\")\n```\nEl `|` agrupa alternativas en un solo `case`, sin repetir el bloque.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Desestructurar tuplas\n\n```python\nmatch punto:\n    case (0, 0):\n        print(\"origen\")\n    case (x, 0):\n        print(f\"eje X: {x}\")\n    case (x, y):\n        print(f\"({x}, {y})\")\n```\nCon `punto = (3, 0)` imprime `eje X: 3`: además de comparar, **captura** `x`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Diccionarios y guardas\n\n```python\nmatch cmd:\n    case {\"op\": \"sumar\", \"n\": n} if n > 0:\n        print(n)\n    case {\"op\": _}:\n        print(\"desconocida\")\n```\nEl `if` es una **guarda**. El patrón de diccionario exige esas claves y admite otras extra.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Trampa: nombres sueltos\n\n```python\nOK = 200\nmatch codigo:\n    case OK:\n        ...\n```\n`case OK` **no compara** con 200: captura cualquier valor en una variable `OK` y siempre coincide.\n\nUsa un literal (`200`) o un nombre con punto, como `Estado.OK`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n| Patrón | Ejemplo |\n| --- | --- |\n| Literal | `case \"agua\":` |\n| Alternativa | `case 1 \\| 2:` |\n| Secuencia | `case (x, y):` |\n| Diccionario | `case {\"k\": v}:` |\n| Guarda | `case x if x > 0:` |",
+        "fontScale": 1.3
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

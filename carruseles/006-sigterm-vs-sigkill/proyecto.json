@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## SIGTERM (15)\n\nLe **pide** al proceso que termine. Puede atraparla y limpiar: cerrar sockets, vaciar buffers.\n\n```bash\nkill -TERM 4242\n```",
-        "fontScale": 1.35
+        "content": "## El problema\n\nUn proceso se cuelga y quieres detenerlo. `kill` no mata: **envía una señal**.\n\nSin argumentos manda `SIGTERM` (15). Elegir bien la señal decide si el programa puede **limpiar** antes de salir.",
+        "fontScale": 1.25
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## SIGKILL (9)\n\nEl kernel lo mata **sin preguntar**. No se puede atrapar ni ignorar.\n\n```bash\nkill -KILL 4242\n```",
-        "fontScale": 1.35
+        "content": "## SIGTERM (15)\n\nLe **pide** al proceso que termine. Puede atraparla y limpiar: cerrar sockets, vaciar buffers.\n\n```bash\nkill -TERM 4242\n\ntrap 'echo limpiando; exit 0' TERM\n```\nEl `trap` es el manejador en un script.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Resultado\n\n| Señal | Salida | Limpieza |\n| --- | --- | --- |\n| SIGTERM | `exit 0` | sí |\n| SIGKILL | `exit 137` | no |",
-        "fontScale": 1.35
+        "content": "## SIGKILL (9)\n\nEl kernel lo mata **sin preguntar**. No se puede atrapar, bloquear ni ignorar: el proceso nunca llega a ejecutar código de limpieza.\n\n```bash\nkill -KILL 4242\nkill -9 4242\n```",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Orden recomendado\n\n1. `kill -TERM`\n2. Esperar unos segundos\n3. `kill -KILL` solo si no responde",
-        "fontScale": 1.35
+        "content": "## Códigos de salida\n\nSi una señal mata al proceso, el shell reporta **128 + número**.\n\n| Señal | Número | Código |\n| --- | --- | --- |\n| SIGTERM | 15 | 143 |\n| SIGKILL | 9 | 137 |\n\nUn `trap` que haga `exit 0` devuelve 0.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Ejemplo real\n\n```bash\nsleep 300 &\nkill $!\nwait $!\necho $?\n```\nSalida: `143`.\n\n`$!` es el PID del último proceso en segundo plano. `wait` recoge su estado: 128 + 15.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Error común: kill -9 por reflejo\n\nSaltarte SIGTERM puede dejar **archivos temporales, locks y escrituras a medias** (bases de datos, caches).\n\nAdemás, `kill -9` no puede con procesos en estado `D` (esperando E/S del kernel) ni con zombies: ya están muertos, falta que el padre los recoja.",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Orden recomendado\n\n```bash\nkill -TERM \"$pid\"\nsleep 5\nif kill -0 \"$pid\" 2>/dev/null; then\n  kill -KILL \"$pid\"\nfi\n```\n`kill -0` no envía nada: solo comprueba si el proceso sigue vivo.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Otras señales\n\n| Señal | Núm. | ¿Atrapable? |\n| --- | --- | --- |\n| SIGINT (Ctrl+C) | 2 | sí |\n| SIGHUP | 1 | sí |\n| SIGSTOP | 19 | no |\n| SIGKILL | 9 | no |\n\nNúmeros de Linux x86/ARM.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

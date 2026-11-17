@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## El problema\n\nAbrir un recurso y olvidar cerrarlo si algo falla en medio.",
-        "fontScale": 1.35
+        "content": "## El problema\n\n```python\nf = open(\"datos.txt\")\ndatos = f.read()  # si falla aquí...\nf.close()         # ...esto nunca corre\n```\nSi hay una excepción en medio, el archivo queda abierto. Lo mismo pasa con conexiones, locks y sockets: fugas de recursos.",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## La clase\n\n```python\nclass ConexionDB:\n    def __enter__(self):\n        self.abrir()\n    def __exit__(self, *exc):\n        self.cerrar()\n```",
-        "fontScale": 1.35
+        "content": "## La solución larga\n\n```python\nf = open(\"datos.txt\")\ntry:\n    datos = f.read()\nfinally:\n    f.close()\n```\n`finally` corre siempre. Funciona, pero hay que repetir este patrón en cada uso.\n\n`with` lo empaqueta en una sola línea de apertura.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## El bloque\n\n```python\nwith ConexionDB() as db:\n    db.ejecutar_consulta()\n```\n`__exit__` corre **siempre**, incluso con una excepción.",
-        "fontScale": 1.35
+        "content": "## El protocolo\n\nUn objeto sirve para `with` si tiene dos métodos:\n\n```python\nclass ConexionDB:\n    def __enter__(self):\n        self.abrir()\n        return self\n    def __exit__(self, *exc):\n        self.cerrar()\n```",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Atajo\n\n`contextlib.contextmanager` te permite escribir lo mismo con un generador de pocas líneas.",
-        "fontScale": 1.35
+        "content": "## El bloque with\n\n```python\nwith ConexionDB() as db:\n    db.ejecutar_consulta()\n```\nOrden de ejecución:\n\n1. `__enter__()` y su resultado va a `db`\n2. Corre el cuerpo\n3. `__exit__()` corre **siempre**, incluso con una excepción",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Qué recibe __exit__\n\n```python\ndef __exit__(self, tipo, valor, tb):\n    ...\n    return False\n```\nSi hubo excepción, llegan su tipo, valor y traza; si no, los tres son `None`.\n\nDevolver `True` **suprime** la excepción. Devolver `False` (o nada) la deja propagarse.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Ya lo usas\n\nMuchos objetos de la biblioteca estándar son context managers:\n\n- `open()`: cierra el archivo\n- `threading.Lock()`: libera el lock\n- `tempfile.TemporaryDirectory()`: borra la carpeta\n- `subprocess.Popen()`: espera al proceso\n\nVarios a la vez: `with open(\"a\") as a, open(\"b\") as b:`",
+        "fontScale": 1.3
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Atajo: contextmanager\n\n```python\nfrom contextlib import contextmanager\n\n@contextmanager\ndef conexion():\n    db = abrir()\n    try:\n        yield db\n    finally:\n        db.close()\n```\nSin el `try/finally`, una excepción saltaría el cierre.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- `with` garantiza la limpieza\n- Protocolo: `__enter__` y `__exit__`\n- `as` recibe lo que devuelve `__enter__`\n- `__exit__` devolviendo `True` suprime el error\n- `@contextmanager`: un generador con un `yield`\n- Úsalo con archivos, locks, conexiones y temporales",
+        "fontScale": 1.3
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## La tabla del proceso\n\n| fd | Nombre |\n| --- | --- |\n| 0 | stdin |\n| 1 | stdout |\n| 2 | stderr |",
-        "fontScale": 1.35
+        "content": "## Qué es un descriptor\n\nUn **file descriptor** es un número que indexa la tabla de archivos abiertos de un proceso. Todo proceso nace con tres:\n\n| fd | Nombre | Por defecto |\n| --- | --- | --- |\n| 0 | stdin | teclado |\n| 1 | stdout | terminal |\n| 2 | stderr | terminal |",
+        "fontScale": 1.3
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## > y >>\n\n```bash\ncmd > out.txt   # trunca\ncmd >> out.txt  # añade\n```",
-        "fontScale": 1.35
+        "content": "## > y >>\n\n```bash\nls > out.txt     # trunca el archivo\nls >> out.txt    # añade al final\nls 2> err.txt    # solo stderr\n```\n`>` es atajo de `1>`: redirige el fd 1. Para el fd 2 hay que escribir el número: `2>`.",
+        "fontScale": 1.3
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## 2>&1\n\n```bash\ncmd > out.txt 2>&1\n```\nfd2 **duplica** a donde apunta fd1: errores y salida al mismo archivo.",
-        "fontScale": 1.35
+        "content": "## Un ejemplo\n\n```bash\nls /tmp /noexiste > out.txt\n```\nEn pantalla sigue el **error** de `ls` sobre `/noexiste`. En `out.txt` queda el listado de `/tmp`.\n\nSolo se movió el fd 1; el fd 2 sigue apuntando a la terminal.",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Orden importa\n\n`2>&1 > out.txt` **no** es lo mismo que `> out.txt 2>&1`.\n\nLas redirecciones se aplican de izquierda a derecha.",
-        "fontScale": 1.35
+        "content": "## 2>&1\n\n```bash\ncmd > out.txt 2>&1\n```\nLee: \"haz que el fd 2 apunte a donde apunta **ahora** el fd 1\".\n\nPrimero `> out.txt` mueve el fd 1 al archivo y luego `2>&1` copia ese destino al fd 2. Resultado: todo en `out.txt`.",
+        "fontScale": 1.3
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## El orden importa\n\n```bash\ncmd 2>&1 > out.txt\n```\nSe lee de izquierda a derecha: `2>&1` copia el fd 1 cuando aún apunta a la **terminal**. Después el fd 1 va al archivo.\n\nResultado: el error sale por pantalla y solo la salida va a `out.txt`.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Descartar salida\n\n```bash\ncmd > /dev/null        # sin salida\ncmd 2> /dev/null       # sin errores\ncmd > /dev/null 2>&1   # sin nada\ncmd &> todo.log        # bash: ambos\n```\n`/dev/null` descarta todo lo que se escribe en él.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Y las tuberías\n\n`|` solo conecta el **stdout** del primero con el stdin del segundo. Los errores no pasan.\n\n```bash\ncmd 2>&1 | grep error\ncmd |& grep error   # bash\n```\nSin `2>&1`, `grep` no ve los mensajes de error.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n| Forma | Efecto |\n| --- | --- |\n| `> f` | stdout a `f` (trunca) |\n| `>> f` | stdout al final de `f` |\n| `2> f` | stderr a `f` |\n| `> f 2>&1` | ambos a `f` |\n| `2>&1 > f` | stderr a la terminal |",
+        "fontScale": 1.3
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

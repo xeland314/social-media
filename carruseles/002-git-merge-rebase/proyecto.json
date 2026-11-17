@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## Merge\n\nConserva la historia tal como ocurrió y agrega un **commit de fusión** (M1).\n\n```bash\ngit checkout main\ngit merge feature\n```",
-        "fontScale": 1.35
+        "content": "## El problema\n\nMientras trabajabas en `feature`, `main` siguió avanzando. Hay que juntar ambos trabajos.\n\n```text\nA---B---C      main\n     \\\n      D---E    feature\n```",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Rebase\n\nDespega tus commits y los **replanta** sobre main: historial lineal, sin M1.\n\n```bash\ngit checkout feature\ngit rebase main\n```",
-        "fontScale": 1.35
+        "content": "## Merge\n\nConserva la historia tal como ocurrió y agrega un **commit de fusión** (M).\n\n```bash\ngit checkout main\ngit merge feature\n```\n```text\nA---B---C-----M  main\n     \\       /\n      D-----E\n```",
+        "fontScale": 1.15
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Comparación\n\n| | Merge | Rebase |\n| --- | --- | --- |\n| Historial | con ramas | lineal |\n| Commits | conserva | los reescribe |\n| Riesgo | bajo | medio |",
-        "fontScale": 1.35
+        "content": "## Rebase\n\nDespega tus commits y los **replanta** sobre `main`. Quedan como commits nuevos (D', E') con otro hash.\n\n```bash\ngit checkout feature\ngit rebase main\n```\n```text\nA---B---C---D'---E'\n```",
+        "fontScale": 1.15
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Regla de oro\n\n**No hagas rebase de ramas que otros ya descargaron.**\n\nReescribir commits compartidos obliga a todos a rehacer su trabajo.",
-        "fontScale": 1.35
+        "content": "## Comparación\n\n| | Merge | Rebase |\n| --- | --- | --- |\n| Historial | con ramas | lineal |\n| Commits | los conserva | los reescribe |\n| Hashes | no cambian | cambian |\n| Riesgo | bajo | medio |",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Flujo habitual\n\nActualiza tu rama con rebase y luego integra sin commit extra:\n\n```bash\ngit fetch origin\ngit switch feature\ngit rebase origin/main\ngit switch main\ngit merge --ff-only feature\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Conflictos en rebase\n\nSe resuelven **commit por commit**. Edita los archivos y continúa:\n\n```bash\ngit add archivo.txt\ngit rebase --continue\n# para cancelar todo:\ngit rebase --abort\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Regla de oro\n\n**No hagas rebase de ramas que otros ya descargaron.**\n\nReescribir commits compartidos obliga a todos a rehacer su trabajo. Si rebaseas tu propia rama ya publicada, el push normal se rechaza:\n\n```bash\ngit push --force-with-lease\n```",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- Rama compartida o pública: **merge**\n- Tu rama local, antes de integrar: **rebase**\n- Duda: `merge` es más seguro\n- `--force-with-lease` antes que `--force`\n- Si algo sale mal: `git reflog` guarda tus commits",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

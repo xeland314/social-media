@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## Por defecto\n\n- Archivos: `666`\n- Directorios: `777`\n\nEl `umask` define qué bits se **quitan**.",
-        "fontScale": 1.35
+        "content": "## El problema\n\nCreas un archivo y nace con `644`, no con `666`. Creas un directorio y nace con `755`.\n\n¿Quién decide eso? El **umask** del proceso que lo crea.",
+        "fontScale": 1.3
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## La operación\n\n```text\n666 & ~022 = 644\n777 & ~022 = 755\n```\nAND NOT bit a bit.",
-        "fontScale": 1.35
+        "content": "## Por defecto\n\n- Archivos: `666` (nunca nacen ejecutables)\n- Directorios: `777`\n\nEl `umask` define qué bits se **quitan** de esos valores iniciales. Se hereda: tu shell lo pasa a cada comando que lanzas.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Dos máscaras\n\n| umask | Archivo | Directorio |\n| --- | --- | --- |\n| 022 | 644 | 755 |\n| 077 | 600 | 700 |",
-        "fontScale": 1.35
+        "content": "## La operación\n\n```text\n666 = 110 110 110\n022 = 000 010 010\n~022= 111 101 101\n AND = 110 100 100 = 644\n```\nEs un AND con la máscara **invertida**: `666 & ~022 = 644`.",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Cuándo usar 077\n\nPara que **solo tú** accedas a lo que creas: claves, datos privados.\n\n```bash\numask 077\n```",
-        "fontScale": 1.35
+        "content": "## Trampa: no es una resta\n\nCon `022` coinciden, pero con `033`:\n\n```text\nresta:  666 - 033 = 633\nreal:   666 & ~033 = 644\n```\nEl bit `x` (1) de la máscara no existe en 666, así que no quita nada; la resta, en cambio, arrastra y da otro resultado. La máscara solo quita bits que **existen**.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Máscaras habituales\n\n| umask | Archivo | Directorio |\n| --- | --- | --- |\n| 022 | 644 | 755 |\n| 027 | 640 | 750 |\n| 077 | 600 | 700 |\n\n`022` es lo normal; `077` deja todo solo para ti.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Ejemplo con 077\n\n```text\n$ umask 077\n$ touch secreto.txt && mkdir privado\n$ ls -ld secreto.txt privado\ndrwx------ 2 ana privado\n-rw------- 1 ana secreto.txt\n```\nSalida abreviada. Ideal para claves y datos privados.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Ver y fijar\n\n```bash\numask      # 0022\numask -S   # u=rwx,g=rx,o=rx\numask 027\n```\nEl cambio vale solo para **esa shell** y sus hijos. Para dejarlo fijo, ponlo en `~/.bashrc`.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Errores comunes\n\n- `umask` **no cambia** archivos que ya existen: para eso, `chmod`\n- No \"suma\" permisos: no puede dar un bit que el valor por defecto no tenga\n- Un programa puede pedir su propio modo, pero el umask lo **recorta** igual",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

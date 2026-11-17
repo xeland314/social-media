@@ -21,34 +21,52 @@
         "id": "2",
         "type": "markdown",
         "content": "## El ataque\n\nAlguien envía un correo que dice ser de `ceo@example.com`, pero responde a `atacante@evil.test`.\n\n- El campo **De:** se puede escribir a mano\n- El servidor no lo sabe… salvo que **verifique**",
-        "fontScale": 1.5
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
         "content": "## SPF\n\n¿La **IP** que envía está autorizada por el dominio?\n\n```text\nexample.com TXT\n\"v=spf1 ip4:203.0.113.10 -all\"\n```\n\nIP no listada → **falla**.",
-        "fontScale": 1.5
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
         "content": "## DKIM\n\nCada mensaje lleva una **firma** hecha con una llave privada.\n\n```text\nsel._domainkey.example.com TXT\n\"v=DKIM1; k=rsa; p=MIIB…\"\n```\n\nSin firma válida → **falla**.",
-        "fontScale": 1.5
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## DMARC\n\nDecide qué hacer cuando SPF o DKIM **no se alinean** con el remitente.\n\n```text\n_dmarc.example.com TXT\n\"v=DMARC1; p=reject;\n rua=mailto:dmarc@example.com\"\n```",
-        "fontScale": 1.5
+        "content": "## DMARC\n\nExige que SPF o DKIM pasen **y** se **alineen** con el dominio del campo De:. Si no, aplica la política.\n\n```text\n_dmarc.example.com TXT\n\"v=DMARC1; p=reject;\n rua=mailto:dmarc@example.com\"\n```",
+        "fontScale": 1.15
       },
       {
         "id": "6",
         "type": "markdown",
-        "content": "## La ruta segura\n\n1. `p=none` — solo observar y leer reportes\n2. `p=quarantine` — mandar a spam\n3. `p=reject` — rechazar\n\n**No saltes al paso 3** sin revisar los reportes.",
-        "fontScale": 1.5
+        "content": "## Así lo ve el receptor\n\nCabecera de un correo legítimo:\n\n```text\nAuthentication-Results: mx.example.net;\n spf=pass smtp.mailfrom=example.com;\n dkim=pass header.d=example.com;\n dmarc=pass header.from=example.com\n```",
+        "fontScale": 1.15
       },
       {
         "id": "7",
+        "type": "markdown",
+        "content": "## Revísalo en tu dominio\n\n```bash\ndig +short TXT example.com\ndig +short TXT _dmarc.example.com\ndig +short TXT sel._domainkey.example.com\n```\nEl primero muestra el SPF; el segundo, la política DMARC; el tercero, la llave DKIM (el selector `sel` lo define quien firma).",
+        "fontScale": 1.15
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Errores comunes\n\n- SPF con más de **10 consultas DNS** (el límite del RFC 7208): da error\n- Reenviar un correo rompe el SPF; DKIM suele sobrevivir\n- Publicar `p=reject` sin haber leído antes los reportes `rua`\n- Olvidar un servicio que envía en tu nombre",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## La ruta segura\n\n1. `p=none` — solo observar y leer reportes\n2. `p=quarantine` — mandar a spam\n3. `p=reject` — rechazar\n\n**No saltes al paso 3** sin revisar los reportes: podrías bloquear tu propio correo legítimo.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Ya está tu",
         "secondText": "DMARC en reject?",

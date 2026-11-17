@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## El problema\n\nCada petición repite las mismas cabeceras: `user-agent`, `accept`, `cookie`…",
-        "fontScale": 1.35
+        "content": "## El problema\n\nEn cada petición viajan las mismas cabeceras: `user-agent`, `accept`, `cookie`… Una cookie puede pesar cientos de bytes y se repite en **cada** recurso.\n\nComprimirlas con gzip se descartó: el ataque **CRIME** filtraba secretos como cookies. HPACK (RFC 7541) es la alternativa segura.",
+        "fontScale": 1.3
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Tablas compartidas\n\n| Índice | Header |\n| --- | --- |\n| [2] | :method GET |\n| #62 | :path /api/users |\n| #63 | user-agent |",
-        "fontScale": 1.35
+        "content": "## Tabla estática\n\nUn diccionario fijo de **61** entradas, igual en todos los clientes y servidores:\n\n| Índice | Header |\n| --- | --- |\n| 2 | `:method GET` |\n| 4 | `:path /` |\n| 7 | `:scheme https` |\n| 8 | `:status 200` |",
+        "fontScale": 1.3
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Request 2\n\nSolo envía los **índices**: `[2] #62 #63 #64`.\n\nDe 128 B a 24 B.",
-        "fontScale": 1.35
+        "content": "## Tabla dinámica\n\nLo que no está en la estática se **aprende** durante la conexión. Cada lado mantiene la misma tabla, con índices desde el **62**.\n\n| Índice | Header |\n| --- | --- |\n| 62 | `:path /api/users` |\n| 63 | `user-agent` |\n\nLa primera vez se envía el literal y ambos lo guardan.",
+        "fontScale": 1.3
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Además\n\nLos valores nuevos se comprimen con **Huffman**. Ahorro típico: más del 80 % en cabeceras repetidas.",
-        "fontScale": 1.35
+        "content": "## Request 1 vs Request 2\n\n```text\nReq 1: literales completos\n       [2] + :path /api/users\n       + user-agent + cookie\nReq 2: [2] #62 #63 #64\n```\nEjemplo ilustrativo: de unos 128 B a unos 24 B. En la segunda petición solo viajan **índices** de uno o dos bytes.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Huffman para lo nuevo\n\nLos valores que sí hay que enviar como literal pueden codificarse con **Huffman**: un código fijo, definido en el RFC, que da menos bits a los caracteres más frecuentes.\n\nUn bit de la cabecera indica si la cadena va con Huffman o en texto plano.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Seguridad\n\nHPACK no comprime con ventana de texto, como zlib; solo busca **coincidencias exactas** de cabecera completa. Eso limita lo que un atacante puede deducir (el ataque CRIME).\n\nLas cabeceras sensibles se pueden marcar como **never indexed**: nunca entran a la tabla.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Límites\n\nLa tabla dinámica tiene un tamaño máximo por conexión: 4096 bytes por defecto (`SETTINGS_HEADER_TABLE_SIZE`).\n\nAl llenarse, **expulsa** las entradas más antiguas. Cliente y servidor aplican la misma regla y mantienen las tablas sincronizadas.",
+        "fontScale": 1.3
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- HPACK: RFC 7541\n- Estática: 61 entradas fijas\n- Dinámica: desde el índice 62, por conexión\n- Repetida: solo se envía el índice\n- Nueva: literal, con Huffman opcional\n- Sensibles: *never indexed*",
+        "fontScale": 1.3
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

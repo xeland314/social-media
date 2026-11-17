@@ -13,36 +13,60 @@
         "id": "1",
         "type": "cover",
         "title": "fork(): una llamada, dos procesos",
-        "subtitle": "El kernel duplica al proceso que llama",
+        "subtitle": "Una sola llamada, dos procesos",
         "category": "LINUX · PROCESOS",
         "iconChar": "🔀"
       },
       {
         "id": "2",
         "type": "markdown",
-        "content": "## ¿Qué hace fork()?\n\nCrea un **proceso hijo** idéntico al padre. Ambos siguen en la misma línea del programa.\n\n- El hijo tiene **otro PID**\n- Copian memoria y descriptores",
-        "fontScale": 1.35
+        "content": "## El problema\n\nUn programa necesita lanzar otra tarea sin detenerse: un servidor atiende a cada cliente, una shell ejecuta tus comandos.\n\nEn Unix el primer paso siempre es **clonar el proceso** con `fork()`.",
+        "fontScale": 1.3
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Retorna dos veces\n\n```c\npid_t pid = fork();\nif (pid == 0) {\n  /* hijo */\n} else {\n  /* padre: pid del hijo */\n}\n```",
-        "fontScale": 1.35
+        "content": "## ¿Qué hace fork()?\n\nCrea un **proceso hijo** casi idéntico al padre. Ambos siguen en la misma línea del programa.\n\n- El hijo tiene **otro PID**; su PPID es el del padre\n- Copia la memoria (copy-on-write) y hereda los descriptores abiertos",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Qué devuelve\n\n| Proceso | fork() devuelve |\n| --- | --- |\n| Hijo | `0` |\n| Padre | PID del hijo |\n| Error | `-1` |",
-        "fontScale": 1.35
+        "content": "## Retorna dos veces\n\nUna llamada, dos retornos: uno en cada proceso.\n\n```c\npid_t pid = fork();\nif (pid == 0) {\n  /* hijo */\n} else {\n  /* padre: pid del hijo */\n}\n```",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Para recordar\n\n- El orden de impresión **no está garantizado**\n- Cada proceso tiene su **propia copia** de las variables\n- Sin `wait()`, el hijo puede quedar **zombie**",
-        "fontScale": 1.35
+        "content": "## Qué devuelve\n\nEl valor te dice **en qué proceso estás**.\n\n| Proceso | fork() devuelve |\n| --- | --- |\n| Hijo | `0` |\n| Padre | PID del hijo |\n| Error | `-1` |",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Ejemplo real\n\nCada proceso modifica y muestra **su** `x`:\n\n```c\nint x = 10;\npid_t pid = fork();\nif (pid == 0) {\n  x = 20;\n}\nprintf(\"pid=%d x=%d\\n\",\n       getpid(), x);\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## La salida\n\n```text\npid=4242 x=10\npid=4243 x=20\n```\nLos PID son de ejemplo. Aunque `x` valía 10 antes del `fork()`, el hijo la cambió a 20 y el padre **no lo ve**: memoria separada.\n\nEl orden de las líneas **no está garantizado**.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Error común: el zombie\n\nSi el hijo termina y el padre no llama a `wait()`, queda como **zombie** (estado `Z` en `ps`): ya murió, pero sigue en la tabla de procesos.\n\n```c\nint estado;\nwaitpid(pid, &estado, 0);\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- `fork()` clona; `exec()` reemplaza el programa\n- `0` = hijo, `>0` = padre, `-1` = error\n- Memoria **separada** tras el fork\n- Orden de ejecución: **no garantizado**\n- El padre debe hacer `wait()` o `waitpid()`",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

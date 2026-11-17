@@ -20,29 +20,47 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## Un decorador\n\nEs una función que recibe otra función y devuelve una versión **envuelta**.",
-        "fontScale": 1.35
+        "content": "## La base: funciones como valores\n\nEn Python una función es un objeto: se guarda en una variable, se pasa y se devuelve.\n\n```python\ndef saludar():\n    return \"hola\"\n\nf = saludar\nprint(f())  # hola\n```\nUn decorador se apoya en esto.",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## medir_tiempo\n\n```python\ndef medir_tiempo(func):\n    def wrapper():\n        t0 = time.time()\n        res = func()\n        print(time.time() - t0)\n        return res\n    return wrapper\n```",
-        "fontScale": 1.35
+        "content": "## Un decorador\n\nRecibe una función y devuelve otra que la **envuelve** (necesita `import time`):\n\n```python\ndef medir_tiempo(func):\n    def wrapper(*args, **kwargs):\n        t0 = time.perf_counter()\n        res = func(*args, **kwargs)\n        print(time.perf_counter() - t0)\n        return res\n    return wrapper\n```",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Usarlo\n\n```python\n@medir_tiempo\ndef procesar_datos(): ...\n```\nEs azúcar para `procesar_datos = medir_tiempo(procesar_datos)`.",
-        "fontScale": 1.35
+        "content": "## Usarlo con @\n\n```python\n@medir_tiempo\ndef procesar():\n    ...\n```\nEs azúcar sintáctico de:\n\n```python\nprocesar = medir_tiempo(procesar)\n```\nCada llamada a `procesar()` pasa ahora por `wrapper`.",
+        "fontScale": 1.3
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Buena práctica\n\nUsa `functools.wraps` para conservar el nombre y la documentación de la función original.",
-        "fontScale": 1.35
+        "content": "## El problema: se pierde la identidad\n\n```python\n@medir_tiempo\ndef procesar():\n    \"\"\"Procesa datos.\"\"\"\n\nprint(procesar.__name__)\n# wrapper\n```\n`procesar` ahora **es** `wrapper`: pierdes el nombre y el docstring. Rompe la depuración y la documentación.",
+        "fontScale": 1.2
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## La solución: wraps\n\n```python\nfrom functools import wraps\n\ndef medir_tiempo(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        ...\n    return wrapper\n```\nAhora `procesar.__name__` es `\"procesar\"` y conserva su docstring.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Decorador con parámetros\n\nHace falta un nivel más: una función que **devuelve** el decorador.\n\n```python\ndef repetir(n):\n    def deco(func):\n        def wrapper(*a, **kw):\n            for _ in range(n):\n                res = func(*a, **kw)\n            return res\n        return wrapper\n    return deco\n\n@repetir(3)\ndef ping(): ...\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- Decorador: `f = deco(f)`\n- Usa `*args, **kwargs` en el `wrapper`\n- Devuelve el resultado de `func`\n- Añade `@wraps(func)` siempre\n- Con parámetros: `@deco(3)` son 3 niveles\n- Usos: logs, tiempos, caché (`lru_cache`), reintentos, permisos",
+        "fontScale": 1.3
+      },
+      {
+        "id": "9",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

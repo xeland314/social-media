@@ -20,29 +20,53 @@
       {
         "id": "2",
         "type": "markdown",
-        "content": "## Hard link\n\nOtro **nombre** para el mismo inodo. Comparte los datos.\n\n```bash\nln archivo.txt duro.hlk\n```",
-        "fontScale": 1.35
+        "content": "## El problema\n\nBorras un archivo y otro \"acceso directo\" sigue funcionando; otro se rompe. La diferencia está en cómo Linux guarda los archivos:\n\n```text\nnombre -> inodo -> datos\n```\nEl nombre es solo una entrada de directorio que apunta al **inodo**.",
+        "fontScale": 1.2
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Symlink\n\nGuarda la **ruta** de otro nombre, no los datos.\n\n```bash\nln -s archivo.txt sim.link\n```",
-        "fontScale": 1.35
+        "content": "## Hard link\n\nOtro **nombre** para el mismo inodo. Comparte los datos.\n\n```bash\nln archivo.txt duro.hlk\nls -li archivo.txt duro.hlk\n```\n```text\n131074 -rw-r--r-- 2 ana 5 archivo.txt\n131074 -rw-r--r-- 2 ana 5 duro.hlk\n```\nMismo inodo; el `2` es el contador de enlaces.",
+        "fontScale": 1.1
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Si borras el original\n\n| Enlace | Resultado |\n| --- | --- |\n| Hard link | sigue funcionando |\n| Symlink | se rompe |",
-        "fontScale": 1.35
+        "content": "## Symlink\n\nGuarda la **ruta** de otro nombre, no los datos. Tiene su propio inodo.\n\n```bash\nln -s archivo.txt sim.link\nls -l sim.link\n```\n```text\nlrwxrwxrwx 1 ana sim.link -> archivo.txt\n```\nSalida abreviada.",
+        "fontScale": 1.15
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Por qué\n\n`rm` solo borra una **entrada** del directorio. Los datos mueren con el **último** hard link.",
-        "fontScale": 1.35
+        "content": "## Si borras el original\n\n| Enlace | Resultado |\n| --- | --- |\n| Hard link | sigue funcionando |\n| Symlink | se rompe |\n\n```bash\nrm archivo.txt\ncat duro.hlk   # muestra el texto\ncat sim.link   # no existe el archivo\n```",
+        "fontScale": 1.15
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## Por qué\n\n`rm` solo borra una **entrada** del directorio y baja el contador de enlaces. Los datos se liberan cuando el contador llega a `0` y nadie los tiene abiertos.\n\n```bash\nstat -c %h duro.hlk\n```\nImprime cuántos hard links tiene el inodo.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Límites\n\n- Hard link: solo dentro del **mismo sistema de archivos**, y no se permite sobre directorios\n- Symlink: cruza sistemas de archivos y puede apuntar a **directorios** o a rutas que aún no existen\n\nPor eso casi todos los accesos directos son symlinks.",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Trampa: ruta relativa\n\nLa ruta de un symlink se resuelve desde **su** directorio, no desde donde lo creas.\n\n```bash\nmkdir -p a b && echo hola > a/f.txt\nln -s a/f.txt b/malo     # roto\nln -s ../a/f.txt b/bueno # funciona\n```",
+        "fontScale": 1.15
+      },
+      {
+        "id": "9",
+        "type": "markdown",
+        "content": "## ¿Cuál uso?\n\n| Necesitas | Usa |\n| --- | --- |\n| Apuntar a un directorio | symlink |\n| Cambiar versión (`current`) | symlink |\n| Dos nombres, mismos datos | hard link |\n| Copias sin duplicar datos | hard link |",
+        "fontScale": 1.2
+      },
+      {
+        "id": "10",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",

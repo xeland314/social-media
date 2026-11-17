@@ -13,36 +13,54 @@
         "id": "1",
         "type": "cover",
         "title": "Go: canal con buffer",
-        "subtitle": "Productor y consumidor",
+        "subtitle": "Productor y consumidor, sin locks",
         "category": "GO · CONCURRENCIA",
         "iconChar": "📦"
       },
       {
         "id": "2",
         "type": "markdown",
-        "content": "## Crear el canal\n\n```go\nch := make(chan string, 2)\n```\nCapacidad **2**: caben dos envíos sin esperar.",
-        "fontScale": 1.35
+        "content": "## El problema\n\nDos goroutines que tocan la misma variable necesitan **locks** y es fácil equivocarse.\n\nGo propone otra vía: no compartas memoria para comunicarte; **comunícate para compartir memoria**.\n\nEsa vía se llama **canal** (`chan`).",
+        "fontScale": 1.3
       },
       {
         "id": "3",
         "type": "markdown",
-        "content": "## Productor\n\n```go\ngo func() {\n  ch <- \"Item\"\n}()\n```\nSi el canal está **lleno**, el envío se bloquea.",
-        "fontScale": 1.35
+        "content": "## Crear un canal con buffer\n\n```go\nch := make(chan string, 2)\nfmt.Println(len(ch), cap(ch)) // 0 2\nch <- \"a\"\nfmt.Println(len(ch), cap(ch)) // 1 2\n```\n`cap` es la capacidad (2) y `len` cuántos elementos hay ahora.",
+        "fontScale": 1.2
       },
       {
         "id": "4",
         "type": "markdown",
-        "content": "## Consumidor\n\n```go\nitem := <-ch\n```\nSi el canal está **vacío**, la lectura se bloquea.",
-        "fontScale": 1.35
+        "content": "## Productor y consumidor\n\n```go\nch := make(chan int, 2)\ngo func() {\n    for i := 1; i <= 4; i++ {\n        ch <- i\n    }\n    close(ch)\n}()\nfor v := range ch {\n    fmt.Println(v)\n}\n```\nImprime 1, 2, 3 y 4 en ese orden.",
+        "fontScale": 1.2
       },
       {
         "id": "5",
         "type": "markdown",
-        "content": "## Idea clave\n\nLos canales **sincronizan** goroutines sin locks: la espera ocurre sola.",
-        "fontScale": 1.35
+        "content": "## Cuándo se bloquea\n\nEl buffer decide **quién espera**:\n\n| Canal | Envío espera si… |\n| --- | --- |\n| `make(chan T)` | no hay quien reciba |\n| `make(chan T, n)` | hay `n` elementos |\n\nLa **lectura** espera cuando el canal está vacío.",
+        "fontScale": 1.3
       },
       {
         "id": "6",
+        "type": "markdown",
+        "content": "## close y range\n\n```go\nv, ok := <-ch\n// ok == false: cerrado y vacío\n```\n- Cierra **solo el que envía**\n- `range` termina al cerrarse\n- Enviar a un canal cerrado provoca `panic`",
+        "fontScale": 1.3
+      },
+      {
+        "id": "7",
+        "type": "markdown",
+        "content": "## Error común: el deadlock\n\nSin buffer y sin nadie que lea, el envío espera para siempre:\n\n```go\nfunc main() {\n    ch := make(chan int)\n    ch <- 1\n}\n```\n```text\nfatal error: all goroutines are\nasleep - deadlock!\n```",
+        "fontScale": 1.2
+      },
+      {
+        "id": "8",
+        "type": "markdown",
+        "content": "## Chuleta\n\n- `make(chan T, n)`: canal con buffer de `n`\n- `ch <- v`: enviar (espera si está lleno)\n- `v := <-ch`: recibir (espera si está vacío)\n- `close(ch)`: lo hace el emisor\n- `for v := range ch`: lee hasta el cierre\n- Un buffer no es una cola infinita: tiene tope",
+        "fontScale": 1.3
+      },
+      {
+        "id": "9",
         "type": "end",
         "firstText": "¿Te sirvió?",
         "secondText": "Guárdalo",
