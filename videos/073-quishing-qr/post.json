@@ -1,0 +1,62 @@
+{
+  "id": "073",
+  "slug": "quishing-qr",
+  "title": "Quishing: el QR pegado encima",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 34,
+  "hook": "Un QR pegado encima del bueno: así te roban la clave en 10 segundos.",
+  "topicTags": [
+    "#quishing",
+    "#phishing",
+    "#codigoqr",
+    "#ciberseguridad"
+  ],
+  "sourceAnimation": null,
+  "carousel": {
+    "path": "carruseles/073-quishing-qr",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Un QR pegado encima del bueno te lleva a un portal falso. Revisa la URL antes de escanear y nunca pagues por un QR pegado.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Quishing: el QR pegado encima 🔳\n\nUna calcomanía con otro QR tapa el oficial. Escaneas, la URL casi parece la real y la página te pide usuario, clave o pago. Todo llega al atacante.\n\nDefensas:\n1. Lee la URL antes de abrir\n2. Desconfía de QR pegados o que piden login o pago\n3. Escribe el dominio a mano\n4. Activa 2FA",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un QR pegado encima del oficial puede llevarte a un portal falso que pide tu clave. Revisa la URL antes de escanear.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "¿Un QR pegado en un cartel, menú o punto de pago? Puede ser quishing: una calcomanía tapa el QR legítimo, la cámara abre un dominio casi igual y la página pide usuario, clave o pago. Cuatro defensas: revisar la URL antes de abrir, desconfiar de QR pegados, escribir el dominio a mano y activar 2FA.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Quishing: el QR pegado encima",
+      "text": "Cómo funciona el quishing: una calcomanía con un QR adulterado tapa el QR legítimo de un cartel o punto de pago, y el portal falso se queda con tu usuario y clave. Cuatro defensas: revisa la URL antes de abrir, desconfía de QR pegados, escribe el dominio a mano y activa 2FA.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Quishing 二维码",
+      "text": "QR 贴纸覆盖正版码，扫码后打开仿冒网站，骗走账号和密码。扫码前请核对网址，手动输入域名，并开启 2FA。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "Quishing：贴在二维码上的陷阱",
+      "textZh": "攻击者把伪造的二维码贴在正版码上，扫码后进入仿冒登录页，账号、密码和付款信息都会被盗。扫码前请核对网址，不要通过贴纸二维码登录或付款，并开启两步验证。"
+    }
+  }
+}

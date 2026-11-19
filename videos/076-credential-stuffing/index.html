@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <!-- "shared" es un enlace simbólico a ../../shared (Hyperframes solo sirve la carpeta del video) -->
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      .lbl { font-family: var(--font-label); font-weight: 700; color: var(--muted); font-size: 28px; }
+
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; line-height: 1.5; }
+      #title .bad { color: var(--sem-bad); }
+
+      /* Caption (un texto a la vez: XF.stack / XF.only) */
+      #cap { left: 72px; top: 960px; width: 936px; height: 120px; }
+      #cap .stk { white-space: normal; font-family: var(--font-code); font-size: 30px; line-height: 1.3; color: var(--ink); }
+
+      /* 1) Volcado de la filtración */
+      #dump { left: 72px; top: 330px; width: 936px; height: 600px; overflow: hidden; }
+      #dumpBody { position: absolute; left: 0; right: 0; top: 60px; bottom: 0; padding: 12px 22px; overflow: hidden; }
+      #dumpList { position: relative; }
+      .drow { height: 44px; display: flex; gap: 18px; align-items: center; font-family: var(--font-code); font-size: 28px; color: var(--ink); white-space: nowrap; opacity: 0; }
+      .drow .dn { width: 44px; text-align: right; color: var(--muted); flex: none; }
+
+      /* 2) Puertas y bot */
+      #doors { left: 72px; top: 330px; width: 936px; height: 580px; }
+      .door { position: absolute; width: 456px; height: 280px; }
+      #dr1 { left: 0; top: 0; } #dr2 { left: 480px; top: 0; }
+      #dr3 { left: 0; top: 300px; } #dr4 { left: 480px; top: 300px; }
+      .door .dl { position: absolute; left: 24px; top: 24px; line-height: 1.4; }
+      .door .lk { position: absolute; right: 24px; top: 24px; width: 96px; height: 96px; color: var(--ink); }
+      .door .dst { position: absolute; left: 24px; right: 24px; bottom: 24px; height: 44px; }
+      .door .stk { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); white-space: nowrap; }
+      .door .stk.bad { color: var(--sem-bad); }
+      .door .alarm { position: absolute; inset: 0; box-shadow: inset 0 0 0 6px var(--sem-bad); opacity: 0; }
+      .door .lk > div { position: absolute; left: 0; top: 0; width: 96px; height: 96px; }
+      .door .lkc { color: var(--ink); }
+      .door .lko { color: var(--sem-bad); opacity: 0; }
+
+      #bot { left: 72px; top: 1030px; width: 936px; height: 380px; }
+      #botSpr { position: absolute; left: 0; top: 70px; width: 240px; height: 260px; }
+      #botTerm.term { position: absolute; left: 264px; top: 0; width: 672px; height: 380px; justify-content: flex-start; padding: 14px 22px; }
+      #botTerm .term-row { height: 42px; font-size: 38px; line-height: 42px; }
+
+      /* 3) Defensas */
+      #defs { left: 72px; top: 330px; width: 936px; }
+      .dr { display: flex; align-items: center; gap: 28px; height: 136px; padding: 0 28px; margin-bottom: 14px; opacity: 0; }
+      .dr:last-child { margin-bottom: 0; }
+      .num { font-family: var(--font-display); font-size: 28px; color: var(--sem-ok); min-width: 72px; text-align: center; padding: 14px 0; flex: none; }
+      .dtxt { font-family: var(--font-code); font-size: 30px; line-height: 1.35; color: var(--ink); }
+
+      /* 4) Cierre */
+      #final { left: 72px; top: 330px; width: 936px; height: 600px; padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+      .fin-t { font-family: var(--font-display); font-size: 36px; line-height: 1.6; color: var(--sem-bad); }
+      .fin-p { font-family: var(--font-code); font-size: 30px; line-height: 1.35; color: var(--ink); }
+      .chips { display: flex; flex-wrap: wrap; gap: 18px; }
+      .ch { font-size: 28px; color: var(--sem-ok); opacity: 0; }
+
+      #tag { left: 72px; top: 1650px; width: 936px; font-size: 30px; text-align: center; color: var(--accent); opacity: 0; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="36" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="36" data-track-index="0">TI · CREDENTIAL STUFFING</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="36" data-track-index="1">Misma clave,<br /><span class="bad">todas tus cuentas</span></h1>
+
+      <div id="cap" class="abs clip" data-start="0" data-duration="36" data-track-index="2"></div>
+
+      <!-- Escena 1 (0–6 s): volcado de la filtración -->
+      <div id="dump" class="abs px-box clip" data-start="0.4" data-duration="5.6" data-track-index="3">
+        <div class="code-top"><span class="code-dot" style="color:var(--muted)"></span><span class="code-file">dump_juego-gratis.txt</span></div>
+        <div id="dumpBody"><div id="dumpList" class="code-panel"></div></div>
+      </div>
+
+      <!-- Escena 2 (6–14.8 s): el bot prueba el par en cuatro puertas -->
+      <div id="doors" class="abs clip" data-start="6" data-duration="8.8" data-track-index="4">
+        <div id="dr1" class="door px-box"><div class="dl lbl">REDES<br />SOCIALES</div><div class="lk"></div>
+          <div class="dst"><span class="stk st-no">RECHAZADO</span></div></div>
+        <div id="dr2" class="door px-box"><div class="dl lbl">TIENDA<br />EN LÍNEA</div><div class="lk"></div>
+          <div class="dst"><span class="stk st-no">RECHAZADO</span></div></div>
+        <div id="dr3" class="door px-box"><div class="alarm"></div><div class="dl lbl">CORREO<br />INSTITUCIONAL</div><div class="lk"></div>
+          <div class="dst"><span class="stk bad st-bad">COMPROMETIDA</span></div></div>
+        <div id="dr4" class="door px-box"><div class="alarm"></div><div class="dl lbl">BANCO<br />EN LÍNEA</div><div class="lk"></div>
+          <div class="dst"><span class="stk bad st-bad">COMPROMETIDA</span></div></div>
+      </div>
+
+      <div id="bot" class="abs clip" data-start="6" data-duration="8.8" data-track-index="5">
+        <div id="botSpr" class="pixelated"></div>
+        <div id="botTerm" class="term px-box">
+          <div class="term-row" style="color:var(--muted)">$ bot --combos dump.txt --puertas 4</div>
+          <div class="term-row" style="color:var(--ink)">&gt; ana@ejemplo.edu : Verano2024!</div>
+          <div class="term-row" style="color:var(--muted)">  redes sociales ........ RECHAZADO</div>
+          <div class="term-row" style="color:var(--muted)">  tienda en línea ....... RECHAZADO</div>
+          <div class="term-row" style="color:var(--sem-bad)">  correo institucional .. ENTRÓ</div>
+          <div class="term-row" style="color:var(--sem-bad)">  banco ................. ENTRÓ</div>
+          <div class="term-row" style="color:var(--ink)">&gt; luis.r@mail.test : Pelota#77</div>
+          <div class="term-row" style="color:var(--muted)">  ninguna coincidencia</div>
+        </div>
+      </div>
+
+      <!-- Escena 3 (15–25 s): defensas -->
+      <div id="defs" class="abs clip" data-start="15" data-duration="10" data-track-index="6">
+        <div class="dr px-box" id="d1"><span class="num px-chip">1</span><span class="dtxt">Una clave distinta por cada sitio.</span></div>
+        <div class="dr px-box" id="d2"><span class="num px-chip">2</span><span class="dtxt">Gestor de contraseñas: genera y guarda cada una.</span></div>
+        <div class="dr px-box" id="d3"><span class="num px-chip">3</span><span class="dtxt">2FA con app o llave física. Mejor que SMS.</span></div>
+        <div class="dr px-box" id="d4"><span class="num px-chip">4</span><span class="dtxt">¿Tu correo aparece en filtraciones públicas? Revísalo y cambia esas claves.</span></div>
+      </div>
+
+      <!-- Escena 4 (25–36 s): cierre -->
+      <div id="final" class="abs px-box clip" data-start="25" data-duration="11" data-track-index="7">
+        <div class="fin-t">MISMA CLAVE<br />= TODAS LAS PUERTAS</div>
+        <p class="fin-p">Basta un correo y una clave filtrados donde la reusaste.</p>
+        <div class="chips">
+          <span class="px-chip ch" id="ch1">CLAVE ÚNICA</span>
+          <span class="px-chip ch" id="ch2">GESTOR</span>
+          <span class="px-chip ch" id="ch3">2FA</span>
+        </div>
+      </div>
+
+      <div id="tag" class="abs lbl clip" data-start="28" data-duration="8" data-track-index="8">Una clave por sitio. Siempre.</div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="36" data-track-index="9" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="36" data-track-index="10">@xeland314</div>
+
+      <!-- audio:start (solo SFX; sin música de fondo, ver docs/sonido.md) -->
+      <audio id="aud1" src="shared/audio/whoosh.wav" data-start="0.4" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="0.6" data-duration="0.18" data-track-index="22" data-volume="0.3"></audio>
+      <audio id="aud3" src="shared/audio/pop.wav" data-start="1.04" data-duration="0.18" data-track-index="23" data-volume="0.3"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="1.48" data-duration="0.18" data-track-index="24" data-volume="0.3"></audio>
+      <audio id="aud5" src="shared/audio/pop.wav" data-start="1.92" data-duration="0.18" data-track-index="21" data-volume="0.3"></audio>
+      <audio id="aud6" src="shared/audio/pop.wav" data-start="2.36" data-duration="0.18" data-track-index="22" data-volume="0.3"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="2.80" data-duration="0.18" data-track-index="23" data-volume="0.3"></audio>
+      <audio id="aud11" src="shared/audio/whoosh.wav" data-start="6.0" data-duration="0.5" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud12" src="shared/audio/blip.wav" data-start="6.6" data-duration="0.12" data-track-index="24" data-volume="0.6"></audio>
+      <audio id="aud13" src="shared/audio/blip.wav" data-start="7.1" data-duration="0.12" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud14" src="shared/audio/blip.wav" data-start="7.6" data-duration="0.12" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud15" src="shared/audio/blip.wav" data-start="8.2" data-duration="0.12" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud16" src="shared/audio/error.wav" data-start="8.8" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud17" src="shared/audio/error.wav" data-start="9.4" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud18" src="shared/audio/blip.wav" data-start="10.5" data-duration="0.12" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud19" src="shared/audio/blip.wav" data-start="11.2" data-duration="0.12" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud20" src="shared/audio/confirm.wav" data-start="15.4" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud21" src="shared/audio/confirm.wav" data-start="17.0" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud22" src="shared/audio/confirm.wav" data-start="18.6" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud23" src="shared/audio/confirm.wav" data-start="20.2" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud24" src="shared/audio/whoosh.wav" data-start="25.0" data-duration="0.5" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud25" src="shared/audio/pop.wav" data-start="26.0" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud26" src="shared/audio/pop.wav" data-start="26.6" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud27" src="shared/audio/pop.wav" data-start="27.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- Contenido generado (determinista) ----
+      const combos = [
+        "ana@ejemplo.edu:Verano2024!", "luis.r@mail.test:Pelota#77", "marta_g@correo.example:Gato1234",
+        "jorge@ejemplo.edu:Mistery-2019", "sofi.p@mail.test:Dragon_lunar", "carlos77@correo.example:Qwerty2025",
+        "nadia@ejemplo.edu:Cafe&Tarde9", "pablo.m@mail.test:Pixel.Rey22", "valen@correo.example:Sol-de-enero",
+        "diego_z@ejemplo.edu:Hola1234!", "lucia@mail.test:Tortuga#88",
+      ];
+      $("#dumpList").innerHTML = combos
+        .map((c, i) => `<div class="drow"><span class="dn">${String(i + 1).padStart(2, "0")}</span><span>${c}</span></div>`)
+        .join("");
+
+      // Candado pixel: cerrado (ink) y abierto (rojo). Mismo sprite, dos capas que se alternan por opacidad.
+      const lockSVG = (open) => `<svg viewBox="0 0 12 12" width="96" height="96" fill="currentColor" style="shape-rendering:crispEdges;display:block">
+        ${open
+          ? '<rect x="3" y="0" width="6" height="1"/><rect x="3" y="0" width="1" height="4"/>'
+          : '<rect x="3" y="1" width="6" height="1"/><rect x="3" y="1" width="1" height="4"/><rect x="8" y="1" width="1" height="4"/>'}
+        <rect x="1" y="5" width="10" height="6"/>
+        <rect x="5" y="7" width="2" height="2" style="fill:var(--panel)"/>
+      </svg>`;
+      document.querySelectorAll(".door .lk").forEach((el) => (el.innerHTML = `<div class="lkc">${lockSVG(false)}</div><div class="lko">${lockSVG(true)}</div>`));
+
+      $("#botSpr").innerHTML = SPR.attacker(10);
+      // Estado inicial del atacante: tranquilo; la furia (angry/vein) entra más tarde.
+      gsap.set('#botSpr [data-layer="angry"], #botSpr [data-layer="vein"]', { opacity: 0 });
+
+      const caps = XF.stack($("#cap"), [
+        "Se filtra la base de un sitio gratis poco importante: correo y clave.",
+        "Un bot prueba ese mismo par en cada puerta.",
+        "Donde reusaste la clave, la puerta se abre.",
+        "Cómo cortar el ataque:",
+      ]);
+
+      // ---- 0.4–6 s: volcado de la filtración ----
+      XF.only(tl, caps, caps[0], 0.4);
+      document.querySelectorAll("#dumpList .drow").forEach((r, i) => tl.set(r, { opacity: 1 }, 0.6 + i * 0.22));
+
+      // ---- 6–14.8 s: el bot prueba ana@ (1) y luis.r@ (2) en cuatro puertas ----
+      XF.only(tl, caps, caps[1], 6.0);
+      tl.set("#dr1 .st-no", { opacity: 1 }, 7.6);
+      tl.set("#dr2 .st-no", { opacity: 1 }, 8.2);
+      tl.set("#dr3 .st-bad", { opacity: 1 }, 8.8);
+      tl.set("#dr3 .alarm", { opacity: 1 }, 8.8);
+      tl.set("#dr3 .lkc", { opacity: 0 }, 8.8);
+      tl.set("#dr3 .lko", { opacity: 1 }, 8.8);
+      tl.set("#dr4 .st-bad", { opacity: 1 }, 9.4);
+      tl.set("#dr4 .alarm", { opacity: 1 }, 9.4);
+      tl.set("#dr4 .lkc", { opacity: 0 }, 9.4);
+      tl.set("#dr4 .lko", { opacity: 1 }, 9.4);
+
+      // Terminal del bot: una línea por paso
+      const termRows = document.querySelectorAll("#botTerm .term-row");
+      [6.6, 7.1, 7.6, 8.2, 8.8, 9.4, 10.5, 11.2].forEach((t, i) => tl.set(termRows[i], { opacity: 1 }, t));
+
+      // El atacante se frustra con los rechazos y se calma cuando la clave reusada entra
+      tl.set('#botSpr [data-layer="calm"]', { opacity: 0 }, 7.6);
+      tl.set('#botSpr [data-layer="angry"]', { opacity: 1 }, 7.6);
+      tl.set('#botSpr [data-layer="vein"]', { opacity: 1 }, 7.6);
+      for (let k = 0; k < 7; k++) tl.set("#botSpr", { x: k % 2 ? 6 : -6 }, 7.6 + k * 0.15);
+      tl.set("#botSpr", { x: 0 }, 8.65);
+      tl.set('#botSpr [data-layer="angry"], #botSpr [data-layer="vein"]', { opacity: 0 }, 8.8);
+      tl.set('#botSpr [data-layer="calm"]', { opacity: 1 }, 8.8);
+
+      XF.only(tl, caps, caps[2], 12.4);
+
+      // ---- 15–25 s: defensas ----
+      XF.only(tl, caps, caps[3], 15.0);
+      [15.4, 17.0, 18.6, 20.2].forEach((t, i) => tl.set(`#d${i + 1}`, { opacity: 1 }, t));
+
+      // ---- 25–36 s: cierre ----
+      tl.set("#cap", { opacity: 0 }, 25.0);
+      [26.0, 26.6, 27.2].forEach((t, i) => tl.set(`#ch${i + 1}`, { opacity: 1 }, t));
+      tl.set("#tag", { opacity: 1 }, 28.0);
+
+      // Mascota: rebote a saltos (steps), 36 s = 72 medios ciclos de 0.5 s
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 71, yoyo: true }, 0);
+      tl.set({}, {}, 36);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

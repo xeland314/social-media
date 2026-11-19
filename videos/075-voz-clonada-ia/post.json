@@ -1,0 +1,63 @@
+{
+  "id": "075",
+  "slug": "voz-clonada-ia",
+  "title": "Voz clonada con IA: la llamada urgente",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 36,
+  "hook": "Con 5 segundos de tu voz, una IA puede llamar a tu familia pidiendo dinero.",
+  "topicTags": [
+    "#deepfake",
+    "#clonaciondevoz",
+    "#estafas",
+    "#ciberseguridad",
+    "#ia"
+  ],
+  "sourceAnimation": null,
+  "carousel": {
+    "path": "carruseles/075-voz-clonada-ia",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Con unos segundos de audio público (un video, una nota de voz) una IA clona una voz. Suena a Mamá o a tu directora: \"estoy en problemas, transfiere ya\". Señales: urgencia, secreto, canal raro, pago inmediato. Defensa: palabra clave familiar, cuelga y devuelve la llamada, verifica por otro canal.\n\n🔊 Voz 100 % sintética: no es de nadie real.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Voz clonada con IA: la llamada urgente 📞\n\nCon unos segundos de tu voz pública, una IA la copia casi idéntica.\n\nSeñales de alerta:\n❗ Urgencia\n❗ Secreto\n❗ Canal raro\n❗ Pago o clave inmediata\n\nDefensas:\n✅ Palabra clave familiar\n✅ Cuelga y devuelve la llamada al número que ya tienes\n✅ Verifica por otro canal\n✅ Nunca des claves por teléfono\n✅ Limita tus audios públicos\n\n🔊 Las voces del video son sintéticas (generadas y clonadas con IA local); no pertenecen a ninguna persona real.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Una IA puede clonar una voz con unos segundos de audio público. Si \"Mamá\" te llama con urgencia pidiendo dinero o una clave: cuelga y devuelve la llamada al número que ya tienes. Y pacten una palabra clave familiar.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Clonación de voz con IA: con unos segundos de un video o una nota de voz se copia la voz de un familiar o un directivo y se hace una llamada breve y urgente. Señales de alerta: urgencia, secreto, canal raro y pago inmediato. Defensas: palabra clave familiar, colgar y devolver la llamada al número que ya tienes, verificar por otro canal, no dar claves por teléfono y limitar los audios públicos.\n\nLas voces del video son sintéticas: una voz generada por IA y su clon. Ninguna pertenece a una persona real.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Voz clonada con IA: la llamada urgente",
+      "text": "Cómo se clona una voz con IA a partir de unos segundos de audio público, cómo suena la llamada urgente, las señales de alerta y cinco defensas: palabra clave familiar, devolver la llamada, verificar por otro canal, no dar claves y limitar audios públicos.\n\nMás animaciones: https://xeland314.github.io/animations\n\nLas voces son sintéticas (Piper + Chatterbox, en local); no pertenecen a ninguna persona real.",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "AI 克隆声音骗局",
+      "text": "几秒钟的公开音频就能被 AI 克隆成亲人的声音。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "AI 克隆声音骗局",
+      "textZh": "几秒公开音频就能克隆声音。警惕：催促、保密、陌生渠道、立即转账。防范：约定家庭暗号、挂断后回拨已知号码、通过其他渠道核实、绝不电话告知密码、减少公开语音。"
+    }
+  }
+}

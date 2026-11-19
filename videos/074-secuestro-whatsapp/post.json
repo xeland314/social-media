@@ -1,0 +1,63 @@
+{
+  "id": "074",
+  "slug": "secuestro-whatsapp",
+  "title": "Secuestro de WhatsApp: el código de 6 dígitos",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 40,
+  "hook": "Te roban WhatsApp con un código de 6 dígitos que tú mismo les das.",
+  "topicTags": [
+    "#ciberseguridad",
+    "#tecnologia",
+    "#soporteti",
+    "#pixelart",
+    "#redes"
+  ],
+  "sourceAnimation": "(original, serie ti)",
+  "carousel": {
+    "path": "carruseles/074-secuestro-whatsapp",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Así te roban WhatsApp: registran tu número, te llega un SMS con 6 dígitos y te llaman como 'soporte' para que se lo digas. Si no contestas, entran al buzón de voz con el PIN de fábrica. Nunca compartas el código, activa la verificación en 2 pasos y cambia el PIN del buzón.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Te roban WhatsApp con 6 dígitos 📱\n\n1. Registran TU número en su teléfono\n2. Te llega un SMS con el código\n3. Te llaman: 'soy soporte, te lo mandé por error'\n\nSi no contestas, el código llega al buzón de voz y entran con el PIN de fábrica (0000, 1234).\n\nDefensa: nunca des el código, activa la verificación en 2 pasos y cambia el PIN del buzón.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Nadie te hackea WhatsApp: tú les das el código de 6 dígitos. Si no contestas, entran por el buzón de voz con el PIN de fábrica. Activa la verificación en 2 pasos y cambia ese PIN.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Cómo secuestran una cuenta de WhatsApp o Telegram: registran tu número, te llega un SMS con un código de 6 dígitos y te llaman haciéndose pasar por soporte o el colegio para que se lo digas. Si no contestas, el código llega por llamada al buzón de voz, donde entran con el PIN por defecto. Luego piden dinero a tus contactos y docentes. Defensas: no compartas el código, activa la verificación en dos pasos, cambia el PIN del buzón y, si ya cayó, avisa y re-registra tu número.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Te roban WhatsApp con 6 dígitos",
+      "text": "Cómo secuestran cuentas de WhatsApp y Telegram con el código SMS, la llamada de falso soporte y el buzón de voz con PIN por defecto, y cómo defenderte.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "WhatsApp 验证码劫持",
+      "text": "攻击者用你的号码注册，诱骗你说出 6 位验证码。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "WhatsApp 验证码劫持",
+      "textZh": "攻击者用你的号码注册，再冒充客服骗你说出 6 位验证码；你不接电话时，验证码会进语音信箱，默认 PIN 也能被利用。防御：绝不告诉别人验证码，开启两步验证，修改语音信箱 PIN。"
+    }
+  }
+}

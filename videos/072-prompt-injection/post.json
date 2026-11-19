@@ -1,0 +1,63 @@
+{
+  "id": "072",
+  "slug": "prompt-injection",
+  "title": "Prompt injection: la IA obedece al documento",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 40,
+  "hook": "Un PDF puede darle órdenes a tu asistente de IA sin que lo notes.",
+  "topicTags": [
+    "#ciberseguridad",
+    "#inteligenciaartificial",
+    "#llm",
+    "#ia",
+    "#ti"
+  ],
+  "sourceAnimation": "(original, noviembre-2026)",
+  "carousel": {
+    "path": "carruseles/072-prompt-injection",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Prompt injection: directo (\"ignora tus instrucciones\") e indirecto (texto blanco sobre blanco dentro de un PDF). Tu asistente de IA lo lee y obedece: filtra datos de la sesión o manipula el resumen. Defensa: sin datos sensibles sin revisión, desconfía de fuentes externas, revisa acciones y separa datos de instrucciones.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Prompt injection 🤖⚠️\n\nDirecto: \"ignora tus instrucciones\".\nIndirecto: texto invisible dentro de un PDF o página que tu asistente de IA lee y obedece.\n\nConsecuencias: datos filtrados, resúmenes falsos, acciones que nadie pidió.\n\nDefensas:\n1. Sin datos sensibles sin revisión\n2. Desconfía de resúmenes de fuentes externas\n3. Revisa cada acción antes de ejecutarla\n4. Separa datos de instrucciones",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un PDF con texto blanco sobre blanco puede ordenarle a tu asistente de IA que ignore sus reglas. Es prompt injection indirecta: revisa las acciones antes de ejecutarlas.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Docentes y alumnos ya usan asistentes de IA para resumir PDFs y revisar tareas. Pero un documento puede esconder instrucciones (texto blanco sobre blanco) que la IA obedece. Animación del ataque directo e indirecto y cuatro defensas concretas.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Prompt injection: la IA obedece al documento",
+      "text": "Prompt injection directa e indirecta: cómo un PDF con texto oculto manipula a un asistente de IA, qué consecuencias tiene y cuatro defensas.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "提示注入",
+      "text": "提示注入：文档里的隐藏指令会让 AI 助手照做。",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "提示注入攻击",
+      "textZh": "直接注入：用户写“忽略你的指令”。间接注入：PDF 或网页里藏着白底白字的指令，AI 会照做，泄露会话数据或给出被操纵的回答。防御：不给 AI 敏感数据、不轻信外部摘要、执行前检查操作、把数据与指令分开。"
+    }
+  }
+}

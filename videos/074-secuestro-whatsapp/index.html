@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; }
+      #title .bad { color: var(--sem-bad); }
+      .lbl { font-family: var(--font-label); font-weight: 700; color: var(--muted); font-size: 28px; }
+      .bad { color: var(--sem-bad); } .ok { color: var(--sem-ok); }
+
+      .who { top: 372px; font-size: 28px; }
+      .phone { top: 440px; width: 360px; height: 780px; }
+      .phone .bar { height: 54px; background: var(--panel-2); border-bottom: var(--px) solid var(--line); }
+      .scr { position: absolute; left: 0; right: 0; top: 66px; bottom: 0; padding: 18px; opacity: 0; font-family: var(--font-code); font-size: 28px; line-height: 1.35; color: var(--ink); }
+      .scr p { margin-top: 14px; }
+      .scr .big { font-family: var(--font-display); font-size: 34px; margin-top: 22px; line-height: 1.4; }
+      .scr .px-chip { display: inline-block; font-size: 28px; }
+
+      #srv { left: 452px; top: 440px; width: 176px; height: 150px; padding: 18px 0; text-align: center; }
+      #srv b { display: block; font-family: var(--font-display); font-size: 34px; color: var(--sem-ok); margin-bottom: 14px; }
+      .chip { font-size: 28px; opacity: 0; white-space: nowrap; }
+      #code { left: 469px; top: 640px; color: var(--accent); background: var(--panel); }
+      #pkt { left: 440px; top: 720px; color: var(--sem-bad); background: var(--panel); }
+
+      #cap { left: 72px; top: 1330px; width: 936px; height: 260px; }
+      .cap { position: absolute; left: 0; right: 0; top: 0; bottom: 0; padding: 24px 30px; opacity: 0; font-family: var(--font-code); font-size: 32px; line-height: 1.4; color: var(--ink); }
+      .cap b { color: var(--accent); }
+
+      #chat { left: 72px; top: 400px; width: 936px; height: 840px; opacity: 0; padding: 24px 30px; }
+      #chat .hd { font-size: 28px; color: var(--sem-bad); margin-bottom: 24px; }
+      .msg { opacity: 0; margin-bottom: 26px; padding: 14px 20px; border: var(--px) solid var(--line); background: var(--panel-2); }
+      .msg .to { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--accent); }
+      .msg p { font-family: var(--font-code); font-size: 30px; line-height: 1.35; color: var(--ink); margin-top: 6px; }
+      #cnt { font-size: 28px; width: 360px; height: 56px; position: absolute; right: 30px; bottom: 24px; opacity: 0; }
+
+      #def { left: 72px; top: 400px; width: 936px; height: 880px; opacity: 0; padding: 20px 30px; }
+      .drow { position: relative; height: 205px; padding: 20px 0 0 110px; opacity: 0; border-bottom: 3px solid var(--line); }
+      .drow:last-child { border-bottom: 0; }
+      .drow .n { position: absolute; left: 0; top: 24px; width: 80px; height: 80px; background: var(--panel-2); border: var(--px) solid var(--sem-ok); color: var(--sem-ok); font-family: var(--font-display); font-size: 34px; text-align: center; line-height: 68px; }
+      .drow h3 { font-family: var(--font-display); font-size: 28px; font-weight: 400; color: var(--sem-ok); line-height: 1.4; }
+      .drow p { font-family: var(--font-code); font-size: 28px; color: var(--ink); line-height: 1.35; margin-top: 8px; }
+
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="40" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="40" data-track-index="0">SEGURIDAD · MENSAJERÍA</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="40" data-track-index="1">Te roban <span class="bad">WhatsApp</span><br />con 6 dígitos</h1>
+
+      <div id="stage" class="abs clip" data-start="0" data-duration="40" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px">
+        <span class="abs lbl who" style="left:72px">TÚ (VÍCTIMA)</span>
+        <span class="abs lbl who bad" style="left:648px">ATACANTE</span>
+        <div id="pv" class="abs px-box phone" style="left:72px">
+          <div class="bar"></div>
+          <div class="scr" id="v0"><span class="lbl">WhatsApp</span><p class="ok">Todo normal</p><p>Mamá: ¿ya comiste?</p></div>
+          <div class="scr" id="v1"><span class="px-chip" style="color:var(--sem-alt)">SMS</span><p>Tu código es:</p><div class="big" style="color:var(--accent)">482 913</div><p class="lbl">No lo compartas</p></div>
+          <div class="scr" id="v2"><span class="px-chip bad">LLAMADA</span><div class="big bad">SOPORTE</div><p>"Te lo mandé por error"</p></div>
+          <div class="scr" id="v3"><span class="lbl">Tú dices:</span><div class="big bad">482 913</div><p class="bad">Código entregado</p></div>
+          <div class="scr" id="v4"><div class="big bad">SESIÓN CERRADA</div><p>Tu número ya no es tuyo.</p></div>
+          <div class="scr" id="v5"><span class="px-chip" style="color:var(--muted)">PERDIDA</span><p>No contestas la llamada.</p><p class="lbl">Buzón activo</p></div>
+          <div class="scr" id="v6"><span class="px-chip bad">BUZÓN</span><p>El código queda en un mensaje de voz.</p></div>
+        </div>
+        <div id="pa" class="abs px-box phone" style="left:648px">
+          <div class="bar"></div>
+          <div class="scr" id="a0"><span class="lbl">Registrando:</span><div class="big" style="font-size:28px">+593 9•••••••</div><p class="bad">(tu número)</p></div>
+          <div class="scr" id="a1"><span class="lbl">WhatsApp pide</span><div class="big">CÓDIGO</div><p>Esperando...</p></div>
+          <div class="scr" id="a2"><span class="px-chip bad">LLAMANDO</span><p>Guion:</p><p class="bad">"Soy soporte..."</p></div>
+          <div class="scr" id="a3"><span class="lbl">Código:</span><div class="big bad">482 913</div><p class="bad">CUENTA ABIERTA</p></div>
+          <div class="scr" id="a4"><span class="lbl">Buzón ajeno</span><p>PIN de fábrica:</p><div class="big bad">0000</div><p class="lbl">1234 ...</p></div>
+          <div class="scr" id="a5"><span class="px-chip bad">PIN OK</span><p>Escucha el mensaje:</p><div class="big bad">482 913</div></div>
+        </div>
+        <div id="srv" class="abs px-box"><b>WA</b><span class="lbl">server</span></div>
+        <span id="code" class="abs px-chip chip">482913</span>
+        <span id="pkt" class="abs px-chip chip">REGISTRO</span>
+      </div>
+
+      <div id="chat" class="abs px-box clip" data-start="0" data-duration="40" data-track-index="3">
+        <div class="hd lbl">CHATS DE LA VÍCTIMA, AHORA DEL ATACANTE</div>
+        <div class="msg" id="m1"><span class="to">Mamá</span><p>Estoy en apuros. ¿Me prestas $50? Te devuelvo hoy.</p></div>
+        <div class="msg" id="m2"><span class="to">Prof. Ana</span><p>Profe, ¿me adelanta $30 para el colegio? Urgente.</p></div>
+        <div class="msg" id="m3"><span class="to">Grupo del curso</span><p>Chicos, necesito un favor: mándenme saldo.</p></div>
+        <span id="cnt" class="px-chip bad"><span id="n0" class="abs" style="left:14px;top:6px;white-space:nowrap">ENVIADO A 12</span><span id="n1" class="abs" style="left:14px;top:6px;opacity:0;white-space:nowrap">ENVIADO A 120</span></span>
+      </div>
+
+      <div id="def" class="abs px-box clip" data-start="0" data-duration="40" data-track-index="4">
+        <div class="drow" id="d1"><span class="n">1</span><h3>NUNCA des el código</h3><p>Ni a soporte, ni al colegio, ni a un "amigo".</p></div>
+        <div class="drow" id="d2"><span class="n">2</span><h3>VERIFICACIÓN EN 2 PASOS</h3><p>Activa el PIN de la app: sin él no entran.</p></div>
+        <div class="drow" id="d3"><span class="n">3</span><h3>PIN DEL BUZÓN</h3><p>Cámbialo: adiós 0000 y 1234.</p></div>
+        <div class="drow" id="d4"><span class="n">4</span><h3>SI YA CAYÓ</h3><p>Avisa a tus contactos y re-registra tu número: el atacante sale.</p></div>
+      </div>
+
+      <div id="cap" class="abs px-box clip" data-start="0" data-duration="40" data-track-index="5">
+        <div class="cap" id="c1"><b>1.</b> El atacante registra <b>tu número</b> en su teléfono.</div>
+        <div class="cap" id="c2"><b>2.</b> WhatsApp te manda un <b>SMS</b> con 6 dígitos.</div>
+        <div class="cap" id="c3"><b>3.</b> Te llama: <span class="bad">"Soy soporte, te lo mandé por error. ¿Me lo dices?"</span></div>
+        <div class="cap" id="c4">Se lo das y <span class="bad">la cuenta ya es suya</span>.</div>
+        <div class="cap" id="c5"><b>¿No contestas?</b> El código llega por llamada, al buzón de voz.</div>
+        <div class="cap" id="c6">Entra con el <span class="bad">PIN de fábrica</span> (0000, 1234) y lo escucha.</div>
+        <div class="cap" id="c7">Escribe a tus <b>contactos y docentes</b> pidiendo dinero.</div>
+        <div class="cap" id="c8">Todos confían en ti. <span class="bad">La estafa lleva tu nombre.</span></div>
+        <div class="cap" id="c9"><b>Defiéndete:</b> un código de 6 dígitos es la llave de tu cuenta.</div>
+        <div class="cap" id="c10"><span class="ok">Código = llave.</span> No se comparte. Nunca.</div>
+      </div>
+
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="40" data-track-index="6" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="40" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start (ver docs/sonido.md; solo SFX, sin música) -->
+      <audio id="aud1" src="shared/audio/packet.wav" data-start="0.9" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="2.8" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/packet.wav" data-start="3.2" data-duration="0.3" data-track-index="23" data-volume="0.6"></audio>
+      <audio id="aud4" src="shared/audio/pop.wav" data-start="6.6" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/whoosh.wav" data-start="8.6" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud6" src="shared/audio/error.wav" data-start="10.4" data-duration="0.45" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="13.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="15.4" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/whoosh.wav" data-start="17.0" data-duration="0.6" data-track-index="21" data-volume="0.5"></audio>
+      <audio id="aud10" src="shared/audio/error.wav" data-start="18.2" data-duration="0.45" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud11" src="shared/audio/pop.wav" data-start="21.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud12" src="shared/audio/pop.wav" data-start="22.6" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud13" src="shared/audio/pop.wav" data-start="24.0" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud14" src="shared/audio/error.wav" data-start="24.4" data-duration="0.45" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud15" src="shared/audio/confirm.wav" data-start="28.2" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud16" src="shared/audio/pop.wav" data-start="30.4" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud17" src="shared/audio/pop.wav" data-start="32.6" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud18" src="shared/audio/pop.wav" data-start="34.8" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud19" src="shared/audio/confirm.wav" data-start="37.0" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t, on = true) => tl.set(sel, { opacity: on ? 1 : 0 }, t);
+      const group = (p, n) => Array.from({ length: n }, (_, i) => $(`#${p}${i}`)).filter(Boolean);
+      const V = [0,1,2,3,4,5,6].map((i) => $(`#v${i}`)), A = [0,1,2,3,4,5].map((i) => $(`#a${i}`));
+      const C = [1,2,3,4,5,6,7,8,9,10].map((i) => $(`#c${i}`));
+      const vs = (i, t) => XF.only(tl, V, V[i], t), as = (i, t) => XF.only(tl, A, A[i], t), cs = (i, t) => XF.only(tl, C, C[i - 1], t);
+      const move = (sel, a, b, t, dur, n) => {
+        tl.set(sel, { x: a.x, y: a.y, opacity: 1 }, t);
+        tl.fromTo(sel, { x: a.x, y: a.y }, { x: b.x, y: b.y, duration: dur, ease: XF.ease(n) }, t);
+        tl.set(sel, { opacity: 0 }, t + dur);
+      };
+
+      tl.set(["#chat", "#def"], { opacity: 0 }, 0);
+
+      // ---- 0.4: el atacante registra tu número ----
+      vs(0, 0); as(0, 0); cs(1, 0.4);
+      move("#pkt", { x: 0, y: 0 }, { x: 0, y: -100 }, 0.9, 1.0, 6);
+      // ---- 2.8: SMS con el código ----
+      cs(2, 2.8); as(1, 2.8);
+      move("#code", { x: 0, y: 0 }, { x: -280, y: 260 }, 3.2, 1.1, 8);
+      vs(1, 4.0);
+      // ---- 6.4: llamada de "soporte" ----
+      cs(3, 6.6); vs(2, 6.6); as(2, 6.6);
+      // ---- 9.0: se lo das ----
+      vs(3, 8.6);
+      move("#code", { x: -280, y: 260 }, { x: 260, y: 260 }, 8.6, 1.6, 10);
+      cs(4, 10.4); as(3, 10.4); vs(4, 10.4);
+      for (let k = 0; k < 8; k++) tl.set("#pa", { x: k % 2 ? 5 : -5 }, 10.4 + k * 0.12);
+      tl.set("#pa", { x: 0 }, 11.4);
+      // ---- 13.2: variante buzón de voz ----
+      cs(5, 13.2); vs(5, 13.2); as(4, 13.2);
+      vs(6, 15.4);
+      cs(6, 17.0);
+      move("#code", { x: 0, y: 0 }, { x: 250, y: 260 }, 17.0, 1.2, 8);
+      as(5, 18.2);
+      // ---- 21: con la cuenta robada ----
+      tl.set("#stage", { opacity: 0 }, 21.0);
+      tl.set("#chat", { opacity: 1 }, 21.0);
+      cs(7, 21.0);
+      show("#m1", 21.2); show("#m2", 22.6); show("#m3", 24.0);
+      show("#cnt", 21.2);
+      tl.set("#n0", { opacity: 0 }, 24.4); tl.set("#n1", { opacity: 1 }, 24.4);
+      cs(8, 24.4);
+      // ---- 27.8: defensas ----
+      tl.set("#chat", { opacity: 0 }, 27.8);
+      tl.set("#def", { opacity: 1 }, 27.8);
+      cs(9, 27.8);
+      show("#d1", 28.2); show("#d2", 30.4); show("#d3", 32.6); show("#d4", 34.8);
+      cs(10, 37.0);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 79, yoyo: true }, 0);
+      tl.set({}, {}, 40);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

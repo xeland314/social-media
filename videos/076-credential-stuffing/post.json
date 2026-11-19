@@ -1,0 +1,62 @@
+{
+  "id": "076",
+  "slug": "credential-stuffing",
+  "title": "Credential stuffing: una clave, todas las cuentas",
+  "series": "ti",
+  "calendarDay": null,
+  "status": "rendered",
+  "publishDate": null,
+  "durationSec": 36,
+  "hook": "Una clave filtrada de un juego gratis puede abrir tu banco.",
+  "topicTags": [
+    "#contraseñas",
+    "#credentialstuffing",
+    "#2fa",
+    "#ciberseguridad"
+  ],
+  "sourceAnimation": null,
+  "carousel": {
+    "path": "carruseles/076-credential-stuffing",
+    "status": "pending"
+  },
+  "platforms": {
+    "tiktok": {
+      "title": "",
+      "text": "Se filtra la base de un juego gratis: correo y clave. Un bot prueba ese mismo par en el correo institucional, el banco y las redes. ¿Qué puerta se abre? La que reusa la clave. Una clave distinta por sitio, siempre. Datos ficticios.",
+      "url": null,
+      "publishedAt": null
+    },
+    "instagram": {
+      "title": "",
+      "text": "Misma clave, todas tus cuentas 🔑\n\nSe filtra un sitio gratis poco importante: correo + clave.\nUn bot prueba ese par en cada puerta. Las que reusan la clave se abren.\n\nCómo cortarlo:\n1. Una clave distinta por sitio\n2. Gestor de contraseñas\n3. 2FA con app o llave (mejor que SMS)\n4. Revisa si tu correo aparece en filtraciones públicas\n\nCaso armado con datos ficticios. Guárdalo.",
+      "url": null,
+      "publishedAt": null
+    },
+    "threads": {
+      "title": "",
+      "text": "Un sitio de juegos gratis se filtra y, días después, alguien entra a tu banco con la misma clave. Credential stuffing: no hackean tu cuenta, prueban tu clave en todas. Una clave distinta por sitio y 2FA con app o llave.",
+      "url": null,
+      "publishedAt": null
+    },
+    "facebook": {
+      "title": "",
+      "text": "Credential stuffing: cuando se filtra un sitio poco importante, los atacantes prueban ese mismo correo y clave en el correo institucional, el banco y las redes sociales. Animación con un caso ficticio y cómo cortarlo: clave distinta por sitio, gestor de contraseñas, 2FA con app o llave y revisar si tu correo aparece en filtraciones públicas.",
+      "url": null,
+      "publishedAt": null
+    },
+    "youtube": {
+      "title": "Credential stuffing: misma clave, todas tus cuentas",
+      "text": "Se filtra la base de un sitio gratis poco importante (correo y clave). Un bot prueba ese mismo par en el correo institucional, el banco y las redes sociales: las cuentas que reusan la clave se abren. Caso ficticio con datos inventados (ejemplo.edu, mail.test).\n\nCómo frenarlo: una clave distinta por sitio, gestor de contraseñas, 2FA con app o llave (mejor que SMS) y revisar si tu correo aparece en filtraciones públicas.\n\nMás animaciones: https://xeland314.github.io/animations",
+      "url": null,
+      "publishedAt": null
+    },
+    "rednote": {
+      "title": "Misma clave, todas",
+      "text": "Credential stuffing: un sitio gratis se filtra y un bot prueba ese par en tu correo, tu banco y tus redes. Caso ficticio: una clave distinta por sitio y 2FA.",
+      "url": null,
+      "publishedAt": null,
+      "titleZh": "同一密码，所有账号",
+      "textZh": "小型免费网站泄露后，攻击者会用同一组邮箱和密码尝试登录邮箱、银行和社交账号。虚构案例：每个网站使用不同密码，并开启应用或硬件密钥的双重验证。"
+    }
+  }
+}

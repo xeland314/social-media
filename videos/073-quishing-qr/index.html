@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <!-- "shared" es un enlace simbólico a ../../shared (Hyperframes solo sirve la carpeta del video) -->
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      .dyn { opacity: 0; }
+      .scene { left: 0; top: 0; width: 1080px; height: 1920px; }
+
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; line-height: 1.5; }
+      #title .bad { color: var(--sem-bad); }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+
+      .lbl { font-family: var(--font-label); font-weight: 700; font-size: 28px; color: var(--muted); }
+      .mono { font-family: var(--font-code); font-size: 30px; color: var(--ink); white-space: nowrap; }
+      .qr { background: var(--ink); }
+      .qr svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+
+      /* 1 · Cartel con el QR legítimo y la calcomanía */
+      #cartel { left: 72px; top: 330px; width: 936px; height: 1000px; }
+      #cartel-head { left: 72px; top: 330px; width: 936px; padding: 18px 28px; background: var(--panel-2); border-bottom: var(--px) solid var(--line); }
+      #qrL { left: 176px; top: 400px; width: 728px; height: 728px; }
+      #qrL svg { left: 28px; top: 28px; width: 672px; height: 672px; }
+      #sticker { left: 500px; top: 470px; width: 336px; height: 336px; padding: 21px; background: var(--ink); box-shadow: 0 0 0 6px var(--sem-bad), 0 14px 0 6px rgba(0, 0, 0, 0.45); }
+      #sticker .qr { position: absolute; left: 21px; top: 21px; width: 294px; height: 294px; background: transparent; }
+      #stag { left: 500px; top: 436px; font-size: 28px; color: var(--sem-bad); background: var(--ground); }
+      #flap { left: 772px; top: 742px; width: 64px; height: 64px; background: var(--sem-bad); clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+      #cap-scan { left: 72px; top: 1190px; width: 936px; text-align: center; font-size: 30px; color: var(--ink); }
+      #okchip { left: 72px; top: 1240px; width: 936px; text-align: center; }
+      #okchip span { font-size: 28px; color: var(--sem-ok); }
+
+      /* 2 · Cámara escanea y la URL revela el dominio falso */
+      #phone { left: 330px; top: 360px; width: 420px; height: 760px; }
+      #phone-head { left: 330px; top: 360px; width: 420px; padding: 16px 24px; background: var(--panel-2); border-bottom: var(--px) solid var(--line); }
+      #viewfinder { left: 372px; top: 470px; width: 336px; height: 336px; background: var(--ink); overflow: hidden; }
+      #viewfinder .qr { position: absolute; left: 0; top: 0; width: 336px; height: 336px; background: transparent; }
+      #scan { left: 372px; top: 470px; width: 336px; height: 6px; background: var(--accent); }
+      #dtc { left: 330px; top: 850px; width: 420px; text-align: center; font-size: 28px; color: var(--accent); }
+      #urlbox { left: 72px; top: 1150px; width: 936px; height: 330px; }
+      .urow { position: absolute; left: 110px; width: 860px; height: 60px; display: flex; align-items: center; gap: 24px; }
+      .urow .lbl { width: 250px; flex: none; }
+      #u1 { top: 1190px; } #u2 { top: 1270px; }
+      #u-note { left: 110px; top: 1370px; width: 860px; font-size: 28px; color: var(--muted); }
+
+      /* 3 · Portal falso */
+      #browser { left: 72px; top: 330px; width: 936px; height: 800px; }
+      #addr { left: 72px; top: 330px; width: 936px; height: 80px; padding: 0 28px; display: flex; align-items: center; background: var(--panel-2); border-bottom: var(--px) solid var(--line); }
+      #addr .mono { font-size: 28px; color: var(--sem-bad); }
+      #hd { left: 110px; top: 450px; font-family: var(--font-display); font-size: 32px; color: var(--ink); }
+      .field { position: absolute; left: 110px; width: 856px; height: 80px; background: var(--ground); border: 4px solid var(--line); }
+      #lbl-u { left: 110px; top: 556px; }
+      #lbl-p { left: 110px; top: 706px; }
+      #user { top: 600px; }
+      #pass { top: 750px; }
+      #usertxt { position: absolute; left: 20px; top: 0; line-height: 72px; }
+      #pass .stk { left: 20px; top: 0; line-height: 72px; font-family: var(--font-code); font-size: 30px; color: var(--ink); }
+      #btn { left: 110px; top: 880px; width: 520px; height: 90px; line-height: 90px; text-align: center; font-family: var(--font-display); font-size: 28px; background: var(--accent); color: var(--ground); }
+      #atkbox { left: 72px; top: 1160px; width: 936px; height: 320px; }
+      #atk { left: 110px; top: 1190px; width: 168px; height: 182px; }
+      #atk svg { width: 168px; height: 182px; }
+      #atktxt { left: 330px; top: 1200px; width: 650px; }
+      #atktxt .who { font-family: var(--font-display); font-size: 28px; color: var(--sem-bad); margin-bottom: 18px; }
+      #atktxt .mono { white-space: normal; line-height: 1.4; }
+      #packet { left: 340px; top: 980px; width: 28px; height: 28px; background: var(--sem-bad); }
+
+      /* 4 · Defensas */
+      #tips { left: 72px; top: 330px; width: 936px; height: 1150px; }
+      #tips-head { left: 110px; top: 370px; color: var(--accent); }
+      .trow { position: absolute; left: 110px; width: 860px; height: 240px; padding-top: 22px; }
+      .trow.sep { border-top: 3px solid var(--line); }
+      .trow .px-chip { font-size: 28px; }
+      .trow p { margin-top: 22px; font-family: var(--font-code); font-size: 30px; line-height: 1.4; color: var(--ink); }
+      #t1 { top: 430px; } #t2 { top: 690px; } #t3 { top: 950px; } #t4 { top: 1210px; }
+
+      #cap { left: 72px; top: 1540px; width: 936px; height: 120px; text-align: center; font-family: var(--font-label); font-weight: 700; font-size: 30px; line-height: 44px; color: var(--ink); }
+      #cap .stk { line-height: 44px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="34" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="34" data-track-index="0">SERIE TI · QUISHING</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="34" data-track-index="1">Quishing: el <span class="bad">QR pegado</span> encima</h1>
+
+      <!-- Escena 1 (0–7 s): cartel con QR oficial; calcomanía cae encima -->
+      <div id="sc1" class="abs scene">
+        <div id="cartel" class="abs px-box"></div>
+        <div id="cartel-head" class="abs lbl" style="color:var(--ink)">CAFETERÍA · PAGA CON QR</div>
+        <div id="qrL" class="abs qr"></div>
+        <div id="cap-scan" class="abs lbl">ESCANEA PARA PAGAR</div>
+        <div id="okchip" class="abs"><span class="px-chip">✓ QR OFICIAL</span></div>
+        <div id="sticker" class="abs qr dyn">
+          <div class="qr" id="stickerQR"></div>
+        </div>
+        <div id="stag" class="abs px-chip dyn">PEGADO</div>
+        <div id="flap" class="abs dyn"></div>
+      </div>
+
+      <!-- Escena 2 (7–14 s): la cámara lee el QR falso y muestra la URL -->
+      <div id="sc2" class="abs scene dyn">
+        <div id="phone" class="abs px-box"></div>
+        <div id="phone-head" class="abs lbl" style="color:var(--ink)">CÁMARA · QR</div>
+        <div id="viewfinder" class="abs">
+          <div class="qr" id="viewQR"></div>
+        </div>
+        <div id="scan" class="abs dyn"></div>
+        <div id="dtc" class="abs px-chip dyn">¡ENLACE DETECTADO!</div>
+        <div id="urlbox" class="abs px-box"></div>
+        <div id="u1" class="urow dyn"><span class="lbl">OFICIAL</span><span class="mono" style="color:var(--sem-ok)">pagos.cafeteria.example</span></div>
+        <div id="u2" class="urow dyn"><span class="lbl" style="color:var(--sem-bad)">ESCANEADO</span><span class="mono" style="color:var(--sem-bad)">pagos.cafeteria-login.test</span></div>
+        <div id="u-note" class="abs lbl">Lo que va antes de la primera / es el dominio.</div>
+      </div>
+
+      <!-- Escena 3 (14–21 s): portal falso pide usuario, clave y pago -->
+      <div id="sc3" class="abs scene dyn">
+        <div id="browser" class="abs px-box"></div>
+        <div id="addr" class="abs"><span class="mono">https://pagos.cafeteria-login.test/login</span></div>
+        <div id="hd" class="abs">INICIA SESIÓN</div>
+        <div id="lbl-u" class="abs lbl">USUARIO</div>
+        <div id="user" class="field"><span id="usertxt" class="mono dyn">tu.usuario</span></div>
+        <div id="lbl-p" class="abs lbl">CLAVE</div>
+        <div id="pass" class="field"></div>
+        <div id="btn" class="abs">PAGAR AHORA</div>
+
+        <div id="atkbox" class="abs px-box"></div>
+        <div id="atk" class="abs"></div>
+        <div id="atktxt" class="abs">
+          <div class="who">ATACANTE</div>
+          <div class="mono">Recibe usuario, clave y pago. Tú no ves nada raro.</div>
+        </div>
+        <div id="packet" class="abs dyn"></div>
+      </div>
+
+      <!-- Escena 4 (21–34 s): cuatro defensas -->
+      <div id="sc4" class="abs scene dyn">
+        <div id="tips" class="abs px-box"></div>
+        <div id="tips-head" class="abs lbl">CUATRO DEFENSAS</div>
+        <div id="t1" class="trow dyn"><span class="px-chip" style="color:var(--sem-alt)">01 · URL</span><p>Antes de abrir, lee la URL que muestra la cámara. Mira el dominio letra por letra.</p></div>
+        <div id="t2" class="trow sep dyn"><span class="px-chip" style="color:var(--sem-bad)">02 · PEGADO</span><p>Desconfía de un QR pegado encima de otro, sobre todo si pide login o pago.</p></div>
+        <div id="t3" class="trow sep dyn"><span class="px-chip" style="color:var(--sem-ok)">03 · TECLEA</span><p>Escribe el dominio a mano en el navegador. No sigas el QR.</p></div>
+        <div id="t4" class="trow sep dyn"><span class="px-chip" style="color:var(--sem-magic)">04 · 2FA</span><p>Activa 2FA. Aunque roben tu clave, les falta el segundo código.</p></div>
+      </div>
+
+      <div id="cap" class="abs clip" data-start="0" data-duration="34" data-track-index="6"></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="34" data-track-index="7" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="34" data-track-index="8">@xeland314</div>
+
+      <!-- audio:start (generado por scripts/add-audio.mjs; ver docs/sonido.md) -->
+      <audio id="aud1" src="shared/audio/whoosh.wav" data-start="2.4" data-duration="0.6" data-track-index="22" data-volume="0.5"></audio>
+      <audio id="aud2" src="shared/audio/pop.wav" data-start="3.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud3" src="shared/audio/error.wav" data-start="5.0" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud4" src="shared/audio/blip.wav" data-start="7.6" data-duration="0.12" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud5" src="shared/audio/confirm.wav" data-start="9.2" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud6" src="shared/audio/error.wav" data-start="10.6" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud7" src="shared/audio/pop.wav" data-start="15.2" data-duration="0.18" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/pop.wav" data-start="15.8" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/packet.wav" data-start="18.2" data-duration="0.3" data-track-index="22" data-volume="0.6"></audio>
+      <audio id="aud10" src="shared/audio/error.wav" data-start="19.6" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud11" src="shared/audio/confirm.wav" data-start="21.4" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud12" src="shared/audio/pop.wav" data-start="23.2" data-duration="0.18" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud13" src="shared/audio/pop.wav" data-start="25.0" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud14" src="shared/audio/pop.wav" data-start="26.8" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <!-- audio:end -->
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script src="shared/js/sprites.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t, on = true) => tl.set(sel, { opacity: on ? 1 : 0 }, t);
+
+      // QR determinista (sin Math.random): finders, timing, alineación y datos por hash LCG.
+      function qrMatrix(seed, n = 21) {
+        const g = Array.from({ length: n }, () => Array(n).fill(0));
+        const res = Array.from({ length: n }, () => Array(n).fill(false));
+        let h = seed >>> 0;
+        const bit = () => { h = (Math.imul(h, 1664525) + 1013904223) >>> 0; return h >>> 31; };
+        const finder = (x0, y0) => {
+          for (let dy = -1; dy <= 7; dy++) for (let dx = -1; dx <= 7; dx++) {
+            const x = x0 + dx, y = y0 + dy;
+            if (x < 0 || y < 0 || x >= n || y >= n) continue;
+            const inside = dx >= 0 && dx <= 6 && dy >= 0 && dy <= 6;
+            const ring = dx === 0 || dx === 6 || dy === 0 || dy === 6;
+            const core = dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4;
+            g[y][x] = inside && (ring || core) ? 1 : 0;
+            res[y][x] = true;
+          }
+        };
+        finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
+        for (let i = 8; i < n - 8; i++) {
+          g[6][i] = i % 2 === 0 ? 1 : 0; res[6][i] = true;
+          g[i][6] = i % 2 === 0 ? 1 : 0; res[i][6] = true;
+        }
+        for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+          const x = n - 3 + dx, y = n - 3 + dy;
+          g[y][x] = Math.max(Math.abs(dx), Math.abs(dy)) !== 1 ? 1 : 0; res[y][x] = true;
+        }
+        for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (!res[y][x]) g[y][x] = bit();
+        return g;
+      }
+      function qrSVG(g) {
+        const n = g.length;
+        let d = "";
+        g.forEach((row, y) => row.forEach((v, x) => { if (v) d += `M${x} ${y}h1v1h-1z`; }));
+        return `<svg viewBox="0 0 ${n} ${n}" preserveAspectRatio="none" shape-rendering="crispEdges"><path d="${d}" style="fill:var(--ground)"/></svg>`;
+      }
+      const legit = qrMatrix(7);   // QR oficial del cartel
+      const fake = qrMatrix(42);   // QR de la calcomanía (otro contenido)
+      $("#qrL").innerHTML = qrSVG(legit);
+      $("#stickerQR").innerHTML = qrSVG(fake);
+      $("#viewQR").innerHTML = qrSVG(fake);
+
+      // Atacante (sprite de sprites.js); capas: calm (base), angry y vein
+      $("#atk").innerHTML = SPR.attacker(7);
+      const L = (n) => $(`#atk [data-layer="${n}"]`);
+
+      // Caption: textos apilados, uno visible a la vez (XF.stack / XF.only)
+      const caps = XF.stack($("#cap"), [
+        "Un QR falso, pegado encima<br>del que sí es del local.",
+        "Escaneas y el dominio casi<br>parece el correcto. No lo es.",
+        "La página pide usuario, clave o pago.<br>Todo llega al atacante.",
+        "Cuatro defensas antes de escanear<br>o de pagar.",
+      ]);
+      const pass = XF.stack($("#pass"), ["", "••••", "••••••••"]);
+
+      // ---- Estados iniciales (seek-safe) ----
+      tl.set(L("angry"), { opacity: 0 }, 0);
+      tl.set(L("vein"), { opacity: 0 }, 0);
+      tl.set("#sticker", { y: -300, clipPath: "none" }, 0);
+      tl.set("#btn", { y: 0 }, 0);
+      XF.only(tl, caps, caps[0], 0);
+      XF.only(tl, pass, pass[0], 0);
+
+      // ---- 0–7 s · cartel y calcomanía ----
+      show("#sc1", 0); show("#sc1", 7, false);
+      show("#sticker", 2.4);
+      tl.fromTo("#sticker", { y: -300 }, { y: 0, duration: 1.2, ease: "steps(6)" }, 2.4);
+      show("#stag", 3.6);
+      show("#flap", 5.0);
+      tl.set("#sticker", { clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 64px), calc(100% - 64px) 100%, 0 100%)" }, 5.0);
+      XF.only(tl, caps, caps[1], 7);
+
+      // ---- 7–14 s · escaneo y URL ----
+      show("#sc2", 7); show("#sc2", 14, false);
+      show("#scan", 7.6);
+      tl.fromTo("#scan", { y: 0 }, { y: 330, duration: 1.4, ease: "steps(10)" }, 7.6);
+      show("#scan", 9.1, false);
+      show("#dtc", 9.2);
+      show("#u1", 9.6);
+      show("#u2", 10.6);
+      XF.only(tl, caps, caps[2], 14);
+
+      // ---- 14–21 s · portal falso ----
+      show("#sc3", 14); show("#sc3", 21, false);
+      show("#usertxt", 14.8);
+      XF.only(tl, pass, pass[1], 15.2);
+      XF.only(tl, pass, pass[2], 15.8);
+      tl.set("#btn", { y: 6 }, 18.0);
+      tl.set("#btn", { y: 0 }, 18.4);
+      show("#packet", 18.2);
+      tl.fromTo("#packet", { y: 0 }, { y: 170, duration: 1.2, ease: "steps(8)" }, 18.2);
+      show("#packet", 19.5, false);
+      tl.set(L("angry"), { opacity: 1 }, 19.6);
+      for (let k = 0; k < 6; k++) tl.set(L("vein"), { opacity: k % 2 ? 0 : 1 }, 19.8 + k * 0.2);
+      tl.set(L("vein"), { opacity: 1 }, 21.0);
+
+      // ---- 21–34 s · defensas ----
+      show("#sc4", 21);
+      show("#t1", 21.4);
+      show("#t2", 23.2);
+      show("#t3", 25.0);
+      show("#t4", 26.8);
+      XF.only(tl, caps, caps[3], 21);
+
+      // Mascota: bob a saltos durante los 34 s (68 medios ciclos de 0,5 s)
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 67, yoyo: true }, 0);
+      tl.set({}, {}, 34);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

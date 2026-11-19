@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <!-- "shared" es un enlace simbólico a ../../shared (Hyperframes solo sirve la carpeta del video) -->
+    <link rel="stylesheet" href="shared/styles/fonts.css" />
+    <link rel="stylesheet" href="shared/styles/tokens.css" />
+    <link rel="stylesheet" href="shared/styles/pixel.css" />
+    <link rel="stylesheet" href="shared/styles/code.css" />
+    <style>
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .abs { position: absolute; }
+      #eyebrow { left: 72px; top: 120px; font-size: 28px; }
+      #title { left: 72px; top: 170px; font-size: 40px; width: 936px; line-height: 1.4; }
+      #mascot { left: 72px; bottom: 14px; width: 96px; height: 96px; }
+      #mark { right: 72px; bottom: 56px; font-size: 28px; }
+      #card { left: 72px; top: 340px; width: 936px; height: 960px; overflow: hidden; }
+      #cap { left: 72px; top: 1345px; width: 936px; height: 260px; }
+      #cap .stk { position: absolute; left: 36px; right: 36px; top: 34px; font-family: var(--font-label); font-weight: 700; font-size: 40px; line-height: 1.35; color: var(--ink); }
+      .scn { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+      .lbl { position: absolute; font-family: var(--font-label); font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+      .bx { position: absolute; border: 5px solid var(--line); background: var(--panel-2); display: flex; align-items: center; justify-content: center; font-family: var(--font-label); font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; text-align: center; line-height: 1.4; }
+      .wave { position: absolute; left: 30px; width: 876px; height: 220px; border: 5px solid var(--line); background: var(--panel-2); }
+      .bar { position: absolute; width: 24px; opacity: 0; }
+      .row { left: 30px; width: 876px; height: 130px; opacity: 0; justify-content: flex-start; padding-left: 28px; box-sizing: border-box; }
+      .row .stk { position: absolute; left: 28px; right: 20px; top: 0; height: 100%; display: flex; align-items: center; }
+      .row .stk b { margin-right: 18px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="px-grid-bg" data-composition-id="main" data-start="0" data-duration="36" data-width="1080" data-height="1920">
+      <div id="eyebrow" class="abs px-eyebrow clip" data-start="0" data-duration="36" data-track-index="0">TI · SEGURIDAD</div>
+      <h1 id="title" class="abs px-title clip" data-start="0" data-duration="36" data-track-index="1">Voz clonada con IA:<br />la llamada urgente</h1>
+
+      <div id="card" class="abs px-box clip" data-start="0" data-duration="36" data-track-index="3">
+        <!-- Escena 1: clip -> modelo -> clon -->
+        <div id="s1" class="scn">
+          <div class="lbl" style="left:30px;top:24px">AUDIO PÚBLICO · 4 s</div>
+          <div class="wave" id="w0" style="top:76px"></div>
+          <div class="bx" id="model" style="left:30px;top:340px;width:876px;height:120px;opacity:0">MODELO DE IA</div>
+          <div class="lbl" id="l1" style="left:30px;top:500px;opacity:0">VOZ CLONADA</div>
+          <div class="wave" id="w1" style="top:552px"></div>
+          <div class="lbl" id="l2" style="left:30px;top:820px;opacity:0;color:var(--sem-bad)">Casi idéntica a la real</div>
+        </div>
+
+        <!-- Escena 2: llamada -->
+        <div id="s2" class="scn">
+          <div class="bx" id="phone" style="left:228px;top:30px;width:480px;height:420px;flex-direction:column;"></div>
+          <div class="bx" id="bub" style="left:30px;top:510px;width:876px;height:260px;opacity:0;border-color:var(--sem-bad);padding:0 30px;box-sizing:border-box"></div>
+          <div class="lbl" id="l3" style="left:30px;top:830px;opacity:0;color:var(--sem-bad)">Suena real. Es un clon.</div>
+        </div>
+
+        <!-- Escena 3: señales de alerta -->
+        <div id="s3" class="scn">
+          <div class="bx row" id="a0" style="top:40px"></div>
+          <div class="bx row" id="a1" style="top:230px"></div>
+          <div class="bx row" id="a2" style="top:420px"></div>
+          <div class="bx row" id="a3" style="top:610px"></div>
+          <div class="lbl" id="l4" style="left:30px;top:810px;opacity:0;color:var(--sem-bad)">Dos o más: sospecha</div>
+        </div>
+
+        <!-- Escena 4: defensas -->
+        <div id="s4" class="scn">
+          <div class="bx row" id="d0" style="top:20px;height:150px"></div>
+          <div class="bx row" id="d1" style="top:200px;height:150px"></div>
+          <div class="bx row" id="d2" style="top:380px;height:150px"></div>
+          <div class="bx row" id="d3" style="top:560px;height:150px"></div>
+          <div class="bx row" id="d4" style="top:740px;height:150px"></div>
+        </div>
+      </div>
+      <div id="cap" class="abs px-box clip" data-start="0" data-duration="36" data-track-index="4"></div>
+      <img id="mascot" class="abs pixelated clip" src="shared/sprites/gato-sin-fondo.svg" alt="" data-start="0" data-duration="36" data-track-index="5" />
+      <div id="mark" class="abs px-mark clip" data-start="0" data-duration="36" data-track-index="7">@xeland314</div>
+
+      <!-- audio:start -->
+      <audio id="aud1" src="shared/audio/pop.wav" data-start="0.8" data-duration="0.18" data-track-index="22" data-volume="0.7"></audio>
+      <audio id="aud2" src="shared/audio/whoosh.wav" data-start="3.4" data-duration="0.6" data-track-index="23" data-volume="0.5"></audio>
+      <audio id="aud3" src="shared/audio/confirm.wav" data-start="3.7" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud4" src="shared/audio/packet.wav" data-start="5.3" data-duration="0.3" data-track-index="21" data-volume="0.6"></audio>
+      <audio id="aud5" src="shared/audio/error.wav" data-start="7.6" data-duration="0.45" data-track-index="22" data-volume="0.35"></audio>
+      <audio id="aud6" src="shared/audio/blip.wav" data-start="10.8" data-duration="0.12" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud7" src="shared/audio/blip.wav" data-start="11.4" data-duration="0.12" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud8" src="shared/audio/blip.wav" data-start="12.0" data-duration="0.12" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud9" src="shared/audio/confirm.wav" data-start="12.6" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud10" src="shared/audio/pop.wav" data-start="13.2" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud11" src="shared/audio/blip.wav" data-start="16.2" data-duration="0.12" data-track-index="24" data-volume="0.7"></audio>
+      <audio id="aud12" src="shared/audio/blip.wav" data-start="16.8" data-duration="0.12" data-track-index="21" data-volume="0.7"></audio>
+      <audio id="aud13" src="shared/audio/confirm.wav" data-start="17.1" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud14" src="shared/audio/pop.wav" data-start="17.6" data-duration="0.18" data-track-index="23" data-volume="0.7"></audio>
+      <audio id="aud15" src="shared/audio/error.wav" data-start="20.8" data-duration="0.45" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud16" src="shared/audio/error.wav" data-start="22.1" data-duration="0.45" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud17" src="shared/audio/error.wav" data-start="23.4" data-duration="0.45" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud18" src="shared/audio/error.wav" data-start="24.7" data-duration="0.45" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud19" src="shared/audio/whoosh.wav" data-start="27.0" data-duration="0.6" data-track-index="24" data-volume="0.5"></audio>
+      <audio id="aud20" src="shared/audio/confirm.wav" data-start="27.6" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud21" src="shared/audio/confirm.wav" data-start="28.8" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <audio id="aud22" src="shared/audio/confirm.wav" data-start="30.0" data-duration="0.4" data-track-index="23" data-volume="0.8"></audio>
+      <audio id="aud23" src="shared/audio/confirm.wav" data-start="31.2" data-duration="0.4" data-track-index="24" data-volume="0.8"></audio>
+      <audio id="aud24" src="shared/audio/confirm.wav" data-start="32.4" data-duration="0.4" data-track-index="21" data-volume="0.8"></audio>
+      <audio id="aud25" src="shared/audio/confirm.wav" data-start="33.2" data-duration="0.4" data-track-index="22" data-volume="0.8"></audio>
+      <!-- audio:end -->
+      <!-- voz: fuera del bloque de add-audio.mjs para que no se borre al regenerar los SFX.
+           original = Piper (es_ES-sharvard, hablante F, voz sintética); clonada/llamada = Chatterbox
+           Multilingual clonando ese clip (ver docs/sonido.md). -->
+      <audio id="voz1" src="voz/original.wav" data-start="0.8" data-duration="4.3" data-track-index="25" data-volume="1"></audio>
+      <audio id="voz2" src="voz/clonada.wav" data-start="5.3" data-duration="4.74" data-track-index="26" data-volume="1"></audio>
+      <audio id="voz3" src="voz/llamada.wav" data-start="12.6" data-duration="3.15" data-track-index="25" data-volume="1"></audio>
+    </div>
+
+    <script src="shared/js/lib.js"></script>
+    <script>
+      const $ = (s) => document.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OK = "var(--sem-ok)", RD = "var(--sem-bad)", MG = "var(--sem-magic)", AC = "var(--accent)", LN = "var(--line)";
+      const on = (sel, t, st = {}) => tl.set(sel, { opacity: 1, ...st }, t);
+      const off = (sel, t) => tl.set(sel, { opacity: 0 }, t);
+      const edge = (sel, col, t) => tl.set(sel, { borderColor: col }, t);
+      const mkCap = (texts) => { const c = XF.stack($("#cap"), texts); return (i, t) => XF.only(tl, c, c[i], t); };
+      const stk = (id, texts, first = 0) => { const g = XF.stack($("#" + id), texts); XF.only(tl, g, g[first], 0); return (i, t) => XF.only(tl, g, g[i], t); };
+
+      const cap = mkCap([
+        "Bastan unos segundos<br />de tu voz pública",
+        "El modelo aprende<br />cómo suena",
+        "La copia casi no<br />se distingue",
+        "Te llama \"Mamá\"<br />con prisa",
+        "La directora pide<br />una clave",
+        "Señales de alerta:<br />nunca las ignores",
+        "Ahora, las defensas",
+        "Ante la duda:<br />cuelga y verifica",
+      ]);
+
+      // Ondas pixel: alturas deterministas
+      const H0 = [30, 70, 120, 90, 150, 60, 170, 110, 40, 140, 180, 100, 60, 130, 160, 80, 120, 50, 90, 150, 70, 110];
+      const H1 = H0.map((h, i) => Math.max(20, h + [6, -8, 4, -6, 8, -4, 6, -8, 4, 8, -6, 4, -4, 8, -6, 6, -8, 4, 6, -6, 4, -4][i]));
+      const mkWave = (id, H, col) => H.map((h, i) => {
+        const b = document.createElement("div");
+        b.className = "bar"; b.id = `${id}b${i}`;
+        b.style.left = `${14 + i * 38}px`; b.style.top = `${(210 - h) / 2}px`; b.style.height = `${h}px`; b.style.background = col;
+        $("#" + id).appendChild(b); return b.id;
+      });
+      const w0 = mkWave("w0", H0, "var(--accent)");
+      const w1 = mkWave("w1", H1, "var(--sem-bad)");
+
+      // Escena 1
+      on("#s1", 0); cap(0, 0);
+      w0.forEach((b, i) => on("#" + b, 0.8 + i * 0.07));
+      cap(1, 3.4); on("#model", 3.6); edge("#model", MG, 3.6);
+      on("#l1", 5.0);
+      w1.forEach((b, i) => on("#" + b, 5.3 + i * 0.07));
+      cap(2, 7.4); on("#l2", 7.6);
+
+      // Escena 2
+      off("#s1", 10.2); on("#s2", 10.2);
+      const ph = stk("phone", [
+        `<span style="font-size:30px;color:var(--muted)">LLAMADA ENTRANTE</span><br /><br /><span style="font-size:48px">Mamá</span>`,
+        `<span style="font-size:30px;color:var(--sem-ok)">EN LLAMADA</span><br /><br /><span style="font-size:48px">Mamá</span>`,
+        `<span style="font-size:30px;color:var(--muted)">LLAMADA ENTRANTE</span><br /><br /><span style="font-size:42px">Directora</span>`,
+        `<span style="font-size:30px;color:var(--sem-ok)">EN LLAMADA</span><br /><br /><span style="font-size:42px">Directora</span>`,
+      ]);
+      const bub = stk("bub", ["\"Estoy en problemas.<br />¡Transfiere ya!\"", "\"Pásame la clave<br />del sistema.\""]);
+      cap(3, 10.2);
+      [10.8, 11.1, 11.4, 11.7, 12.0, 12.3].forEach((t, i) => tl.set("#phone", { x: i % 2 ? 6 : -6, borderColor: i % 2 ? AC : LN }, t));
+      tl.set("#phone", { x: 0, borderColor: OK }, 12.6); ph(1, 12.6);
+      on("#bub", 13.2); bub(0, 13.2);
+      cap(4, 16.0);
+      ph(2, 16.0); tl.set("#phone", { borderColor: LN }, 16.0);
+      [16.2, 16.5, 16.8].forEach((t, i) => tl.set("#phone", { x: i % 2 ? 6 : -6, borderColor: i % 2 ? AC : LN }, t));
+      tl.set("#phone", { x: 0, borderColor: OK }, 17.1); ph(3, 17.1);
+      bub(1, 17.6); on("#l3", 18.0);
+
+      // Escena 3
+      off("#s2", 20.2); on("#s3", 20.2); cap(5, 20.2);
+      const A = ["URGENCIA: \"ya, ahora\"", "SECRETO: \"no le digas\"", "CANAL RARO: número nuevo", "PAGO O CLAVE: inmediato"];
+      A.forEach((txt, i) => {
+        const t = 20.8 + i * 1.3;
+        const g = stk("a" + i, [`<b style="color:var(--sem-bad)">!</b>${txt}`]);
+        on("#a" + i, t); edge("#a" + i, RD, t);
+      });
+      on("#l4", 25.2);
+
+      // Escena 4
+      off("#s3", 27.0); on("#s4", 27.0); cap(6, 27.0);
+      const D = ["Palabra clave familiar", "Cuelga y devuelve la llamada", "Verifica por otro canal", "Nunca des claves por teléfono", "Limita tus audios públicos"];
+      D.forEach((txt, i) => {
+        const t = 27.6 + i * 1.2;
+        stk("d" + i, [`<b style="color:var(--sem-ok)">&#10003;</b>${txt}`]);
+        on("#d" + i, t); edge("#d" + i, OK, t);
+      });
+      cap(7, 33.2);
+
+      tl.to("#mascot", { y: -8, duration: 0.5, ease: "steps(1)", repeat: 71, yoyo: true }, 0);
+      tl.set({}, {}, 36);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

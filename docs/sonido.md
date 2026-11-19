@@ -35,3 +35,22 @@ node scripts/add-audio.mjs 005 21 "pop:2.4,whoosh:4.2,error:8.4,confirm:13.8" --
   `data-volume`, `data-fade-in/out`, `data-automation` (carril de volumen). `data-fx-chain`/bitcrush
   NO aparece en la documentación local: el efecto retro se aplica al generar los WAV.
 - Música (si se usa) a ~0,2 y efectos a 0,5–0,8.
+
+## Voz sintética (075 y siguientes)
+
+Para demostraciones de clonación se usan **solo voces sintéticas** (nunca la de una persona real sin su
+consentimiento). Herramientas locales, fuera del repo, en `~/.cache/voz-tts/` (venvs Python 3.11, CPU):
+
+1. **Voz base — Piper** (`piper-tts`, voz `es_ES-sharvard-medium`, hablante `F`=1 / `M`=0):
+   `echo "texto" | piper-env/bin/piper -m voices/es_ES-sharvard-medium.onnx --speaker 1 -f out/original.wav`
+2. **Clon — Chatterbox Multilingual** (MIT, `language_id="es"`, `audio_prompt_path=` el clip de Piper,
+   `torch.manual_seed` fijo). ~50 s por frase en CPU. Añade marca de agua Perth al audio (requiere
+   `setuptools<81` por `pkg_resources`). Se evitó XTTS‑v2 por su licencia no comercial.
+3. Recorte y normalización: `ffmpeg -af "atrim=…,afade=…,loudnorm=I=-16:TP=-1.5" -ar 44100 -ac 1`.
+4. Los clips van en `videos/NNN/voz/*.wav` y sus `<audio>` **fuera** del bloque `audio:start/end`
+   (así `add-audio.mjs` no los borra), en pistas 25–26, volumen 1; los SFX que se solapan, a ≤0,4.
+5. Verificación: transcribir con `faster-whisper` el audio del `render.mp4` y comparar huellas de voz con el
+   `VoiceEncoder` de Chatterbox (`ve.pt`). En 075: original↔clon 0,85 frente a 0,65 con una voz de control.
+
+Ollama no sirve para esto (solo texto/visión). OpenVINO podría acelerar en la iGPU Intel, pero para frases
+cortas la CPU basta.
