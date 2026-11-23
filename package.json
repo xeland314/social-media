@@ -23,6 +23,6 @@
     "blender": "node scripts/blender.mjs"
   },
   "devDependencies": {
-    "hyperframes": "0.9.26"
+    "hyperframes": "0.9.84"
   }
 }
